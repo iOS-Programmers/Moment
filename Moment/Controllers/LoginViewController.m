@@ -7,8 +7,12 @@
 //
 
 #import "LoginViewController.h"
+#import "RegisterViewController.h"
 
 @interface LoginViewController ()
+
+- (IBAction)onRegisterBtnClick:(UIButton *)sender;
+- (IBAction)onLoginBtnClick:(UIButton *)sender;
 
 @end
 
@@ -17,6 +21,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    if (CURRENT_SYS_VERSION >= 7.0) {
+        
+        [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                               [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +46,15 @@
 }
 */
 
+
+
+- (IBAction)onRegisterBtnClick:(UIButton *)sender {
+
+  [self pushViewController:@"RegisterViewController"];
+}
+
+- (IBAction)onLoginBtnClick:(UIButton *)sender {
+
+  
+}
 @end

@@ -11,6 +11,8 @@
 #import "CatchMomentViewController.h"
 #import "MineViewController.h"
 
+#import "LoginViewController.h"
+
 #import "YHBaseNavigationController.h"
 #import "YHBaseTabbarController.h"
 @implementation MTAppDelegate
@@ -26,9 +28,17 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     }
     
+    BOOL isLogin = NO;
+    if (!isLogin) {
+        LoginViewController *loginViewController = [[LoginViewController alloc] init];
+        YHBaseNavigationController *loginNav = [[YHBaseNavigationController alloc] initWithRootViewController:loginViewController];
+
+        [self.window setRootViewController:loginNav];
+    }
+    else {
+        [self initMainView];
+    }
     
-    
-    [self initMainView];
     
     [self.window makeKeyAndVisible];
     return YES;
