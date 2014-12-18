@@ -1,23 +1,23 @@
 //
-//  RegisterViewController.m
+//  CommentListViewController.m
 //  Moment
 //
-//  Created by Jyh on 14/12/9.
+//  Created by Jyh on 14/12/17.
 //  Copyright (c) 2014年 YH. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "CommentListViewController.h"
 
-@interface RegisterViewController ()
+@interface CommentListViewController ()
 
 @end
 
-@implementation RegisterViewController
+@implementation CommentListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"注册";
+    self.title = @"评论";
 }
 
 - (void)didReceiveMemoryWarning {

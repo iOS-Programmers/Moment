@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+//微信
+//#import "WXApi.h"
 
 @interface MTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
++ (MTAppDelegate *)shareappdelegate;
+
+- (void)initMainView;
 @end

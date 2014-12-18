@@ -1,23 +1,23 @@
 //
-//  RegisterViewController.m
+//  SysMessageViewController.m
 //  Moment
 //
-//  Created by Jyh on 14/12/9.
+//  Created by Jyh on 14/12/17.
 //  Copyright (c) 2014年 YH. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "SysMessageViewController.h"
 
-@interface RegisterViewController ()
+@interface SysMessageViewController ()
 
 @end
 
-@implementation RegisterViewController
+@implementation SysMessageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"注册";
+    self.title = @"系统消息";
 }
 
 - (void)didReceiveMemoryWarning {

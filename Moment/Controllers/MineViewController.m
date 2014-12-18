@@ -9,6 +9,8 @@
 #import "MineViewController.h"
 #import "SettingViewController.h"
 #import "MyStoryListViewController.h"
+#import "SysMessageViewController.h"
+#import "CommentListViewController.h"
 
 @interface MineViewController ()
 
@@ -121,6 +123,7 @@
     NSInteger section = indexPath.section;
     switch (section) {
         case 0: {
+            //
 
             break;
         }
@@ -133,10 +136,25 @@
                     viewController = [[MyStoryListViewController alloc] init];
                 }
                     break;
+                case 1: {
+                    //系统消息
+                    viewController = [[SysMessageViewController alloc] init];
+                }
+                    break;
+                case 2: {
+                    //评论
+                    viewController = [[CommentListViewController alloc] init];
+                }
+                    break;
                     
                 default:
                     break;
             }
+        }
+            break;
+        
+        case 2: {
+                //邀请好友
         }
             break;
             

@@ -15,6 +15,10 @@
 
 #import "YHBaseNavigationController.h"
 #import "YHBaseTabbarController.h"
+
+
+#define kWX_APP_ID @"1234567"
+
 @implementation MTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -22,6 +26,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    //向微信注册
+//    [WXApi registerApp:kWX_APP_ID withDescription:@"weixin"];
     
     // 设置状态栏字体为白色
     if (IOS7_OR_LATER) {
@@ -71,12 +79,7 @@
     rootTabBarController.viewControllers = @[findNav,catchNav,mineNav];
     [rootTabBarController setSelectedIndex:0];
     
-    // setup UI Image
-    
-//    [rootTabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
-//    [rootTabBarController.tabBar setBarTintColor:[UIColor whiteColor]];
-//    [rootTabBarController.tabBar setBackgroundImage:[UIImage imageNamed:@"barbg_line1"]];
-    
+
     if (CURRENT_SYS_VERSION >= 7.0) {
         [[UINavigationBar appearance] setBarTintColor:NAVIGATION_BAR_COLCOR];
         [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
@@ -89,6 +92,47 @@
     self.window.rootViewController = rootTabBarController;
 }
 
++ (MTAppDelegate *)shareappdelegate
+{
+    return (MTAppDelegate*)[[UIApplication sharedApplication] delegate];
+}
+
+#pragma mark - ThirdPart Delegate
+
+//授权后回调 WXApiDelegate
+//-(void)onResp:(BaseReq *)resp
+//{
+//    /*
+//     ErrCode ERR_OK = 0(用户同意)
+//     ERR_AUTH_DENIED = -4（用户拒绝授权）
+//     ERR_USER_CANCEL = -2（用户取消）
+//     code    用户换取access_token的code，仅在ErrCode为0时有效
+//     state   第三方程序发送时用来标识其请求的唯一性的标志，由第三方程序调用sendReq时传入，由微信终端回传，state字符串长度不能超过1K
+//     lang    微信客户端当前语言
+//     country 微信用户当前国家信息
+//     */
+//    SendAuthResp *aresp = (SendAuthResp *)resp;
+//    if (aresp.errCode== 0) {
+//        NSString *code = aresp.code;
+//        NSDictionary *dic = @{@"code":code};
+//    }
+//}
+//
+////和QQ,新浪并列回调句柄
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+//{
+//    return [WXApi handleOpenURL:url delegate:self];;
+////    [TencentOAuth HandleOpenURL:url] ||
+////    [WeiboSDK handleOpenURL:url delegate:self] ||
+//}
+//
+//- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+//{
+////    return [TencentOAuth HandleOpenURL:url] ||
+////    [WeiboSDK handleOpenURL:url delegate:self] ||
+////    [WXApi handleOpenURL:url delegate:self];;
+//    return [WXApi handleOpenURL:url delegate:self];
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

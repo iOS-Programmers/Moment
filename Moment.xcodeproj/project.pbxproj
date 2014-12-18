@@ -67,6 +67,11 @@
 		1617F6E11A36EAFC00B5F7C3 /* FindMomentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6DF1A36EAFC00B5F7C3 /* FindMomentCell.xib */; };
 		1617F6E51A3755C900B5F7C3 /* StoryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6E31A3755C900B5F7C3 /* StoryListCell.m */; };
 		1617F6E61A3755C900B5F7C3 /* StoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6E41A3755C900B5F7C3 /* StoryListCell.xib */; };
+		166B3DFE1A42B654005C4706 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3DFA1A42B654005C4706 /* libWeChatSDK.a */; };
+		166B3DFF1A42B654005C4706 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 166B3DFB1A42B654005C4706 /* read_me.txt */; };
+		166B3E011A42B779005C4706 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E001A42B779005C4706 /* SystemConfiguration.framework */; };
+		166B3E031A42B782005C4706 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E021A42B782005C4706 /* libz.dylib */; };
+		166B3E051A42B794005C4706 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E041A42B794005C4706 /* libsqlite3.0.dylib */; };
 		168D3A7F1A2D638E0004790E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A7E1A2D638E0004790E /* Foundation.framework */; };
 		168D3A811A2D638E0004790E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A801A2D638E0004790E /* CoreGraphics.framework */; };
 		168D3A831A2D638E0004790E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A821A2D638E0004790E /* UIKit.framework */; };
@@ -78,6 +83,10 @@
 		168D3A9A1A2D638E0004790E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A821A2D638E0004790E /* UIKit.framework */; };
 		168D3AA21A2D638E0004790E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 168D3AA01A2D638E0004790E /* InfoPlist.strings */; };
 		168D3AA41A2D638E0004790E /* MomentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 168D3AA31A2D638E0004790E /* MomentTests.m */; };
+		16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252941A41D02B00B658D6 /* SysMessageViewController.m */; };
+		16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B252951A41D02B00B658D6 /* SysMessageViewController.xib */; };
+		16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252991A41D09B00B658D6 /* CommentListViewController.m */; };
+		16B2529C1A41D09B00B658D6 /* CommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B2529A1A41D09B00B658D6 /* CommentListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,6 +211,13 @@
 		1617F6E21A3755C900B5F7C3 /* StoryListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryListCell.h; sourceTree = "<group>"; };
 		1617F6E31A3755C900B5F7C3 /* StoryListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryListCell.m; sourceTree = "<group>"; };
 		1617F6E41A3755C900B5F7C3 /* StoryListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryListCell.xib; sourceTree = "<group>"; };
+		166B3DFA1A42B654005C4706 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		166B3DFB1A42B654005C4706 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		166B3DFC1A42B654005C4706 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		166B3DFD1A42B654005C4706 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		166B3E001A42B779005C4706 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		166B3E021A42B782005C4706 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		166B3E041A42B794005C4706 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		168D3A7B1A2D638E0004790E /* Moment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168D3A7E1A2D638E0004790E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		168D3A801A2D638E0004790E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -217,6 +233,12 @@
 		168D3A9F1A2D638E0004790E /* MomentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MomentTests-Info.plist"; sourceTree = "<group>"; };
 		168D3AA11A2D638E0004790E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		168D3AA31A2D638E0004790E /* MomentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MomentTests.m; sourceTree = "<group>"; };
+		16B252931A41D02B00B658D6 /* SysMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysMessageViewController.h; sourceTree = "<group>"; };
+		16B252941A41D02B00B658D6 /* SysMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysMessageViewController.m; sourceTree = "<group>"; };
+		16B252951A41D02B00B658D6 /* SysMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysMessageViewController.xib; sourceTree = "<group>"; };
+		16B252981A41D09B00B658D6 /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
+		16B252991A41D09B00B658D6 /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
+		16B2529A1A41D09B00B658D6 /* CommentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +246,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166B3E051A42B794005C4706 /* libsqlite3.0.dylib in Frameworks */,
+				166B3E031A42B782005C4706 /* libz.dylib in Frameworks */,
+				166B3E011A42B779005C4706 /* SystemConfiguration.framework in Frameworks */,
 				168D3A811A2D638E0004790E /* CoreGraphics.framework in Frameworks */,
 				168D3A831A2D638E0004790E /* UIKit.framework in Frameworks */,
+				166B3DFE1A42B654005C4706 /* libWeChatSDK.a in Frameworks */,
 				168D3A7F1A2D638E0004790E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +308,7 @@
 		1617F6231A36876F00B5F7C3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				166B3DF91A42B654005C4706 /* WeChatSDK_1.5 */,
 				1617F6241A36876F00B5F7C3 /* MBProgressHUD_0.8 */,
 				1617F6291A36876F00B5F7C3 /* MJRefresh */,
 				1617F6321A36876F00B5F7C3 /* PinYin */,
@@ -455,6 +482,12 @@
 				1617F6E21A3755C900B5F7C3 /* StoryListCell.h */,
 				1617F6E31A3755C900B5F7C3 /* StoryListCell.m */,
 				1617F6E41A3755C900B5F7C3 /* StoryListCell.xib */,
+				16B252931A41D02B00B658D6 /* SysMessageViewController.h */,
+				16B252941A41D02B00B658D6 /* SysMessageViewController.m */,
+				16B252951A41D02B00B658D6 /* SysMessageViewController.xib */,
+				16B252981A41D09B00B658D6 /* CommentListViewController.h */,
+				16B252991A41D09B00B658D6 /* CommentListViewController.m */,
+				16B2529A1A41D09B00B658D6 /* CommentListViewController.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -466,6 +499,17 @@
 				1617F6CA1A36D80200B5F7C3 /* MTStoreManager.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		166B3DF91A42B654005C4706 /* WeChatSDK_1.5 */ = {
+			isa = PBXGroup;
+			children = (
+				166B3DFA1A42B654005C4706 /* libWeChatSDK.a */,
+				166B3DFB1A42B654005C4706 /* read_me.txt */,
+				166B3DFC1A42B654005C4706 /* WXApi.h */,
+				166B3DFD1A42B654005C4706 /* WXApiObject.h */,
+			);
+			path = WeChatSDK_1.5;
 			sourceTree = "<group>";
 		};
 		168D3A721A2D638E0004790E = {
@@ -490,6 +534,9 @@
 		168D3A7D1A2D638E0004790E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				166B3E041A42B794005C4706 /* libsqlite3.0.dylib */,
+				166B3E021A42B782005C4706 /* libz.dylib */,
+				166B3E001A42B779005C4706 /* SystemConfiguration.framework */,
 				168D3A7E1A2D638E0004790E /* Foundation.framework */,
 				168D3A801A2D638E0004790E /* CoreGraphics.framework */,
 				168D3A821A2D638E0004790E /* UIKit.framework */,
@@ -633,8 +680,11 @@
 				1617F6871A36876F00B5F7C3 /* 37x-Checkmark@2x.png in Resources */,
 				1617F6BC1A3689E500B5F7C3 /* FindMomentViewController.xib in Resources */,
 				1617F6D21A36E90200B5F7C3 /* SettingViewController.xib in Resources */,
+				16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */,
 				1617F6C11A368C6100B5F7C3 /* CatchMomentViewController.xib in Resources */,
 				1617F6861A36876F00B5F7C3 /* 37x-Checkmark.png in Resources */,
+				16B2529C1A41D09B00B658D6 /* CommentListViewController.xib in Resources */,
+				166B3DFF1A42B654005C4706 /* read_me.txt in Resources */,
 				1617F6AD1A36896200B5F7C3 /* LoginViewController.xib in Resources */,
 				1617F6B21A36897600B5F7C3 /* RegisterViewController.xib in Resources */,
 				1617F6E61A3755C900B5F7C3 /* StoryListCell.xib in Resources */,
@@ -664,6 +714,7 @@
 				1617F6851A36876F00B5F7C3 /* YHMultipleSectionTableViewController.m in Sources */,
 				1617F6901A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m in Sources */,
 				1617F69E1A36877000B5F7C3 /* UIButton+WebCache.m in Sources */,
+				16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */,
 				1617F6E51A3755C900B5F7C3 /* StoryListCell.m in Sources */,
 				1617F6961A36876F00B5F7C3 /* NSData+GIF.m in Sources */,
 				1617F69C1A36877000B5F7C3 /* SDWebImageManager.m in Sources */,
@@ -690,6 +741,7 @@
 				1617F6911A36876F00B5F7C3 /* PinyinFormatter.m in Sources */,
 				1617F6821A36876F00B5F7C3 /* YHBaseTabbarController.m in Sources */,
 				168D3A8F1A2D638E0004790E /* MTAppDelegate.m in Sources */,
+				16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */,
 				1617F6B11A36897600B5F7C3 /* RegisterViewController.m in Sources */,
 				1617F6651A36876F00B5F7C3 /* UIView+Utils.m in Sources */,
 				1617F6881A36876F00B5F7C3 /* MBProgressHUD.m in Sources */,
@@ -824,6 +876,10 @@
 				GCC_PREFIX_HEADER = "Moment/Moment-Prefix.pch";
 				INFOPLIST_FILE = "Moment/Moment-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Moment/Vendor/WeChatSDK_1.5",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -839,6 +895,10 @@
 				GCC_PREFIX_HEADER = "Moment/Moment-Prefix.pch";
 				INFOPLIST_FILE = "Moment/Moment-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Moment/Vendor/WeChatSDK_1.5",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

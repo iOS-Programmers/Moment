@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "MTAppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"登录";
     self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -55,6 +57,7 @@
 
 - (IBAction)onLoginBtnClick:(UIButton *)sender {
 
+    [[MTAppDelegate shareappdelegate] initMainView];
   
 }
 @end
