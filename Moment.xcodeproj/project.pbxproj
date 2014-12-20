@@ -72,6 +72,13 @@
 		166B3E011A42B779005C4706 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E001A42B779005C4706 /* SystemConfiguration.framework */; };
 		166B3E031A42B782005C4706 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E021A42B782005C4706 /* libz.dylib */; };
 		166B3E051A42B794005C4706 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E041A42B794005C4706 /* libsqlite3.0.dylib */; };
+		166B3E0B1A42C5BB005C4706 /* MTTextFiedBGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 166B3E0A1A42C5BB005C4706 /* MTTextFiedBGView.m */; };
+		167E7CCA1A45D4E20050AF97 /* FindDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167E7CC81A45D4E20050AF97 /* FindDetailViewController.m */; };
+		167E7CCB1A45D4E20050AF97 /* FindDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167E7CC91A45D4E20050AF97 /* FindDetailViewController.xib */; };
+		167E7CCF1A45DF1C0050AF97 /* AllCommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167E7CCD1A45DF1C0050AF97 /* AllCommentListViewController.m */; };
+		167E7CD01A45DF1C0050AF97 /* AllCommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167E7CCE1A45DF1C0050AF97 /* AllCommentListViewController.xib */; };
+		167E7CD41A45E0170050AF97 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167E7CD21A45E0170050AF97 /* CommentCell.m */; };
+		167E7CD51A45E0170050AF97 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167E7CD31A45E0170050AF97 /* CommentCell.xib */; };
 		168D3A7F1A2D638E0004790E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A7E1A2D638E0004790E /* Foundation.framework */; };
 		168D3A811A2D638E0004790E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A801A2D638E0004790E /* CoreGraphics.framework */; };
 		168D3A831A2D638E0004790E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A821A2D638E0004790E /* UIKit.framework */; };
@@ -218,6 +225,17 @@
 		166B3E001A42B779005C4706 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		166B3E021A42B782005C4706 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		166B3E041A42B794005C4706 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		166B3E091A42C5BB005C4706 /* MTTextFiedBGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTextFiedBGView.h; sourceTree = "<group>"; };
+		166B3E0A1A42C5BB005C4706 /* MTTextFiedBGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTextFiedBGView.m; sourceTree = "<group>"; };
+		167E7CC71A45D4E20050AF97 /* FindDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindDetailViewController.h; sourceTree = "<group>"; };
+		167E7CC81A45D4E20050AF97 /* FindDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindDetailViewController.m; sourceTree = "<group>"; };
+		167E7CC91A45D4E20050AF97 /* FindDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindDetailViewController.xib; sourceTree = "<group>"; };
+		167E7CCC1A45DF1C0050AF97 /* AllCommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCommentListViewController.h; sourceTree = "<group>"; };
+		167E7CCD1A45DF1C0050AF97 /* AllCommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCommentListViewController.m; sourceTree = "<group>"; };
+		167E7CCE1A45DF1C0050AF97 /* AllCommentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCommentListViewController.xib; sourceTree = "<group>"; };
+		167E7CD11A45E0170050AF97 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		167E7CD21A45E0170050AF97 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		167E7CD31A45E0170050AF97 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		168D3A7B1A2D638E0004790E /* Moment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168D3A7E1A2D638E0004790E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		168D3A801A2D638E0004790E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -437,6 +455,8 @@
 				1617F6AE1A36897500B5F7C3 /* RegisterViewController.h */,
 				1617F6AF1A36897600B5F7C3 /* RegisterViewController.m */,
 				1617F6B01A36897600B5F7C3 /* RegisterViewController.xib */,
+				166B3E091A42C5BB005C4706 /* MTTextFiedBGView.h */,
+				166B3E0A1A42C5BB005C4706 /* MTTextFiedBGView.m */,
 			);
 			name = "Login&Register";
 			sourceTree = "<group>";
@@ -450,6 +470,15 @@
 				1617F6DD1A36EAFC00B5F7C3 /* FindMomentCell.h */,
 				1617F6DE1A36EAFC00B5F7C3 /* FindMomentCell.m */,
 				1617F6DF1A36EAFC00B5F7C3 /* FindMomentCell.xib */,
+				167E7CC71A45D4E20050AF97 /* FindDetailViewController.h */,
+				167E7CC81A45D4E20050AF97 /* FindDetailViewController.m */,
+				167E7CC91A45D4E20050AF97 /* FindDetailViewController.xib */,
+				167E7CCC1A45DF1C0050AF97 /* AllCommentListViewController.h */,
+				167E7CCD1A45DF1C0050AF97 /* AllCommentListViewController.m */,
+				167E7CCE1A45DF1C0050AF97 /* AllCommentListViewController.xib */,
+				167E7CD11A45E0170050AF97 /* CommentCell.h */,
+				167E7CD21A45E0170050AF97 /* CommentCell.m */,
+				167E7CD31A45E0170050AF97 /* CommentCell.xib */,
 			);
 			name = FindMoment;
 			sourceTree = "<group>";
@@ -673,11 +702,13 @@
 				168D3A891A2D638E0004790E /* InfoPlist.strings in Resources */,
 				1617F6DC1A36EA8700B5F7C3 /* MyStoryListViewController.xib in Resources */,
 				1617F6B71A36898700B5F7C3 /* MineViewController.xib in Resources */,
+				167E7CCB1A45D4E20050AF97 /* FindDetailViewController.xib in Resources */,
 				1617F6891A36876F00B5F7C3 /* MJRefresh.bundle in Resources */,
 				1617F6CD1A36E86C00B5F7C3 /* Images.xcassets in Resources */,
 				1617F6D71A36EA3700B5F7C3 /* PersonalInfoViewController.xib in Resources */,
 				1617F6E11A36EAFC00B5F7C3 /* FindMomentCell.xib in Resources */,
 				1617F6871A36876F00B5F7C3 /* 37x-Checkmark@2x.png in Resources */,
+				167E7CD01A45DF1C0050AF97 /* AllCommentListViewController.xib in Resources */,
 				1617F6BC1A3689E500B5F7C3 /* FindMomentViewController.xib in Resources */,
 				1617F6D21A36E90200B5F7C3 /* SettingViewController.xib in Resources */,
 				16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */,
@@ -686,6 +717,7 @@
 				16B2529C1A41D09B00B658D6 /* CommentListViewController.xib in Resources */,
 				166B3DFF1A42B654005C4706 /* read_me.txt in Resources */,
 				1617F6AD1A36896200B5F7C3 /* LoginViewController.xib in Resources */,
+				167E7CD51A45E0170050AF97 /* CommentCell.xib in Resources */,
 				1617F6B21A36897600B5F7C3 /* RegisterViewController.xib in Resources */,
 				1617F6E61A3755C900B5F7C3 /* StoryListCell.xib in Resources */,
 			);
@@ -720,9 +752,11 @@
 				1617F69C1A36877000B5F7C3 /* SDWebImageManager.m in Sources */,
 				1617F68E1A36876F00B5F7C3 /* ChineseToPinyinResource.m in Sources */,
 				1617F6921A36876F00B5F7C3 /* PinYinForObjc.m in Sources */,
+				167E7CCA1A45D4E20050AF97 /* FindDetailViewController.m in Sources */,
 				1617F6E01A36EAFC00B5F7C3 /* FindMomentCell.m in Sources */,
 				1617F6631A36876F00B5F7C3 /* LXUtils.m in Sources */,
 				1617F6991A36877000B5F7C3 /* SDWebImageDecoder.m in Sources */,
+				166B3E0B1A42C5BB005C4706 /* MTTextFiedBGView.m in Sources */,
 				1617F6CB1A36D80200B5F7C3 /* MTStoreManager.m in Sources */,
 				1617F6931A36876F00B5F7C3 /* PinyinHelper.m in Sources */,
 				1617F68A1A36876F00B5F7C3 /* MJRefreshBaseView.m in Sources */,
@@ -736,6 +770,7 @@
 				1617F6BB1A3689E500B5F7C3 /* FindMomentViewController.m in Sources */,
 				1617F6A31A36877000B5F7C3 /* SGFocusImageFrame.m in Sources */,
 				1617F6951A36876F00B5F7C3 /* MKAnnotationView+WebCache.m in Sources */,
+				167E7CCF1A45DF1C0050AF97 /* AllCommentListViewController.m in Sources */,
 				1617F6811A36876F00B5F7C3 /* YHBaseNavigationController.m in Sources */,
 				1617F68B1A36876F00B5F7C3 /* MJRefreshFooterView.m in Sources */,
 				1617F6911A36876F00B5F7C3 /* PinyinFormatter.m in Sources */,
@@ -751,6 +786,7 @@
 				1617F6971A36876F00B5F7C3 /* SDImageCache.m in Sources */,
 				1617F6641A36876F00B5F7C3 /* NSString+LT.m in Sources */,
 				1617F69D1A36877000B5F7C3 /* SDWebImagePrefetcher.m in Sources */,
+				167E7CD41A45E0170050AF97 /* CommentCell.m in Sources */,
 				1617F6A01A36877000B5F7C3 /* UIImage+MultiFormat.m in Sources */,
 				1617F6C01A368C6100B5F7C3 /* CatchMomentViewController.m in Sources */,
 				1617F6A21A36877000B5F7C3 /* UIImageView+WebCache.m in Sources */,

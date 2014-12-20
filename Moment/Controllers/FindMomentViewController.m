@@ -8,6 +8,7 @@
 
 #import "FindMomentViewController.h"
 #import "FindMomentCell.h"
+#import "FindDetailViewController.h"
 
 @interface FindMomentViewController ()
 
@@ -21,6 +22,13 @@
     self.title = @"发现瞬间";
     
     self.tableView.rowHeight = 118;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +75,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    FindDetailViewController *detail = [[FindDetailViewController alloc] init];
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
 
 }
 

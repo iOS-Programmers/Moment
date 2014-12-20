@@ -9,11 +9,17 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "MTAppDelegate.h"
+#import "MTTextFiedBGView.h"
 
 @interface LoginViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
+@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *passWordTF;
+
 - (IBAction)onRegisterBtnClick:(UIButton *)sender;
 - (IBAction)onLoginBtnClick:(UIButton *)sender;
+- (IBAction)onFindPswBtnClick:(UIButton *)sender;
 
 @end
 
@@ -25,12 +31,6 @@
     self.title = @"登录";
     self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    if (CURRENT_SYS_VERSION >= 7.0) {
-        
-        [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                               [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,5 +59,8 @@
 
     [[MTAppDelegate shareappdelegate] initMainView];
   
+}
+
+- (IBAction)onFindPswBtnClick:(UIButton *)sender {
 }
 @end

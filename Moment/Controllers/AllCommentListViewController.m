@@ -1,28 +1,22 @@
 //
-//  RegisterViewController.m
+//  AllCommentListViewController.m
 //  Moment
 //
-//  Created by Jyh on 14/12/9.
+//  Created by Jyh on 14/12/21.
 //  Copyright (c) 2014年 YH. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "AllCommentListViewController.h"
 
-@interface RegisterViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *usernameTF;
-@property (weak, nonatomic) IBOutlet UITextField *verifyCodeTF;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
-
-- (IBAction)onRegisterBtnClick:(id)sender;
+@interface AllCommentListViewController ()
 
 @end
 
-@implementation RegisterViewController
+@implementation AllCommentListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"注册";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +34,4 @@
 }
 */
 
-- (IBAction)onRegisterBtnClick:(id)sender {
-}
 @end

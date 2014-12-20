@@ -40,6 +40,9 @@
     if (!isLogin) {
         LoginViewController *loginViewController = [[LoginViewController alloc] init];
         YHBaseNavigationController *loginNav = [[YHBaseNavigationController alloc] initWithRootViewController:loginViewController];
+        
+        [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                               [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
 
         [self.window setRootViewController:loginNav];
     }
