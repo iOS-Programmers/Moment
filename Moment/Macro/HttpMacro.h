@@ -9,5 +9,24 @@
 #ifndef Shaping_HttpMacro_h
 #define Shaping_HttpMacro_h
 
+//网络请求类
+#import "LXHttpModel.h"
+
+//数据解析类
+#import "LXDataModel.h"
+
+//入参类
+#import "LXParameterModel.h"
+
+//出参类
+#import "LXResultModel.h"
+
+//MD5加密方法
+#import "NSString+MD5.h"
+
+
+#define HOST_NAME @"http://121.41.111.48/sunjian/"
+
+#define MT_TOKEN  @"token"
 
 #endif

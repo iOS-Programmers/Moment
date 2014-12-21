@@ -7,7 +7,7 @@
 //
 
 #import "LXUtils.h"
-//#import "Reachability.h"
+#import "Reachability.h"
 #import "sys/sysctl.h"
 #import "Sqlite3.h"
 
@@ -32,25 +32,25 @@
     return [UIScreen mainScreen].applicationFrame.size.height - 44;
 }
 
-//+ (BOOL)networkDetect
-//{
-//    BOOL isExistenceNetwork = YES;
-//    Reachability *r = [Reachability reachabilityWithHostName:@"www.baidu.com"];
-//    switch ([r currentReachabilityStatus])
-//    {
-//        case NotReachable:
-//            isExistenceNetwork = NO;
-//            break;
-//        case ReachableViaWWAN:
-//            isExistenceNetwork = YES;
-//            break;
-//        case ReachableViaWiFi:
-//            isExistenceNetwork = YES;
-//            break;
-//    }
-//    return  isExistenceNetwork;
-//    
-//}
++ (BOOL)networkDetect
+{
+    BOOL isExistenceNetwork = YES;
+    Reachability *r = [Reachability reachabilityWithHostName:@"http://www.baidu.com"];
+    switch ([r currentReachabilityStatus])
+    {
+        case NotReachable:
+            isExistenceNetwork = NO;
+            break;
+        case ReachableViaWWAN:
+            isExistenceNetwork = YES;
+            break;
+        case ReachableViaWiFi:
+            isExistenceNetwork = YES;
+            break;
+    }
+    return  isExistenceNetwork;
+    
+}
 
 + (BOOL)isJailbroken
 {
@@ -415,7 +415,7 @@
 //        sqlite3_stmt *statement;
 //        if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) != SQLITE_OK)
 //        {
-//            LXLog(@"Error: failed to prepare statement with message:get testValue.");
+//            YHLog(@"Error: failed to prepare statement with message:get testValue.");
 //        }
 //        else
 //        {

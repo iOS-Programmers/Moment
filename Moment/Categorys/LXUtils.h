@@ -58,18 +58,10 @@ static inline BOOL FBIsEmpty(id thing)
  */
 + (BOOL)isJailbroken;
 
-/*
- *  Name    : colorWithHexString
- *  Param   : NSString
- *  Note    : html颜色值转化UIColor  如#FF9900,0XFF9900
- */
-+ (UIColor *)colorWithHexString: (NSString *) stringToConvert;
-
-//检查密码，手机号码，邮箱,车牌号
+//检查密码，手机号码，邮箱
 + (BOOL)checkPasswordRule:(NSString *)candidate;
 + (BOOL)checkPhoneNumberRule:(NSString *)candidate;
 + (BOOL)checkValidateEmail:(NSString *)candidate;
-+ (BOOL)validateCarNo:(NSString *) carNo;
 + (BOOL)checkDrivingYears:(NSString *)years;
 
 //自定义头像的处理

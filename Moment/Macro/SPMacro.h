@@ -27,4 +27,7 @@
 
 #import "MTStoreManager.h"
 
+//用户数据类
+#import "MTUserInfo.h"
+
 #endif

@@ -39,5 +39,11 @@
 
 #define INCH4 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
 
+#ifdef DEBUG
+# define YHLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ## __VA_ARGS__);
+#else
+#define YHLog(fmt, ...)
+#endif
+
 
 #endif
