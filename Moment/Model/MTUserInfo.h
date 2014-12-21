@@ -26,4 +26,12 @@
 + (void)saveToken:(NSString *)str;
 + (NSString *)Token;
 
+/**
+ *  用户ID的存取方法
+ *
+ *  @param str userId
+ */
++ (void)saveUserID:(NSString *)str;
++ (NSString *)userID;
+
 @end

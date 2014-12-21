@@ -91,15 +91,15 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    self.path =[NSString stringWithFormat:@"http://%@/service.php?",[[NSUserDefaults standardUserDefaults] objectForKey:@"hostName"]];
+    self.path =[NSString stringWithFormat:@"%@index.php/Index/",[[NSUserDefaults standardUserDefaults] objectForKey:@"hostName"]];
     
     if ([self.apiFuncName isEqualToString:@"getValidateCode"]||[self.apiFuncName isEqualToString:@"userRegister"]||[self.apiFuncName isEqualToString:@"userLogin"]||[self.apiFuncName isEqualToString:@"resetPassword"])
     {
-        self.path = [NSString stringWithFormat:@"%@act=%@",self.path,self.apiFuncName];
+        self.path = [NSString stringWithFormat:@"%@%@?",self.path,self.apiFuncName];
     }
     else
     {
-        self.path = [NSString stringWithFormat:@"%@act=%@&token=%@",self.path,self.apiFuncName,[MTUserInfo Token]];
+        self.path = [NSString stringWithFormat:@"%@%@?&token=%@",self.path,self.apiFuncName,[MTUserInfo Token]];
     }
     
     for (int i=0; i<[[dic allKeys] count]; i++)

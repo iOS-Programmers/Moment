@@ -38,10 +38,31 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 
 }
+
 + (NSString *)Token
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:MT_TOKEN];
 }
+
+/**
+ *  用户ID的存取方法
+ *
+ *  @param str userId
+ */
++ (void)saveUserID:(NSString *)str
+{
+    if (!FBIsEmpty(str))
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:str forKey:MT_USERID];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++ (NSString *)userID
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:MT_USERID];
+}
+
 
 
 @end

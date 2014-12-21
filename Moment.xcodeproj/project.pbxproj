@@ -126,6 +126,13 @@
 		16DA0B7B1A46CCA0008D1114 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DA0B7A1A46CCA0008D1114 /* MobileCoreServices.framework */; };
 		16DA0B7D1A46E120008D1114 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16DA0B7C1A46E120008D1114 /* libxml2.dylib */; };
 		16DA0B801A46E74E008D1114 /* MTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B7F1A46E74E008D1114 /* MTUserInfo.m */; };
+		16DA0B871A47041A008D1114 /* RegisterHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B861A47041A008D1114 /* RegisterHttp.m */; };
+		16DA0B8A1A47042A008D1114 /* Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B891A47042A008D1114 /* Register.m */; };
+		16DA0B8D1A47043B008D1114 /* RegisterPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B8C1A47043B008D1114 /* RegisterPara.m */; };
+		16DA0B941A47059E008D1114 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B8F1A47059E008D1114 /* Login.m */; };
+		16DA0B951A47059E008D1114 /* LoginHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B911A47059E008D1114 /* LoginHttp.m */; };
+		16DA0B961A47059E008D1114 /* LoginPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B931A47059E008D1114 /* LoginPara.m */; };
+		16DA0B9A1A471657008D1114 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B991A471657008D1114 /* SSKeychain.m */; };
 		16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D01A46C4F80086BC42 /* LXDataModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16FF48DA1A46C4F80086BC42 /* LXHttpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D21A46C4F80086BC42 /* LXHttpModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16FF48DC1A46C4F80086BC42 /* LXParameterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D61A46C4F80086BC42 /* LXParameterModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -356,6 +363,20 @@
 		16DA0B7C1A46E120008D1114 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		16DA0B7E1A46E74E008D1114 /* MTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUserInfo.h; sourceTree = "<group>"; };
 		16DA0B7F1A46E74E008D1114 /* MTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUserInfo.m; sourceTree = "<group>"; };
+		16DA0B851A47041A008D1114 /* RegisterHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterHttp.h; sourceTree = "<group>"; };
+		16DA0B861A47041A008D1114 /* RegisterHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterHttp.m; sourceTree = "<group>"; };
+		16DA0B881A47042A008D1114 /* Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Register.h; sourceTree = "<group>"; };
+		16DA0B891A47042A008D1114 /* Register.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Register.m; sourceTree = "<group>"; };
+		16DA0B8B1A47043B008D1114 /* RegisterPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterPara.h; sourceTree = "<group>"; };
+		16DA0B8C1A47043B008D1114 /* RegisterPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterPara.m; sourceTree = "<group>"; };
+		16DA0B8E1A47059E008D1114 /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
+		16DA0B8F1A47059E008D1114 /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
+		16DA0B901A47059E008D1114 /* LoginHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHttp.h; sourceTree = "<group>"; };
+		16DA0B911A47059E008D1114 /* LoginHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginHttp.m; sourceTree = "<group>"; };
+		16DA0B921A47059E008D1114 /* LoginPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPara.h; sourceTree = "<group>"; };
+		16DA0B931A47059E008D1114 /* LoginPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPara.m; sourceTree = "<group>"; };
+		16DA0B981A471657008D1114 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		16DA0B991A471657008D1114 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		16FF48CF1A46C4F80086BC42 /* LXDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDataModel.h; sourceTree = "<group>"; };
 		16FF48D01A46C4F80086BC42 /* LXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LXDataModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		16FF48D11A46C4F80086BC42 /* LXHttpModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHttpModel.h; sourceTree = "<group>"; };
@@ -437,6 +458,7 @@
 		1617F6231A36876F00B5F7C3 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				16DA0B971A471657008D1114 /* SSKeychain */,
 				16DA0B1C1A46CA87008D1114 /* ASIHttpRequest 1.8.1 */,
 				16DA0B591A46CA87008D1114 /* JSONKit 2.0 */,
 				166B3DF91A42B654005C4706 /* WeChatSDK_1.5 */,
@@ -637,6 +659,10 @@
 		1617F6C81A36D7D600B5F7C3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				16DA0B841A4703A8008D1114 /* Mine */,
+				16DA0B831A470397008D1114 /* CatchMoment */,
+				16DA0B821A470389008D1114 /* FindMoment */,
+				16DA0B811A47037A008D1114 /* Login&Register */,
 				1617F6C91A36D80200B5F7C3 /* MTStoreManager.h */,
 				1617F6CA1A36D80200B5F7C3 /* MTStoreManager.m */,
 				16DA0B7E1A46E74E008D1114 /* MTUserInfo.h */,
@@ -864,6 +890,55 @@
 			path = "JSONKit 2.0";
 			sourceTree = "<group>";
 		};
+		16DA0B811A47037A008D1114 /* Login&Register */ = {
+			isa = PBXGroup;
+			children = (
+				16DA0B8E1A47059E008D1114 /* Login.h */,
+				16DA0B8F1A47059E008D1114 /* Login.m */,
+				16DA0B901A47059E008D1114 /* LoginHttp.h */,
+				16DA0B911A47059E008D1114 /* LoginHttp.m */,
+				16DA0B921A47059E008D1114 /* LoginPara.h */,
+				16DA0B931A47059E008D1114 /* LoginPara.m */,
+				16DA0B881A47042A008D1114 /* Register.h */,
+				16DA0B891A47042A008D1114 /* Register.m */,
+				16DA0B851A47041A008D1114 /* RegisterHttp.h */,
+				16DA0B861A47041A008D1114 /* RegisterHttp.m */,
+				16DA0B8B1A47043B008D1114 /* RegisterPara.h */,
+				16DA0B8C1A47043B008D1114 /* RegisterPara.m */,
+			);
+			name = "Login&Register";
+			sourceTree = "<group>";
+		};
+		16DA0B821A470389008D1114 /* FindMoment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FindMoment;
+			sourceTree = "<group>";
+		};
+		16DA0B831A470397008D1114 /* CatchMoment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CatchMoment;
+			sourceTree = "<group>";
+		};
+		16DA0B841A4703A8008D1114 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		16DA0B971A471657008D1114 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				16DA0B981A471657008D1114 /* SSKeychain.h */,
+				16DA0B991A471657008D1114 /* SSKeychain.m */,
+			);
+			path = SSKeychain;
+			sourceTree = "<group>";
+		};
 		16FF48CE1A46C4EA0086BC42 /* Net */ = {
 			isa = PBXGroup;
 			children = (
@@ -1005,6 +1080,7 @@
 				1617F6AC1A36896200B5F7C3 /* LoginViewController.m in Sources */,
 				16DA0B621A46CA87008D1114 /* ASIInputStream.m in Sources */,
 				1617F68F1A36876F00B5F7C3 /* HanyuPinyinOutputFormat.m in Sources */,
+				16DA0B941A47059E008D1114 /* Login.m in Sources */,
 				1617F6D61A36EA3700B5F7C3 /* PersonalInfoViewController.m in Sources */,
 				1617F68C1A36876F00B5F7C3 /* MJRefreshHeaderView.m in Sources */,
 				1617F6981A36876F00B5F7C3 /* SDWebImageCompat.m in Sources */,
@@ -1025,6 +1101,7 @@
 				1617F68E1A36876F00B5F7C3 /* ChineseToPinyinResource.m in Sources */,
 				1617F6921A36876F00B5F7C3 /* PinYinForObjc.m in Sources */,
 				167E7CCA1A45D4E20050AF97 /* FindDetailViewController.m in Sources */,
+				16DA0B8A1A47042A008D1114 /* Register.m in Sources */,
 				16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */,
 				16DA0B701A46CA87008D1114 /* ASIS3Request.m in Sources */,
 				1617F6E01A36EAFC00B5F7C3 /* FindMomentCell.m in Sources */,
@@ -1043,6 +1120,7 @@
 				1617F6A11A36877000B5F7C3 /* UIImage+WebP.m in Sources */,
 				168D3A8B1A2D638E0004790E /* main.m in Sources */,
 				16DA0B5D1A46CA87008D1114 /* ASIDataCompressor.m in Sources */,
+				16DA0B961A47059E008D1114 /* LoginPara.m in Sources */,
 				1617F69B1A36877000B5F7C3 /* SDWebImageDownloaderOperation.m in Sources */,
 				1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */,
 				1617F6BB1A3689E500B5F7C3 /* FindMomentViewController.m in Sources */,
@@ -1058,12 +1136,14 @@
 				16DA0B731A46CA87008D1114 /* Reachability.m in Sources */,
 				168D3A8F1A2D638E0004790E /* MTAppDelegate.m in Sources */,
 				16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */,
+				16DA0B9A1A471657008D1114 /* SSKeychain.m in Sources */,
 				16DA0B6C1A46CA87008D1114 /* ASIS3Bucket.m in Sources */,
 				16DA0B6A1A46CA87008D1114 /* ASICloudFilesObjectRequest.m in Sources */,
 				1617F6B11A36897600B5F7C3 /* RegisterViewController.m in Sources */,
 				16DA0B6F1A46CA87008D1114 /* ASIS3ObjectRequest.m in Sources */,
 				16DA0B1B1A46C7E2008D1114 /* NSString+MD5.m in Sources */,
 				1617F6651A36876F00B5F7C3 /* UIView+Utils.m in Sources */,
+				16DA0B871A47041A008D1114 /* RegisterHttp.m in Sources */,
 				16DA0B5E1A46CA87008D1114 /* ASIDataDecompressor.m in Sources */,
 				16DA0B611A46CA87008D1114 /* ASIHTTPRequest.m in Sources */,
 				16DA0B601A46CA87008D1114 /* ASIFormDataRequest.m in Sources */,
@@ -1076,6 +1156,7 @@
 				1617F6971A36876F00B5F7C3 /* SDImageCache.m in Sources */,
 				16FF48DC1A46C4F80086BC42 /* LXParameterModel.m in Sources */,
 				1617F6641A36876F00B5F7C3 /* NSString+LT.m in Sources */,
+				16DA0B8D1A47043B008D1114 /* RegisterPara.m in Sources */,
 				1617F69D1A36877000B5F7C3 /* SDWebImagePrefetcher.m in Sources */,
 				167E7CD41A45E0170050AF97 /* CommentCell.m in Sources */,
 				1617F6A01A36877000B5F7C3 /* UIImage+MultiFormat.m in Sources */,
@@ -1085,6 +1166,7 @@
 				16DA0B801A46E74E008D1114 /* MTUserInfo.m in Sources */,
 				16DA0B6D1A46CA87008D1114 /* ASIS3BucketObject.m in Sources */,
 				1617F6831A36876F00B5F7C3 /* YHBaseTableViewController.m in Sources */,
+				16DA0B951A47059E008D1114 /* LoginHttp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

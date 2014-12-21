@@ -25,8 +25,12 @@
 #import "NSString+MD5.h"
 
 
-#define HOST_NAME @"http://121.41.111.48/sunjian/"
+#define HOST_NAME @"http://121.41.111.48/sunjian"
 
 #define MT_TOKEN  @"token"
+#define MT_USERID  @"userId"
+
+
+#define MTAPP_KEY  @"184CC304E81AD811B5703CCBF4525918"
 
 #endif

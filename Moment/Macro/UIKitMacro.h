@@ -19,4 +19,10 @@
 //Tabbar背景色
 #define TAB_BAR_COLCOR UIColorToRGB(0xf7f7f8)
 
+
+/***提示语****/
+#define MT_LOADING @"加载中..."
+#define MT_CHECKNET @"请检查网络..."
+#define MT_NETWRONG @"程序猿去开小差了..."
+
 #endif

@@ -46,25 +46,15 @@
                         <action selector="onRegisterBtnClick:" destination="-1" eventType="touchUpInside" id="C37-OB-U6V"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PLc-G3-vZv">
-                    <rect key="frame" x="15" y="234" width="290" height="40"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                    <state key="normal" title="立即登录" backgroundImage="button_normal"/>
-                    <state key="highlighted" backgroundImage="button_hover"/>
-                    <connections>
-                        <action selector="onLoginBtnClick:" destination="-1" eventType="touchUpInside" id="dah-Wo-CeU"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" id="eDg-0c-e3f" userLabel="userNameView" customClass="MTTextFiedBGView">
                     <rect key="frame" x="15" y="140" width="290" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名或手机号码" minimumFontSize="17" id="jjH-yO-5cm">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" minimumFontSize="17" clearButtonMode="whileEditing" id="jjH-yO-5cm">
                             <rect key="frame" x="52" y="2" width="229" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username" id="97D-PK-p7c">
                             <rect key="frame" x="12" y="10" width="14" height="14"/>
@@ -81,11 +71,11 @@
                     <rect key="frame" x="15" y="187" width="290" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" id="RQ4-Ly-f1A">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" clearButtonMode="whileEditing" id="RQ4-Ly-f1A">
                             <rect key="frame" x="52" y="2" width="229" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="psw" id="paq-pg-TxA">
                             <rect key="frame" x="12" y="9" width="13" height="15"/>
@@ -102,6 +92,16 @@
                     <rect key="frame" x="120" y="32" width="74" height="78"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PLc-G3-vZv">
+                    <rect key="frame" x="15" y="234" width="290" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="立即登录" backgroundImage="button_normal"/>
+                    <state key="highlighted" backgroundImage="button_hover"/>
+                    <connections>
+                        <action selector="onLoginBtnClick:" destination="-1" eventType="touchUpInside" id="dah-Wo-CeU"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="399" y="316"/>
