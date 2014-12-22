@@ -36,8 +36,8 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     }
     
-    BOOL isLogin = NO;
-    if (!isLogin) {
+    
+    if (![MTUserInfo defaultUserInfo].isLogin) {
         LoginViewController *loginViewController = [[LoginViewController alloc] init];
         YHBaseNavigationController *loginNav = [[YHBaseNavigationController alloc] initWithRootViewController:loginViewController];
         

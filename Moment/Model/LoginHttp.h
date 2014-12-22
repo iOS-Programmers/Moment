@@ -11,6 +11,7 @@
 #import "LoginPara.h"
 
 @interface LoginHttp : LXHttpModel
+
 @property (nonatomic, strong) LoginPara *parameter;
 @property (nonatomic, strong) Login *resultModel;
 - (void)getDataWithCompletionBlock:(HttpModelCompletionBlock)completionBlock

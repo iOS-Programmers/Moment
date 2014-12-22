@@ -23,6 +23,11 @@
     return userInfo;
 }
 
+- (BOOL)isLogin
+{
+    return !FBIsEmpty([MTUserInfo userID]);
+}
+
 /**
  *  接口所需token的存取方法
  *

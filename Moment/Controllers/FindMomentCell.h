@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MomentDetail;
 
 @interface FindMomentCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *avtarImage;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImage;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *recommendNmLabel;
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
+
+
+- (void)updateMomentCellWithInfo:(MomentDetail *)detail;
 
 @end

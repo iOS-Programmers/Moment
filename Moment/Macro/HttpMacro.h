@@ -33,4 +33,7 @@
 
 #define MTAPP_KEY  @"184CC304E81AD811B5703CCBF4525918"
 
+//图片的前缀
+#define IMAGE_PRE    @"http://121.41.111.48/sunjian/index.php"
+
 #endif

@@ -102,6 +102,9 @@
             [SSKeychain setPassword:weak_self.userNameTF.text forService:@"com.sj.moment" account:@"username"];
             [SSKeychain setPassword:weak_self.passWordTF.text forService:@"com.sj.moment" account:@"password"];
             
+            //登录成功后，保存useriD，以后的接口请求都会用到
+            [MTUserInfo saveUserID:weak_self.loginHttp.resultModel.member_id];
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [[MTAppDelegate shareappdelegate] initMainView];
             });

@@ -90,6 +90,10 @@
 		168D3A9A1A2D638E0004790E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A821A2D638E0004790E /* UIKit.framework */; };
 		168D3AA21A2D638E0004790E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 168D3AA01A2D638E0004790E /* InfoPlist.strings */; };
 		168D3AA41A2D638E0004790E /* MomentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 168D3AA31A2D638E0004790E /* MomentTests.m */; };
+		1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692DE861A47C7B10030ACE6 /* MomentListHttp.m */; };
+		1692DE8A1A47C7C40030ACE6 /* MomentListPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692DE891A47C7C40030ACE6 /* MomentListPara.m */; };
+		1692DE8D1A47C7D10030ACE6 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692DE8C1A47C7D10030ACE6 /* MomentList.m */; };
+		1698EB161A47E89D00C69BC1 /* MomentDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB151A47E89D00C69BC1 /* MomentDetail.m */; };
 		16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252941A41D02B00B658D6 /* SysMessageViewController.m */; };
 		16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B252951A41D02B00B658D6 /* SysMessageViewController.xib */; };
 		16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252991A41D09B00B658D6 /* CommentListViewController.m */; };
@@ -294,6 +298,14 @@
 		168D3A9F1A2D638E0004790E /* MomentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MomentTests-Info.plist"; sourceTree = "<group>"; };
 		168D3AA11A2D638E0004790E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		168D3AA31A2D638E0004790E /* MomentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MomentTests.m; sourceTree = "<group>"; };
+		1692DE851A47C7B10030ACE6 /* MomentListHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentListHttp.h; sourceTree = "<group>"; };
+		1692DE861A47C7B10030ACE6 /* MomentListHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentListHttp.m; sourceTree = "<group>"; };
+		1692DE881A47C7C40030ACE6 /* MomentListPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentListPara.h; sourceTree = "<group>"; };
+		1692DE891A47C7C40030ACE6 /* MomentListPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentListPara.m; sourceTree = "<group>"; };
+		1692DE8B1A47C7D10030ACE6 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
+		1692DE8C1A47C7D10030ACE6 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
+		1698EB141A47E89D00C69BC1 /* MomentDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentDetail.h; sourceTree = "<group>"; };
+		1698EB151A47E89D00C69BC1 /* MomentDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentDetail.m; sourceTree = "<group>"; };
 		16B252931A41D02B00B658D6 /* SysMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysMessageViewController.h; sourceTree = "<group>"; };
 		16B252941A41D02B00B658D6 /* SysMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysMessageViewController.m; sourceTree = "<group>"; };
 		16B252951A41D02B00B658D6 /* SysMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysMessageViewController.xib; sourceTree = "<group>"; };
@@ -912,6 +924,14 @@
 		16DA0B821A470389008D1114 /* FindMoment */ = {
 			isa = PBXGroup;
 			children = (
+				1692DE851A47C7B10030ACE6 /* MomentListHttp.h */,
+				1692DE861A47C7B10030ACE6 /* MomentListHttp.m */,
+				1692DE881A47C7C40030ACE6 /* MomentListPara.h */,
+				1692DE891A47C7C40030ACE6 /* MomentListPara.m */,
+				1692DE8B1A47C7D10030ACE6 /* MomentList.h */,
+				1692DE8C1A47C7D10030ACE6 /* MomentList.m */,
+				1698EB141A47E89D00C69BC1 /* MomentDetail.h */,
+				1698EB151A47E89D00C69BC1 /* MomentDetail.m */,
 			);
 			name = FindMoment;
 			sourceTree = "<group>";
@@ -1091,6 +1111,7 @@
 				16DA0B631A46CA87008D1114 /* ASINetworkQueue.m in Sources */,
 				16DA0B641A46CA87008D1114 /* ASIWebPageRequest.m in Sources */,
 				1617F6901A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m in Sources */,
+				1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */,
 				1617F69E1A36877000B5F7C3 /* UIButton+WebCache.m in Sources */,
 				16DA0B751A46CA87008D1114 /* JSONKit.m in Sources */,
 				16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */,
@@ -1102,6 +1123,7 @@
 				1617F6921A36876F00B5F7C3 /* PinYinForObjc.m in Sources */,
 				167E7CCA1A45D4E20050AF97 /* FindDetailViewController.m in Sources */,
 				16DA0B8A1A47042A008D1114 /* Register.m in Sources */,
+				1698EB161A47E89D00C69BC1 /* MomentDetail.m in Sources */,
 				16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */,
 				16DA0B701A46CA87008D1114 /* ASIS3Request.m in Sources */,
 				1617F6E01A36EAFC00B5F7C3 /* FindMomentCell.m in Sources */,
@@ -1125,6 +1147,7 @@
 				1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */,
 				1617F6BB1A3689E500B5F7C3 /* FindMomentViewController.m in Sources */,
 				1617F6A31A36877000B5F7C3 /* SGFocusImageFrame.m in Sources */,
+				1692DE8D1A47C7D10030ACE6 /* MomentList.m in Sources */,
 				1617F6951A36876F00B5F7C3 /* MKAnnotationView+WebCache.m in Sources */,
 				16FF48DD1A46C4F80086BC42 /* LXResultModel.m in Sources */,
 				167E7CCF1A45DF1C0050AF97 /* AllCommentListViewController.m in Sources */,
@@ -1151,6 +1174,7 @@
 				16DA0B681A46CA87008D1114 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				1617F69A1A36877000B5F7C3 /* SDWebImageDownloader.m in Sources */,
 				1617F69F1A36877000B5F7C3 /* UIImage+GIF.m in Sources */,
+				1692DE8A1A47C7C40030ACE6 /* MomentListPara.m in Sources */,
 				1617F6DB1A36EA8700B5F7C3 /* MyStoryListViewController.m in Sources */,
 				16DA0B691A46CA87008D1114 /* ASICloudFilesObject.m in Sources */,
 				1617F6971A36876F00B5F7C3 /* SDImageCache.m in Sources */,

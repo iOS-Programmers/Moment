@@ -11,12 +11,16 @@
 @interface MTUserInfo : NSObject
 
 /**
+ *  判断是否登录
+ */
+@property (nonatomic, assign) BOOL isLogin;
+
+/**
  *  单例类初始化
  *
  *  @return
  */
 + (MTUserInfo *)defaultUserInfo;
-
 
 /**
  *  接口所需token的存取方法

@@ -91,7 +91,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    self.path =[NSString stringWithFormat:@"%@index.php/Index/",[[NSUserDefaults standardUserDefaults] objectForKey:@"hostName"]];
+    self.path =[NSString stringWithFormat:@"%@/index.php/Index/",[[NSUserDefaults standardUserDefaults] objectForKey:@"hostName"]];
     
     if ([self.apiFuncName isEqualToString:@"getValidateCode"]||[self.apiFuncName isEqualToString:@"userRegister"]||[self.apiFuncName isEqualToString:@"userLogin"]||[self.apiFuncName isEqualToString:@"resetPassword"])
     {

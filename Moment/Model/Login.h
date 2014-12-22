@@ -9,10 +9,12 @@
 #import "LXResultModel.h"
 
 @interface Login : LXResultModel
-@property (nonatomic, copy) NSString *member_id;
+
 @property (nonatomic, copy) NSString *username;
 @property (nonatomic, copy) NSString *mobile;
-@property (nonatomic, copy) NSString *checkin_lasttime;
-@property (nonatomic, copy) NSString *checkin_days;
+@property (nonatomic, copy) NSString *nickname;
+@property (nonatomic, copy) NSString *regtime;
+@property (nonatomic, copy) NSString *avatar;
+@property (nonatomic, copy) NSString *member_id;
 
 @end

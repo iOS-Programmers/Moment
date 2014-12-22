@@ -9,10 +9,8 @@
 #import "LXParameterModel.h"
 
 @interface LoginPara : LXParameterModel
+
 @property (nonatomic, copy) NSString *mobile;
 @property (nonatomic, copy) NSString *password;
-
-//@property (nonatomic, copy) NSString *device_token;
-
 
 @end
