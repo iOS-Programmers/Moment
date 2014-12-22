@@ -10,6 +10,22 @@
 		160D0D441A48654F0025A6D5 /* MyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D431A48654F0025A6D5 /* MyProfile.m */; };
 		160D0D471A4865770025A6D5 /* MyProfilePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D461A4865770025A6D5 /* MyProfilePara.m */; };
 		160D0D4A1A4865810025A6D5 /* MyProfileHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D491A4865810025A6D5 /* MyProfileHttp.m */; };
+		160D0D4D1A486A860025A6D5 /* ModifyAvatarHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D4C1A486A860025A6D5 /* ModifyAvatarHttp.m */; };
+		160D0D501A486A930025A6D5 /* ModifyAvatar.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D4F1A486A930025A6D5 /* ModifyAvatar.m */; };
+		160D0D531A486AA90025A6D5 /* ModifyAvatarPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D521A486AA90025A6D5 /* ModifyAvatarPara.m */; };
+		160D0D561A486C900025A6D5 /* ModifyUserNamePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D551A486C900025A6D5 /* ModifyUserNamePara.m */; };
+		160D0D591A486C9B0025A6D5 /* ModifyUserName.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D581A486C9B0025A6D5 /* ModifyUserName.m */; };
+		160D0D5C1A486CA50025A6D5 /* ModifyUserNameHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D5B1A486CA50025A6D5 /* ModifyUserNameHttp.m */; };
+		160D0D5F1A486D550025A6D5 /* ModifyNickNameHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D5E1A486D550025A6D5 /* ModifyNickNameHttp.m */; };
+		160D0D621A486D9C0025A6D5 /* ModifyNickName.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D611A486D9C0025A6D5 /* ModifyNickName.m */; };
+		160D0D651A486DA90025A6D5 /* ModifyNickNamePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D641A486DA90025A6D5 /* ModifyNickNamePara.m */; };
+		160D0D681A4870FE0025A6D5 /* MyStoryPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D671A4870FE0025A6D5 /* MyStoryPara.m */; };
+		160D0D6B1A48717C0025A6D5 /* MyStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D6A1A48717C0025A6D5 /* MyStory.m */; };
+		160D0D6E1A4871880025A6D5 /* MyStoryHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D6D1A4871880025A6D5 /* MyStoryHttp.m */; };
+		160D0D711A4871A90025A6D5 /* DeleMyStoryHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D701A4871A90025A6D5 /* DeleMyStoryHttp.m */; };
+		160D0D741A4871B60025A6D5 /* DeleMyStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D731A4871B60025A6D5 /* DeleMyStory.m */; };
+		160D0D771A4871C10025A6D5 /* DeleMyStoryPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D761A4871C10025A6D5 /* DeleMyStoryPara.m */; };
+		160D0D7A1A4873F40025A6D5 /* MyStoryList.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D791A4873F40025A6D5 /* MyStoryList.m */; };
 		1617F6631A36876F00B5F7C3 /* LXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F5E51A36876F00B5F7C3 /* LXUtils.m */; };
 		1617F6641A36876F00B5F7C3 /* NSString+LT.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F5E71A36876F00B5F7C3 /* NSString+LT.m */; };
 		1617F6651A36876F00B5F7C3 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F5E91A36876F00B5F7C3 /* UIView+Utils.m */; };
@@ -169,6 +185,38 @@
 		160D0D461A4865770025A6D5 /* MyProfilePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfilePara.m; sourceTree = "<group>"; };
 		160D0D481A4865810025A6D5 /* MyProfileHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileHttp.h; sourceTree = "<group>"; };
 		160D0D491A4865810025A6D5 /* MyProfileHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileHttp.m; sourceTree = "<group>"; };
+		160D0D4B1A486A860025A6D5 /* ModifyAvatarHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyAvatarHttp.h; sourceTree = "<group>"; };
+		160D0D4C1A486A860025A6D5 /* ModifyAvatarHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyAvatarHttp.m; sourceTree = "<group>"; };
+		160D0D4E1A486A930025A6D5 /* ModifyAvatar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyAvatar.h; sourceTree = "<group>"; };
+		160D0D4F1A486A930025A6D5 /* ModifyAvatar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyAvatar.m; sourceTree = "<group>"; };
+		160D0D511A486AA90025A6D5 /* ModifyAvatarPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyAvatarPara.h; sourceTree = "<group>"; };
+		160D0D521A486AA90025A6D5 /* ModifyAvatarPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyAvatarPara.m; sourceTree = "<group>"; };
+		160D0D541A486C900025A6D5 /* ModifyUserNamePara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyUserNamePara.h; sourceTree = "<group>"; };
+		160D0D551A486C900025A6D5 /* ModifyUserNamePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyUserNamePara.m; sourceTree = "<group>"; };
+		160D0D571A486C9B0025A6D5 /* ModifyUserName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyUserName.h; sourceTree = "<group>"; };
+		160D0D581A486C9B0025A6D5 /* ModifyUserName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyUserName.m; sourceTree = "<group>"; };
+		160D0D5A1A486CA50025A6D5 /* ModifyUserNameHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyUserNameHttp.h; sourceTree = "<group>"; };
+		160D0D5B1A486CA50025A6D5 /* ModifyUserNameHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyUserNameHttp.m; sourceTree = "<group>"; };
+		160D0D5D1A486D550025A6D5 /* ModifyNickNameHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNickNameHttp.h; sourceTree = "<group>"; };
+		160D0D5E1A486D550025A6D5 /* ModifyNickNameHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNickNameHttp.m; sourceTree = "<group>"; };
+		160D0D601A486D9C0025A6D5 /* ModifyNickName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNickName.h; sourceTree = "<group>"; };
+		160D0D611A486D9C0025A6D5 /* ModifyNickName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNickName.m; sourceTree = "<group>"; };
+		160D0D631A486DA90025A6D5 /* ModifyNickNamePara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNickNamePara.h; sourceTree = "<group>"; };
+		160D0D641A486DA90025A6D5 /* ModifyNickNamePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNickNamePara.m; sourceTree = "<group>"; };
+		160D0D661A4870FE0025A6D5 /* MyStoryPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStoryPara.h; sourceTree = "<group>"; };
+		160D0D671A4870FE0025A6D5 /* MyStoryPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyStoryPara.m; sourceTree = "<group>"; };
+		160D0D691A48717C0025A6D5 /* MyStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStory.h; sourceTree = "<group>"; };
+		160D0D6A1A48717C0025A6D5 /* MyStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyStory.m; sourceTree = "<group>"; };
+		160D0D6C1A4871880025A6D5 /* MyStoryHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStoryHttp.h; sourceTree = "<group>"; };
+		160D0D6D1A4871880025A6D5 /* MyStoryHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyStoryHttp.m; sourceTree = "<group>"; };
+		160D0D6F1A4871A90025A6D5 /* DeleMyStoryHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleMyStoryHttp.h; sourceTree = "<group>"; };
+		160D0D701A4871A90025A6D5 /* DeleMyStoryHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleMyStoryHttp.m; sourceTree = "<group>"; };
+		160D0D721A4871B60025A6D5 /* DeleMyStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleMyStory.h; sourceTree = "<group>"; };
+		160D0D731A4871B60025A6D5 /* DeleMyStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleMyStory.m; sourceTree = "<group>"; };
+		160D0D751A4871C10025A6D5 /* DeleMyStoryPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleMyStoryPara.h; sourceTree = "<group>"; };
+		160D0D761A4871C10025A6D5 /* DeleMyStoryPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleMyStoryPara.m; sourceTree = "<group>"; };
+		160D0D781A4873F40025A6D5 /* MyStoryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStoryList.h; sourceTree = "<group>"; };
+		160D0D791A4873F40025A6D5 /* MyStoryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyStoryList.m; sourceTree = "<group>"; };
 		1617F5E41A36876F00B5F7C3 /* LXUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXUtils.h; sourceTree = "<group>"; };
 		1617F5E51A36876F00B5F7C3 /* LXUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXUtils.m; sourceTree = "<group>"; };
 		1617F5E61A36876F00B5F7C3 /* NSString+LT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LT.h"; sourceTree = "<group>"; };
@@ -987,12 +1035,44 @@
 		16DA0B841A4703A8008D1114 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				160D0D4E1A486A930025A6D5 /* ModifyAvatar.h */,
+				160D0D4F1A486A930025A6D5 /* ModifyAvatar.m */,
+				160D0D4B1A486A860025A6D5 /* ModifyAvatarHttp.h */,
+				160D0D4C1A486A860025A6D5 /* ModifyAvatarHttp.m */,
+				160D0D511A486AA90025A6D5 /* ModifyAvatarPara.h */,
+				160D0D521A486AA90025A6D5 /* ModifyAvatarPara.m */,
+				160D0D601A486D9C0025A6D5 /* ModifyNickName.h */,
+				160D0D611A486D9C0025A6D5 /* ModifyNickName.m */,
+				160D0D5D1A486D550025A6D5 /* ModifyNickNameHttp.h */,
+				160D0D5E1A486D550025A6D5 /* ModifyNickNameHttp.m */,
+				160D0D631A486DA90025A6D5 /* ModifyNickNamePara.h */,
+				160D0D641A486DA90025A6D5 /* ModifyNickNamePara.m */,
+				160D0D571A486C9B0025A6D5 /* ModifyUserName.h */,
+				160D0D581A486C9B0025A6D5 /* ModifyUserName.m */,
+				160D0D5A1A486CA50025A6D5 /* ModifyUserNameHttp.h */,
+				160D0D5B1A486CA50025A6D5 /* ModifyUserNameHttp.m */,
+				160D0D541A486C900025A6D5 /* ModifyUserNamePara.h */,
+				160D0D551A486C900025A6D5 /* ModifyUserNamePara.m */,
 				160D0D421A48654F0025A6D5 /* MyProfile.h */,
 				160D0D431A48654F0025A6D5 /* MyProfile.m */,
-				160D0D451A4865770025A6D5 /* MyProfilePara.h */,
-				160D0D461A4865770025A6D5 /* MyProfilePara.m */,
 				160D0D481A4865810025A6D5 /* MyProfileHttp.h */,
 				160D0D491A4865810025A6D5 /* MyProfileHttp.m */,
+				160D0D451A4865770025A6D5 /* MyProfilePara.h */,
+				160D0D461A4865770025A6D5 /* MyProfilePara.m */,
+				160D0D661A4870FE0025A6D5 /* MyStoryPara.h */,
+				160D0D671A4870FE0025A6D5 /* MyStoryPara.m */,
+				160D0D691A48717C0025A6D5 /* MyStory.h */,
+				160D0D6A1A48717C0025A6D5 /* MyStory.m */,
+				160D0D781A4873F40025A6D5 /* MyStoryList.h */,
+				160D0D791A4873F40025A6D5 /* MyStoryList.m */,
+				160D0D6C1A4871880025A6D5 /* MyStoryHttp.h */,
+				160D0D6D1A4871880025A6D5 /* MyStoryHttp.m */,
+				160D0D6F1A4871A90025A6D5 /* DeleMyStoryHttp.h */,
+				160D0D701A4871A90025A6D5 /* DeleMyStoryHttp.m */,
+				160D0D721A4871B60025A6D5 /* DeleMyStory.h */,
+				160D0D731A4871B60025A6D5 /* DeleMyStory.m */,
+				160D0D751A4871C10025A6D5 /* DeleMyStoryPara.h */,
+				160D0D761A4871C10025A6D5 /* DeleMyStoryPara.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1157,10 +1237,13 @@
 				16DA0B671A46CA87008D1114 /* ASICloudFilesContainerRequest.m in Sources */,
 				1617F6851A36876F00B5F7C3 /* YHMultipleSectionTableViewController.m in Sources */,
 				160D0D4A1A4865810025A6D5 /* MyProfileHttp.m in Sources */,
+				160D0D4D1A486A860025A6D5 /* ModifyAvatarHttp.m in Sources */,
 				16DA0B631A46CA87008D1114 /* ASINetworkQueue.m in Sources */,
 				16DA0B641A46CA87008D1114 /* ASIWebPageRequest.m in Sources */,
 				1617F6901A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m in Sources */,
 				1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */,
+				160D0D5F1A486D550025A6D5 /* ModifyNickNameHttp.m in Sources */,
+				160D0D6E1A4871880025A6D5 /* MyStoryHttp.m in Sources */,
 				1617F69E1A36877000B5F7C3 /* UIButton+WebCache.m in Sources */,
 				16DA0B751A46CA87008D1114 /* JSONKit.m in Sources */,
 				16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */,
@@ -1170,6 +1253,7 @@
 				1617F69C1A36877000B5F7C3 /* SDWebImageManager.m in Sources */,
 				1617F68E1A36876F00B5F7C3 /* ChineseToPinyinResource.m in Sources */,
 				1617F6921A36876F00B5F7C3 /* PinYinForObjc.m in Sources */,
+				160D0D531A486AA90025A6D5 /* ModifyAvatarPara.m in Sources */,
 				167E7CCA1A45D4E20050AF97 /* FindDetailViewController.m in Sources */,
 				16DA0B8A1A47042A008D1114 /* Register.m in Sources */,
 				1698EB2D1A4817D200C69BC1 /* AdMomentPara.m in Sources */,
@@ -1179,13 +1263,16 @@
 				1617F6E01A36EAFC00B5F7C3 /* FindMomentCell.m in Sources */,
 				1617F6631A36876F00B5F7C3 /* LXUtils.m in Sources */,
 				1617F6991A36877000B5F7C3 /* SDWebImageDecoder.m in Sources */,
+				160D0D5C1A486CA50025A6D5 /* ModifyUserNameHttp.m in Sources */,
 				16DA0B661A46CA87008D1114 /* ASICloudFilesContainer.m in Sources */,
 				166B3E0B1A42C5BB005C4706 /* MTTextFiedBGView.m in Sources */,
 				1617F6CB1A36D80200B5F7C3 /* MTStoreManager.m in Sources */,
 				1617F6931A36876F00B5F7C3 /* PinyinHelper.m in Sources */,
 				16DA0B5C1A46CA87008D1114 /* ASIAuthenticationDialog.m in Sources */,
 				1617F68A1A36876F00B5F7C3 /* MJRefreshBaseView.m in Sources */,
+				160D0D621A486D9C0025A6D5 /* ModifyNickName.m in Sources */,
 				1617F6B61A36898700B5F7C3 /* MineViewController.m in Sources */,
+				160D0D591A486C9B0025A6D5 /* ModifyUserName.m in Sources */,
 				16DA0B651A46CA87008D1114 /* ASICloudFilesCDNRequest.m in Sources */,
 				1617F6D11A36E90200B5F7C3 /* SettingViewController.m in Sources */,
 				1617F6841A36876F00B5F7C3 /* YHBaseViewController.m in Sources */,
@@ -1203,6 +1290,7 @@
 				1698EB1C1A4802AE00C69BC1 /* UploadPicturePara.m in Sources */,
 				1692DE8D1A47C7D10030ACE6 /* MomentList.m in Sources */,
 				1617F6951A36876F00B5F7C3 /* MKAnnotationView+WebCache.m in Sources */,
+				160D0D711A4871A90025A6D5 /* DeleMyStoryHttp.m in Sources */,
 				16FF48DD1A46C4F80086BC42 /* LXResultModel.m in Sources */,
 				167E7CCF1A45DF1C0050AF97 /* AllCommentListViewController.m in Sources */,
 				16DA0B5F1A46CA87008D1114 /* ASIDownloadCache.m in Sources */,
@@ -1210,6 +1298,8 @@
 				1617F68B1A36876F00B5F7C3 /* MJRefreshFooterView.m in Sources */,
 				1617F6911A36876F00B5F7C3 /* PinyinFormatter.m in Sources */,
 				1617F6821A36876F00B5F7C3 /* YHBaseTabbarController.m in Sources */,
+				160D0D771A4871C10025A6D5 /* DeleMyStoryPara.m in Sources */,
+				160D0D681A4870FE0025A6D5 /* MyStoryPara.m in Sources */,
 				16DA0B731A46CA87008D1114 /* Reachability.m in Sources */,
 				168D3A8F1A2D638E0004790E /* MTAppDelegate.m in Sources */,
 				16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */,
@@ -1220,11 +1310,15 @@
 				1617F6B11A36897600B5F7C3 /* RegisterViewController.m in Sources */,
 				16DA0B6F1A46CA87008D1114 /* ASIS3ObjectRequest.m in Sources */,
 				16DA0B1B1A46C7E2008D1114 /* NSString+MD5.m in Sources */,
+				160D0D651A486DA90025A6D5 /* ModifyNickNamePara.m in Sources */,
 				1617F6651A36876F00B5F7C3 /* UIView+Utils.m in Sources */,
 				16DA0B871A47041A008D1114 /* RegisterHttp.m in Sources */,
 				16DA0B5E1A46CA87008D1114 /* ASIDataDecompressor.m in Sources */,
+				160D0D561A486C900025A6D5 /* ModifyUserNamePara.m in Sources */,
+				160D0D6B1A48717C0025A6D5 /* MyStory.m in Sources */,
 				16DA0B611A46CA87008D1114 /* ASIHTTPRequest.m in Sources */,
 				16DA0B601A46CA87008D1114 /* ASIFormDataRequest.m in Sources */,
+				160D0D741A4871B60025A6D5 /* DeleMyStory.m in Sources */,
 				1617F6881A36876F00B5F7C3 /* MBProgressHUD.m in Sources */,
 				16DA0B681A46CA87008D1114 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				1617F69A1A36877000B5F7C3 /* SDWebImageDownloader.m in Sources */,
@@ -1239,9 +1333,11 @@
 				1617F69D1A36877000B5F7C3 /* SDWebImagePrefetcher.m in Sources */,
 				1698EB1F1A4802BA00C69BC1 /* UploadPictureHttp.m in Sources */,
 				167E7CD41A45E0170050AF97 /* CommentCell.m in Sources */,
+				160D0D501A486A930025A6D5 /* ModifyAvatar.m in Sources */,
 				1617F6A01A36877000B5F7C3 /* UIImage+MultiFormat.m in Sources */,
 				1617F6C01A368C6100B5F7C3 /* CatchMomentViewController.m in Sources */,
 				1617F6A21A36877000B5F7C3 /* UIImageView+WebCache.m in Sources */,
+				160D0D7A1A4873F40025A6D5 /* MyStoryList.m in Sources */,
 				16DA0B711A46CA87008D1114 /* ASIS3ServiceRequest.m in Sources */,
 				160D0D441A48654F0025A6D5 /* MyProfile.m in Sources */,
 				16DA0B801A46E74E008D1114 /* MTUserInfo.m in Sources */,
