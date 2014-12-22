@@ -94,6 +94,12 @@
 		1692DE8A1A47C7C40030ACE6 /* MomentListPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692DE891A47C7C40030ACE6 /* MomentListPara.m */; };
 		1692DE8D1A47C7D10030ACE6 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692DE8C1A47C7D10030ACE6 /* MomentList.m */; };
 		1698EB161A47E89D00C69BC1 /* MomentDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB151A47E89D00C69BC1 /* MomentDetail.m */; };
+		1698EB191A4802A300C69BC1 /* UploadPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB181A4802A300C69BC1 /* UploadPicture.m */; };
+		1698EB1C1A4802AE00C69BC1 /* UploadPicturePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB1B1A4802AE00C69BC1 /* UploadPicturePara.m */; };
+		1698EB1F1A4802BA00C69BC1 /* UploadPictureHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB1E1A4802BA00C69BC1 /* UploadPictureHttp.m */; };
+		1698EB241A48179B00C69BC1 /* AdMomentHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB231A48179B00C69BC1 /* AdMomentHttp.m */; };
+		1698EB271A4817A800C69BC1 /* AdMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB261A4817A800C69BC1 /* AdMoment.m */; };
+		1698EB2D1A4817D200C69BC1 /* AdMomentPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB2C1A4817D200C69BC1 /* AdMomentPara.m */; };
 		16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252941A41D02B00B658D6 /* SysMessageViewController.m */; };
 		16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B252951A41D02B00B658D6 /* SysMessageViewController.xib */; };
 		16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252991A41D09B00B658D6 /* CommentListViewController.m */; };
@@ -306,6 +312,20 @@
 		1692DE8C1A47C7D10030ACE6 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
 		1698EB141A47E89D00C69BC1 /* MomentDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentDetail.h; sourceTree = "<group>"; };
 		1698EB151A47E89D00C69BC1 /* MomentDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentDetail.m; sourceTree = "<group>"; };
+		1698EB171A4802A300C69BC1 /* UploadPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPicture.h; sourceTree = "<group>"; };
+		1698EB181A4802A300C69BC1 /* UploadPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPicture.m; sourceTree = "<group>"; };
+		1698EB1A1A4802AE00C69BC1 /* UploadPicturePara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPicturePara.h; sourceTree = "<group>"; };
+		1698EB1B1A4802AE00C69BC1 /* UploadPicturePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPicturePara.m; sourceTree = "<group>"; };
+		1698EB1D1A4802BA00C69BC1 /* UploadPictureHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPictureHttp.h; sourceTree = "<group>"; };
+		1698EB1E1A4802BA00C69BC1 /* UploadPictureHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadPictureHttp.m; sourceTree = "<group>"; };
+		1698EB201A4807AB00C69BC1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		1698EB211A4807AB00C69BC1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		1698EB221A48179B00C69BC1 /* AdMomentHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMomentHttp.h; sourceTree = "<group>"; };
+		1698EB231A48179B00C69BC1 /* AdMomentHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMomentHttp.m; sourceTree = "<group>"; };
+		1698EB251A4817A800C69BC1 /* AdMoment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMoment.h; sourceTree = "<group>"; };
+		1698EB261A4817A800C69BC1 /* AdMoment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoment.m; sourceTree = "<group>"; };
+		1698EB2B1A4817D200C69BC1 /* AdMomentPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMomentPara.h; sourceTree = "<group>"; };
+		1698EB2C1A4817D200C69BC1 /* AdMomentPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMomentPara.m; sourceTree = "<group>"; };
 		16B252931A41D02B00B658D6 /* SysMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysMessageViewController.h; sourceTree = "<group>"; };
 		16B252941A41D02B00B658D6 /* SysMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysMessageViewController.m; sourceTree = "<group>"; };
 		16B252951A41D02B00B658D6 /* SysMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysMessageViewController.xib; sourceTree = "<group>"; };
@@ -939,6 +959,18 @@
 		16DA0B831A470397008D1114 /* CatchMoment */ = {
 			isa = PBXGroup;
 			children = (
+				1698EB171A4802A300C69BC1 /* UploadPicture.h */,
+				1698EB181A4802A300C69BC1 /* UploadPicture.m */,
+				1698EB1A1A4802AE00C69BC1 /* UploadPicturePara.h */,
+				1698EB1B1A4802AE00C69BC1 /* UploadPicturePara.m */,
+				1698EB1D1A4802BA00C69BC1 /* UploadPictureHttp.h */,
+				1698EB1E1A4802BA00C69BC1 /* UploadPictureHttp.m */,
+				1698EB251A4817A800C69BC1 /* AdMoment.h */,
+				1698EB261A4817A800C69BC1 /* AdMoment.m */,
+				1698EB221A48179B00C69BC1 /* AdMomentHttp.h */,
+				1698EB231A48179B00C69BC1 /* AdMomentHttp.m */,
+				1698EB2B1A4817D200C69BC1 /* AdMomentPara.h */,
+				1698EB2C1A4817D200C69BC1 /* AdMomentPara.m */,
 			);
 			name = CatchMoment;
 			sourceTree = "<group>";
@@ -1038,6 +1070,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 168D3A721A2D638E0004790E;
 			productRefGroup = 168D3A7C1A2D638E0004790E /* Products */;
@@ -1123,6 +1156,7 @@
 				1617F6921A36876F00B5F7C3 /* PinYinForObjc.m in Sources */,
 				167E7CCA1A45D4E20050AF97 /* FindDetailViewController.m in Sources */,
 				16DA0B8A1A47042A008D1114 /* Register.m in Sources */,
+				1698EB2D1A4817D200C69BC1 /* AdMomentPara.m in Sources */,
 				1698EB161A47E89D00C69BC1 /* MomentDetail.m in Sources */,
 				16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */,
 				16DA0B701A46CA87008D1114 /* ASIS3Request.m in Sources */,
@@ -1142,11 +1176,14 @@
 				1617F6A11A36877000B5F7C3 /* UIImage+WebP.m in Sources */,
 				168D3A8B1A2D638E0004790E /* main.m in Sources */,
 				16DA0B5D1A46CA87008D1114 /* ASIDataCompressor.m in Sources */,
+				1698EB271A4817A800C69BC1 /* AdMoment.m in Sources */,
 				16DA0B961A47059E008D1114 /* LoginPara.m in Sources */,
 				1617F69B1A36877000B5F7C3 /* SDWebImageDownloaderOperation.m in Sources */,
 				1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */,
+				1698EB191A4802A300C69BC1 /* UploadPicture.m in Sources */,
 				1617F6BB1A3689E500B5F7C3 /* FindMomentViewController.m in Sources */,
 				1617F6A31A36877000B5F7C3 /* SGFocusImageFrame.m in Sources */,
+				1698EB1C1A4802AE00C69BC1 /* UploadPicturePara.m in Sources */,
 				1692DE8D1A47C7D10030ACE6 /* MomentList.m in Sources */,
 				1617F6951A36876F00B5F7C3 /* MKAnnotationView+WebCache.m in Sources */,
 				16FF48DD1A46C4F80086BC42 /* LXResultModel.m in Sources */,
@@ -1161,6 +1198,7 @@
 				16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */,
 				16DA0B9A1A471657008D1114 /* SSKeychain.m in Sources */,
 				16DA0B6C1A46CA87008D1114 /* ASIS3Bucket.m in Sources */,
+				1698EB241A48179B00C69BC1 /* AdMomentHttp.m in Sources */,
 				16DA0B6A1A46CA87008D1114 /* ASICloudFilesObjectRequest.m in Sources */,
 				1617F6B11A36897600B5F7C3 /* RegisterViewController.m in Sources */,
 				16DA0B6F1A46CA87008D1114 /* ASIS3ObjectRequest.m in Sources */,
@@ -1182,6 +1220,7 @@
 				1617F6641A36876F00B5F7C3 /* NSString+LT.m in Sources */,
 				16DA0B8D1A47043B008D1114 /* RegisterPara.m in Sources */,
 				1617F69D1A36877000B5F7C3 /* SDWebImagePrefetcher.m in Sources */,
+				1698EB1F1A4802BA00C69BC1 /* UploadPictureHttp.m in Sources */,
 				167E7CD41A45E0170050AF97 /* CommentCell.m in Sources */,
 				1617F6A01A36877000B5F7C3 /* UIImage+MultiFormat.m in Sources */,
 				1617F6C01A368C6100B5F7C3 /* CatchMomentViewController.m in Sources */,
@@ -1217,6 +1256,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				168D3A881A2D638E0004790E /* en */,
+				1698EB201A4807AB00C69BC1 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1225,6 +1265,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				168D3AA11A2D638E0004790E /* en */,
+				1698EB211A4807AB00C69BC1 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1264,7 +1305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1296,7 +1337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

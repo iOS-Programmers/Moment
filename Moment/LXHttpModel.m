@@ -124,15 +124,15 @@
                      failedBlock:(HttpModelFailedBlock)failedBlock
 {
     NSMutableDictionary *dic = [self convertParameters:params];
-    self.path =[NSString stringWithFormat:@"http://%@/service.php?",HOST_NAME];
-    self.path = [NSString stringWithFormat:@"%@act=%@&token=%@&confirm=%@",self.path,self.apiFuncName,[MTUserInfo Token],params.confirm];
+    self.path =[NSString stringWithFormat:@"%@/index.php/Index/",HOST_NAME];
+    self.path = [NSString stringWithFormat:@"%@%@?token=%@&confirm=%@",self.path,self.apiFuncName,[MTUserInfo Token],params.confirm];
     NSString *urlStr = [self.path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     ASIFormDataRequest *uploadRequest = [[ASIFormDataRequest alloc]initWithURL:[NSURL URLWithString:urlStr]];
-    //[ASIFormDataRequest requestWithURL:[NSURL URLWithString:urlStr]];
+
     UIImage *img = [dic objectForKey:@"image"];
     NSData *image = UIImageJPEGRepresentation(img, 1.0);
 //  添加请求内容
-    [uploadRequest setData:image withFileName:[NSString stringWithFormat:@"%d.jpg",arc4random()] andContentType:@"binary/octet-stream" forKey:@"img"];
+    [uploadRequest setData:image withFileName:[NSString stringWithFormat:@"%d.jpg",arc4random()] andContentType:@"binary/octet-stream" forKey:@"file"];
 //这里的value值 需与服务器端 一致
     [uploadRequest addRequestHeader:@"Content-Type" value:@"binary/octet-stream"];
     [uploadRequest setRequestMethod:@"POST"];
