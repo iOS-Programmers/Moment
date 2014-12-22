@@ -12,7 +12,12 @@
 #import "SysMessageViewController.h"
 #import "CommentListViewController.h"
 
+#import "MyProfileHttp.h"
+
+
 @interface MineViewController ()
+
+@property (strong, nonatomic) MyProfileHttp *myProfileHttp;
 
 @end
 
@@ -22,10 +27,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"我的";
+    self.myProfileHttp  = [[MyProfileHttp alloc] init];
     
     self.dataSource = [[MTStoreManager shareStoreManager] getMineConfigureArray];
     
     self.navigationItem.rightBarButtonItem = [self rightNavItem];
+    
+    [self requestMyProfile];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +67,55 @@
     settingVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:settingVC animated:YES];
 }
+
+- (void)requestMyProfile
+{
+ 
+    __weak MineViewController *weak_self = self;
+    [self.myProfileHttp getDataWithCompletionBlock:^{
+
+        if (weak_self.myProfileHttp.isValid)
+        {
+            /**
+             *  更新数据
+             */
+            [weak_self updateMyProfileWithInfo:weak_self.myProfileHttp.resultModel];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.myProfileHttp.erorMessage];
+        };
+    }failedBlock:^{
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+}
+
+/**
+ *  更新界面信息
+ *
+ *  @param infoArray 列表数组
+ */
+- (void)updateMyProfileWithInfo:(MyProfile *)info
+{
+    MTUserInfo *userInfo = [MTUserInfo defaultUserInfo];
+    userInfo.avatar = info.avatar;
+    userInfo.mobile = info.mobile;
+    userInfo.nickname = info.nickname;
+    userInfo.regtime = info.regtime;
+    userInfo.username = info.username;
+    
+    [self.tableView reloadData];
+}
+
 
 /*
 #pragma mark - Navigation
@@ -97,16 +154,23 @@
         cell.textLabel.font = [UIFont systemFontOfSize:15];
     }
     
-    if (indexPath.row < self.dataSource.count) {
+    
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        cell.textLabel.text = [MTUserInfo defaultUserInfo].nickname;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"账号:%@",[MTUserInfo defaultUserInfo].mobile];
+        
+        if (!FBIsEmpty([MTUserInfo defaultUserInfo].avatar)) {
+            [cell.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
+        }
+        else {
+            cell.imageView.image = [UIImage imageNamed:@"touxiang_pinglun + Oval 7"];
+        }
+    }
+    else {
+    
         NSDictionary *moreDictionary = self.dataSource[indexPath.section];
         cell.imageView.image = [UIImage imageNamed:[moreDictionary valueForKey:@"image"][indexPath.row]];
         cell.textLabel.text = [moreDictionary valueForKey:@"title"][indexPath.row];
-    }
-    
-    if (indexPath.section == 0) {
-        cell.textLabel.text = @"瞬间";
-        cell.detailTextLabel.text = @"账号:100010";
-        [cell.imageView setImage:[UIImage imageNamed:@"test_avatar"]];
     }
     
     return cell;

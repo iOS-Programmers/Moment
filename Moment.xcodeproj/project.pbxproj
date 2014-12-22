@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160D0D441A48654F0025A6D5 /* MyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D431A48654F0025A6D5 /* MyProfile.m */; };
+		160D0D471A4865770025A6D5 /* MyProfilePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D461A4865770025A6D5 /* MyProfilePara.m */; };
+		160D0D4A1A4865810025A6D5 /* MyProfileHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D0D491A4865810025A6D5 /* MyProfileHttp.m */; };
 		1617F6631A36876F00B5F7C3 /* LXUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F5E51A36876F00B5F7C3 /* LXUtils.m */; };
 		1617F6641A36876F00B5F7C3 /* NSString+LT.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F5E71A36876F00B5F7C3 /* NSString+LT.m */; };
 		1617F6651A36876F00B5F7C3 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F5E91A36876F00B5F7C3 /* UIView+Utils.m */; };
@@ -160,6 +163,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160D0D421A48654F0025A6D5 /* MyProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfile.h; sourceTree = "<group>"; };
+		160D0D431A48654F0025A6D5 /* MyProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfile.m; sourceTree = "<group>"; };
+		160D0D451A4865770025A6D5 /* MyProfilePara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfilePara.h; sourceTree = "<group>"; };
+		160D0D461A4865770025A6D5 /* MyProfilePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfilePara.m; sourceTree = "<group>"; };
+		160D0D481A4865810025A6D5 /* MyProfileHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileHttp.h; sourceTree = "<group>"; };
+		160D0D491A4865810025A6D5 /* MyProfileHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileHttp.m; sourceTree = "<group>"; };
 		1617F5E41A36876F00B5F7C3 /* LXUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXUtils.h; sourceTree = "<group>"; };
 		1617F5E51A36876F00B5F7C3 /* LXUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXUtils.m; sourceTree = "<group>"; };
 		1617F5E61A36876F00B5F7C3 /* NSString+LT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LT.h"; sourceTree = "<group>"; };
@@ -978,6 +987,12 @@
 		16DA0B841A4703A8008D1114 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				160D0D421A48654F0025A6D5 /* MyProfile.h */,
+				160D0D431A48654F0025A6D5 /* MyProfile.m */,
+				160D0D451A4865770025A6D5 /* MyProfilePara.h */,
+				160D0D461A4865770025A6D5 /* MyProfilePara.m */,
+				160D0D481A4865810025A6D5 /* MyProfileHttp.h */,
+				160D0D491A4865810025A6D5 /* MyProfileHttp.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1141,6 +1156,7 @@
 				16DA0B6E1A46CA87008D1114 /* ASIS3BucketRequest.m in Sources */,
 				16DA0B671A46CA87008D1114 /* ASICloudFilesContainerRequest.m in Sources */,
 				1617F6851A36876F00B5F7C3 /* YHMultipleSectionTableViewController.m in Sources */,
+				160D0D4A1A4865810025A6D5 /* MyProfileHttp.m in Sources */,
 				16DA0B631A46CA87008D1114 /* ASINetworkQueue.m in Sources */,
 				16DA0B641A46CA87008D1114 /* ASIWebPageRequest.m in Sources */,
 				1617F6901A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m in Sources */,
@@ -1179,6 +1195,7 @@
 				1698EB271A4817A800C69BC1 /* AdMoment.m in Sources */,
 				16DA0B961A47059E008D1114 /* LoginPara.m in Sources */,
 				1617F69B1A36877000B5F7C3 /* SDWebImageDownloaderOperation.m in Sources */,
+				160D0D471A4865770025A6D5 /* MyProfilePara.m in Sources */,
 				1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */,
 				1698EB191A4802A300C69BC1 /* UploadPicture.m in Sources */,
 				1617F6BB1A3689E500B5F7C3 /* FindMomentViewController.m in Sources */,
@@ -1226,6 +1243,7 @@
 				1617F6C01A368C6100B5F7C3 /* CatchMomentViewController.m in Sources */,
 				1617F6A21A36877000B5F7C3 /* UIImageView+WebCache.m in Sources */,
 				16DA0B711A46CA87008D1114 /* ASIS3ServiceRequest.m in Sources */,
+				160D0D441A48654F0025A6D5 /* MyProfile.m in Sources */,
 				16DA0B801A46E74E008D1114 /* MTUserInfo.m in Sources */,
 				16DA0B6D1A46CA87008D1114 /* ASIS3BucketObject.m in Sources */,
 				1617F6831A36876F00B5F7C3 /* YHBaseTableViewController.m in Sources */,
