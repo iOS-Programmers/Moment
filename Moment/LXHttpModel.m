@@ -99,7 +99,7 @@
     }
     else
     {
-        self.path = [NSString stringWithFormat:@"%@%@?&token=%@",self.path,self.apiFuncName,[MTUserInfo Token]];
+        self.path = [NSString stringWithFormat:@"%@%@?token=%@",self.path,self.apiFuncName,[MTUserInfo Token]];
     }
     
     for (int i=0; i<[[dic allKeys] count]; i++)

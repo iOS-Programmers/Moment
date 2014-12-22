@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MyStory;
 
 @interface StoryListCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
+- (void)updateStoryCellWithInfo:(MyStory *)detail;
+
 @end

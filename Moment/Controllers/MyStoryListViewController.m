@@ -9,7 +9,11 @@
 #import "MyStoryListViewController.h"
 #import "StoryListCell.h"
 
+#import "MyStoryHttp.h"
+
 @interface MyStoryListViewController ()
+
+@property (strong, nonatomic) MyStoryHttp *myStoryHttp;
 
 @end
 
@@ -20,7 +24,11 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"我的故事";
     
+    self.myStoryHttp = [[MyStoryHttp alloc] init];
+    
     self.tableView.rowHeight = 88;
+    
+    [self requestMyStoryList];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,20 +36,57 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)requestMyStoryList
+{
+    
+    [self showLoadingWithText:MT_LOADING];
+    __weak MyStoryListViewController *weak_self = self;
+    [self.myStoryHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+        if (weak_self.myStoryHttp.isValid)
+        {
+            /**
+             *  更新数据
+             */
+            [weak_self updateMomentListWithInfo:weak_self.myStoryHttp.resultModel.dataArray];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.myStoryHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
 }
-*/
+
+/**
+ *  更新界面信息
+ *
+ *  @param infoArray 列表数组
+ */
+- (void)updateMomentListWithInfo:(NSMutableArray *)infoArray
+{
+    if (!FBIsEmpty(infoArray)) {
+        self.dataSource = infoArray;
+    }
+    
+    [self.tableView reloadData];
+}
 
 #pragma mark - UITableView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -59,6 +104,10 @@
             }
         }
     }
+    
+    MyStory *storyDetail = (MyStory *)self.dataSource[indexPath.row];
+    
+    [cell updateStoryCellWithInfo:storyDetail];
     
     
     return cell;

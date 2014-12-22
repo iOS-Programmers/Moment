@@ -16,7 +16,7 @@
     if (nil != self){
         self.parameter = [[MyStoryPara alloc] init];
         self.resultModel = [[MyStoryList alloc] init];
-        self.apiFuncName = @"myThead";
+        self.apiFuncName = @"myThread";
     }
     return self;
 }

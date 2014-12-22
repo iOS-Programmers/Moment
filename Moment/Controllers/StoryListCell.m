@@ -7,6 +7,7 @@
 //
 
 #import "StoryListCell.h"
+#import "MyStory.h"
 
 @implementation StoryListCell
 
@@ -18,6 +19,17 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)updateStoryCellWithInfo:(MyStory *)detail
+{
+    if (!FBIsEmpty(detail)) {
+        
+        self.title.text = detail.title;
+        self.contentLabel.text = detail.content;
+        self.timeLabel.text = [LXUtils secondChangToDateString:detail.dateline];
+        
+    }
 }
 
 @end
