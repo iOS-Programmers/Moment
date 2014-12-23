@@ -19,13 +19,17 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 @property (weak, nonatomic) IBOutlet UITextField *userNameTF;
 @property (weak, nonatomic) IBOutlet UITextField *passWordTF;
+@property (weak, nonatomic) IBOutlet UIButton *weiboBtn;
+@property (weak, nonatomic) IBOutlet UIButton *qqBtn;
 
 @property (strong, nonatomic) LoginHttp *loginHttp;
 
 - (IBAction)onRegisterBtnClick:(UIButton *)sender;
 - (IBAction)onLoginBtnClick:(UIButton *)sender;
 - (IBAction)onFindPswBtnClick:(UIButton *)sender;
+- (IBAction)onQQLoginBtnClick:(UIButton *)sender;
 
+- (IBAction)onWeiboLoginBtnclick:(UIButton *)sender;
 @end
 
 @implementation LoginViewController
@@ -42,6 +46,13 @@
     
     self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    self.weiboBtn.layer.borderWidth = 1;
+    self.weiboBtn.layer.borderColor = UIColorToRGB(0xff00aa).CGColor;
+    self.weiboBtn.layer.cornerRadius = 5;
+    self.qqBtn.layer.borderWidth = 1;
+    self.qqBtn.layer.borderColor = UIColorToRGB(0xff00aa).CGColor;
+    self.qqBtn.layer.cornerRadius = 5;
     
     //如果钥匙串中有保存账号密码，则给予显示
     NSString *userName = [SSKeychain passwordForService:@"com.sj.moment"account:@"username"];
@@ -111,6 +122,8 @@
         return;
     }
     
+    [self.view endEditing:YES];
+    
     self.loginHttp.parameter.mobile = self.userNameTF.text;
     self.loginHttp.parameter.password = self.passWordTF.text;
 
@@ -154,5 +167,11 @@
 }
 
 - (IBAction)onFindPswBtnClick:(UIButton *)sender {
+}
+
+- (IBAction)onQQLoginBtnClick:(UIButton *)sender {
+}
+
+- (IBAction)onWeiboLoginBtnclick:(UIButton *)sender {
 }
 @end

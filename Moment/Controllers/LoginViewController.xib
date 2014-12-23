@@ -9,8 +9,10 @@
             <connections>
                 <outlet property="avatarImage" destination="FTd-pi-dTR" id="CEo-rc-cCI"/>
                 <outlet property="passWordTF" destination="RQ4-Ly-f1A" id="K3h-jq-lQx"/>
+                <outlet property="qqBtn" destination="cxa-AT-nTI" id="4Xj-wm-GB3"/>
                 <outlet property="userNameTF" destination="jjH-yO-5cm" id="1MA-dU-6ZE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weiboBtn" destination="VdN-yQ-KTA" id="mH0-dS-Sqg"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -54,7 +56,7 @@
                             <rect key="frame" x="52" y="2" width="229" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="username" id="97D-PK-p7c">
                             <rect key="frame" x="12" y="10" width="14" height="14"/>
@@ -102,19 +104,49 @@
                         <action selector="onLoginBtnClick:" destination="-1" eventType="touchUpInside" id="dah-Wo-CeU"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="VdN-yQ-KTA">
+                    <rect key="frame" x="15" y="319" width="140" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="新浪微博登录" image="xinlang">
+                        <color key="titleColor" red="1" green="0.0" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onWeiboLoginBtnclick:" destination="-1" eventType="touchUpInside" id="U0i-Rl-Vbq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="cxa-AT-nTI">
+                    <rect key="frame" x="165" y="319" width="140" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="腾讯QQ登录" image="QQ">
+                        <color key="titleColor" red="1" green="0.0" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onQQLoginBtnClick:" destination="-1" eventType="touchUpInside" id="dgU-ER-4dD"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="399" y="316"/>
+            <point key="canvasLocation" x="324" y="310"/>
         </view>
     </objects>
     <resources>
         <image name="Oval 6" width="101" height="101"/>
         <image name="Oval 7 + Oval 11" width="86" height="86"/>
+        <image name="QQ" width="17" height="18"/>
         <image name="button_hover" width="290" height="40"/>
         <image name="button_normal" width="290" height="40"/>
         <image name="line" width="2" height="466"/>
         <image name="psw" width="13" height="15"/>
         <image name="username" width="14" height="14"/>
+        <image name="xinlang" width="19" height="15"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
