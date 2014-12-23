@@ -123,6 +123,16 @@
 		16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B252951A41D02B00B658D6 /* SysMessageViewController.xib */; };
 		16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252991A41D09B00B658D6 /* CommentListViewController.m */; };
 		16B2529C1A41D09B00B658D6 /* CommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B2529A1A41D09B00B658D6 /* CommentListViewController.xib */; };
+		16B7F8221A49077000B7629B /* MomentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8211A49077000B7629B /* MomentInfo.m */; };
+		16B7F8251A49077B00B7629B /* MomentInfoPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8241A49077B00B7629B /* MomentInfoPara.m */; };
+		16B7F8281A49078E00B7629B /* MomentInfoHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8271A49078E00B7629B /* MomentInfoHttp.m */; };
+		16B7F82B1A49090A00B7629B /* CommentListHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F82A1A49090A00B7629B /* CommentListHttp.m */; };
+		16B7F82E1A49091900B7629B /* CommentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F82D1A49091900B7629B /* CommentList.m */; };
+		16B7F8311A49092400B7629B /* CommentListPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8301A49092400B7629B /* CommentListPara.m */; };
+		16B7F8341A49093500B7629B /* CommentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8331A49093500B7629B /* CommentInfo.m */; };
+		16B7F8371A49096700B7629B /* AddComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8361A49096700B7629B /* AddComment.m */; };
+		16B7F83A1A49097200B7629B /* AddCommentPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8391A49097200B7629B /* AddCommentPara.m */; };
+		16B7F83D1A49097C00B7629B /* AddCommentHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F83C1A49097C00B7629B /* AddCommentHttp.m */; };
 		16DA0B1B1A46C7E2008D1114 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B1A1A46C7E2008D1114 /* NSString+MD5.m */; };
 		16DA0B5C1A46CA87008D1114 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B1F1A46CA87008D1114 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16DA0B5D1A46CA87008D1114 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B221A46CA87008D1114 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -389,6 +399,26 @@
 		16B252981A41D09B00B658D6 /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
 		16B252991A41D09B00B658D6 /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
 		16B2529A1A41D09B00B658D6 /* CommentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentListViewController.xib; sourceTree = "<group>"; };
+		16B7F8201A49077000B7629B /* MomentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentInfo.h; sourceTree = "<group>"; };
+		16B7F8211A49077000B7629B /* MomentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentInfo.m; sourceTree = "<group>"; };
+		16B7F8231A49077B00B7629B /* MomentInfoPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentInfoPara.h; sourceTree = "<group>"; };
+		16B7F8241A49077B00B7629B /* MomentInfoPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentInfoPara.m; sourceTree = "<group>"; };
+		16B7F8261A49078E00B7629B /* MomentInfoHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentInfoHttp.h; sourceTree = "<group>"; };
+		16B7F8271A49078E00B7629B /* MomentInfoHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentInfoHttp.m; sourceTree = "<group>"; };
+		16B7F8291A49090A00B7629B /* CommentListHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListHttp.h; sourceTree = "<group>"; };
+		16B7F82A1A49090A00B7629B /* CommentListHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListHttp.m; sourceTree = "<group>"; };
+		16B7F82C1A49091900B7629B /* CommentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentList.h; sourceTree = "<group>"; };
+		16B7F82D1A49091900B7629B /* CommentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentList.m; sourceTree = "<group>"; };
+		16B7F82F1A49092400B7629B /* CommentListPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListPara.h; sourceTree = "<group>"; };
+		16B7F8301A49092400B7629B /* CommentListPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListPara.m; sourceTree = "<group>"; };
+		16B7F8321A49093500B7629B /* CommentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfo.h; sourceTree = "<group>"; };
+		16B7F8331A49093500B7629B /* CommentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfo.m; sourceTree = "<group>"; };
+		16B7F8351A49096700B7629B /* AddComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddComment.h; sourceTree = "<group>"; };
+		16B7F8361A49096700B7629B /* AddComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddComment.m; sourceTree = "<group>"; };
+		16B7F8381A49097200B7629B /* AddCommentPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentPara.h; sourceTree = "<group>"; };
+		16B7F8391A49097200B7629B /* AddCommentPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentPara.m; sourceTree = "<group>"; };
+		16B7F83B1A49097C00B7629B /* AddCommentHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommentHttp.h; sourceTree = "<group>"; };
+		16B7F83C1A49097C00B7629B /* AddCommentHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCommentHttp.m; sourceTree = "<group>"; };
 		16DA0B191A46C7E2008D1114 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		16DA0B1A1A46C7E2008D1114 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		16DA0B1E1A46CA87008D1114 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -1009,6 +1039,26 @@
 				1692DE8C1A47C7D10030ACE6 /* MomentList.m */,
 				1698EB141A47E89D00C69BC1 /* MomentDetail.h */,
 				1698EB151A47E89D00C69BC1 /* MomentDetail.m */,
+				16B7F8201A49077000B7629B /* MomentInfo.h */,
+				16B7F8211A49077000B7629B /* MomentInfo.m */,
+				16B7F8231A49077B00B7629B /* MomentInfoPara.h */,
+				16B7F8241A49077B00B7629B /* MomentInfoPara.m */,
+				16B7F8261A49078E00B7629B /* MomentInfoHttp.h */,
+				16B7F8271A49078E00B7629B /* MomentInfoHttp.m */,
+				16B7F8291A49090A00B7629B /* CommentListHttp.h */,
+				16B7F82A1A49090A00B7629B /* CommentListHttp.m */,
+				16B7F82C1A49091900B7629B /* CommentList.h */,
+				16B7F82D1A49091900B7629B /* CommentList.m */,
+				16B7F82F1A49092400B7629B /* CommentListPara.h */,
+				16B7F8301A49092400B7629B /* CommentListPara.m */,
+				16B7F8321A49093500B7629B /* CommentInfo.h */,
+				16B7F8331A49093500B7629B /* CommentInfo.m */,
+				16B7F8351A49096700B7629B /* AddComment.h */,
+				16B7F8361A49096700B7629B /* AddComment.m */,
+				16B7F8381A49097200B7629B /* AddCommentPara.h */,
+				16B7F8391A49097200B7629B /* AddCommentPara.m */,
+				16B7F83B1A49097C00B7629B /* AddCommentHttp.h */,
+				16B7F83C1A49097C00B7629B /* AddCommentHttp.m */,
 			);
 			name = FindMoment;
 			sourceTree = "<group>";
@@ -1236,6 +1286,8 @@
 				16DA0B6E1A46CA87008D1114 /* ASIS3BucketRequest.m in Sources */,
 				16DA0B671A46CA87008D1114 /* ASICloudFilesContainerRequest.m in Sources */,
 				1617F6851A36876F00B5F7C3 /* YHMultipleSectionTableViewController.m in Sources */,
+				16B7F83A1A49097200B7629B /* AddCommentPara.m in Sources */,
+				16B7F8221A49077000B7629B /* MomentInfo.m in Sources */,
 				160D0D4A1A4865810025A6D5 /* MyProfileHttp.m in Sources */,
 				160D0D4D1A486A860025A6D5 /* ModifyAvatarHttp.m in Sources */,
 				16DA0B631A46CA87008D1114 /* ASINetworkQueue.m in Sources */,
@@ -1285,6 +1337,7 @@
 				160D0D471A4865770025A6D5 /* MyProfilePara.m in Sources */,
 				1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */,
 				1698EB191A4802A300C69BC1 /* UploadPicture.m in Sources */,
+				16B7F83D1A49097C00B7629B /* AddCommentHttp.m in Sources */,
 				1617F6BB1A3689E500B5F7C3 /* FindMomentViewController.m in Sources */,
 				1617F6A31A36877000B5F7C3 /* SGFocusImageFrame.m in Sources */,
 				1698EB1C1A4802AE00C69BC1 /* UploadPicturePara.m in Sources */,
@@ -1296,6 +1349,8 @@
 				16DA0B5F1A46CA87008D1114 /* ASIDownloadCache.m in Sources */,
 				1617F6811A36876F00B5F7C3 /* YHBaseNavigationController.m in Sources */,
 				1617F68B1A36876F00B5F7C3 /* MJRefreshFooterView.m in Sources */,
+				16B7F8311A49092400B7629B /* CommentListPara.m in Sources */,
+				16B7F8251A49077B00B7629B /* MomentInfoPara.m in Sources */,
 				1617F6911A36876F00B5F7C3 /* PinyinFormatter.m in Sources */,
 				1617F6821A36876F00B5F7C3 /* YHBaseTabbarController.m in Sources */,
 				160D0D771A4871C10025A6D5 /* DeleMyStoryPara.m in Sources */,
@@ -1303,14 +1358,18 @@
 				16DA0B731A46CA87008D1114 /* Reachability.m in Sources */,
 				168D3A8F1A2D638E0004790E /* MTAppDelegate.m in Sources */,
 				16B2529B1A41D09B00B658D6 /* CommentListViewController.m in Sources */,
+				16B7F82B1A49090A00B7629B /* CommentListHttp.m in Sources */,
 				16DA0B9A1A471657008D1114 /* SSKeychain.m in Sources */,
+				16B7F8371A49096700B7629B /* AddComment.m in Sources */,
 				16DA0B6C1A46CA87008D1114 /* ASIS3Bucket.m in Sources */,
+				16B7F82E1A49091900B7629B /* CommentList.m in Sources */,
 				1698EB241A48179B00C69BC1 /* AdMomentHttp.m in Sources */,
 				16DA0B6A1A46CA87008D1114 /* ASICloudFilesObjectRequest.m in Sources */,
 				1617F6B11A36897600B5F7C3 /* RegisterViewController.m in Sources */,
 				16DA0B6F1A46CA87008D1114 /* ASIS3ObjectRequest.m in Sources */,
 				16DA0B1B1A46C7E2008D1114 /* NSString+MD5.m in Sources */,
 				160D0D651A486DA90025A6D5 /* ModifyNickNamePara.m in Sources */,
+				16B7F8341A49093500B7629B /* CommentInfo.m in Sources */,
 				1617F6651A36876F00B5F7C3 /* UIView+Utils.m in Sources */,
 				16DA0B871A47041A008D1114 /* RegisterHttp.m in Sources */,
 				16DA0B5E1A46CA87008D1114 /* ASIDataDecompressor.m in Sources */,
@@ -1322,6 +1381,7 @@
 				1617F6881A36876F00B5F7C3 /* MBProgressHUD.m in Sources */,
 				16DA0B681A46CA87008D1114 /* ASICloudFilesContainerXMLParserDelegate.m in Sources */,
 				1617F69A1A36877000B5F7C3 /* SDWebImageDownloader.m in Sources */,
+				16B7F8281A49078E00B7629B /* MomentInfoHttp.m in Sources */,
 				1617F69F1A36877000B5F7C3 /* UIImage+GIF.m in Sources */,
 				1692DE8A1A47C7C40030ACE6 /* MomentListPara.m in Sources */,
 				1617F6DB1A36EA8700B5F7C3 /* MyStoryListViewController.m in Sources */,

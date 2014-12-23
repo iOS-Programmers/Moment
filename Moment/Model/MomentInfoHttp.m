@@ -1,23 +1,22 @@
-
 //
-//  DeleMyStoryHttp.m
+//  MomentInfoHttp.m
 //  Moment
 //
-//  Created by Jyh on 14/12/22.
+//  Created by Jyh on 14/12/23.
 //  Copyright (c) 2014年 YH. All rights reserved.
 //
 
-#import "DeleMyStoryHttp.h"
+#import "MomentInfoHttp.h"
 
-@implementation DeleMyStoryHttp
+@implementation MomentInfoHttp
 
 - (id)init
 {
     self = [super init];
     if (nil != self){
-        self.parameter = [[DeleMyStoryPara alloc] init];
-        self.resultModel = [[DeleMyStory alloc] init];
-        self.apiFuncName = @"delmyThread";
+        self.parameter = [[MomentInfoPara alloc] init];
+        self.resultModel = [[MomentInfo alloc] init];
+        self.apiFuncName = @"momentInfo";
     }
     return self;
 }

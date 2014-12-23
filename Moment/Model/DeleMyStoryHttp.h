@@ -7,7 +7,14 @@
 //
 
 #import "LXHttpModel.h"
+#import "DeleMyStory.h"
+#import "DeleMyStoryPara.h"
 
 @interface DeleMyStoryHttp : LXHttpModel
+
+@property (nonatomic, strong) DeleMyStoryPara *parameter;
+@property (nonatomic, strong) DeleMyStory *resultModel;
+- (void)getDataWithCompletionBlock:(HttpModelCompletionBlock)completionBlock
+                       failedBlock:(HttpModelFailedBlock)failedBlock;
 
 @end

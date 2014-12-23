@@ -1,23 +1,22 @@
-
 //
-//  DeleMyStoryHttp.m
+//  CommentListHttp.m
 //  Moment
 //
-//  Created by Jyh on 14/12/22.
+//  Created by Jyh on 14/12/23.
 //  Copyright (c) 2014年 YH. All rights reserved.
 //
 
-#import "DeleMyStoryHttp.h"
+#import "CommentListHttp.h"
 
-@implementation DeleMyStoryHttp
+@implementation CommentListHttp
 
 - (id)init
 {
     self = [super init];
     if (nil != self){
-        self.parameter = [[DeleMyStoryPara alloc] init];
-        self.resultModel = [[DeleMyStory alloc] init];
-        self.apiFuncName = @"delmyThread";
+        self.parameter = [[CommentListPara alloc] init];
+        self.resultModel = [[CommentList alloc] init];
+        self.apiFuncName = @"commentList";
     }
     return self;
 }
