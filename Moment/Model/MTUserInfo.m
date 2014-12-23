@@ -28,6 +28,25 @@
     return !FBIsEmpty([MTUserInfo userID]);
 }
 
++ (void)saveUserInfo:(MTUserInfo *)info
+{
+    if (!FBIsEmpty(info.avatar)) {
+        [MTUserInfo defaultUserInfo].avatar = info.avatar;
+    }
+    if (!FBIsEmpty(info.username)) {
+        [MTUserInfo defaultUserInfo].username = info.username;
+    }
+    if (!FBIsEmpty(info.nickname)) {
+        [MTUserInfo defaultUserInfo].nickname = info.nickname;
+    }
+    if (!FBIsEmpty(info.regtime)) {
+        [MTUserInfo defaultUserInfo].regtime = info.regtime;
+    }
+    if (!FBIsEmpty(info.mobile)) {
+        [MTUserInfo defaultUserInfo].mobile = info.mobile;
+    }
+}
+
 /**
  *  接口所需token的存取方法
  *

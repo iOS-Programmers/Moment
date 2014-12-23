@@ -142,6 +142,15 @@
             //登录成功后，保存useriD，以后的接口请求都会用到
             [MTUserInfo saveUserID:weak_self.loginHttp.resultModel.member_id];
             
+            MTUserInfo *userInfo = [[MTUserInfo alloc] init];
+            userInfo.avatar = weak_self.loginHttp.resultModel.avatar;
+            userInfo.username = weak_self.loginHttp.resultModel.username;
+            userInfo.nickname = weak_self.loginHttp.resultModel.nickname;
+            userInfo.mobile = weak_self.loginHttp.resultModel.mobile;
+            userInfo.regtime = weak_self.loginHttp.resultModel.regtime;
+            
+            [MTUserInfo saveUserInfo:userInfo];
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [[MTAppDelegate shareappdelegate] initMainView];
             });

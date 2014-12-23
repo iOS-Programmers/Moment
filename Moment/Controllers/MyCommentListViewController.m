@@ -7,6 +7,7 @@
 //
 
 #import "MyCommentListViewController.h"
+#import "MyCommentListCell.h"
 
 @interface MyCommentListViewController ()
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.tableView.rowHeight = 165;
+    
+    self.title = @"我的评论";
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,5 +38,37 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UITableView DataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 6;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    MyCommentListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        NSArray *cellNib = [[NSBundle mainBundle] loadNibNamed:@"MyCommentListCell" owner:self options:nil];
+        for (id oneObject in cellNib)
+        {
+            if ([oneObject isKindOfClass:[MyCommentListCell class]])
+            {
+                cell = (MyCommentListCell *)oneObject;
+            }
+        }
+    }
+    
+    return cell;
+}
+
+#pragma mark - UITableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
 
 @end

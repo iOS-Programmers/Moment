@@ -27,12 +27,12 @@
     if (!FBIsEmpty(detail)) {
         
         if (!FBIsEmpty(detail.avatar)) {
-            [self.avtarImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,detail.avatar]] placeholderImage:[UIImage imageNamed:@"Oval 7 + Oval 11"]];
+            [self.avtarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,detail.avatar]] placeholderImage:[UIImage imageNamed:@"Oval 7 + Oval 11"]];
             self.avtarImage.layer.cornerRadius = 17;
             self.avtarImage.layer.masksToBounds = YES;
         }
         if (!FBIsEmpty(detail.litpic)) {
-            [self.coverImage setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,detail.litpic]] placeholderImage:nil];
+            [self.coverImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,detail.litpic]] placeholderImage:nil];
         }
         
         self.titleLabel.text = detail.title;

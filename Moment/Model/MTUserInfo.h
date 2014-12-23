@@ -27,6 +27,8 @@
  */
 + (MTUserInfo *)defaultUserInfo;
 
++ (void)saveUserInfo:(MTUserInfo *)info;
+
 /**
  *  接口所需token的存取方法
  *

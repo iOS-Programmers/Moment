@@ -8,6 +8,7 @@
 
 #import "MineViewController.h"
 #import "SettingViewController.h"
+#import "PersonInfoViewController.h"
 #import "MyStoryListViewController.h"
 #import "SysMessageViewController.h"
 #import "MyCommentListViewController.h"
@@ -157,6 +158,9 @@
     
     if (indexPath.section == 0 && indexPath.row == 0) {
         cell.textLabel.text = [MTUserInfo defaultUserInfo].nickname;
+        if (FBIsEmpty([MTUserInfo defaultUserInfo].nickname)) {
+            cell.textLabel.text = @"用户名";
+        }
         cell.detailTextLabel.text = [NSString stringWithFormat:@"账号:%@",[MTUserInfo defaultUserInfo].mobile];
         
         if (!FBIsEmpty([MTUserInfo defaultUserInfo].avatar)) {
@@ -171,6 +175,7 @@
         NSDictionary *moreDictionary = self.dataSource[indexPath.section];
         cell.imageView.image = [UIImage imageNamed:[moreDictionary valueForKey:@"image"][indexPath.row]];
         cell.textLabel.text = [moreDictionary valueForKey:@"title"][indexPath.row];
+        cell.detailTextLabel.text = @"";
     }
     
     return cell;
@@ -188,7 +193,8 @@
     switch (section) {
         case 0: {
             //
-
+            //个人资料
+            viewController = [[PersonInfoViewController alloc] init];
             break;
         }
             

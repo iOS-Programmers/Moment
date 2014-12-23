@@ -10,6 +10,8 @@
 
 @interface AboutUsViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextView *desTextView;
+@property (weak, nonatomic) IBOutlet UILabel *versonLabel;
 @end
 
 @implementation AboutUsViewController
@@ -18,6 +20,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"关于我们";
+    
+    NSDictionary *infoDict = [[NSBundle mainBundle] infoDictionary];
+    /**
+     *  CFBundleShortVersionString  是取得版本号
+     *  CFBundleVersion             是取的Build号
+     *  不可混用，切记切记
+     */
+    NSString *currentVersion = infoDict[@"CFBundleShortVersionString"];
+    
+    self.versonLabel.text = [NSString stringWithFormat:@"当前版本号：%@ ",currentVersion];
+
 }
 
 - (void)didReceiveMemoryWarning {
