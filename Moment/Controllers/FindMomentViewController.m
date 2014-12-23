@@ -11,12 +11,13 @@
 #import "FindDetailViewController.h"
 
 #import "MomentListHttp.h"
-
+#import "MomentInfoHttp.h"
 #import "MWPhotoBrowser.h"
 
 @interface FindMomentViewController () <MWPhotoBrowserDelegate>
 
 @property (strong, nonatomic) MomentListHttp *momentHttp;
+@property (strong, nonatomic) MomentInfoHttp *momentInfoHttp;
 
 //装图片的数组
 @property (nonatomic, strong) NSMutableArray *photos;
@@ -30,11 +31,15 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"发现瞬间";
     self.momentHttp = [[MomentListHttp alloc] init];
+    self.momentInfoHttp = [[MomentInfoHttp alloc] init];
     self.photos = [[NSMutableArray alloc] init];
     
     self.tableView.rowHeight = 118;
     
     [self requestMomentList];
+    
+    //添加下拉刷新
+    self.canPullRefresh = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,6 +64,7 @@
     __weak FindMomentViewController *weak_self = self;
     [self.momentHttp getDataWithCompletionBlock:^{
         [weak_self hideLoading];
+        [weak_self.header endRefreshing];
         if (weak_self.momentHttp.isValid)
         {
             /**
@@ -72,6 +78,7 @@
         };
     }failedBlock:^{
         [weak_self hideLoading];
+        [weak_self.header endRefreshing];
         
         if (![LXUtils networkDetect])
         {
@@ -128,51 +135,81 @@
     return cell;
 }
 
+
+- (void)requestMomentInfoWithId:(NSString *)storyId
+{
+    self.momentInfoHttp.parameter.tid = storyId;
+    
+    [self showLoadingWithText:MT_LOADING];
+    __weak FindMomentViewController *weak_self = self;
+    [self.momentInfoHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+        if (weak_self.momentInfoHttp.isValid)
+        {
+            /**
+             *  去单个详情页
+             */
+            [weak_self gotoMomentDetailView:weak_self.momentInfoHttp.resultModel];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.momentInfoHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+
+}
+
+- (void)gotoMomentDetailView:(MomentInfo *)info
+{
+    // Browser
+    NSMutableArray *photos = [[NSMutableArray alloc] init];
+    for (int i = 0; i < [info.pictureurls count]; i ++) {
+        MWPhoto *photo;
+        
+        photo = [MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.pictureurls[i]]]];
+        photo.caption = info.content;
+        [photos addObject:photo];
+    }
+
+    self.photos = photos;
+    
+    // Create browser
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    //    browser.displayActionButton = displayActionButton;
+    //    browser.displayNavArrows = displayNavArrows;
+    //    browser.displaySelectionButtons = displaySelectionButtons;
+    //    browser.alwaysShowControls = displaySelectionButtons;
+    browser.zoomPhotosToFill = YES;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+    browser.wantsFullScreenLayout = YES;
+#endif
+    //    browser.enableGrid = enableGrid;
+    //    browser.startOnGrid = startOnGrid;
+    browser.enableSwipeToDismiss = YES;
+    [browser setCurrentPhotoIndex:0];
+    
+    [self.navigationController pushViewController:browser animated:YES];
+}
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    FindDetailViewController *detail = [[FindDetailViewController alloc] init];
-//    detail.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:detail animated:YES];
+    MomentDetail *detail = (MomentDetail *)self.dataSource[indexPath.row];
     
-    // Browser
-    NSMutableArray *photos = [[NSMutableArray alloc] init];
-    MWPhoto *photo;
-
-    photo = [MWPhoto photoWithImage:[UIImage imageNamed:@"photo1.jpg"]];
-    photo.caption = @"党培养一个干部特别是高级干部是很不容易的。这些年，一些干部包括一些相当高层次的领导干部因违犯党纪国法落马，我们很痛心。我们中央的同志说起这些事都很痛心，都有一种恨铁不成钢的感觉。";
-    [photos addObject:photo];
-    photo = [MWPhoto photoWithImage:[UIImage imageNamed:@"photo2.jpg"]];
-    photo.caption = @"The London Eye is a giant Ferris wheel situated on the banks of the River Thames, in London, England.";
-    [photos addObject:photo];
-    photo = [MWPhoto photoWithImage:[UIImage imageNamed:@"photo3.jpg"]];
-    photo.caption = @"“党内决不能搞封建依附那一套，决不能搞小山头、小圈子、小团伙那一套，决不能搞门客、门宦、门附那一套，搞这种东西总有一天会出事！有的案件一查处就是一串人，拔出萝卜带出泥，其中一个重要原因就是形成了事实上的人身依附关系。在党内，所有党员都应该平等相待，都应该平等享有一切应该享有的权利、履行一切应该履行的义务。”";
-    [photos addObject:photo];
-    photo = [MWPhoto photoWithImage:[UIImage imageNamed:@"photo4.jpg"]];
-    photo.caption = @"Campervan";
-    [photos addObject:photo];
-    
-    
-    self.photos = photos;
-    
-    // Create browser
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-//    browser.displayActionButton = displayActionButton;
-//    browser.displayNavArrows = displayNavArrows;
-//    browser.displaySelectionButtons = displaySelectionButtons;
-//    browser.alwaysShowControls = displaySelectionButtons;
-    browser.zoomPhotosToFill = YES;
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
-    browser.wantsFullScreenLayout = YES;
-#endif
-//    browser.enableGrid = enableGrid;
-//    browser.startOnGrid = startOnGrid;
-    browser.enableSwipeToDismiss = YES;
-    [browser setCurrentPhotoIndex:0];
-    
-    [self.navigationController pushViewController:browser animated:YES];
+    [self requestMomentInfoWithId:detail.tid];
 }
 
 #pragma mark - MWPhotoBrowserDelegate
@@ -187,5 +224,18 @@
     return nil;
 }
 
+#pragma mark 上下拉刷新的Delegate
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    //上拉刷新时的操作
+    if (self.header == refreshView)
+    {
+        [self requestMomentList];
+    }
+    //下拉加载时的操作
+    else {
+        
+    }
+}
 
 @end

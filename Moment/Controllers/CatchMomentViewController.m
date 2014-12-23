@@ -7,6 +7,7 @@
 //
 
 #import "CatchMomentViewController.h"
+#import "EditStoryViewController.h"
 
 #import "UploadPictureHttp.h"
 #import "AdMomentHttp.h"
@@ -16,7 +17,11 @@
 @property (strong, nonatomic) UploadPictureHttp *updatePicHttp;
 @property (strong, nonatomic) AdMomentHttp *addMomentHttp;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) NSMutableArray *imageIds;   //存图片ID的数组
+@property (weak, nonatomic) IBOutlet UIButton *updateBtn;
+
+- (IBAction)onNextBtnClick:(UIButton *)sender;
 
 - (IBAction)onUpdateBtnClick:(id)sender;
 @end
@@ -79,8 +84,18 @@
 }
 
 #pragma mark - IBAciton
-- (IBAction)onUpdateBtnClick:(id)sender {
+- (IBAction)onNextBtnClick:(UIButton *)sender {
+
+    EditStoryViewController *editVC = [[EditStoryViewController alloc] init];
+    editVC.hidesBottomBarWhenPushed = YES;
     
+    editVC.imageIds = self.imageIds;
+    
+    [self.navigationController pushViewController:editVC animated:YES];
+}
+
+- (IBAction)onUpdateBtnClick:(id)sender {
+
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil
                                                             delegate:self
                                                    cancelButtonTitle:@"取消"
@@ -134,9 +149,7 @@
                     weak_self.addMomentHttp.parameter.pictureurls = [weak_self.imageIds componentsJoinedByString:@","];
                 }
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [weak_self addMomentRequest];
-                });
+                [self.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,weak_self.updatePicHttp.resultModel.avatar]]];
             }
             
         }

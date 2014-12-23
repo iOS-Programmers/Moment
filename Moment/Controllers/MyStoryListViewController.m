@@ -29,6 +29,9 @@
     self.tableView.rowHeight = 88;
     
     [self requestMyStoryList];
+    
+    //添加下拉刷新
+    self.canPullRefresh = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,6 +46,7 @@
     __weak MyStoryListViewController *weak_self = self;
     [self.myStoryHttp getDataWithCompletionBlock:^{
         [weak_self hideLoading];
+        [weak_self.header endRefreshing];
         if (weak_self.myStoryHttp.isValid)
         {
             /**
@@ -56,6 +60,7 @@
         };
     }failedBlock:^{
         [weak_self hideLoading];
+        [weak_self.header endRefreshing];
         
         if (![LXUtils networkDetect])
         {
@@ -120,5 +125,20 @@
     
 }
 
+
+
+#pragma mark 上下拉刷新的Delegate
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    //上拉刷新时的操作
+    if (self.header == refreshView)
+    {
+        [self requestMyStoryList];
+    }
+    //下拉加载时的操作
+    else {
+        
+    }
+}
 
 @end

@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "YHBaseNavigationController.h"
+#import "PersonInfoViewController.h"
 #import "LoginViewController.h"
 #import "AboutUsViewController.h"
 
@@ -126,6 +127,7 @@
             switch (indexPath.row) {
                 case 0: {
                     //我的账号
+                    viewController = [[PersonInfoViewController alloc] init];
                 }
                     break;
                     
