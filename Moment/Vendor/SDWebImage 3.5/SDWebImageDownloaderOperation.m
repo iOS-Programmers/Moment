@@ -26,14 +26,17 @@
 @end
 
 @implementation SDWebImageDownloaderOperation
+
 {
     size_t width, height;
     BOOL responseFromCached;
 }
 
 //解决xcode6报错问题
+//add by Jiang   2014-9-20
 @synthesize executing = _executing;
 @synthesize finished = _finished;
+
 
 - (id)initWithRequest:(NSURLRequest *)request options:(SDWebImageDownloaderOptions)options progress:(void (^)(NSUInteger, long long))progressBlock completed:(void (^)(UIImage *, NSData *, NSError *, BOOL))completedBlock cancelled:(void (^)())cancelBlock
 {

@@ -7,6 +7,9 @@
 //
 
 #import "SettingViewController.h"
+#import "YHBaseNavigationController.h"
+#import "LoginViewController.h"
+#import "AboutUsViewController.h"
 
 @interface SettingViewController ()
 @property (strong, nonatomic) IBOutlet UIView *footerView;
@@ -54,7 +57,16 @@
  */
 - (IBAction)logoutClick:(id)sender
 {
-
+    [MTUserInfo clearAllUserInfo];
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+//    loginVC.loginType = LoginTypeDismiss;
+    YHBaseNavigationController *loginNav = [[YHBaseNavigationController alloc] initWithRootViewController:loginVC];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
+    [self.navigationController presentViewController:loginNav animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark - UITableView DataSource
@@ -103,6 +115,50 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    UIViewController *viewController = nil;
+    
+    
+    
+    NSInteger section = indexPath.section;
+    switch (section) {
+        case 0: {
+            switch (indexPath.row) {
+                case 0: {
+                    //我的账号
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+            break;
+        }
+            
+        case 2: {
+            
+            switch (indexPath.row) {
+                case 0: {
+                    //关于我们
+                    viewController = [[AboutUsViewController alloc] init];
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+            break;
+            
+        default: {
+        }
+            break;
+    }
+    if (viewController) {
+
+        [self pushNewViewController:viewController];
+    }
 
 }
 

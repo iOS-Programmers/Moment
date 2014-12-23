@@ -10,7 +10,7 @@
 #import "SettingViewController.h"
 #import "MyStoryListViewController.h"
 #import "SysMessageViewController.h"
-#import "CommentListViewController.h"
+#import "MyCommentListViewController.h"
 
 #import "MyProfileHttp.h"
 
@@ -207,7 +207,7 @@
                     break;
                 case 2: {
                     //评论
-                    viewController = [[CommentListViewController alloc] init];
+                    viewController = [[MyCommentListViewController alloc] init];
                 }
                     break;
                     
@@ -223,8 +223,6 @@
             break;
             
         default: {
-
-            [self showWithText:@"该功能暂未开发，尽请期待！"];
         }
             break;
     }

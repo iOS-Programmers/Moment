@@ -69,5 +69,14 @@
 }
 
 
+/**
+ *  退出登录，清空用户数据
+ *
+ */
++(void)clearAllUserInfo
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:MT_USERID];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:MT_TOKEN];
+}
 
 @end

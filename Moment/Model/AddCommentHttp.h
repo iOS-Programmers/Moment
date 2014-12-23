@@ -7,11 +7,13 @@
 //
 
 #import "LXHttpModel.h"
+#import "AddComment.h"
+#import "AddCommentPara.h"
 
 @interface AddCommentHttp : LXHttpModel
 
-@property (nonatomic, strong) MomentInfoPara *parameter;
-@property (nonatomic, strong) MomentInfo *resultModel;
+@property (nonatomic, strong) AddCommentPara *parameter;
+@property (nonatomic, strong) AddComment *resultModel;
 - (void)getDataWithCompletionBlock:(HttpModelCompletionBlock)completionBlock
                        failedBlock:(HttpModelFailedBlock)failedBlock;
 

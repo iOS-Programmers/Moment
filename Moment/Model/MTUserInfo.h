@@ -43,4 +43,11 @@
 + (void)saveUserID:(NSString *)str;
 + (NSString *)userID;
 
+/**
+ *  退出登录，清空用户数据
+ *
+ */
++(void)clearAllUserInfo;
+
+
 @end

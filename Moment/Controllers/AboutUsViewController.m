@@ -1,23 +1,23 @@
 //
-//  CommentListViewController.m
+//  AboutUsViewController.m
 //  Moment
 //
-//  Created by Jyh on 14/12/17.
+//  Created by Jyh on 14/12/23.
 //  Copyright (c) 2014年 YH. All rights reserved.
 //
 
-#import "CommentListViewController.h"
+#import "AboutUsViewController.h"
 
-@interface CommentListViewController ()
+@interface AboutUsViewController ()
 
 @end
 
-@implementation CommentListViewController
+@implementation AboutUsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"评论";
+    self.title = @"关于我们";
 }
 
 - (void)didReceiveMemoryWarning {

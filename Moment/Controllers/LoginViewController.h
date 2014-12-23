@@ -8,6 +8,13 @@
 
 #import "YHBaseViewController.h"
 
+typedef enum : NSUInteger {
+    LoginTypeDefault,   //默认的不带返回按钮
+    LoginTypeDismiss,   //带有返回按钮，并且以dissmiss方式返回
+} LoginType;
+
 @interface LoginViewController : YHBaseViewController
+
+@property (nonatomic) LoginType loginType;
 
 @end

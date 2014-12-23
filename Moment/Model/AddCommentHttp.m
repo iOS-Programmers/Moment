@@ -14,9 +14,9 @@
 {
     self = [super init];
     if (nil != self){
-        self.parameter = [[MomentInfoPara alloc] init];
-        self.resultModel = [[MomentInfo alloc] init];
-        self.apiFuncName = @"momentInfo";
+        self.parameter = [[AddCommentPara alloc] init];
+        self.resultModel = [[AddComment alloc] init];
+        self.apiFuncName = @"addComment";
     }
     return self;
 }

@@ -36,6 +36,10 @@
     self.title = @"登录";
     self.loginHttp = [[LoginHttp alloc] init];
     
+    if (self.loginType == LoginTypeDismiss) {
+        [self addCancelBtn];
+    }
+    
     self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
@@ -48,6 +52,26 @@
     }
     if (!FBIsEmpty(passWord)) {
         self.passWordTF.text = passWord;
+    }
+}
+
+- (void)addCancelBtn
+{
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftBtn.frame = CGRectMake(0.0f, 0.0f,40,30);
+    [leftBtn setTitle:@"返回" forState:UIControlStateNormal];
+    leftBtn.backgroundColor = [UIColor clearColor];
+    leftBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    [leftBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+}
+
+- (void)cancelBtnClick
+{
+    if (self.loginType == LoginTypeDismiss) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
     }
 }
 
