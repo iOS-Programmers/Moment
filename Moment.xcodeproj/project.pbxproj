@@ -103,6 +103,24 @@
 		1698EB2D1A4817D200C69BC1 /* AdMomentPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB2C1A4817D200C69BC1 /* AdMomentPara.m */; };
 		16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252941A41D02B00B658D6 /* SysMessageViewController.m */; };
 		16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B252951A41D02B00B658D6 /* SysMessageViewController.xib */; };
+		16B2F56C1A4D2F3000FDE382 /* SystemMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F56B1A4D2F3000FDE382 /* SystemMessage.m */; };
+		16B2F56F1A4D2F4100FDE382 /* SystemMessagePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F56E1A4D2F4100FDE382 /* SystemMessagePara.m */; };
+		16B2F5721A4D2F4B00FDE382 /* SystemMessageHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5711A4D2F4B00FDE382 /* SystemMessageHttp.m */; };
+		16B2F5781A4D2F7A00FDE382 /* MyCommentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5771A4D2F7A00FDE382 /* MyCommentList.m */; };
+		16B2F57B1A4D2F8A00FDE382 /* MyCommentListPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F57A1A4D2F8A00FDE382 /* MyCommentListPara.m */; };
+		16B2F57E1A4D2F9400FDE382 /* MyCommentListHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F57D1A4D2F9400FDE382 /* MyCommentListHttp.m */; };
+		16B2F5811A4D2FA800FDE382 /* MyComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5801A4D2FA800FDE382 /* MyComment.m */; };
+		16B2F5841A4D374600FDE382 /* CommentMeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5831A4D374600FDE382 /* CommentMeList.m */; };
+		16B2F5871A4D375300FDE382 /* CommentMeListPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5861A4D375300FDE382 /* CommentMeListPara.m */; };
+		16B2F58A1A4D375E00FDE382 /* CommentMeListHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5891A4D375E00FDE382 /* CommentMeListHttp.m */; };
+		16B2F58D1A4D376900FDE382 /* CommentMe.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F58C1A4D376900FDE382 /* CommentMe.m */; };
+		16B2F5901A4D37CD00FDE382 /* SupportStory.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F58F1A4D37CD00FDE382 /* SupportStory.m */; };
+		16B2F5931A4D37DA00FDE382 /* SupportStoryPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5921A4D37DA00FDE382 /* SupportStoryPara.m */; };
+		16B2F5961A4D37E500FDE382 /* SupportStoryHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5951A4D37E500FDE382 /* SupportStoryHttp.m */; };
+		16B2F5991A4D37F400FDE382 /* SupportComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5981A4D37F400FDE382 /* SupportComment.m */; };
+		16B2F59C1A4D37FF00FDE382 /* SupportCommentPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F59B1A4D37FF00FDE382 /* SupportCommentPara.m */; };
+		16B2F59F1A4D380900FDE382 /* SupportCommentHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F59E1A4D380900FDE382 /* SupportCommentHttp.m */; };
+		16B2F5A21A4D392F00FDE382 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5A11A4D392F00FDE382 /* Message.m */; };
 		16B7F8221A49077000B7629B /* MomentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8211A49077000B7629B /* MomentInfo.m */; };
 		16B7F8251A49077B00B7629B /* MomentInfoPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8241A49077B00B7629B /* MomentInfoPara.m */; };
 		16B7F8281A49078E00B7629B /* MomentInfoHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8271A49078E00B7629B /* MomentInfoHttp.m */; };
@@ -357,6 +375,42 @@
 		16B252931A41D02B00B658D6 /* SysMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysMessageViewController.h; sourceTree = "<group>"; };
 		16B252941A41D02B00B658D6 /* SysMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysMessageViewController.m; sourceTree = "<group>"; };
 		16B252951A41D02B00B658D6 /* SysMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysMessageViewController.xib; sourceTree = "<group>"; };
+		16B2F56A1A4D2F3000FDE382 /* SystemMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessage.h; sourceTree = "<group>"; };
+		16B2F56B1A4D2F3000FDE382 /* SystemMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessage.m; sourceTree = "<group>"; };
+		16B2F56D1A4D2F4100FDE382 /* SystemMessagePara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessagePara.h; sourceTree = "<group>"; };
+		16B2F56E1A4D2F4100FDE382 /* SystemMessagePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessagePara.m; sourceTree = "<group>"; };
+		16B2F5701A4D2F4B00FDE382 /* SystemMessageHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessageHttp.h; sourceTree = "<group>"; };
+		16B2F5711A4D2F4B00FDE382 /* SystemMessageHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageHttp.m; sourceTree = "<group>"; };
+		16B2F5761A4D2F7A00FDE382 /* MyCommentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommentList.h; sourceTree = "<group>"; };
+		16B2F5771A4D2F7A00FDE382 /* MyCommentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommentList.m; sourceTree = "<group>"; };
+		16B2F5791A4D2F8A00FDE382 /* MyCommentListPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommentListPara.h; sourceTree = "<group>"; };
+		16B2F57A1A4D2F8A00FDE382 /* MyCommentListPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommentListPara.m; sourceTree = "<group>"; };
+		16B2F57C1A4D2F9400FDE382 /* MyCommentListHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCommentListHttp.h; sourceTree = "<group>"; };
+		16B2F57D1A4D2F9400FDE382 /* MyCommentListHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCommentListHttp.m; sourceTree = "<group>"; };
+		16B2F57F1A4D2FA800FDE382 /* MyComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyComment.h; sourceTree = "<group>"; };
+		16B2F5801A4D2FA800FDE382 /* MyComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyComment.m; sourceTree = "<group>"; };
+		16B2F5821A4D374600FDE382 /* CommentMeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMeList.h; sourceTree = "<group>"; };
+		16B2F5831A4D374600FDE382 /* CommentMeList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMeList.m; sourceTree = "<group>"; };
+		16B2F5851A4D375300FDE382 /* CommentMeListPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMeListPara.h; sourceTree = "<group>"; };
+		16B2F5861A4D375300FDE382 /* CommentMeListPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMeListPara.m; sourceTree = "<group>"; };
+		16B2F5881A4D375E00FDE382 /* CommentMeListHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMeListHttp.h; sourceTree = "<group>"; };
+		16B2F5891A4D375E00FDE382 /* CommentMeListHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMeListHttp.m; sourceTree = "<group>"; };
+		16B2F58B1A4D376900FDE382 /* CommentMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentMe.h; sourceTree = "<group>"; };
+		16B2F58C1A4D376900FDE382 /* CommentMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentMe.m; sourceTree = "<group>"; };
+		16B2F58E1A4D37CD00FDE382 /* SupportStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportStory.h; sourceTree = "<group>"; };
+		16B2F58F1A4D37CD00FDE382 /* SupportStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportStory.m; sourceTree = "<group>"; };
+		16B2F5911A4D37DA00FDE382 /* SupportStoryPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportStoryPara.h; sourceTree = "<group>"; };
+		16B2F5921A4D37DA00FDE382 /* SupportStoryPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportStoryPara.m; sourceTree = "<group>"; };
+		16B2F5941A4D37E500FDE382 /* SupportStoryHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportStoryHttp.h; sourceTree = "<group>"; };
+		16B2F5951A4D37E500FDE382 /* SupportStoryHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportStoryHttp.m; sourceTree = "<group>"; };
+		16B2F5971A4D37F400FDE382 /* SupportComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportComment.h; sourceTree = "<group>"; };
+		16B2F5981A4D37F400FDE382 /* SupportComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportComment.m; sourceTree = "<group>"; };
+		16B2F59A1A4D37FF00FDE382 /* SupportCommentPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportCommentPara.h; sourceTree = "<group>"; };
+		16B2F59B1A4D37FF00FDE382 /* SupportCommentPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportCommentPara.m; sourceTree = "<group>"; };
+		16B2F59D1A4D380900FDE382 /* SupportCommentHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportCommentHttp.h; sourceTree = "<group>"; };
+		16B2F59E1A4D380900FDE382 /* SupportCommentHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportCommentHttp.m; sourceTree = "<group>"; };
+		16B2F5A01A4D392F00FDE382 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		16B2F5A11A4D392F00FDE382 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		16B7F8201A49077000B7629B /* MomentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentInfo.h; sourceTree = "<group>"; };
 		16B7F8211A49077000B7629B /* MomentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentInfo.m; sourceTree = "<group>"; };
 		16B7F8231A49077B00B7629B /* MomentInfoPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentInfoPara.h; sourceTree = "<group>"; };
@@ -1089,6 +1143,42 @@
 				160D0D731A4871B60025A6D5 /* DeleMyStory.m */,
 				160D0D751A4871C10025A6D5 /* DeleMyStoryPara.h */,
 				160D0D761A4871C10025A6D5 /* DeleMyStoryPara.m */,
+				16B2F56A1A4D2F3000FDE382 /* SystemMessage.h */,
+				16B2F56B1A4D2F3000FDE382 /* SystemMessage.m */,
+				16B2F56D1A4D2F4100FDE382 /* SystemMessagePara.h */,
+				16B2F56E1A4D2F4100FDE382 /* SystemMessagePara.m */,
+				16B2F5701A4D2F4B00FDE382 /* SystemMessageHttp.h */,
+				16B2F5711A4D2F4B00FDE382 /* SystemMessageHttp.m */,
+				16B2F5A01A4D392F00FDE382 /* Message.h */,
+				16B2F5A11A4D392F00FDE382 /* Message.m */,
+				16B2F5761A4D2F7A00FDE382 /* MyCommentList.h */,
+				16B2F5771A4D2F7A00FDE382 /* MyCommentList.m */,
+				16B2F5791A4D2F8A00FDE382 /* MyCommentListPara.h */,
+				16B2F57A1A4D2F8A00FDE382 /* MyCommentListPara.m */,
+				16B2F57C1A4D2F9400FDE382 /* MyCommentListHttp.h */,
+				16B2F57D1A4D2F9400FDE382 /* MyCommentListHttp.m */,
+				16B2F57F1A4D2FA800FDE382 /* MyComment.h */,
+				16B2F5801A4D2FA800FDE382 /* MyComment.m */,
+				16B2F5851A4D375300FDE382 /* CommentMeListPara.h */,
+				16B2F5861A4D375300FDE382 /* CommentMeListPara.m */,
+				16B2F5881A4D375E00FDE382 /* CommentMeListHttp.h */,
+				16B2F5891A4D375E00FDE382 /* CommentMeListHttp.m */,
+				16B2F58B1A4D376900FDE382 /* CommentMe.h */,
+				16B2F58C1A4D376900FDE382 /* CommentMe.m */,
+				16B2F5821A4D374600FDE382 /* CommentMeList.h */,
+				16B2F5831A4D374600FDE382 /* CommentMeList.m */,
+				16B2F58E1A4D37CD00FDE382 /* SupportStory.h */,
+				16B2F58F1A4D37CD00FDE382 /* SupportStory.m */,
+				16B2F5911A4D37DA00FDE382 /* SupportStoryPara.h */,
+				16B2F5921A4D37DA00FDE382 /* SupportStoryPara.m */,
+				16B2F5941A4D37E500FDE382 /* SupportStoryHttp.h */,
+				16B2F5951A4D37E500FDE382 /* SupportStoryHttp.m */,
+				16B2F5971A4D37F400FDE382 /* SupportComment.h */,
+				16B2F5981A4D37F400FDE382 /* SupportComment.m */,
+				16B2F59A1A4D37FF00FDE382 /* SupportCommentPara.h */,
+				16B2F59B1A4D37FF00FDE382 /* SupportCommentPara.m */,
+				16B2F59D1A4D380900FDE382 /* SupportCommentHttp.h */,
+				16B2F59E1A4D380900FDE382 /* SupportCommentHttp.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1290,21 +1380,27 @@
 				1617F6AC1A36896200B5F7C3 /* LoginViewController.m in Sources */,
 				16DA0B621A46CA87008D1114 /* ASIInputStream.m in Sources */,
 				1617F68F1A36876F00B5F7C3 /* HanyuPinyinOutputFormat.m in Sources */,
+				16B2F59F1A4D380900FDE382 /* SupportCommentHttp.m in Sources */,
 				16DA0B941A47059E008D1114 /* Login.m in Sources */,
 				1617F6D61A36EA3700B5F7C3 /* PersonalInfoViewController.m in Sources */,
 				1617F68C1A36876F00B5F7C3 /* MJRefreshHeaderView.m in Sources */,
 				16FF48DA1A46C4F80086BC42 /* LXHttpModel.m in Sources */,
+				16B2F5781A4D2F7A00FDE382 /* MyCommentList.m in Sources */,
 				16DA0B6E1A46CA87008D1114 /* ASIS3BucketRequest.m in Sources */,
 				16DA0B671A46CA87008D1114 /* ASICloudFilesContainerRequest.m in Sources */,
+				16B2F5931A4D37DA00FDE382 /* SupportStoryPara.m in Sources */,
 				1617F6851A36876F00B5F7C3 /* YHMultipleSectionTableViewController.m in Sources */,
 				16B7F83A1A49097200B7629B /* AddCommentPara.m in Sources */,
 				16B7F8221A49077000B7629B /* MomentInfo.m in Sources */,
 				160D0D4A1A4865810025A6D5 /* MyProfileHttp.m in Sources */,
+				16B2F5961A4D37E500FDE382 /* SupportStoryHttp.m in Sources */,
+				16B2F5991A4D37F400FDE382 /* SupportComment.m in Sources */,
 				160D0D4D1A486A860025A6D5 /* ModifyAvatarHttp.m in Sources */,
 				16DA0B631A46CA87008D1114 /* ASINetworkQueue.m in Sources */,
 				1617F6901A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m in Sources */,
 				16DA0B641A46CA87008D1114 /* ASIWebPageRequest.m in Sources */,
 				1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */,
+				16B2F57E1A4D2F9400FDE382 /* MyCommentListHttp.m in Sources */,
 				160D0D5F1A486D550025A6D5 /* ModifyNickNameHttp.m in Sources */,
 				16B7F9171A49486500B7629B /* SysMessageCell.m in Sources */,
 				160D0D6E1A4871880025A6D5 /* MyStoryHttp.m in Sources */,
@@ -1314,24 +1410,29 @@
 				16DA0B6B1A46CA87008D1114 /* ASICloudFilesRequest.m in Sources */,
 				1617F68E1A36876F00B5F7C3 /* ChineseToPinyinResource.m in Sources */,
 				1617F6921A36876F00B5F7C3 /* PinYinForObjc.m in Sources */,
+				16B2F56C1A4D2F3000FDE382 /* SystemMessage.m in Sources */,
 				160D0D531A486AA90025A6D5 /* ModifyAvatarPara.m in Sources */,
 				167E7CCA1A45D4E20050AF97 /* FindDetailViewController.m in Sources */,
 				16DA0B8A1A47042A008D1114 /* Register.m in Sources */,
 				1698EB2D1A4817D200C69BC1 /* AdMomentPara.m in Sources */,
 				1698EB161A47E89D00C69BC1 /* MomentDetail.m in Sources */,
 				16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */,
+				16B2F56F1A4D2F4100FDE382 /* SystemMessagePara.m in Sources */,
 				16DA0B701A46CA87008D1114 /* ASIS3Request.m in Sources */,
 				1617F6E01A36EAFC00B5F7C3 /* FindMomentCell.m in Sources */,
 				1617F6631A36876F00B5F7C3 /* LXUtils.m in Sources */,
+				16B2F58D1A4D376900FDE382 /* CommentMe.m in Sources */,
 				16B7F8471A491F5300B7629B /* AboutUsViewController.m in Sources */,
 				160D0D5C1A486CA50025A6D5 /* ModifyUserNameHttp.m in Sources */,
 				16B7F9311A4972A200B7629B /* PlacehoderTextView.m in Sources */,
 				16DA0B661A46CA87008D1114 /* ASICloudFilesContainer.m in Sources */,
 				166B3E0B1A42C5BB005C4706 /* MTTextFiedBGView.m in Sources */,
 				1617F6CB1A36D80200B5F7C3 /* MTStoreManager.m in Sources */,
+				16B2F5871A4D375300FDE382 /* CommentMeListPara.m in Sources */,
 				1617F6931A36876F00B5F7C3 /* PinyinHelper.m in Sources */,
 				16DA0B5C1A46CA87008D1114 /* ASIAuthenticationDialog.m in Sources */,
 				1617F68A1A36876F00B5F7C3 /* MJRefreshBaseView.m in Sources */,
+				16B2F5901A4D37CD00FDE382 /* SupportStory.m in Sources */,
 				160D0D621A486D9C0025A6D5 /* ModifyNickName.m in Sources */,
 				1617F6B61A36898700B5F7C3 /* MineViewController.m in Sources */,
 				160D0D591A486C9B0025A6D5 /* ModifyUserName.m in Sources */,
@@ -1344,6 +1445,7 @@
 				16DA0B961A47059E008D1114 /* LoginPara.m in Sources */,
 				160D0D471A4865770025A6D5 /* MyProfilePara.m in Sources */,
 				1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */,
+				16B2F59C1A4D37FF00FDE382 /* SupportCommentPara.m in Sources */,
 				1698EB191A4802A300C69BC1 /* UploadPicture.m in Sources */,
 				16B7F83D1A49097C00B7629B /* AddCommentHttp.m in Sources */,
 				16B7F8421A4917CE00B7629B /* MyCommentListViewController.m in Sources */,
@@ -1358,11 +1460,14 @@
 				16DA0B5F1A46CA87008D1114 /* ASIDownloadCache.m in Sources */,
 				1617F6811A36876F00B5F7C3 /* YHBaseNavigationController.m in Sources */,
 				1617F68B1A36876F00B5F7C3 /* MJRefreshFooterView.m in Sources */,
+				16B2F5841A4D374600FDE382 /* CommentMeList.m in Sources */,
 				16B7F8311A49092400B7629B /* CommentListPara.m in Sources */,
 				16B7F8251A49077B00B7629B /* MomentInfoPara.m in Sources */,
 				1617F6911A36876F00B5F7C3 /* PinyinFormatter.m in Sources */,
 				1617F6821A36876F00B5F7C3 /* YHBaseTabbarController.m in Sources */,
+				16B2F5721A4D2F4B00FDE382 /* SystemMessageHttp.m in Sources */,
 				160D0D771A4871C10025A6D5 /* DeleMyStoryPara.m in Sources */,
+				16B2F58A1A4D375E00FDE382 /* CommentMeListHttp.m in Sources */,
 				160D0D681A4870FE0025A6D5 /* MyStoryPara.m in Sources */,
 				16DA0B731A46CA87008D1114 /* Reachability.m in Sources */,
 				168D3A8F1A2D638E0004790E /* MTAppDelegate.m in Sources */,
@@ -1382,6 +1487,7 @@
 				16DA0B871A47041A008D1114 /* RegisterHttp.m in Sources */,
 				16DA0B5E1A46CA87008D1114 /* ASIDataDecompressor.m in Sources */,
 				160D0D561A486C900025A6D5 /* ModifyUserNamePara.m in Sources */,
+				16B2F5811A4D2FA800FDE382 /* MyComment.m in Sources */,
 				160D0D6B1A48717C0025A6D5 /* MyStory.m in Sources */,
 				16DA0B611A46CA87008D1114 /* ASIHTTPRequest.m in Sources */,
 				16DA0B601A46CA87008D1114 /* ASIFormDataRequest.m in Sources */,
@@ -1391,6 +1497,8 @@
 				1692DE8A1A47C7C40030ACE6 /* MomentListPara.m in Sources */,
 				16B7F9211A49562C00B7629B /* PersonInfoViewController.m in Sources */,
 				1617F6DB1A36EA8700B5F7C3 /* MyStoryListViewController.m in Sources */,
+				16B2F57B1A4D2F8A00FDE382 /* MyCommentListPara.m in Sources */,
+				16B2F5A21A4D392F00FDE382 /* Message.m in Sources */,
 				16DA0B691A46CA87008D1114 /* ASICloudFilesObject.m in Sources */,
 				16FF48DC1A46C4F80086BC42 /* LXParameterModel.m in Sources */,
 				1617F6641A36876F00B5F7C3 /* NSString+LT.m in Sources */,

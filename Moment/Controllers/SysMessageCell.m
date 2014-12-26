@@ -7,6 +7,7 @@
 //
 
 #import "SysMessageCell.h"
+#import "Message.h"
 
 @implementation SysMessageCell
 
@@ -20,4 +21,15 @@
     // Configure the view for the selected state
 }
 
+
+- (void)updateMessageCellWithInfo:(Message *)messageDetail
+{
+    if (!FBIsEmpty(messageDetail)) {
+        
+        self.titleLb.text = messageDetail.title;
+        self.contentLabel.text = messageDetail.note;
+        self.timeLabel.text = [LXUtils secondChangToDateString:messageDetail.dateline];
+        
+    }
+}
 @end
