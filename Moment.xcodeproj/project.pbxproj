@@ -73,6 +73,10 @@
 		1645EC301A616AA2000CBE98 /* GetValidateCodeHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC2F1A616AA2000CBE98 /* GetValidateCodeHttp.m */; };
 		1645EC331A616ACA000CBE98 /* GetValidateCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC321A616ACA000CBE98 /* GetValidateCode.m */; };
 		1645EC361A616AD5000CBE98 /* GetValidateCodePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC351A616AD5000CBE98 /* GetValidateCodePara.m */; };
+		1645EC3D1A6197A5000CBE98 /* MTAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC3B1A6197A5000CBE98 /* MTAvatarCell.m */; };
+		1645EC3E1A6197A5000CBE98 /* MTAvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1645EC3C1A6197A5000CBE98 /* MTAvatarCell.xib */; };
+		1645EC421A619E98000CBE98 /* PersionInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC401A619E98000CBE98 /* PersionInfoAvatarCell.m */; };
+		1645EC431A619E98000CBE98 /* PersionInfoAvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1645EC411A619E98000CBE98 /* PersionInfoAvatarCell.xib */; };
 		166B3E011A42B779005C4706 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E001A42B779005C4706 /* SystemConfiguration.framework */; };
 		166B3E031A42B782005C4706 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E021A42B782005C4706 /* libz.dylib */; };
 		166B3E051A42B794005C4706 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E041A42B794005C4706 /* libsqlite3.0.dylib */; };
@@ -332,6 +336,12 @@
 		1645EC321A616ACA000CBE98 /* GetValidateCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetValidateCode.m; sourceTree = "<group>"; };
 		1645EC341A616AD5000CBE98 /* GetValidateCodePara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetValidateCodePara.h; sourceTree = "<group>"; };
 		1645EC351A616AD5000CBE98 /* GetValidateCodePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetValidateCodePara.m; sourceTree = "<group>"; };
+		1645EC3A1A6197A5000CBE98 /* MTAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAvatarCell.h; sourceTree = "<group>"; };
+		1645EC3B1A6197A5000CBE98 /* MTAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAvatarCell.m; sourceTree = "<group>"; };
+		1645EC3C1A6197A5000CBE98 /* MTAvatarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTAvatarCell.xib; sourceTree = "<group>"; };
+		1645EC3F1A619E98000CBE98 /* PersionInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersionInfoAvatarCell.h; sourceTree = "<group>"; };
+		1645EC401A619E98000CBE98 /* PersionInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersionInfoAvatarCell.m; sourceTree = "<group>"; };
+		1645EC411A619E98000CBE98 /* PersionInfoAvatarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersionInfoAvatarCell.xib; sourceTree = "<group>"; };
 		166B3E001A42B779005C4706 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		166B3E021A42B782005C4706 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		166B3E041A42B794005C4706 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -795,6 +805,12 @@
 				16B2F5A31A4D672700FDE382 /* MTTextEditViewController.h */,
 				16B2F5A41A4D672700FDE382 /* MTTextEditViewController.m */,
 				16B2F5A51A4D672700FDE382 /* MTTextEditViewController.xib */,
+				1645EC3A1A6197A5000CBE98 /* MTAvatarCell.h */,
+				1645EC3B1A6197A5000CBE98 /* MTAvatarCell.m */,
+				1645EC3C1A6197A5000CBE98 /* MTAvatarCell.xib */,
+				1645EC3F1A619E98000CBE98 /* PersionInfoAvatarCell.h */,
+				1645EC401A619E98000CBE98 /* PersionInfoAvatarCell.m */,
+				1645EC411A619E98000CBE98 /* PersionInfoAvatarCell.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1329,6 +1345,7 @@
 				168D3A891A2D638E0004790E /* InfoPlist.strings in Resources */,
 				1617F6DC1A36EA8700B5F7C3 /* MyStoryListViewController.xib in Resources */,
 				1617F6B71A36898700B5F7C3 /* MineViewController.xib in Resources */,
+				1645EC431A619E98000CBE98 /* PersionInfoAvatarCell.xib in Resources */,
 				16B7F8431A4917CE00B7629B /* MyCommentListViewController.xib in Resources */,
 				167E7CCB1A45D4E20050AF97 /* FindDetailViewController.xib in Resources */,
 				16B7F9271A496E6700B7629B /* EditStoryViewController.xib in Resources */,
@@ -1348,6 +1365,7 @@
 				16B2F5A71A4D672700FDE382 /* MTTextEditViewController.xib in Resources */,
 				167E7CD51A45E0170050AF97 /* CommentCell.xib in Resources */,
 				16B7F9221A49562C00B7629B /* PersonInfoViewController.xib in Resources */,
+				1645EC3E1A6197A5000CBE98 /* MTAvatarCell.xib in Resources */,
 				1617F6B21A36897600B5F7C3 /* RegisterViewController.xib in Resources */,
 				1617F6E61A3755C900B5F7C3 /* StoryListCell.xib in Resources */,
 			);
@@ -1462,6 +1480,7 @@
 				1617F6B61A36898700B5F7C3 /* MineViewController.m in Sources */,
 				160D0D591A486C9B0025A6D5 /* ModifyUserName.m in Sources */,
 				16DA0B651A46CA87008D1114 /* ASICloudFilesCDNRequest.m in Sources */,
+				1645EC421A619E98000CBE98 /* PersionInfoAvatarCell.m in Sources */,
 				1617F6D11A36E90200B5F7C3 /* SettingViewController.m in Sources */,
 				1617F6841A36876F00B5F7C3 /* YHBaseViewController.m in Sources */,
 				168D3A8B1A2D638E0004790E /* main.m in Sources */,
@@ -1532,6 +1551,7 @@
 				1698EB1F1A4802BA00C69BC1 /* UploadPictureHttp.m in Sources */,
 				167E7CD41A45E0170050AF97 /* CommentCell.m in Sources */,
 				160D0D501A486A930025A6D5 /* ModifyAvatar.m in Sources */,
+				1645EC3D1A6197A5000CBE98 /* MTAvatarCell.m in Sources */,
 				1617F6C01A368C6100B5F7C3 /* CatchMomentViewController.m in Sources */,
 				160D0D7A1A4873F40025A6D5 /* MyStoryList.m in Sources */,
 				16B7F9261A496E6700B7629B /* EditStoryViewController.m in Sources */,

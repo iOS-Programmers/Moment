@@ -13,6 +13,8 @@
 #import "SysMessageViewController.h"
 #import "MyCommentListViewController.h"
 
+#import "MTAvatarCell.h"
+
 #import "MyProfileHttp.h"
 
 
@@ -131,32 +133,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifierForFirstRow = @"avatarcellIdentfier";
-    static NSString *cellIdentifier = @"systemcellIdentfier";
     
-    UITableViewCell *cell;
-    if (indexPath.section == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifierForFirstRow];
-    }
-    else {
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    }
-    
-    if (!cell) {
-        if (indexPath.section == 0) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-           
-        }
-        else {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    if (indexPath.section==0)
+    {
+        static NSString *CellIdentifier = @"Cell";
+        MTAvatarCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil)
+        {
+            NSArray *cellNib = [[NSBundle mainBundle] loadNibNamed:@"MTAvatarCell" owner:self options:nil];
+            for (id oneObject in cellNib)
+            {
+                if ([oneObject isKindOfClass:[MTAvatarCell class]])
+                {
+                    cell = (MTAvatarCell *)oneObject;
+                }
+            }
         }
         
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.font = [UIFont systemFontOfSize:15];
-    }
-    
-    
-    if (indexPath.section == 0 && indexPath.row == 0) {
         cell.textLabel.text = [MTUserInfo defaultUserInfo].nickname;
         if (FBIsEmpty([MTUserInfo defaultUserInfo].nickname)) {
             cell.textLabel.text = @"用户名";
@@ -164,21 +157,42 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"账号:%@",[MTUserInfo defaultUserInfo].mobile];
         
         if (!FBIsEmpty([MTUserInfo defaultUserInfo].avatar)) {
-            [cell.imageView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
         }
         else {
             cell.imageView.image = [UIImage imageNamed:@"touxiang_pinglun + Oval 7"];
         }
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
     else {
+        
+        static NSString *cellIdentifier = @"systemcellIdentfier";
+        
+        UITableViewCell *cell;
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    
+    if (!cell) {
+       
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.font = [UIFont systemFontOfSize:15];
+
     
         NSDictionary *moreDictionary = self.dataSource[indexPath.section];
         cell.imageView.image = [UIImage imageNamed:[moreDictionary valueForKey:@"image"][indexPath.row]];
         cell.textLabel.text = [moreDictionary valueForKey:@"title"][indexPath.row];
         cell.detailTextLabel.text = @"";
-    }
+    
     
     return cell;
+    }
 }
 
 #pragma mark - UITableView Delegate
@@ -186,8 +200,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UIViewController *viewController = nil;
-    
-    
     
     NSInteger section = indexPath.section;
     switch (section) {

@@ -9,6 +9,7 @@
 #import "PersonInfoViewController.h"
 #import "UploadPictureHttp.h"
 #import "ModifyAvatarHttp.h"
+#import "PersionInfoAvatarCell.h"
 
 @interface PersonInfoViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -56,12 +57,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifierForFirstRow = @"avatarcellIdentfier";
+
     static NSString *cellIdentifier = @"systemcellIdentfier";
-    
+    static NSString *CellIdentifiers = @"Cell";
     UITableViewCell *cell;
     if (indexPath.row == 0) {
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifierForFirstRow];
+ 
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifiers];
     }
     else {
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -69,7 +71,16 @@
     
     if (!cell) {
         if (indexPath.row == 0) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+           
+            NSArray *cellNib = [[NSBundle mainBundle] loadNibNamed:@"PersionInfoAvatarCell" owner:self options:nil];
+            for (id oneObject in cellNib)
+            {
+                if ([oneObject isKindOfClass:[PersionInfoAvatarCell class]])
+                {
+                    cell = (PersionInfoAvatarCell *)oneObject;
+                }
+            }
+            
             
         }
         else {
