@@ -13,5 +13,6 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *note;
 @property (nonatomic, copy) NSString *dateline;
+@property (nonatomic, copy) NSString *msgId;
 
 @end

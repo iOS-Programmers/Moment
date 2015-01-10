@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="passwordTF" destination="zaV-X3-94V" id="693-cL-6J9"/>
                 <outlet property="usernameTF" destination="uHo-cl-wIM" id="mJ9-4x-RzX"/>
+                <outlet property="verifyBtn" destination="PDA-8n-BRu" id="aXf-HF-CbH"/>
                 <outlet property="verifyCodeTF" destination="O9r-az-Iyx" id="2hj-xS-fqt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -99,6 +100,18 @@
                         <action selector="onRegisterBtnClick:" destination="-1" eventType="touchUpInside" id="wFL-NG-eYV"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PDA-8n-BRu">
+                    <rect key="frame" x="177" y="187" width="128" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="获取验证码" backgroundImage="bt_yanzheng">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onVerifyBtnClick:" destination="-1" eventType="touchUpInside" id="x5u-mo-T2T"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="340" y="309"/>
@@ -107,6 +120,7 @@
     <resources>
         <image name="Oval 6" width="101" height="101"/>
         <image name="Oval 7 + Oval 11" width="86" height="86"/>
+        <image name="bt_yanzheng" width="128" height="34"/>
         <image name="button_hover" width="290" height="40"/>
         <image name="button_normal" width="290" height="40"/>
         <image name="line" width="2" height="466"/>

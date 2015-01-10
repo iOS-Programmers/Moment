@@ -70,6 +70,9 @@
 		1617F6E11A36EAFC00B5F7C3 /* FindMomentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6DF1A36EAFC00B5F7C3 /* FindMomentCell.xib */; };
 		1617F6E51A3755C900B5F7C3 /* StoryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6E31A3755C900B5F7C3 /* StoryListCell.m */; };
 		1617F6E61A3755C900B5F7C3 /* StoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6E41A3755C900B5F7C3 /* StoryListCell.xib */; };
+		1645EC301A616AA2000CBE98 /* GetValidateCodeHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC2F1A616AA2000CBE98 /* GetValidateCodeHttp.m */; };
+		1645EC331A616ACA000CBE98 /* GetValidateCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC321A616ACA000CBE98 /* GetValidateCode.m */; };
+		1645EC361A616AD5000CBE98 /* GetValidateCodePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC351A616AD5000CBE98 /* GetValidateCodePara.m */; };
 		166B3E011A42B779005C4706 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E001A42B779005C4706 /* SystemConfiguration.framework */; };
 		166B3E031A42B782005C4706 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E021A42B782005C4706 /* libz.dylib */; };
 		166B3E051A42B794005C4706 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 166B3E041A42B794005C4706 /* libsqlite3.0.dylib */; };
@@ -121,6 +124,8 @@
 		16B2F59C1A4D37FF00FDE382 /* SupportCommentPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F59B1A4D37FF00FDE382 /* SupportCommentPara.m */; };
 		16B2F59F1A4D380900FDE382 /* SupportCommentHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F59E1A4D380900FDE382 /* SupportCommentHttp.m */; };
 		16B2F5A21A4D392F00FDE382 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5A11A4D392F00FDE382 /* Message.m */; };
+		16B2F5A61A4D672700FDE382 /* MTTextEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F5A41A4D672700FDE382 /* MTTextEditViewController.m */; };
+		16B2F5A71A4D672700FDE382 /* MTTextEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B2F5A51A4D672700FDE382 /* MTTextEditViewController.xib */; };
 		16B7F8221A49077000B7629B /* MomentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8211A49077000B7629B /* MomentInfo.m */; };
 		16B7F8251A49077B00B7629B /* MomentInfoPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8241A49077B00B7629B /* MomentInfoPara.m */; };
 		16B7F8281A49078E00B7629B /* MomentInfoHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F8271A49078E00B7629B /* MomentInfoHttp.m */; };
@@ -321,6 +326,12 @@
 		1617F6E21A3755C900B5F7C3 /* StoryListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryListCell.h; sourceTree = "<group>"; };
 		1617F6E31A3755C900B5F7C3 /* StoryListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryListCell.m; sourceTree = "<group>"; };
 		1617F6E41A3755C900B5F7C3 /* StoryListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryListCell.xib; sourceTree = "<group>"; };
+		1645EC2E1A616AA2000CBE98 /* GetValidateCodeHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetValidateCodeHttp.h; sourceTree = "<group>"; };
+		1645EC2F1A616AA2000CBE98 /* GetValidateCodeHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetValidateCodeHttp.m; sourceTree = "<group>"; };
+		1645EC311A616ACA000CBE98 /* GetValidateCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetValidateCode.h; sourceTree = "<group>"; };
+		1645EC321A616ACA000CBE98 /* GetValidateCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetValidateCode.m; sourceTree = "<group>"; };
+		1645EC341A616AD5000CBE98 /* GetValidateCodePara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetValidateCodePara.h; sourceTree = "<group>"; };
+		1645EC351A616AD5000CBE98 /* GetValidateCodePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetValidateCodePara.m; sourceTree = "<group>"; };
 		166B3E001A42B779005C4706 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		166B3E021A42B782005C4706 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		166B3E041A42B794005C4706 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -411,6 +422,9 @@
 		16B2F59E1A4D380900FDE382 /* SupportCommentHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportCommentHttp.m; sourceTree = "<group>"; };
 		16B2F5A01A4D392F00FDE382 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		16B2F5A11A4D392F00FDE382 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		16B2F5A31A4D672700FDE382 /* MTTextEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTextEditViewController.h; sourceTree = "<group>"; };
+		16B2F5A41A4D672700FDE382 /* MTTextEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTextEditViewController.m; sourceTree = "<group>"; };
+		16B2F5A51A4D672700FDE382 /* MTTextEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MTTextEditViewController.xib; sourceTree = "<group>"; };
 		16B7F8201A49077000B7629B /* MomentInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentInfo.h; sourceTree = "<group>"; };
 		16B7F8211A49077000B7629B /* MomentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentInfo.m; sourceTree = "<group>"; };
 		16B7F8231A49077B00B7629B /* MomentInfoPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentInfoPara.h; sourceTree = "<group>"; };
@@ -778,6 +792,9 @@
 				16B7F8441A491F5300B7629B /* AboutUsViewController.h */,
 				16B7F8451A491F5300B7629B /* AboutUsViewController.m */,
 				16B7F8461A491F5300B7629B /* AboutUsViewController.xib */,
+				16B2F5A31A4D672700FDE382 /* MTTextEditViewController.h */,
+				16B2F5A41A4D672700FDE382 /* MTTextEditViewController.m */,
+				16B2F5A51A4D672700FDE382 /* MTTextEditViewController.xib */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1044,6 +1061,12 @@
 				16DA0B861A47041A008D1114 /* RegisterHttp.m */,
 				16DA0B8B1A47043B008D1114 /* RegisterPara.h */,
 				16DA0B8C1A47043B008D1114 /* RegisterPara.m */,
+				1645EC311A616ACA000CBE98 /* GetValidateCode.h */,
+				1645EC321A616ACA000CBE98 /* GetValidateCode.m */,
+				1645EC341A616AD5000CBE98 /* GetValidateCodePara.h */,
+				1645EC351A616AD5000CBE98 /* GetValidateCodePara.m */,
+				1645EC2E1A616AA2000CBE98 /* GetValidateCodeHttp.h */,
+				1645EC2F1A616AA2000CBE98 /* GetValidateCodeHttp.m */,
 			);
 			name = "Login&Register";
 			sourceTree = "<group>";
@@ -1322,6 +1345,7 @@
 				16DA0B741A46CA87008D1114 /* LICENSE in Resources */,
 				16B7F91D1A494C2A00B7629B /* MyCommentListCell.xib in Resources */,
 				1617F6AD1A36896200B5F7C3 /* LoginViewController.xib in Resources */,
+				16B2F5A71A4D672700FDE382 /* MTTextEditViewController.xib in Resources */,
 				167E7CD51A45E0170050AF97 /* CommentCell.xib in Resources */,
 				16B7F9221A49562C00B7629B /* PersonInfoViewController.xib in Resources */,
 				1617F6B21A36897600B5F7C3 /* RegisterViewController.xib in Resources */,
@@ -1387,6 +1411,7 @@
 				16FF48DA1A46C4F80086BC42 /* LXHttpModel.m in Sources */,
 				16B2F5781A4D2F7A00FDE382 /* MyCommentList.m in Sources */,
 				16DA0B6E1A46CA87008D1114 /* ASIS3BucketRequest.m in Sources */,
+				16B2F5A61A4D672700FDE382 /* MTTextEditViewController.m in Sources */,
 				16DA0B671A46CA87008D1114 /* ASICloudFilesContainerRequest.m in Sources */,
 				16B2F5931A4D37DA00FDE382 /* SupportStoryPara.m in Sources */,
 				1617F6851A36876F00B5F7C3 /* YHMultipleSectionTableViewController.m in Sources */,
@@ -1489,6 +1514,7 @@
 				160D0D561A486C900025A6D5 /* ModifyUserNamePara.m in Sources */,
 				16B2F5811A4D2FA800FDE382 /* MyComment.m in Sources */,
 				160D0D6B1A48717C0025A6D5 /* MyStory.m in Sources */,
+				1645EC331A616ACA000CBE98 /* GetValidateCode.m in Sources */,
 				16DA0B611A46CA87008D1114 /* ASIHTTPRequest.m in Sources */,
 				16DA0B601A46CA87008D1114 /* ASIFormDataRequest.m in Sources */,
 				160D0D741A4871B60025A6D5 /* DeleMyStory.m in Sources */,
@@ -1510,9 +1536,11 @@
 				160D0D7A1A4873F40025A6D5 /* MyStoryList.m in Sources */,
 				16B7F9261A496E6700B7629B /* EditStoryViewController.m in Sources */,
 				16DA0B711A46CA87008D1114 /* ASIS3ServiceRequest.m in Sources */,
+				1645EC361A616AD5000CBE98 /* GetValidateCodePara.m in Sources */,
 				160D0D441A48654F0025A6D5 /* MyProfile.m in Sources */,
 				16DA0B801A46E74E008D1114 /* MTUserInfo.m in Sources */,
 				16DA0B6D1A46CA87008D1114 /* ASIS3BucketObject.m in Sources */,
+				1645EC301A616AA2000CBE98 /* GetValidateCodeHttp.m in Sources */,
 				1617F6831A36876F00B5F7C3 /* YHBaseTableViewController.m in Sources */,
 				16DA0B951A47059E008D1114 /* LoginHttp.m in Sources */,
 			);

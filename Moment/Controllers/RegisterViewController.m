@@ -8,16 +8,24 @@
 
 #import "RegisterViewController.h"
 #import "RegisterHttp.h"
+#import "GetValidateCodeHttp.h"
 
 @interface RegisterViewController ()
-
+{
+    NSTimer *timer;
+    int countDownTime;
+}
 @property (weak, nonatomic) IBOutlet UITextField *usernameTF;
 @property (weak, nonatomic) IBOutlet UITextField *verifyCodeTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 
+@property (weak, nonatomic) IBOutlet UIButton *verifyBtn;
+
 @property (strong, nonatomic) RegisterHttp *registerHttp;
+@property (strong, nonatomic) GetValidateCodeHttp *validateCodeHttp;
 
 - (IBAction)onRegisterBtnClick:(id)sender;
+- (IBAction)onVerifyBtnClick:(id)sender;
 
 @end
 
@@ -27,6 +35,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.registerHttp = [[RegisterHttp alloc] init];
+    self.validateCodeHttp = [[GetValidateCodeHttp alloc] init];
+    
+    countDownTime = 60;
+    
     self.title = @"注册";
     
     
@@ -67,6 +79,10 @@
         [self showWithText:@"请输入密码"];
         return NO;
     }
+    else if (FBIsEmpty(self.verifyCodeTF.text)) {
+        [self showWithText:@"请输入验证码"];
+        return NO;
+    }
     else
     {
         return  YES;
@@ -79,8 +95,11 @@
         return;
     }
     
+    [self.view endEditing:YES];
+    
     self.registerHttp.parameter.mobile = self.usernameTF.text;
     self.registerHttp.parameter.password = self.passwordTF.text;
+    self.registerHttp.parameter.code = self.verifyCodeTF.text;
 
 
     [self showLoadingWithText:MT_LOADING];
@@ -113,6 +132,79 @@
     }];
 
 }
+
+/**
+ *  点击获取验证码
+ *
+ *  @param sender
+ */
+- (IBAction)onVerifyBtnClick:(id)sender {
+
+    if (![LXUtils checkPhoneNumberRule:self.usernameTF.text] || FBIsEmpty(self.usernameTF.text))
+    {
+        [self showWithText:@"手机号格式输入有误"];
+        return ;
+    }
+    
+    self.validateCodeHttp.parameter.mobile = self.usernameTF.text;
+    __block RegisterViewController *weak_self = self;
+    [self.validateCodeHttp getDataWithCompletionBlock:^{
+        if (weak_self.validateCodeHttp.isValid)
+        {
+            [weak_self showWithText:@"获取验证码成功，请稍候查收短信"];
+            //获取成功后
+            timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:weak_self selector:@selector(getGetValiteCountDown) userInfo:nil repeats:YES];
+            countDownTime = 60;
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.validateCodeHttp.erorMessage];
+        };
+    }failedBlock:^{
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+}
+
+//倒计时操作
+- (void)getGetValiteCountDown
+{
+    countDownTime --;
+    if (countDownTime == 0)
+    {
+        if ([timer isValid]) {
+
+            [timer invalidate];
+            [self changeButtonState];
+            return;
+        }
+    }
+    [self.verifyBtn setTitle:[NSString stringWithFormat:@"验证码已发送(%d)",countDownTime] forState:UIControlStateNormal];
+    [self.verifyBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    self.verifyBtn.userInteractionEnabled = NO;
+    
+}
+- (void)changeButtonState{
+    
+    self.verifyBtn.userInteractionEnabled = YES;
+    [self.verifyBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [self.verifyBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
+}
+
+- (void)stopTimer {
+    if (nil != timer && [timer isValid]) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+
 
 /**
  *  进入主界面
