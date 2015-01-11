@@ -19,11 +19,16 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) NSMutableArray *imageIds;   //存图片ID的数组
-@property (weak, nonatomic) IBOutlet UIButton *updateBtn;
+
 
 - (IBAction)onNextBtnClick:(UIButton *)sender;
 
-- (IBAction)onUpdateBtnClick:(id)sender;
+- (IBAction)onPhotoAlbumClick:(UIButton *)sender;
+- (IBAction)onCameraClick:(id)sender;
+- (IBAction)onFontClick:(id)sender;
+- (IBAction)onLabelClick:(UIButton *)sender;
+
+
 @end
 
 @implementation CatchMomentViewController
@@ -94,35 +99,65 @@
     [self.navigationController pushViewController:editVC animated:YES];
 }
 
-- (IBAction)onUpdateBtnClick:(id)sender {
 
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil
-                                                            delegate:self
-                                                   cancelButtonTitle:@"取消"
-                                              destructiveButtonTitle:@"从相册选取"
-                                                   otherButtonTitles:@"拍照",nil];
-    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
-}
+/**
+ *  点击相册按钮
+ *
+ *  @param sender
+ */
+- (IBAction)onPhotoAlbumClick:(UIButton *)sender {
 
-#pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
     UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
-    if (buttonIndex == 0)
-    {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
-    else if (buttonIndex == 1)
-    {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        [self presentViewController:imagePicker animated:YES completion:nil];
-    }
+    
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+/**
+ *  点击相机按钮
+ *
+ *  @param sender
+ */
+- (IBAction)onCameraClick:(id)sender {
+    
+    UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
+    imagePicker.delegate = self;
+    
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:imagePicker animated:YES completion:nil];
     
 }
+
+/**
+ *  点击更换字体按钮
+ *
+ *  @param sender
+ */
+- (IBAction)onFontClick:(id)sender {
+}
+
+/**
+ *  点击添加Label按钮
+ *
+ *  @param sender
+ */
+- (IBAction)onLabelClick:(UIButton *)sender {
+
+    UITextField *firstTF = [[UITextField alloc] init];
+    firstTF.frame = CGRectMake(0, 0, 200, 40);
+    firstTF.center = self.imageView.center;
+    firstTF.textColor = [UIColor whiteColor];
+    firstTF.text = @"此处文字可随意拖动!";
+
+    [self.view addSubview:firstTF];
+
+}
+
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo

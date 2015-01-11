@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CatchMomentViewController">
             <connections>
                 <outlet property="imageView" destination="ybu-Gf-S5b" id="PaL-33-iad"/>
-                <outlet property="updateBtn" destination="E6q-39-3cd" id="lPV-Pk-UBb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,17 +20,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E6q-39-3cd">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                    <state key="normal" title="点击上传图片">
-                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="onUpdateBtnClick:" destination="-1" eventType="touchUpInside" id="JeG-89-7au"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" id="2pu-ss-obe">
                     <rect key="frame" x="0.0" y="448" width="320" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -52,6 +40,9 @@
                             <state key="normal" image="bianji">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onLabelClick:" destination="-1" eventType="touchUpInside" id="GJ7-JB-D72"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="u1q-iK-RNf">
                             <rect key="frame" x="106" y="15" width="34" height="34"/>
@@ -59,6 +50,9 @@
                             <state key="normal" image="font">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onFontClick:" destination="-1" eventType="touchUpInside" id="vNh-gL-VqD"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jKr-Pq-ZQX">
                             <rect key="frame" x="182" y="15" width="34" height="34"/>
@@ -66,6 +60,9 @@
                             <state key="normal" image="zhaopian">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onPhotoAlbumClick:" destination="-1" eventType="touchUpInside" id="NXe-Z0-ci8"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hdz-4f-Hxl">
                             <rect key="frame" x="255" y="15" width="34" height="34"/>
@@ -73,6 +70,9 @@
                             <state key="normal" image="photo">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onCameraClick:" destination="-1" eventType="touchUpInside" id="4pa-s7-LmW"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>

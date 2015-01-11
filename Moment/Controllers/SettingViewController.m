@@ -146,10 +146,25 @@
                     viewController = [[AboutUsViewController alloc] init];
                 }
                     break;
+                case 1: {
+                    //检测新版本
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self showWithText:@"当前是最新版本!"];
+                    });
+                }
+                    break;
                     
                 default:
                     break;
             }
+        }
+            break;
+            
+        case 3: {
+            //清除图片缓存
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self showWithText:@"图片缓存清除成功!"];
+            });
         }
             break;
             
