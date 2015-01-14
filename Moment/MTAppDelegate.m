@@ -16,6 +16,7 @@
 #import "YHBaseNavigationController.h"
 #import "YHBaseTabbarController.h"
 
+#import "UMSocial.h"
 
 #define kWX_APP_ID @"1234567"
 
@@ -27,9 +28,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    
-    //向微信注册
-//    [WXApi registerApp:kWX_APP_ID withDescription:@"weixin"];
+    //友盟设置AppKey
+    [UMSocialData setAppKey:UM_APPKEY];
+
     
     // 设置状态栏字体为白色
     if (IOS7_OR_LATER) {

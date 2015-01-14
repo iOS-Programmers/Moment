@@ -10,4 +10,7 @@
 
 @interface MTAvatarCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *countLabel;
+
 @end

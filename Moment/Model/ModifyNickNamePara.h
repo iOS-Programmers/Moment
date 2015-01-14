@@ -10,4 +10,6 @@
 
 @interface ModifyNickNamePara : LXParameterModel
 
+@property (nonatomic, copy) NSString *nickname;
+
 @end

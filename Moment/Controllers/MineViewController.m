@@ -150,11 +150,11 @@
             }
         }
         
-        cell.textLabel.text = [MTUserInfo defaultUserInfo].nickname;
+        cell.nickNameLabel.text = [MTUserInfo defaultUserInfo].nickname;
         if (FBIsEmpty([MTUserInfo defaultUserInfo].nickname)) {
-            cell.textLabel.text = @"用户名";
+            cell.nickNameLabel.text = @"用户名";
         }
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"账号:%@",[MTUserInfo defaultUserInfo].mobile];
+        cell.countLabel.text = [NSString stringWithFormat:@"账号:%@",[MTUserInfo defaultUserInfo].mobile];
         
         if (!FBIsEmpty([MTUserInfo defaultUserInfo].avatar)) {
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];

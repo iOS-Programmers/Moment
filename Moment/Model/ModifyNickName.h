@@ -10,4 +10,9 @@
 
 @interface ModifyNickName : LXResultModel
 
+/**
+ *  1为成功，非1为失败
+ */
+@property (nonatomic, copy) NSString *status;
+
 @end

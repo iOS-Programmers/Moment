@@ -9,14 +9,23 @@
 #import "PersonInfoViewController.h"
 #import "UploadPictureHttp.h"
 #import "ModifyAvatarHttp.h"
+#import "ModifyNickNameHttp.h"
+#import "ModifyUserNameHttp.h"
 #import "PersionInfoAvatarCell.h"
+#import "MTEditTextViewController.h"
+#import "YHBaseNavigationController.h"
 
 @interface PersonInfoViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (strong, nonatomic) UploadPictureHttp *updatePicHttp;
 @property (strong, nonatomic) ModifyAvatarHttp *modifyAvatarHttp;
+@property (strong, nonatomic) ModifyNickNameHttp *modifyNicknameHttp;
+@property (strong, nonatomic) ModifyUserNameHttp *modifyusernameHttp;
 
 @property (strong, nonatomic) NSArray *titles;
+
+@property (copy, nonatomic) NSString *nickName;
+@property (copy, nonatomic) NSString *userName;
 
 @end
 
@@ -31,6 +40,8 @@
     
     self.updatePicHttp = [[UploadPictureHttp alloc] init];
     self.modifyAvatarHttp = [[ModifyAvatarHttp alloc] init];
+    self.modifyNicknameHttp = [[ModifyNickNameHttp alloc] init];
+    self.modifyusernameHttp = [[ModifyUserNameHttp alloc] init];
 
 }
 
@@ -80,14 +91,15 @@
                     cell = (PersionInfoAvatarCell *)oneObject;
                 }
             }
-            
-            
         }
         else {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
         }
         
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+       
+        if (indexPath.row != 3) {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }
         cell.textLabel.font = [UIFont systemFontOfSize:15];
     }
     
@@ -113,33 +125,52 @@
 
 #pragma mark - UITableView Delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+ 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    UIViewController *viewController = nil;
     
     NSInteger row = indexPath.row;
     
-    switch (row) {
-        case 0: {
-            UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil
-                                                                    delegate:self
-                                                           cancelButtonTitle:@"取消"
-                                                      destructiveButtonTitle:@"从相册选取"
-                                                           otherButtonTitles:@"拍照",nil];
-            actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-            [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
-
-        }
-            break;
-            
-        default:
-            break;
+    if (row == 3) {
+        return;
+    }
+    if (row == 0) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil
+                                                                delegate:self
+                                                       cancelButtonTitle:@"取消"
+                                                  destructiveButtonTitle:@"从相册选取"
+                                                       otherButtonTitles:@"拍照",nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
+        
+        return;
     }
     
-    if (viewController) {
-        viewController.hidesBottomBarWhenPushed = YES;
-        [self pushNewViewController:viewController];
+    MTEditTextViewController *vc = [[MTEditTextViewController alloc] init];
+    YHBaseNavigationController *nav = [[YHBaseNavigationController alloc] initWithRootViewController:vc];
+    if (row == 1) {
+        vc.titleStr = @"用户名";
     }
+    if (row == 2) {
+        vc.titleStr = @"昵称";
+    }
+    __weak PersonInfoViewController *weak_self = self;
+    EditBackBlock block = ^(NSString *str)
+    {
+        if (indexPath.row == 1) {
+            weak_self.userName = str;
+        }
+        if (indexPath.row == 2) {
+            weak_self.nickName = str;
+        }
+
+        [weak_self updateUserInfo:(int)indexPath.row];
+    };
+    [vc setBackBlock:block];
+    
+    vc.modalTransitionStyle = UIModalTransitionStyleCoverVertical;//添加动画
+    [self presentViewController:nav animated:YES completion:^{}];
     
 }
 
@@ -195,6 +226,81 @@
 //刷新界面
 - (void)refreshUI
 {
+    [self.tableView reloadData];
+}
+
+-(void)updateUserInfo:(int)type{
+    
+    //修改用户名
+    if (type == 1 && self.userName.length > 0) {
+       
+        self.modifyusernameHttp.parameter.username = self.userName;
+        [self showLoadingWithText:MT_LOADING];
+        __block PersonInfoViewController *weak_self = self;
+        [self.modifyusernameHttp getDataWithCompletionBlock:^{
+            [weak_self hideLoading];
+            if (weak_self.modifyusernameHttp.isValid)
+            {
+                if ([weak_self.modifyusernameHttp.resultModel.status isEqualToString:@"1"]) {
+                    [weak_self showWithText:@"修改用户名成功！"];
+                    
+                    //修改成功后，把昵称存在本地
+                    
+                    MTUserInfo *info = [[MTUserInfo alloc] init];
+                    info.username = weak_self.modifyusernameHttp.parameter.username;
+                    [MTUserInfo saveUserInfo:info];
+                    
+                    [weak_self refreshUI];
+                }
+            }
+        }failedBlock:^{
+            [weak_self hideLoading];
+            if (![LXUtils networkDetect])
+            {
+                [weak_self showWithText:MT_CHECKNET];
+            }
+            else
+            {   //统统归纳为服务器出错
+                [weak_self showWithText:MT_NETWRONG];
+            };
+        }];
+    }
+    
+    //修改昵称
+    if (type == 2 && self.nickName.length > 0) {
+        
+        self.modifyNicknameHttp.parameter.nickname = self.nickName;
+        [self showLoadingWithText:MT_LOADING];
+        __block PersonInfoViewController *weak_self = self;
+        [self.modifyNicknameHttp getDataWithCompletionBlock:^{
+            [weak_self hideLoading];
+            if (weak_self.modifyNicknameHttp.isValid)
+            {
+                if ([weak_self.modifyNicknameHttp.resultModel.status isEqualToString:@"1"]) {
+                    [weak_self showWithText:@"修改昵称成功！"];
+                    
+                    //修改成功后，把昵称存在本地
+                    
+                    MTUserInfo *info = [[MTUserInfo alloc] init];
+                    info.nickname = weak_self.modifyNicknameHttp.parameter.nickname;
+                    [MTUserInfo saveUserInfo:info];
+                    
+                    [weak_self refreshUI];
+                }
+            }
+        }failedBlock:^{
+            [weak_self hideLoading];
+            if (![LXUtils networkDetect])
+            {
+                [weak_self showWithText:MT_CHECKNET];
+            }
+            else
+            {   //统统归纳为服务器出错
+                [weak_self showWithText:MT_NETWRONG];
+            };
+        }];
+    }
+
     
 }
 
@@ -202,6 +308,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
+    imagePicker.allowsEditing = YES;
     imagePicker.delegate = self;
     if (buttonIndex == 0)
     {
@@ -225,7 +332,7 @@
     
     [picker dismissViewControllerAnimated:YES completion:nil];
     self.updatePicHttp.parameter.image = rightImage;
-    [self showLoadingWithText:MT_LOADING];
+    [self showLoadingWithText:MT_UPLOADING];
     __block PersonInfoViewController *weak_self = self;
     [self.updatePicHttp getDataWithCompletionBlock:^{
         [weak_self hideLoading];
