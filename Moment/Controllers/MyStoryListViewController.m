@@ -10,10 +10,12 @@
 #import "StoryListCell.h"
 
 #import "MyStoryHttp.h"
+#import "DeleMyStoryHttp.h"
 
 @interface MyStoryListViewController ()
 
 @property (strong, nonatomic) MyStoryHttp *myStoryHttp;
+@property (strong, nonatomic) DeleMyStoryHttp *delemyStoryHttp;
 
 @end
 
@@ -25,6 +27,7 @@
     self.title = @"我的故事";
     
     self.myStoryHttp = [[MyStoryHttp alloc] init];
+    self.delemyStoryHttp = [[DeleMyStoryHttp alloc] init];
     
     self.tableView.rowHeight = 88;
     
@@ -118,13 +121,72 @@
     return cell;
 }
 
+//UITableView可编辑
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    
+        MyStory *storyDetail = (MyStory *)self.dataSource[indexPath.row];
+        if (FBIsEmpty(storyDetail.tid)) {
+            return;
+        }
+        
+        self.delemyStoryHttp.parameter.tid = storyDetail.tid;
+        
+        /**
+         *  这里进行删除操作，
+         */
+        [self showLoadingWithText:@"删除中"];
+        __weak MyStoryListViewController *weak_self = self;
+        [self.delemyStoryHttp getDataWithCompletionBlock:^{
+            [weak_self hideLoading];
+            [weak_self.header endRefreshing];
+            if (weak_self.delemyStoryHttp.isValid)
+            {
+                if ([weak_self.delemyStoryHttp.resultModel.status isEqualToString:@"1"]) {
+                    //删除成功的回调
+                    [weak_self.dataSource removeObjectAtIndex:indexPath.row];
+                    // Delete the row from the data source.
+                    [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                    
+                    [weak_self.tableView reloadData];
+                }
+                
+            }
+            else
+            {   //显示服务端返回的错误提示
+                [weak_self showWithText:weak_self.delemyStoryHttp.erorMessage];
+            };
+        }failedBlock:^{
+            [weak_self hideLoading];
+            [weak_self.header endRefreshing];
+            
+            if (![LXUtils networkDetect])
+            {
+                [weak_self showWithText:MT_CHECKNET];
+            }
+            else
+            {
+                //统统归纳为服务器出错
+                [weak_self showWithText:MT_NETWRONG];
+            };
+        }];
+    }
+
+}
+
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
-
 
 
 #pragma mark 上下拉刷新的Delegate
