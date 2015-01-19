@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CommentInfo;
 
 @interface CommentCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UIButton *replyBtn;
+
+- (void)updateUIWithCommentInfo:(CommentInfo *)info;
 
 @end

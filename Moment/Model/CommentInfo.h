@@ -32,7 +32,7 @@
 @property (nonatomic, copy) NSString *message;
 
 //回复时间
-@property (nonatomic, copy) NSString *dataline;
+@property (nonatomic, copy) NSString *dateline;
 
 //点赞数
 @property (nonatomic, copy) NSString *support;

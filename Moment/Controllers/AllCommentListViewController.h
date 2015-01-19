@@ -10,4 +10,14 @@
 
 @interface AllCommentListViewController : YHBaseTableViewController
 
+/**
+ *  上级页面传入的故事ID
+ */
+@property (copy, nonatomic) NSString *tid;
+
+/**
+ *  上级页面传入的故事分类ID
+ */
+@property (copy, nonatomic) NSString *fid;
+
 @end

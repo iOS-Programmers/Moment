@@ -10,4 +10,13 @@
 
 @interface AddCommentPara : LXParameterModel
 
+//故事id
+@property (nonatomic, copy) NSString *tid;
+
+//分类id
+@property (nonatomic, copy) NSString *fid;
+
+//评论内容
+@property (nonatomic, copy) NSString *message;
+
 @end

@@ -136,9 +136,13 @@
 }
 
 
-- (void)requestMomentInfoWithId:(NSString *)storyId
+- (void)requestMomentInfoWithId:(MomentDetail *)detail
 {
-    self.momentInfoHttp.parameter.tid = storyId;
+    if (FBIsEmpty(detail.tid)) {
+        return;
+    }
+
+    self.momentInfoHttp.parameter.tid = detail.tid;
     
     [self showLoadingWithText:MT_LOADING];
     __weak FindMomentViewController *weak_self = self;
@@ -173,34 +177,40 @@
 
 - (void)gotoMomentDetailView:(MomentInfo *)info
 {
+    
     // Browser
-    NSMutableArray *photos = [[NSMutableArray alloc] init];
-    for (int i = 0; i < [info.pictureurls count]; i ++) {
-        MWPhoto *photo;
-        
-        photo = [MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.pictureurls[i]]]];
-        photo.caption = info.content;
-        [photos addObject:photo];
-    }
+//    NSMutableArray *photos = [[NSMutableArray alloc] init];
+//    for (int i = 0; i < [info.pictureurls count]; i ++) {
+//        MWPhoto *photo;
+//        
+//        photo = [MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.pictureurls[i]]]];
+//        photo.caption = info.content;
+//        [photos addObject:photo];
+//    }
+//
+//    self.photos = photos;
+//    
+//    // Create browser
+//    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+//    //    browser.displayActionButton = displayActionButton;
+//    //    browser.displayNavArrows = displayNavArrows;
+//    //    browser.displaySelectionButtons = displaySelectionButtons;
+//    //    browser.alwaysShowControls = displaySelectionButtons;
+//    browser.zoomPhotosToFill = YES;
+//#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+//    browser.wantsFullScreenLayout = YES;
+//#endif
+//    //    browser.enableGrid = enableGrid;
+//    //    browser.startOnGrid = startOnGrid;
+//    browser.enableSwipeToDismiss = YES;
+//    [browser setCurrentPhotoIndex:0];
+    
+//[self.navigationController pushViewController:browser animated:YES];
+    FindDetailViewController *detailVC = [[FindDetailViewController alloc] init];
 
-    self.photos = photos;
-    
-    // Create browser
-    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-    //    browser.displayActionButton = displayActionButton;
-    //    browser.displayNavArrows = displayNavArrows;
-    //    browser.displaySelectionButtons = displaySelectionButtons;
-    //    browser.alwaysShowControls = displaySelectionButtons;
-    browser.zoomPhotosToFill = YES;
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
-    browser.wantsFullScreenLayout = YES;
-#endif
-    //    browser.enableGrid = enableGrid;
-    //    browser.startOnGrid = startOnGrid;
-    browser.enableSwipeToDismiss = YES;
-    [browser setCurrentPhotoIndex:0];
-    
-    [self.navigationController pushViewController:browser animated:YES];
+    detailVC.momentInfo = info;
+    detailVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 #pragma mark - UITableView Delegate
 
@@ -209,7 +219,7 @@
     
     MomentDetail *detail = (MomentDetail *)self.dataSource[indexPath.row];
     
-    [self requestMomentInfoWithId:detail.tid];
+    [self requestMomentInfoWithId:detail];
 }
 
 #pragma mark - MWPhotoBrowserDelegate

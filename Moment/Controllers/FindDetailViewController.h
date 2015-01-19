@@ -7,7 +7,13 @@
 //
 
 #import "YHBaseViewController.h"
+#import "MomentInfo.h"
 
 @interface FindDetailViewController : YHBaseViewController
+
+/**
+ *  上次传入，必传
+ */
+@property (strong ,nonatomic) MomentInfo *momentInfo;
 
 @end

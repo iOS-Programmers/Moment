@@ -7,9 +7,11 @@
 //
 
 #import "FindDetailViewController.h"
+#import "AllCommentListViewController.h"
 
 @interface FindDetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @end
 
 @implementation FindDetailViewController
@@ -22,6 +24,8 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     self.navigationItem.rightBarButtonItem = [self findDetailrightNavItem];
+    
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +50,12 @@
 
 - (void)findDetailrightItemClick
 {
-    
+    //点击评论列表
+    AllCommentListViewController *listVC = [[AllCommentListViewController alloc] init];
+    listVC.tid = self.momentInfo.tid;
+    listVC.fid = self.momentInfo.fid;
+
+    [self.navigationController pushViewController:listVC animated:YES];
 }
 
 /*

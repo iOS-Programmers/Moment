@@ -10,4 +10,7 @@
 
 @interface AddComment : LXResultModel
 
+//消息id
+@property (nonatomic, copy) NSString *pid;
+
 @end
