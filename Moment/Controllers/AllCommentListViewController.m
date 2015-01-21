@@ -10,6 +10,7 @@
 #import "CommentCell.h"
 #import "CommentListHttp.h"
 #import "AddCommentHttp.h"
+#import "PlacehoderTextView.h"
 
 @interface AllCommentListViewController () <UITextViewDelegate>
 
@@ -18,7 +19,7 @@
 
 /*******评论View*********/
 @property (strong, nonatomic) IBOutlet UIView *commentView;
-@property (weak, nonatomic) IBOutlet UITextView *CommentTextView;
+@property (weak, nonatomic) IBOutlet PlacehoderTextView *CommentTextView;
 
 //点击评论Btn
 - (IBAction)onCommentBtnClick:(UIButton *)sender;
@@ -37,7 +38,8 @@
     self.title = @"评论";
     self.commentListHttp = [[CommentListHttp alloc] init];
     self.addCommentHttp = [[AddCommentHttp alloc] init];
-
+    
+    self.CommentTextView.placeholder = @"我来说两句...";
     
     [self requestStoryCommentList];
     
@@ -194,6 +196,7 @@
              *  更新数据
              */
             [weak_self showWithText:@"评论成功"];
+            weak_self.CommentTextView.text = @"";
             [weak_self requestStoryCommentList];
         }
         else

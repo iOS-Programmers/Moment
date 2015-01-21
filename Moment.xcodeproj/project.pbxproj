@@ -114,6 +114,7 @@
 		1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692DE861A47C7B10030ACE6 /* MomentListHttp.m */; };
 		1692DE8A1A47C7C40030ACE6 /* MomentListPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692DE891A47C7C40030ACE6 /* MomentListPara.m */; };
 		1692DE8D1A47C7D10030ACE6 /* MomentList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1692DE8C1A47C7D10030ACE6 /* MomentList.m */; };
+		16937C281A6FFE4B00E199B4 /* PlacehoderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16937C271A6FFE4B00E199B4 /* PlacehoderTextView.m */; };
 		1698EB161A47E89D00C69BC1 /* MomentDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB151A47E89D00C69BC1 /* MomentDetail.m */; };
 		1698EB191A4802A300C69BC1 /* UploadPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB181A4802A300C69BC1 /* UploadPicture.m */; };
 		1698EB1C1A4802AE00C69BC1 /* UploadPicturePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB1B1A4802AE00C69BC1 /* UploadPicturePara.m */; };
@@ -171,7 +172,6 @@
 		16B7F9221A49562C00B7629B /* PersonInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B7F9201A49562C00B7629B /* PersonInfoViewController.xib */; };
 		16B7F9261A496E6700B7629B /* EditStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F9241A496E6700B7629B /* EditStoryViewController.m */; };
 		16B7F9271A496E6700B7629B /* EditStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B7F9251A496E6700B7629B /* EditStoryViewController.xib */; };
-		16B7F9311A4972A200B7629B /* PlacehoderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F9301A4972A200B7629B /* PlacehoderTextView.m */; };
 		16DA0B1B1A46C7E2008D1114 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B1A1A46C7E2008D1114 /* NSString+MD5.m */; };
 		16DA0B5C1A46CA87008D1114 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B1F1A46CA87008D1114 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16DA0B5D1A46CA87008D1114 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B221A46CA87008D1114 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -418,6 +418,8 @@
 		1692DE891A47C7C40030ACE6 /* MomentListPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentListPara.m; sourceTree = "<group>"; };
 		1692DE8B1A47C7D10030ACE6 /* MomentList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentList.h; sourceTree = "<group>"; };
 		1692DE8C1A47C7D10030ACE6 /* MomentList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentList.m; sourceTree = "<group>"; };
+		16937C261A6FFE4B00E199B4 /* PlacehoderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacehoderTextView.h; sourceTree = "<group>"; };
+		16937C271A6FFE4B00E199B4 /* PlacehoderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacehoderTextView.m; sourceTree = "<group>"; };
 		1698EB141A47E89D00C69BC1 /* MomentDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentDetail.h; sourceTree = "<group>"; };
 		1698EB151A47E89D00C69BC1 /* MomentDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentDetail.m; sourceTree = "<group>"; };
 		1698EB171A4802A300C69BC1 /* UploadPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadPicture.h; sourceTree = "<group>"; };
@@ -521,8 +523,6 @@
 		16B7F9231A496E6700B7629B /* EditStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditStoryViewController.h; sourceTree = "<group>"; };
 		16B7F9241A496E6700B7629B /* EditStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditStoryViewController.m; sourceTree = "<group>"; };
 		16B7F9251A496E6700B7629B /* EditStoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditStoryViewController.xib; sourceTree = "<group>"; };
-		16B7F92F1A4972A200B7629B /* PlacehoderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacehoderTextView.h; sourceTree = "<group>"; };
-		16B7F9301A4972A200B7629B /* PlacehoderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacehoderTextView.m; sourceTree = "<group>"; };
 		16DA0B191A46C7E2008D1114 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
 		16DA0B1A1A46C7E2008D1114 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
 		16DA0B1E1A46CA87008D1114 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -1020,18 +1020,10 @@
 		16B7F92D1A4972A200B7629B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				16B7F92E1A4972A200B7629B /* PlacehoderTextView */,
+				16937C261A6FFE4B00E199B4 /* PlacehoderTextView.h */,
+				16937C271A6FFE4B00E199B4 /* PlacehoderTextView.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		16B7F92E1A4972A200B7629B /* PlacehoderTextView */ = {
-			isa = PBXGroup;
-			children = (
-				16B7F92F1A4972A200B7629B /* PlacehoderTextView.h */,
-				16B7F9301A4972A200B7629B /* PlacehoderTextView.m */,
-			);
-			path = PlacehoderTextView;
 			sourceTree = "<group>";
 		};
 		16DA0B1C1A46CA87008D1114 /* ASIHttpRequest 1.8.1 */ = {
@@ -1577,7 +1569,6 @@
 				16B2F58D1A4D376900FDE382 /* CommentMe.m in Sources */,
 				16B7F8471A491F5300B7629B /* AboutUsViewController.m in Sources */,
 				160D0D5C1A486CA50025A6D5 /* ModifyUserNameHttp.m in Sources */,
-				16B7F9311A4972A200B7629B /* PlacehoderTextView.m in Sources */,
 				16DA0B661A46CA87008D1114 /* ASICloudFilesContainer.m in Sources */,
 				166B3E0B1A42C5BB005C4706 /* MTTextFiedBGView.m in Sources */,
 				1617F6CB1A36D80200B5F7C3 /* MTStoreManager.m in Sources */,
@@ -1635,6 +1626,7 @@
 				16DA0B6A1A46CA87008D1114 /* ASICloudFilesObjectRequest.m in Sources */,
 				1617F6B11A36897600B5F7C3 /* RegisterViewController.m in Sources */,
 				16DA0B6F1A46CA87008D1114 /* ASIS3ObjectRequest.m in Sources */,
+				16937C281A6FFE4B00E199B4 /* PlacehoderTextView.m in Sources */,
 				16DA0B1B1A46C7E2008D1114 /* NSString+MD5.m in Sources */,
 				160D0D651A486DA90025A6D5 /* ModifyNickNamePara.m in Sources */,
 				16B7F8341A49093500B7629B /* CommentInfo.m in Sources */,

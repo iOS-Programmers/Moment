@@ -10,7 +10,7 @@
 #import "PlacehoderTextView.h"
 #import "AdMomentHttp.h"
 
-@interface EditStoryViewController () <UITextViewDelegate>
+@interface EditStoryViewController () <UITextViewDelegate, UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *storyContentView;
 @property (weak, nonatomic) IBOutlet UITextField *storyTitleTF;
@@ -59,7 +59,12 @@
 */
 
 #pragma mark - IBAction
+/**
+ *  点击选择故事分类
+ */
 - (IBAction)onChooseStoryTypeClick:(id)sender {
+    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"选择故事分类" delegate:self cancelButtonTitle:@"返回" destructiveButtonTitle:nil otherButtonTitles:@"因为爱情",@"青春、梦想、那些年",@"那些故事", nil];
+    [action  showInView:self.view];
 }
 
 - (IBAction)onPublishBtnClick:(UIButton *)sender {
@@ -74,13 +79,17 @@
     }
     
     if (FBIsEmpty(self.imageIds)) {
-        [self showWithText:@"您未上传任何图片"];
+        [self showWithText:@"您未上传任何图片!"];
+        return;
+    }
+    
+    if (FBIsEmpty(self.addMomentHttp.parameter.fid)) {
+        [self showWithText:@"请选择故事分类!"];
         return;
     }
     
     self.addMomentHttp.parameter.pictureurls = [self.imageIds componentsJoinedByString:@","];
-    
-    self.addMomentHttp.parameter.fid = @"2";
+
     self.addMomentHttp.parameter.title = self.storyTitleTF.text;
     self.addMomentHttp.parameter.content = self.textView.text;
     
@@ -121,5 +130,34 @@
         return NO;
     }
     return YES;
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+        {
+            [self.chooseStoryTypeBtn setTitle:@"因为爱情" forState:UIControlStateNormal];
+            self.addMomentHttp.parameter.fid = @"1";
+        }
+            break;
+        case 1:
+        {
+            [self.chooseStoryTypeBtn setTitle:@"青春、梦想、那些年" forState:UIControlStateNormal];
+            self.addMomentHttp.parameter.fid = @"2";
+        }
+            break;
+        case 2:
+        {
+            [self.chooseStoryTypeBtn setTitle:@"那些故事" forState:UIControlStateNormal];
+            self.addMomentHttp.parameter.fid = @"3";
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 @end

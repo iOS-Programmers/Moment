@@ -25,7 +25,10 @@
     
     self.navigationItem.rightBarButtonItem = [self findDetailrightNavItem];
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]]];
+    if ([self.momentInfo.pictureurls count] > 0) {
+        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]]];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {
