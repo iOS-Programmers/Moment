@@ -22,6 +22,12 @@
 //装图片的数组
 @property (nonatomic, strong) NSMutableArray *photos;
 
+@property (strong, nonatomic) UIButton *titleBtn;
+
+@property (strong, nonatomic) IBOutlet UIView *storyTypeView;
+
+- (IBAction)onStoryTypeBtnClick:(UIButton *)sender;
+
 @end
 
 @implementation FindMomentViewController
@@ -34,12 +40,32 @@
     self.momentInfoHttp = [[MomentInfoHttp alloc] init];
     self.photos = [[NSMutableArray alloc] init];
     
+    self.momentHttp.parameter.fid = @"0";
+    
     self.tableView.rowHeight = 118;
     
     [self requestMomentList];
     
     //添加下拉刷新
     self.canPullRefresh = YES;
+    
+    self.titleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.titleBtn.frame = CGRectMake(0, 0, 300, 44);
+    self.titleBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    self.titleBtn.titleLabel.textColor = [UIColor whiteColor];
+    self.titleBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.titleBtn setTitle:@"发现瞬间" forState:UIControlStateNormal];
+    [self.titleBtn addTarget:self action:@selector(onTitleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.storyTypeView.layer.borderWidth = 0.5;
+    self.storyTypeView.layer.cornerRadius = 3;
+    self.storyTypeView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+
+    [self.storyTypeView frameSetPoint:CGPointMake(([LXUtils GetScreeWidth]/2 - CGRectGetWidth(self.storyTypeView.frame)/2), 0)];
+    self.storyTypeView.hidden = YES;
+    [self.view addSubview:self.storyTypeView];
+
+    self.navigationItem.titleView = self.titleBtn;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -54,11 +80,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Request
+
 - (void)requestMomentList
 {
-    self.momentHttp.parameter.fid = @"0";
-    self.momentHttp.parameter.pagesize = @"10";
-    
+    self.momentHttp.parameter.pagesize = @"20";
     
     [self showLoadingWithText:MT_LOADING];
     __weak FindMomentViewController *weak_self = self;
@@ -104,6 +130,59 @@
     }
     
     [self.tableView reloadData];
+}
+
+#pragma mark - IBAciton
+
+- (IBAction)onStoryTypeBtnClick:(UIButton *)sender {
+
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.storyTypeView setHidden:YES];
+    }];
+    
+    switch (sender.tag) {
+        case 0:
+        {
+            //因为爱情
+            self.momentHttp.parameter.fid = @"1";
+        }
+            break;
+        case 1:
+        {
+            //青春梦想
+            self.momentHttp.parameter.fid = @"2";
+        }
+            break;
+        case 2:
+        {
+            //那些故事
+            self.momentHttp.parameter.fid = @"3";
+        }
+            break;
+        case 3:
+        {
+            //闪耀瞬间
+            self.momentHttp.parameter.fid = @"4";
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self.titleBtn setTitle:sender.titleLabel.text forState:UIControlStateNormal];
+    
+    [self requestMomentList];
+}
+
+/**
+ *  点击标题事件
+ */
+- (void)onTitleBtnClick:(id)sender
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.storyTypeView setHidden:!self.storyTypeView.hidden];
+    }];
 }
 
 #pragma mark - UITableView DataSource
@@ -247,5 +326,6 @@
         
     }
 }
+
 
 @end
