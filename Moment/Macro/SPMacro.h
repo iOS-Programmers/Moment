@@ -21,6 +21,9 @@
 //工具类
 #import "LXUtils.h"
 
+//UIView类别扩展
+#import "UIView+Utils.h"
+
 #import "MTAppDelegate.h"
 
 #import "UIImageView+WebCache.h"

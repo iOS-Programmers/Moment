@@ -29,7 +29,7 @@
 @property (nonatomic, copy) NSString *litpic;
 
 //时间
-@property (nonatomic, copy) NSString *dataline;
+@property (nonatomic, copy) NSString *dateline;
 
 
 @end

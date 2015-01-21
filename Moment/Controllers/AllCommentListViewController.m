@@ -11,10 +11,20 @@
 #import "CommentListHttp.h"
 #import "AddCommentHttp.h"
 
-@interface AllCommentListViewController ()
+@interface AllCommentListViewController () <UITextViewDelegate>
 
 @property (strong, nonatomic) CommentListHttp *commentListHttp;
 @property (strong, nonatomic) AddCommentHttp *addCommentHttp;
+
+/*******评论View*********/
+@property (strong, nonatomic) IBOutlet UIView *commentView;
+@property (weak, nonatomic) IBOutlet UITextView *CommentTextView;
+
+//点击评论Btn
+- (IBAction)onCommentBtnClick:(UIButton *)sender;
+
+- (IBAction)onCancleBtnClick:(UIButton *)sender;
+- (IBAction)onSendBtnClick:(UIButton *)sender;
 
 @end
 
@@ -23,6 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.title = @"评论";
     self.commentListHttp = [[CommentListHttp alloc] init];
     self.addCommentHttp = [[AddCommentHttp alloc] init];
 
@@ -31,9 +43,12 @@
     
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.rowHeight = 120;
+    self.tableView.frame = CGRectMake(0, 0, [LXUtils GetScreeWidth], [LXUtils getContentViewHeight] +20);
     self.tableView.separatorColor = [UIColor clearColor];
-
-    self.navigationItem.rightBarButtonItem = [self commentListNavItem];
+    
+    //设置评论View的默认位置
+    self.commentView.frame = CGRectMake(0, [LXUtils GetScreeHeight], [LXUtils GetScreeWidth], CGRectGetHeight(self.commentView.frame));
+    [self.view addSubview:self.commentView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,27 +111,78 @@
     [self.tableView reloadData];
 }
 
-- (UIBarButtonItem *)commentListNavItem
+#pragma mark Keyboard
+-(void)keyboardWillShow:(NSNotification*)notif
 {
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.frame = CGRectMake(0.0f, 0.0f, 35, 35);
-    btn.backgroundColor = [UIColor clearColor];
-//    [btn setImage:[UIImage imageNamed:@"评论"] forState:UIControlStateNormal];
-    [btn setTitle:@"评论" forState:UIControlStateNormal];
-    btn.showsTouchWhenHighlighted = YES;
-    [btn.titleLabel setFont:[UIFont systemFontOfSize:14]];
-    [btn addTarget:self action:@selector(commentListNavItemClick) forControlEvents:UIControlEventTouchUpInside];
-    [btn showsTouchWhenHighlighted];
+    NSDictionary *info = [notif userInfo];
+    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGFloat keyboardHeight = [value CGRectValue].size.height;
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
-    return item;
+    NSNumber *duration = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [info objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    
+    // 添加移动动画，使视图跟随键盘移动
+    [UIView animateWithDuration:[duration doubleValue] animations:^{
+        [UIView setAnimationCurve:[curve intValue]];
+        [self.commentView frameSetY:[LXUtils getContentViewHeight] - keyboardHeight - CGRectGetHeight(self.commentView.frame)];
+    }];
+    
+    
 }
 
-- (void)commentListNavItemClick
+-(void)keyboardWillHide:(NSNotification*)notif
+{
+    [self.commentView frameSetY:[LXUtils getContentViewHeight]];
+}
+
+
+#pragma mark - IBAciton
+
+/**
+ *  点击弹出
+ *
+ *  @param sender
+ */
+- (IBAction)onCommentBtnClick:(UIButton *)sender {
+    
+    [self.CommentTextView becomeFirstResponder];
+}
+
+/**
+ *  取消
+ *
+ *  @param sender
+ */
+- (IBAction)onCancleBtnClick:(UIButton *)sender {
+
+    [self.CommentTextView resignFirstResponder];
+}
+
+/**
+ *  发送
+ *
+ *  @param sender
+ */
+- (IBAction)onSendBtnClick:(UIButton *)sender {
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.commentView frameSetY:[LXUtils GetScreeHeight]];
+        [self.CommentTextView resignFirstResponder];
+        
+        [self sendCommentContent];
+    }];
+}
+
+
+- (void)sendCommentContent
 {
     self.addCommentHttp.parameter.tid = self.tid;
     self.addCommentHttp.parameter.fid = self.fid;
-    self.addCommentHttp.parameter.message = @"有些事，我都已忘记，但我现在还记得，在一个晚上，我的母亲问我今天怎么不开心，我说在我的想象中，有一双滑板鞋，与众不同最时尚，跳舞肯定棒。";
+    if ([self.CommentTextView.text length] < 1) {
+        [self showWithText:@"请输入评论内容"];
+        return;
+    }
+    
+    self.addCommentHttp.parameter.message = self.CommentTextView.text;
     [self showLoadingWithText:MT_LOADING];
     __weak AllCommentListViewController *weak_self = self;
     [self.addCommentHttp getDataWithCompletionBlock:^{
@@ -127,8 +193,8 @@
             /**
              *  更新数据
              */
-//            [weak_self updateMomentListWithInfo:weak_self.commentListHttp.resultModel.dataArray];
-            [weak_self.tableView reloadData];
+            [weak_self showWithText:@"评论成功"];
+            [weak_self requestStoryCommentList];
         }
         else
         {   //显示服务端返回的错误提示
@@ -181,5 +247,6 @@
     
     return cell;
 }
+
 
 @end

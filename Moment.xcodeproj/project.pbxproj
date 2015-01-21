@@ -121,6 +121,8 @@
 		1698EB241A48179B00C69BC1 /* AdMomentHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB231A48179B00C69BC1 /* AdMomentHttp.m */; };
 		1698EB271A4817A800C69BC1 /* AdMoment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB261A4817A800C69BC1 /* AdMoment.m */; };
 		1698EB2D1A4817D200C69BC1 /* AdMomentPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1698EB2C1A4817D200C69BC1 /* AdMomentPara.m */; };
+		169FA86E1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 169FA86C1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.m */; };
+		169FA86F1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 169FA86D1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.xib */; };
 		16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252941A41D02B00B658D6 /* SysMessageViewController.m */; };
 		16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B252951A41D02B00B658D6 /* SysMessageViewController.xib */; };
 		16B2F56C1A4D2F3000FDE382 /* SystemMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F56B1A4D2F3000FDE382 /* SystemMessage.m */; };
@@ -432,6 +434,9 @@
 		1698EB261A4817A800C69BC1 /* AdMoment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMoment.m; sourceTree = "<group>"; };
 		1698EB2B1A4817D200C69BC1 /* AdMomentPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdMomentPara.h; sourceTree = "<group>"; };
 		1698EB2C1A4817D200C69BC1 /* AdMomentPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdMomentPara.m; sourceTree = "<group>"; };
+		169FA86B1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		169FA86C1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		169FA86D1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		16B252931A41D02B00B658D6 /* SysMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysMessageViewController.h; sourceTree = "<group>"; };
 		16B252941A41D02B00B658D6 /* SysMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysMessageViewController.m; sourceTree = "<group>"; };
 		16B252951A41D02B00B658D6 /* SysMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysMessageViewController.xib; sourceTree = "<group>"; };
@@ -766,6 +771,9 @@
 				1617F6AE1A36897500B5F7C3 /* RegisterViewController.h */,
 				1617F6AF1A36897600B5F7C3 /* RegisterViewController.m */,
 				1617F6B01A36897600B5F7C3 /* RegisterViewController.xib */,
+				169FA86B1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.h */,
+				169FA86C1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.m */,
+				169FA86D1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.xib */,
 				166B3E091A42C5BB005C4706 /* MTTextFiedBGView.h */,
 				166B3E0A1A42C5BB005C4706 /* MTTextFiedBGView.m */,
 			);
@@ -1458,6 +1466,7 @@
 				1617F6C11A368C6100B5F7C3 /* CatchMomentViewController.xib in Resources */,
 				16DA0B721A46CA87008D1114 /* README-GHUnit in Resources */,
 				16DA0B741A46CA87008D1114 /* LICENSE in Resources */,
+				169FA86F1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.xib in Resources */,
 				16B7F91D1A494C2A00B7629B /* MyCommentListCell.xib in Resources */,
 				1617F6AD1A36896200B5F7C3 /* LoginViewController.xib in Resources */,
 				167CD4EF1A6656B30033C72C /* MTEditTextViewController.xib in Resources */,
@@ -1589,6 +1598,7 @@
 				1698EB271A4817A800C69BC1 /* AdMoment.m in Sources */,
 				16DA0B961A47059E008D1114 /* LoginPara.m in Sources */,
 				160D0D471A4865770025A6D5 /* MyProfilePara.m in Sources */,
+				169FA86E1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.m in Sources */,
 				1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */,
 				16B2F59C1A4D37FF00FDE382 /* SupportCommentPara.m in Sources */,
 				1698EB191A4802A300C69BC1 /* UploadPicture.m in Sources */,

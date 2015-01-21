@@ -8,20 +8,39 @@
 
 #import "MyCommentListViewController.h"
 #import "MyCommentListCell.h"
+#import "MyCommentListHttp.h"
+#import "CommentMeListHttp.h"
 
 @interface MyCommentListViewController ()
 
+@property (strong, nonatomic) MyCommentListHttp *mycommentHttp;
+@property (strong, nonatomic) CommentMeListHttp *commentmeHttp;
+
+/**
+ *  设置是评论我的，还是我的评论的tag
+ */
+@property (nonatomic) BOOL isMyCommentTag;
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segementControl;
+- (IBAction)segementAction:(id)sender;
 @end
 
 @implementation MyCommentListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.tableView.rowHeight = 165;
+
+    //初始化
+    self.mycommentHttp = [[MyCommentListHttp alloc] init];
+    self.commentmeHttp = [[CommentMeListHttp alloc] init];
     
+    self.isMyCommentTag = YES;
+    
+    self.tableView.rowHeight = 165;
+    [self.tableView setFrame:CGRectMake(0, 50, [LXUtils GetScreeWidth], [LXUtils getContentViewHeight] + 10)];
     self.title = @"我的评论";
     
+    [self requestMyCommentList];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,20 +48,128 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Request
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)requestMyCommentList
+{
+    __weak MyCommentListViewController *weak_self = self;
+    [self.mycommentHttp getDataWithCompletionBlock:^{
+        
+        if (weak_self.mycommentHttp.isValid)
+        {
+            /**
+             *  更新我的评论列表数据
+             */
+            [weak_self updateMyCommentListWithInfo:weak_self.mycommentHttp.resultModel.dataArray];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.mycommentHttp.erorMessage];
+        };
+    }failedBlock:^{
+        
+        [weak_self.header endRefreshing];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
 }
-*/
+
+- (void)requestCommentMeList
+{
+    __weak MyCommentListViewController *weak_self = self;
+    [self.commentmeHttp getDataWithCompletionBlock:^{
+        
+        if (weak_self.commentmeHttp.isValid)
+        {
+            /**
+             *  更新评论我的列表数据
+             */
+            [weak_self updateCommentMeListWithInfo:weak_self.commentmeHttp.resultModel.dataArray];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.commentmeHttp.erorMessage];
+        };
+    }failedBlock:^{
+        
+        [weak_self.header endRefreshing];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+}
+
+/**
+ *  更新界面信息
+ *
+ *  @param infoArray 列表数组
+ */
+- (void)updateMyCommentListWithInfo:(NSMutableArray *)array
+{
+    [self.header endRefreshing];
+    
+    self.isMyCommentTag = YES;
+    self.dataSource = array;
+    
+    [self.tableView reloadData];
+}
+
+/**
+ *  更新列表信息
+ *
+ *  @param infoArray 列表数组
+ */
+- (void)updateCommentMeListWithInfo:(NSMutableArray *)array
+{
+    [self.header endRefreshing];
+    
+    self.isMyCommentTag = NO;
+    self.dataSource = array;
+    
+    [self.tableView reloadData];
+}
+
+
+- (IBAction)segementAction:(id)sender {
+    UISegmentedControl *segement = (UISegmentedControl *)sender;
+    switch (segement.selectedSegmentIndex) {
+        case 0:
+        {
+            //我的评论
+            [self requestMyCommentList];
+        }
+            break;
+        case 1:
+        {
+            //评论我的
+            [self requestCommentMeList];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 
 #pragma mark - UITableView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return [self.dataSource count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,6 +188,24 @@
         }
     }
     
+    if (self.isMyCommentTag) {
+        MyComment *info = (MyComment *)self.dataSource[indexPath.row];
+        [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]]];
+        cell.titleLabel.text = info.title;
+        cell.mycommentLabel.text = info.message;
+        cell.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
+        [cell.litpicImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.litpic]]];
+        
+    }
+    else {
+        CommentMe *info = (CommentMe *)self.dataSource[indexPath.row];
+        [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]]];
+        cell.titleLabel.text = info.title;
+        cell.mycommentLabel.text = info.message;
+        cell.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
+        [cell.litpicImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.litpic]]];
+    }
+    
     return cell;
 }
 
@@ -70,5 +215,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+
 
 @end

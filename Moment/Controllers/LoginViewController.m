@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "ForgetPasswordViewController.h"
 #import "MTAppDelegate.h"
 #import "MTTextFiedBGView.h"
 #import "LoginHttp.h"
@@ -178,7 +179,11 @@
   
 }
 
+
 - (IBAction)onFindPswBtnClick:(UIButton *)sender {
+    
+    ForgetPasswordViewController *vc = [[ForgetPasswordViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)onQQLoginBtnClick:(UIButton *)sender {

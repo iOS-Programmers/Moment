@@ -13,6 +13,7 @@
 @interface SysMessageViewController ()
 
 @property (strong, nonatomic) SystemMessageHttp *messageHttp;
+
 @end
 
 @implementation SysMessageViewController
@@ -37,7 +38,6 @@
 
 - (void)requestMessageList
 {
-    
     __weak SysMessageViewController *weak_self = self;
     [self.messageHttp getDataWithCompletionBlock:^{
     

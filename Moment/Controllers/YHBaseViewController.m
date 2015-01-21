@@ -217,6 +217,9 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 #endif
+    
+    [self registerKeyboardEvent];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -235,6 +238,35 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidChangeFrameNotification object:nil];
+}
+
+#pragma mark Keyboard
+-(void)keyboardWillShow:(NSNotification*)notif
+{
+    
+}
+
+-(void)keyboardWillHide:(NSNotification*)notif
+{
+    
+}
+
+-(void)keyboardWasChange:(NSNotification*)notif
+{
+    
+}
+
+-(void)registerKeyboardEvent
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasChange:) name:UIKeyboardDidChangeFrameNotification object:nil];
 }
 
 #pragma mark - View rotation

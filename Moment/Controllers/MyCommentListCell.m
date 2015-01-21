@@ -12,6 +12,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.avatarImage.layer.cornerRadius = CGRectGetWidth(self.avatarImage.frame)/2;
+    self.avatarImage.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
