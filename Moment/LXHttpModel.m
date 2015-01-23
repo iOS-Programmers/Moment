@@ -93,7 +93,7 @@
     
     self.path =[NSString stringWithFormat:@"%@/index.php/Index/",[[NSUserDefaults standardUserDefaults] objectForKey:@"hostName"]];
     
-    if ([self.apiFuncName isEqualToString:@"getValidateCode"]||[self.apiFuncName isEqualToString:@"userRegister"]||[self.apiFuncName isEqualToString:@"userLogin"]||[self.apiFuncName isEqualToString:@"resetPassword"])
+    if ([self.apiFuncName isEqualToString:@"getValidateCode"]||[self.apiFuncName isEqualToString:@"userRegister"]||[self.apiFuncName isEqualToString:@"userLogin"]||[self.apiFuncName isEqualToString:@"changePassword"] || [self.apiFuncName isEqualToString:@"checkValidateCode"])
     {
         self.path = [NSString stringWithFormat:@"%@%@?",self.path,self.apiFuncName];
     }

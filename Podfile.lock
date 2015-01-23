@@ -30,6 +30,7 @@ PODS:
 DEPENDENCIES:
   - ASIHTTPRequest (~> 1.8.2)
   - JSONKit-NoWarning (~> 1.2)
+  - MBProgressHUD (~> 0.9)
   - MWPhotoBrowser
   - SSKeychain (~> 1.2.2)
 

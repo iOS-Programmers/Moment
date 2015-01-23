@@ -48,7 +48,7 @@
 
 -(void)switchValueChange:(UISwitch *)sw
 {
-    NSLog(@"section:%i,switch:%i",sw.tag, sw.on);
+    NSLog(@"section:%li,switch:%i",(long)sw.tag, sw.on);
 }
 
 /**

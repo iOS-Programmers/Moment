@@ -59,7 +59,7 @@
     if (!value) {
         return NO;
     }else {
-        length = value.length;
+        length = (int)value.length;
         
         if (length != 15 && length !=18) {
             return NO;

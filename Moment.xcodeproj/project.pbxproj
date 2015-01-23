@@ -39,14 +39,6 @@
 		1617F68A1A36876F00B5F7C3 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F62D1A36876F00B5F7C3 /* MJRefreshBaseView.m */; };
 		1617F68B1A36876F00B5F7C3 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F62F1A36876F00B5F7C3 /* MJRefreshFooterView.m */; };
 		1617F68C1A36876F00B5F7C3 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6311A36876F00B5F7C3 /* MJRefreshHeaderView.m */; };
-		1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6341A36876F00B5F7C3 /* ChineseInclude.m */; };
-		1617F68E1A36876F00B5F7C3 /* ChineseToPinyinResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6361A36876F00B5F7C3 /* ChineseToPinyinResource.m */; };
-		1617F68F1A36876F00B5F7C3 /* HanyuPinyinOutputFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6381A36876F00B5F7C3 /* HanyuPinyinOutputFormat.m */; };
-		1617F6901A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F63A1A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m */; };
-		1617F6911A36876F00B5F7C3 /* PinyinFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F63C1A36876F00B5F7C3 /* PinyinFormatter.m */; };
-		1617F6921A36876F00B5F7C3 /* PinYinForObjc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F63E1A36876F00B5F7C3 /* PinYinForObjc.m */; };
-		1617F6931A36876F00B5F7C3 /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6401A36876F00B5F7C3 /* PinyinHelper.m */; };
-		1617F6941A36876F00B5F7C3 /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6411A36876F00B5F7C3 /* unicode_to_hanyu_pinyin.txt */; };
 		1617F6A31A36877000B5F7C3 /* SGFocusImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6621A36876F00B5F7C3 /* SGFocusImageFrame.m */; };
 		1617F6AC1A36896200B5F7C3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6AA1A36896200B5F7C3 /* LoginViewController.m */; };
 		1617F6AD1A36896200B5F7C3 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6AB1A36896200B5F7C3 /* LoginViewController.xib */; };
@@ -120,6 +112,12 @@
 		16B031B91A70AD3D00133ACA /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B031B81A70AD3D00133ACA /* libstdc++.dylib */; };
 		16B031BF1A70D8B100133ACA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B031BB1A70D8B100133ACA /* libWeChatSDK.a */; };
 		16B031C01A70D8B100133ACA /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 16B031BC1A70D8B100133ACA /* read_me.txt */; };
+		16B031CE1A722CCD00133ACA /* CheckValidateCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B031CD1A722CCD00133ACA /* CheckValidateCode.m */; };
+		16B031D11A722CD900133ACA /* CheckValidateCodePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B031D01A722CD900133ACA /* CheckValidateCodePara.m */; };
+		16B031D41A722D0700133ACA /* CheckValidateCodeHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B031D31A722D0700133ACA /* CheckValidateCodeHttp.m */; };
+		16B031D71A722D2200133ACA /* ChangePassword.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B031D61A722D2200133ACA /* ChangePassword.m */; };
+		16B031DA1A722D2C00133ACA /* ChangePasswordPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B031D91A722D2C00133ACA /* ChangePasswordPara.m */; };
+		16B031DD1A722D3600133ACA /* ChangePasswordHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B031DC1A722D3600133ACA /* ChangePasswordHttp.m */; };
 		16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B252941A41D02B00B658D6 /* SysMessageViewController.m */; };
 		16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B252951A41D02B00B658D6 /* SysMessageViewController.xib */; };
 		16B2F56C1A4D2F3000FDE382 /* SystemMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B2F56B1A4D2F3000FDE382 /* SystemMessage.m */; };
@@ -264,21 +262,6 @@
 		1617F62F1A36876F00B5F7C3 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
 		1617F6301A36876F00B5F7C3 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
 		1617F6311A36876F00B5F7C3 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
-		1617F6331A36876F00B5F7C3 /* ChineseInclude.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseInclude.h; sourceTree = "<group>"; };
-		1617F6341A36876F00B5F7C3 /* ChineseInclude.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseInclude.m; sourceTree = "<group>"; };
-		1617F6351A36876F00B5F7C3 /* ChineseToPinyinResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyinResource.h; sourceTree = "<group>"; };
-		1617F6361A36876F00B5F7C3 /* ChineseToPinyinResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyinResource.m; sourceTree = "<group>"; };
-		1617F6371A36876F00B5F7C3 /* HanyuPinyinOutputFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HanyuPinyinOutputFormat.h; sourceTree = "<group>"; };
-		1617F6381A36876F00B5F7C3 /* HanyuPinyinOutputFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HanyuPinyinOutputFormat.m; sourceTree = "<group>"; };
-		1617F6391A36876F00B5F7C3 /* NSString+PinYin4Cocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PinYin4Cocoa.h"; sourceTree = "<group>"; };
-		1617F63A1A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PinYin4Cocoa.m"; sourceTree = "<group>"; };
-		1617F63B1A36876F00B5F7C3 /* PinyinFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinFormatter.h; sourceTree = "<group>"; };
-		1617F63C1A36876F00B5F7C3 /* PinyinFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinFormatter.m; sourceTree = "<group>"; };
-		1617F63D1A36876F00B5F7C3 /* PinYinForObjc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinYinForObjc.h; sourceTree = "<group>"; };
-		1617F63E1A36876F00B5F7C3 /* PinYinForObjc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinYinForObjc.m; sourceTree = "<group>"; };
-		1617F63F1A36876F00B5F7C3 /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
-		1617F6401A36876F00B5F7C3 /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
-		1617F6411A36876F00B5F7C3 /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
 		1617F6611A36876F00B5F7C3 /* SGFocusImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGFocusImageFrame.h; sourceTree = "<group>"; };
 		1617F6621A36876F00B5F7C3 /* SGFocusImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGFocusImageFrame.m; sourceTree = "<group>"; };
 		1617F6A91A36896200B5F7C3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -394,6 +377,18 @@
 		16B031BC1A70D8B100133ACA /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		16B031BD1A70D8B100133ACA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		16B031BE1A70D8B100133ACA /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		16B031CC1A722CCD00133ACA /* CheckValidateCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckValidateCode.h; sourceTree = "<group>"; };
+		16B031CD1A722CCD00133ACA /* CheckValidateCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckValidateCode.m; sourceTree = "<group>"; };
+		16B031CF1A722CD900133ACA /* CheckValidateCodePara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckValidateCodePara.h; sourceTree = "<group>"; };
+		16B031D01A722CD900133ACA /* CheckValidateCodePara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckValidateCodePara.m; sourceTree = "<group>"; };
+		16B031D21A722D0700133ACA /* CheckValidateCodeHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckValidateCodeHttp.h; sourceTree = "<group>"; };
+		16B031D31A722D0700133ACA /* CheckValidateCodeHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckValidateCodeHttp.m; sourceTree = "<group>"; };
+		16B031D51A722D2200133ACA /* ChangePassword.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePassword.h; sourceTree = "<group>"; };
+		16B031D61A722D2200133ACA /* ChangePassword.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePassword.m; sourceTree = "<group>"; };
+		16B031D81A722D2C00133ACA /* ChangePasswordPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordPara.h; sourceTree = "<group>"; };
+		16B031D91A722D2C00133ACA /* ChangePasswordPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordPara.m; sourceTree = "<group>"; };
+		16B031DB1A722D3600133ACA /* ChangePasswordHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordHttp.h; sourceTree = "<group>"; };
+		16B031DC1A722D3600133ACA /* ChangePasswordHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordHttp.m; sourceTree = "<group>"; };
 		16B252931A41D02B00B658D6 /* SysMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysMessageViewController.h; sourceTree = "<group>"; };
 		16B252941A41D02B00B658D6 /* SysMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SysMessageViewController.m; sourceTree = "<group>"; };
 		16B252951A41D02B00B658D6 /* SysMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SysMessageViewController.xib; sourceTree = "<group>"; };
@@ -593,7 +588,6 @@
 			children = (
 				16B031BA1A70D8B100133ACA /* WeChatSDK_1.5 */,
 				1617F6291A36876F00B5F7C3 /* MJRefresh */,
-				1617F6321A36876F00B5F7C3 /* PinYin */,
 				1617F6601A36876F00B5F7C3 /* SGFocusImage */,
 			);
 			path = Vendor;
@@ -612,28 +606,6 @@
 				1617F6311A36876F00B5F7C3 /* MJRefreshHeaderView.m */,
 			);
 			path = MJRefresh;
-			sourceTree = "<group>";
-		};
-		1617F6321A36876F00B5F7C3 /* PinYin */ = {
-			isa = PBXGroup;
-			children = (
-				1617F6331A36876F00B5F7C3 /* ChineseInclude.h */,
-				1617F6341A36876F00B5F7C3 /* ChineseInclude.m */,
-				1617F6351A36876F00B5F7C3 /* ChineseToPinyinResource.h */,
-				1617F6361A36876F00B5F7C3 /* ChineseToPinyinResource.m */,
-				1617F6371A36876F00B5F7C3 /* HanyuPinyinOutputFormat.h */,
-				1617F6381A36876F00B5F7C3 /* HanyuPinyinOutputFormat.m */,
-				1617F6391A36876F00B5F7C3 /* NSString+PinYin4Cocoa.h */,
-				1617F63A1A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m */,
-				1617F63B1A36876F00B5F7C3 /* PinyinFormatter.h */,
-				1617F63C1A36876F00B5F7C3 /* PinyinFormatter.m */,
-				1617F63D1A36876F00B5F7C3 /* PinYinForObjc.h */,
-				1617F63E1A36876F00B5F7C3 /* PinYinForObjc.m */,
-				1617F63F1A36876F00B5F7C3 /* PinyinHelper.h */,
-				1617F6401A36876F00B5F7C3 /* PinyinHelper.m */,
-				1617F6411A36876F00B5F7C3 /* unicode_to_hanyu_pinyin.txt */,
-			);
-			path = PinYin;
 			sourceTree = "<group>";
 		};
 		1617F6601A36876F00B5F7C3 /* SGFocusImage */ = {
@@ -918,6 +890,18 @@
 				1645EC351A616AD5000CBE98 /* GetValidateCodePara.m */,
 				1645EC2E1A616AA2000CBE98 /* GetValidateCodeHttp.h */,
 				1645EC2F1A616AA2000CBE98 /* GetValidateCodeHttp.m */,
+				16B031CC1A722CCD00133ACA /* CheckValidateCode.h */,
+				16B031CD1A722CCD00133ACA /* CheckValidateCode.m */,
+				16B031CF1A722CD900133ACA /* CheckValidateCodePara.h */,
+				16B031D01A722CD900133ACA /* CheckValidateCodePara.m */,
+				16B031D21A722D0700133ACA /* CheckValidateCodeHttp.h */,
+				16B031D31A722D0700133ACA /* CheckValidateCodeHttp.m */,
+				16B031D51A722D2200133ACA /* ChangePassword.h */,
+				16B031D61A722D2200133ACA /* ChangePassword.m */,
+				16B031D81A722D2C00133ACA /* ChangePasswordPara.h */,
+				16B031D91A722D2C00133ACA /* ChangePasswordPara.m */,
+				16B031DB1A722D3600133ACA /* ChangePasswordHttp.h */,
+				16B031DC1A722D3600133ACA /* ChangePasswordHttp.m */,
 			);
 			name = "Login&Register";
 			sourceTree = "<group>";
@@ -1166,7 +1150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16B7F8481A491F5300B7629B /* AboutUsViewController.xib in Resources */,
-				1617F6941A36876F00B5F7C3 /* unicode_to_hanyu_pinyin.txt in Resources */,
 				16B7F9181A49486500B7629B /* SysMessageCell.xib in Resources */,
 				168D3A891A2D638E0004790E /* InfoPlist.strings in Resources */,
 				1617F6DC1A36EA8700B5F7C3 /* MyStoryListViewController.xib in Resources */,
@@ -1247,7 +1230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1617F6AC1A36896200B5F7C3 /* LoginViewController.m in Sources */,
-				1617F68F1A36876F00B5F7C3 /* HanyuPinyinOutputFormat.m in Sources */,
 				16B2F59F1A4D380900FDE382 /* SupportCommentHttp.m in Sources */,
 				16DA0B941A47059E008D1114 /* Login.m in Sources */,
 				1617F6D61A36EA3700B5F7C3 /* PersonalInfoViewController.m in Sources */,
@@ -1263,17 +1245,15 @@
 				16B2F5961A4D37E500FDE382 /* SupportStoryHttp.m in Sources */,
 				16B2F5991A4D37F400FDE382 /* SupportComment.m in Sources */,
 				160D0D4D1A486A860025A6D5 /* ModifyAvatarHttp.m in Sources */,
-				1617F6901A36876F00B5F7C3 /* NSString+PinYin4Cocoa.m in Sources */,
 				1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */,
 				16B2F57E1A4D2F9400FDE382 /* MyCommentListHttp.m in Sources */,
 				160D0D5F1A486D550025A6D5 /* ModifyNickNameHttp.m in Sources */,
+				16B031D41A722D0700133ACA /* CheckValidateCodeHttp.m in Sources */,
 				16B7F9171A49486500B7629B /* SysMessageCell.m in Sources */,
 				160D0D6E1A4871880025A6D5 /* MyStoryHttp.m in Sources */,
 				16B252961A41D02B00B658D6 /* SysMessageViewController.m in Sources */,
 				1617F6E51A3755C900B5F7C3 /* StoryListCell.m in Sources */,
-				1617F68E1A36876F00B5F7C3 /* ChineseToPinyinResource.m in Sources */,
 				167CD4EE1A6656B30033C72C /* MTEditTextViewController.m in Sources */,
-				1617F6921A36876F00B5F7C3 /* PinYinForObjc.m in Sources */,
 				16B2F56C1A4D2F3000FDE382 /* SystemMessage.m in Sources */,
 				160D0D531A486AA90025A6D5 /* ModifyAvatarPara.m in Sources */,
 				167E7CCA1A45D4E20050AF97 /* FindDetailViewController.m in Sources */,
@@ -1281,6 +1261,7 @@
 				1698EB2D1A4817D200C69BC1 /* AdMomentPara.m in Sources */,
 				1698EB161A47E89D00C69BC1 /* MomentDetail.m in Sources */,
 				16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */,
+				16B031DD1A722D3600133ACA /* ChangePasswordHttp.m in Sources */,
 				16B2F56F1A4D2F4100FDE382 /* SystemMessagePara.m in Sources */,
 				1617F6E01A36EAFC00B5F7C3 /* FindMomentCell.m in Sources */,
 				1617F6631A36876F00B5F7C3 /* LXUtils.m in Sources */,
@@ -1290,7 +1271,6 @@
 				166B3E0B1A42C5BB005C4706 /* MTTextFiedBGView.m in Sources */,
 				1617F6CB1A36D80200B5F7C3 /* MTStoreManager.m in Sources */,
 				16B2F5871A4D375300FDE382 /* CommentMeListPara.m in Sources */,
-				1617F6931A36876F00B5F7C3 /* PinyinHelper.m in Sources */,
 				1617F68A1A36876F00B5F7C3 /* MJRefreshBaseView.m in Sources */,
 				16B2F5901A4D37CD00FDE382 /* SupportStory.m in Sources */,
 				160D0D621A486D9C0025A6D5 /* ModifyNickName.m in Sources */,
@@ -1304,12 +1284,12 @@
 				16DA0B961A47059E008D1114 /* LoginPara.m in Sources */,
 				160D0D471A4865770025A6D5 /* MyProfilePara.m in Sources */,
 				169FA86E1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.m in Sources */,
-				1617F68D1A36876F00B5F7C3 /* ChineseInclude.m in Sources */,
 				16B2F59C1A4D37FF00FDE382 /* SupportCommentPara.m in Sources */,
 				1698EB191A4802A300C69BC1 /* UploadPicture.m in Sources */,
 				16B7F83D1A49097C00B7629B /* AddCommentHttp.m in Sources */,
 				16B7F8421A4917CE00B7629B /* MyCommentListViewController.m in Sources */,
 				1617F6BB1A3689E500B5F7C3 /* FindMomentViewController.m in Sources */,
+				16B031DA1A722D2C00133ACA /* ChangePasswordPara.m in Sources */,
 				1617F6A31A36877000B5F7C3 /* SGFocusImageFrame.m in Sources */,
 				1698EB1C1A4802AE00C69BC1 /* UploadPicturePara.m in Sources */,
 				1692DE8D1A47C7D10030ACE6 /* MomentList.m in Sources */,
@@ -1322,7 +1302,6 @@
 				16B2F5841A4D374600FDE382 /* CommentMeList.m in Sources */,
 				16B7F8311A49092400B7629B /* CommentListPara.m in Sources */,
 				16B7F8251A49077B00B7629B /* MomentInfoPara.m in Sources */,
-				1617F6911A36876F00B5F7C3 /* PinyinFormatter.m in Sources */,
 				1617F6821A36876F00B5F7C3 /* YHBaseTabbarController.m in Sources */,
 				16B2F5721A4D2F4B00FDE382 /* SystemMessageHttp.m in Sources */,
 				160D0D771A4871C10025A6D5 /* DeleMyStoryPara.m in Sources */,
@@ -1338,6 +1317,7 @@
 				16DA0B1B1A46C7E2008D1114 /* NSString+MD5.m in Sources */,
 				160D0D651A486DA90025A6D5 /* ModifyNickNamePara.m in Sources */,
 				16B7F8341A49093500B7629B /* CommentInfo.m in Sources */,
+				16B031D71A722D2200133ACA /* ChangePassword.m in Sources */,
 				1617F6651A36876F00B5F7C3 /* UIView+Utils.m in Sources */,
 				16DA0B871A47041A008D1114 /* RegisterHttp.m in Sources */,
 				160D0D561A486C900025A6D5 /* ModifyUserNamePara.m in Sources */,
@@ -1346,8 +1326,10 @@
 				1645EC331A616ACA000CBE98 /* GetValidateCode.m in Sources */,
 				160D0D741A4871B60025A6D5 /* DeleMyStory.m in Sources */,
 				16B7F8281A49078E00B7629B /* MomentInfoHttp.m in Sources */,
+				16B031D11A722CD900133ACA /* CheckValidateCodePara.m in Sources */,
 				1692DE8A1A47C7C40030ACE6 /* MomentListPara.m in Sources */,
 				16B7F9211A49562C00B7629B /* PersonInfoViewController.m in Sources */,
+				16B031CE1A722CCD00133ACA /* CheckValidateCode.m in Sources */,
 				1617F6DB1A36EA8700B5F7C3 /* MyStoryListViewController.m in Sources */,
 				16B2F57B1A4D2F8A00FDE382 /* MyCommentListPara.m in Sources */,
 				16B2F5A21A4D392F00FDE382 /* Message.m in Sources */,
@@ -1487,6 +1469,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Moment/Vendor/TencentSDK_2.2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Moment/Moment-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1499,6 +1485,44 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moment/Vendor/WeChatSDK_1.5",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-ASIHTTPRequest\"",
+					"-l\"Pods-DACircularProgress\"",
+					"-l\"Pods-JSONKit-NoWarning\"",
+					"-l\"Pods-MBProgressHUD\"",
+					"-l\"Pods-MWPhotoBrowser\"",
+					"-l\"Pods-PSTCollectionView\"",
+					"-l\"Pods-Reachability\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"Pods-SSKeychain\"",
+					"-l\"xml2.2\"",
+					"-l\"z.1\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MapKit\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1512,6 +1536,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Moment/Vendor/TencentSDK_2.2",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Moment/Moment-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1524,6 +1552,44 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moment/Vendor/WeChatSDK_1.5",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-l\"Pods-ASIHTTPRequest\"",
+					"-l\"Pods-DACircularProgress\"",
+					"-l\"Pods-JSONKit-NoWarning\"",
+					"-l\"Pods-MBProgressHUD\"",
+					"-l\"Pods-MWPhotoBrowser\"",
+					"-l\"Pods-PSTCollectionView\"",
+					"-l\"Pods-Reachability\"",
+					"-l\"Pods-SDWebImage\"",
+					"-l\"Pods-SSKeychain\"",
+					"-l\"xml2.2\"",
+					"-l\"z.1\"",
+					"-framework",
+					"\"AssetsLibrary\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MapKit\"",
+					"-framework",
+					"\"MessageUI\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

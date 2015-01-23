@@ -11,6 +11,9 @@
 //微信
 #import "WXApi.h"
 
+//腾讯
+
+
 @interface MTAppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate>
 {
     enum WXScene _scene;
