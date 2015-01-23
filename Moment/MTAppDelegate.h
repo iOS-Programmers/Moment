@@ -7,14 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+
 //微信
-//#import "WXApi.h"
+#import "WXApi.h"
 
-@interface MTAppDelegate : UIResponder <UIApplicationDelegate>
-
+@interface MTAppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate>
+{
+    enum WXScene _scene;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 + (MTAppDelegate *)shareappdelegate;
 
 - (void)initMainView;
+
 @end

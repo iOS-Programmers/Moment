@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-ASIHTTPRequest.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-DACircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-JSONKit-NoWarning.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -24,7 +34,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Reachability.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-SSKeychain.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>67734591E9F18E850D05F64E</key>
+		<key>320E34A58DD8E2E46A82D0AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B29AE30307266CE22A6498E6</key>
+		<key>486067CD4F951C9DEAA678D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B826B7806F1CBD651018114E</key>
+		<key>57D9436DE59114C71BD96F85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6821F76148177612062805D</key>
+		<key>6E3C3C5861B67ECFE6191AF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C83A4697DD8C5BF828DB44DA</key>
+		<key>7462368CEB16BFF5780F1C3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D17ED82E065B98CD6855166D</key>
+		<key>7A630EA3312954E776281C98</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96F75E679A82FA8D1707128E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A99DCD883157F8100B4417BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C3E6A33700616CE026C6CF4C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E716AC5DED6BCE01D7444874</key>
 		<dict>
 			<key>primary</key>
 			<true/>

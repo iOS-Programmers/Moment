@@ -33,6 +33,10 @@
 //用户数据类
 #import "MTUserInfo.h"
 
+#warning 这里需要更改地址，目前是微信的
+//AppStore下载地址
+#define AppStoreDownloadUrl @"https://itunes.apple.com/cn/app/wechat/id414478124?l=en&mt=8"
+
 //友盟的AppKey
 #define UM_APPKEY   @"54af8643fd98c5c56a000894"
 
@@ -47,5 +51,12 @@
 
 //QQ App Key
 #define QQ_APPKey  @"IziMwhKAIcX6oSSt"
+
+//微博 App Key
+#define WeiBo_APPKey @"3126563299"
+
+//微博 APP Secret
+#define WeiBo_APPSecret @"7c3549eb40adc390896b83c2cf391b9d"
+
 
 #endif

@@ -237,6 +237,24 @@
         
         case 2: {
                 //邀请好友
+
+            WXMediaMessage *message = [WXMediaMessage message];
+            message.title = @"I'm 瞬间，跟我一起来做一个有故事的人吧~";
+            message.description = @"我已经是个有“故事”的人了，跟我一起来打造属于我们的故事吧。上「瞬间」做个有故事的人！";
+            [message setThumbImage:[UIImage imageNamed:@"icon"]];
+            
+            WXAppExtendObject *ext = [WXAppExtendObject object];
+
+            ext.url = AppStoreDownloadUrl;
+            
+            message.mediaObject = ext;
+            
+            SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+            req.bText = NO;
+            req.message = message;
+            req.scene = WXSceneSession;
+            
+            [WXApi sendReq:req];
         }
             break;
             
