@@ -12,15 +12,8 @@ PODS:
     - Reachability
   - ASIHTTPRequest/S3 (1.8.2):
     - ASIHTTPRequest/Core
-  - DACircularProgress (2.2.0)
   - JSONKit-NoWarning (1.2)
   - MBProgressHUD (0.9)
-  - MWPhotoBrowser (1.4.1):
-    - DACircularProgress
-    - MBProgressHUD (~> 0.8)
-    - PSTCollectionView (~> 1.2)
-    - SDWebImage (~> 3.7)
-  - PSTCollectionView (1.2.3)
   - Reachability (3.2)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
@@ -31,16 +24,13 @@ DEPENDENCIES:
   - ASIHTTPRequest (~> 1.8.2)
   - JSONKit-NoWarning (~> 1.2)
   - MBProgressHUD (~> 0.9)
-  - MWPhotoBrowser
+  - SDWebImage (~> 3.7.1)
   - SSKeychain (~> 1.2.2)
 
 SPEC CHECKSUMS:
   ASIHTTPRequest: 2c8335b49410c0e2ad42829c438e74d454b77590
-  DACircularProgress: 3b41941891a56dc6aa17971f5322a9a38a6f446e
   JSONKit-NoWarning: fc8d6dd8ec65e303867d1bd274632fc60a4a8ab9
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
-  MWPhotoBrowser: be05b3b7521e961382a4ba5579685bf5a00b93d8
-  PSTCollectionView: d9f466e4554cc83260ca9bde7beb27f308e8fd76
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9

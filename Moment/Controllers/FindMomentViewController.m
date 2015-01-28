@@ -12,9 +12,9 @@
 
 #import "MomentListHttp.h"
 #import "MomentInfoHttp.h"
-#import "MWPhotoBrowser.h"
+//#import "MWPhotoBrowser.h"
 
-@interface FindMomentViewController () <MWPhotoBrowserDelegate>
+@interface FindMomentViewController ()
 
 @property (strong, nonatomic) MomentListHttp *momentHttp;
 @property (strong, nonatomic) MomentInfoHttp *momentInfoHttp;
@@ -303,15 +303,15 @@
 
 #pragma mark - MWPhotoBrowserDelegate
 
-- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-    return _photos.count;
-}
-
-- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-    if (index < _photos.count)
-        return [_photos objectAtIndex:index];
-    return nil;
-}
+//- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
+//    return _photos.count;
+//}
+//
+//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
+//    if (index < _photos.count)
+//        return [_photos objectAtIndex:index];
+//    return nil;
+//}
 
 #pragma mark 上下拉刷新的Delegate
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
