@@ -13,12 +13,17 @@
 
 //腾讯
 
+//微博
+#import "WeiboSDK.h"
 
-@interface MTAppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate>
+@interface MTAppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate,WeiboSDKDelegate>
 {
     enum WXScene _scene;
 }
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) NSString *wbtoken;
+@property (strong, nonatomic) NSString *wbCurrentUserID;
 
 + (MTAppDelegate *)shareappdelegate;
 

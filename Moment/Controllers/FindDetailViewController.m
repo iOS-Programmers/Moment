@@ -164,7 +164,38 @@
             break;
         case 2:
         {
+            //微博分享
+            
+            WBMessageObject *message = [WBMessageObject message];
+            
+            
+            WBWebpageObject *webpage = [WBWebpageObject object];
+            webpage.objectID = self.momentInfo.tid;
+            webpage.title = self.momentInfo.title;
+            webpage.description = self.momentInfo.content;
 
+            webpage.thumbnailData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"theiconlogo@2x" ofType:@"png"]];
+            webpage.webpageUrl = AppStoreDownloadUrl;
+            message.mediaObject = webpage;
+            
+            message.text = @"我已经是个有“故事”的人了，跟我一起来打造属于我们的故事吧。上「瞬间」做个有故事的人！";
+
+            
+            MTAppDelegate *myDelegate =(MTAppDelegate*)[[UIApplication sharedApplication] delegate];
+            
+            WBAuthorizeRequest *authRequest = [WBAuthorizeRequest request];
+            authRequest.redirectURI = Weibo_RedirectURI;
+            authRequest.scope = @"all";
+            
+            WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message authInfo:authRequest access_token:myDelegate.wbtoken];
+            request.userInfo = @{@"ShareMessageFrom": @"SendMessageToWeiboViewController",
+                                 @"Other_Info_1": [NSNumber numberWithInt:123],
+                                 @"Other_Info_2": @[@"obj1", @"obj2"],
+                                 @"Other_Info_3": @{@"key1": @"obj1", @"key2": @"obj2"}};
+            //    request.shouldOpenWeiboAppInstallPageIfNotInstalled = NO;
+            [WeiboSDK sendRequest:request];
+
+            
         }
             break;
         case 3:

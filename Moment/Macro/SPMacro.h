@@ -58,5 +58,13 @@
 //微博 APP Secret
 #define WeiBo_APPSecret @"7c3549eb40adc390896b83c2cf391b9d"
 
+//微博 回调地址
+#define Weibo_RedirectURI @"https://api.weibo.com/oauth2/default.html"
+
+
+#pragma mark - Notifacation Name
+
+#define MT_OAuthLogin @"oauthlogin"
+
 
 #endif

@@ -17,6 +17,7 @@
 #import "YHBaseTabbarController.h"
 
 //腾讯QQ
+#import <TencentOpenAPI/TencentOAuth.h>
 
 
 @implementation MTAppDelegate
@@ -29,6 +30,11 @@
     
     //向微信注册
     [WXApi registerApp:WX_APPID];
+    
+    //向新浪微博注册
+    [WeiboSDK registerApp:WeiBo_APPKey];
+    [WeiboSDK enableDebugMode:YES];
+    
     
     // 设置状态栏字体为白色
     if (IOS7_OR_LATER) {
@@ -103,14 +109,87 @@
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    return [WXApi handleOpenURL:url delegate:self];
+    NSLog(@"%@",url.scheme);
+    
+    return [WXApi handleOpenURL:url delegate:self] || [WeiboSDK handleOpenURL:url delegate:self] ||  [TencentOAuth HandleOpenURL:url];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [WXApi handleOpenURL:url delegate:self];
+    NSLog(@"%@",url.scheme); 
+     return [WXApi handleOpenURL:url delegate:self] || [WeiboSDK handleOpenURL:url delegate:self] || [TencentOAuth HandleOpenURL:url];
 }
- 
+
+
+#pragma mark - 微博回调
+- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
+{
+    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
+    {
+        NSString *title = NSLocalizedString(@"发送结果", nil);
+        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode, NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                              otherButtonTitles:nil];
+        WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
+        NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
+        if (accessToken)
+        {
+            self.wbtoken = accessToken;
+        }
+        NSString* userID = [sendMessageToWeiboResponse.authResponse userID];
+        if (userID) {
+            self.wbCurrentUserID = userID;
+        }
+        [alert show];
+
+    }
+    else if ([response isKindOfClass:WBAuthorizeResponse.class])
+    {
+//        NSString *title = NSLocalizedString(@"认证结果", nil);
+//        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],  NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+//                                                        message:message
+//                                                       delegate:nil
+//                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+//                                              otherButtonTitles:nil];
+        
+        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
+        self.wbCurrentUserID = [(WBAuthorizeResponse *)response userID];
+//        [alert show];
+        
+        //这里是微博登录成功后的回调地址
+        NSDictionary *dic = @{@"accessToken":[(WBAuthorizeResponse *)response accessToken],
+                              @"userId":[(WBAuthorizeResponse *)response userID],
+                              };
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:MT_OAuthLogin object:self userInfo:dic];
+        
+        
+
+    }
+    else if ([response isKindOfClass:WBPaymentResponse.class])
+    {
+        NSString *title = NSLocalizedString(@"支付结果", nil);
+        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.payStatusCode: %@\nresponse.payStatusMessage: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBPaymentResponse *)response payStatusCode], [(WBPaymentResponse *)response payStatusMessage], NSLocalizedString(@"响应UserInfo数据", nil),response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+
+}
+
+- (void)didReceiveWeiboRequest:(WBBaseRequest *)request
+{
+
+}
+
+#pragma mark - 微信回调
 /**
  *  onReq是微信终端向第三方程序发起请求，要求第三方程序响应。第三方程序响应完后必须调用sendRsp返回。在调用sendRsp返回时，会切回到微信终端程序界面。
  *

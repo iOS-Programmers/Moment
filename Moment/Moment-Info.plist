@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.LianXian.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.LianXian.shunjian</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -25,9 +25,11 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>weibo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sina.54af8643fd98c5c56a000894</string>
+				<string>wb3126563299</string>
 			</array>
 		</dict>
 		<dict>
@@ -44,20 +46,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>tencent</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>tencent1103822133</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLName</key>
 			<string>QQ</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQ41cafd35</string>
+				<string>tencent1103822133</string>
 			</array>
 		</dict>
 	</array>
