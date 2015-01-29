@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CatchMomentViewController">
             <connections>
+                <outlet property="coverControl" destination="9Mg-mC-puu" id="yXq-Ls-jZ6"/>
+                <outlet property="pageLabel" destination="IKk-iZ-DKI" id="hgW-lJ-NOM"/>
                 <outlet property="scrollView" destination="nXU-An-A8C" id="Zc5-8P-7Ne"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,11 +19,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" id="2pu-ss-obe">
-                    <rect key="frame" x="0.0" y="448" width="320" height="120"/>
+                    <rect key="frame" x="0.0" y="468" width="320" height="100"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RbN-Af-0t8">
-                            <rect key="frame" x="140" y="69" width="41" height="41"/>
+                            <rect key="frame" x="138" y="52" width="41" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="xiayibu">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,7 +33,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3yq-CU-I8b">
-                            <rect key="frame" x="40" y="15" width="34" height="34"/>
+                            <rect key="frame" x="40" y="10" width="34" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="bianji">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,7 +43,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="u1q-iK-RNf">
-                            <rect key="frame" x="106" y="15" width="34" height="34"/>
+                            <rect key="frame" x="107" y="10" width="34" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="font">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,7 +53,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jKr-Pq-ZQX">
-                            <rect key="frame" x="182" y="15" width="34" height="34"/>
+                            <rect key="frame" x="175" y="10" width="34" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="zhaopian">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,9 +63,9 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hdz-4f-Hxl">
-                            <rect key="frame" x="255" y="15" width="34" height="34"/>
+                            <rect key="frame" x="245" y="10" width="34" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="photo">
+                            <state key="normal" image="paizhao">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -73,19 +75,51 @@
                     </subviews>
                     <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="nXU-An-A8C">
-                    <rect key="frame" x="0.0" y="0.0" width="325" height="447"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.80000000000000004" contentMode="scaleToFill" id="nXU-An-A8C">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="GrT-1p-55Q"/>
+                    </connections>
                 </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IKk-iZ-DKI">
+                    <rect key="frame" x="250" y="414" width="42" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="251" y="295"/>
         </view>
+        <view alpha="0.79999999999999982" contentMode="scaleToFill" id="9Mg-mC-puu" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="389"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_00" id="fPl-Xa-jlX">
+                    <rect key="frame" x="92" y="171" width="119" height="58"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="左右滑动进行编辑图片" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qav-zd-GJa">
+                    <rect key="frame" x="91" y="237" width="120" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="810" y="-184.5"/>
+        </view>
     </objects>
     <resources>
+        <image name="Home_00" width="119" height="58"/>
         <image name="bianji" width="34" height="34"/>
         <image name="font" width="34" height="34"/>
-        <image name="photo" width="26" height="22"/>
+        <image name="paizhao" width="34" height="34"/>
         <image name="xiayibu" width="41" height="41"/>
         <image name="zhaopian" width="34" height="34"/>
     </resources>

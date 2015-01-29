@@ -57,7 +57,7 @@
     self.navigationItem.rightBarButtonItem = [self findDetailrightNavItem];
     
     if ([self.momentInfo.pictureurls count] > 0) {
-//        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]]];
+
         [self.imageView  sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
         }];

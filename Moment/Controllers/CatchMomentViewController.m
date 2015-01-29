@@ -11,14 +11,18 @@
 
 #import "UploadPictureHttp.h"
 
-@interface CatchMomentViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface CatchMomentViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+//第一次的遮罩层
+@property (strong, nonatomic) IBOutlet UIControl *coverControl;
 @property (strong, nonatomic) UploadPictureHttp *updatePicHttp;
 
 @property (strong, nonatomic) NSMutableArray *images;   //存图片的数组
 
+//页码
+@property (weak, nonatomic) IBOutlet UILabel *pageLabel;
 
 - (IBAction)onNextBtnClick:(UIButton *)sender;
 
@@ -40,12 +44,17 @@
     
     self.updatePicHttp = [[UploadPictureHttp alloc] init];
     
-    [self.scrollView setContentSize:CGSizeMake([LXUtils GetScreeWidth] * 2, [LXUtils getContentViewHeight] - 120)];
+    [self.scrollView setContentSize:CGSizeMake([LXUtils GetScreeWidth] * 2, 0)];
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
-    //测试上传拼接的长图
-//    [self uploadImage:nil];
+//    self.scrollView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
+
+    //添加遮罩层
+    self.coverControl.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    [self.coverControl addTarget:self action:@selector(hideControl) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.scrollView addSubview:self.coverControl];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +72,11 @@
 }
 */
 
+- (void)hideControl
+{
+    [self.coverControl setHidden:YES];
+}
+
 - (void)updateUI
 {
     for (int i = 0; i < [self.images count]; i ++) {
@@ -74,25 +88,15 @@
         
     }
     
-    self.scrollView.contentSize = CGSizeMake([LXUtils GetScreeWidth] *([self.images count] +1), self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake([LXUtils GetScreeWidth] *([self.images count] +1), 0);
 }
 
 
 #pragma mark - IBAciton
 - (IBAction)onNextBtnClick:(UIButton *)sender {
 
-    /**
-       先拼接长图，然后再上传，上传成功后，再跳转
-     */
-    if ([self.images count] < 1) {
-        [self showWithText:@"请至少上传一张图片!"];
-        return;
-    }
-    
-    UIImage *uploadImage  = [self addImageWithImageArray:self.images];
-    
-    [self uploadImage: uploadImage];
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"" delegate:self cancelButtonTitle:@"暂不上传，立即跳过" otherButtonTitles:@"上传图片", nil];
+    [alert show];
 }
 
 
@@ -154,6 +158,40 @@
 
 }
 
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    // 得到每页宽度
+    CGFloat pageWidth = sender.frame.size.width;
+    // 根据当前的x坐标和页宽度计算出当前页数
+    NSInteger currentPage = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    
+    self.pageLabel.text = [NSString stringWithFormat:@"%ld / 9", currentPage + 1];
+}
+
+#pragma mark - UIAlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        //暂不上传
+        /**
+           先拼接长图，然后再上传，上传成功后，再跳转
+         */
+        if ([self.images count] < 1) {
+            [self showWithText:@"请至少上传一张图片!"];
+            return;
+        }
+    
+        UIImage *uploadImage  = [self addImageWithImageArray:self.images];
+        
+        [self uploadImage: uploadImage];
+        
+    }
+    if (buttonIndex == 1) {
+        //上传图片
+    }
+}
 
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
