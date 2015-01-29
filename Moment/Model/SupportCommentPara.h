@@ -10,6 +10,7 @@
 
 @interface SupportCommentPara : LXParameterModel
 
+@property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *pid;
 
 @end

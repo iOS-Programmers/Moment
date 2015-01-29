@@ -12,12 +12,14 @@
 
 #import "MomentListHttp.h"
 #import "MomentInfoHttp.h"
+#import "SupportStoryHttp.h"
 //#import "MWPhotoBrowser.h"
 
 @interface FindMomentViewController ()
 
 @property (strong, nonatomic) MomentListHttp *momentHttp;
 @property (strong, nonatomic) MomentInfoHttp *momentInfoHttp;
+@property (strong, nonatomic) SupportStoryHttp *supportHttp;
 
 //装图片的数组
 @property (nonatomic, strong) NSMutableArray *photos;
@@ -38,6 +40,7 @@
     self.title = @"发现瞬间";
     self.momentHttp = [[MomentListHttp alloc] init];
     self.momentInfoHttp = [[MomentInfoHttp alloc] init];
+    self.supportHttp = [[SupportStoryHttp alloc] init];
     self.photos = [[NSMutableArray alloc] init];
     
     self.momentHttp.parameter.fid = @"0";
@@ -132,6 +135,52 @@
     [self.tableView reloadData];
 }
 
+/**
+ *  故事点赞
+ *
+ *  @param tid 故事id
+ */
+- (void)requestSupportStory:(NSString *)tid
+{
+    if (FBIsEmpty(tid)) {
+        [self showWithText:@"故事id有误！"];
+        return;
+    }
+    
+    self.supportHttp.parameter.tid = tid;
+    
+    [self showLoadingWithText:MT_LOADING];
+    __weak FindMomentViewController *weak_self = self;
+    [self.supportHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+
+        if (weak_self.supportHttp.isValid)
+        {
+            /**
+             *  更新数据
+             */
+            [weak_self requestMomentList];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.supportHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+}
+
+
 #pragma mark - IBAciton
 
 - (IBAction)onStoryTypeBtnClick:(UIButton *)sender {
@@ -211,7 +260,19 @@
     
     [cell updateMomentCellWithInfo:detail];
     
+    //点击喜欢
+    cell.likeBtn.tag = indexPath.row;
+    [cell.likeBtn addTarget:self action:@selector(onLikeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
+}
+
+- (void)onLikeBtnClick:(UIButton *)btn
+{
+    btn.selected = !btn.selected;
+    MomentDetail *detail = (MomentDetail *)self.dataSource[btn.tag];
+
+    [self requestSupportStory:detail.tid];
 }
 
 

@@ -11,11 +11,13 @@
 #import "CommentListHttp.h"
 #import "AddCommentHttp.h"
 #import "PlacehoderTextView.h"
+#import "SupportCommentHttp.h"
 
 @interface AllCommentListViewController () <UITextViewDelegate>
 
 @property (strong, nonatomic) CommentListHttp *commentListHttp;
 @property (strong, nonatomic) AddCommentHttp *addCommentHttp;
+@property (strong, nonatomic) SupportCommentHttp *supportCommentHttp;
 
 /*******评论View*********/
 @property (strong, nonatomic) IBOutlet UIView *commentView;
@@ -36,8 +38,14 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"评论";
+    
+    //键盘监听
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(thekeyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(thekeyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
     self.commentListHttp = [[CommentListHttp alloc] init];
     self.addCommentHttp = [[AddCommentHttp alloc] init];
+    self.supportCommentHttp = [[SupportCommentHttp alloc] init];
     
     self.CommentTextView.placeholder = @"我来说两句...";
     
@@ -56,6 +64,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 #pragma mark - Action
@@ -113,12 +126,55 @@
     [self.tableView reloadData];
 }
 
+- (void)requestCommentLike:(NSString *)pid
+{
+    if (FBIsEmpty(pid) || FBIsEmpty(self.tid)) {
+        return;
+    }
+    self.supportCommentHttp.parameter.tid = self.tid;
+    self.supportCommentHttp.parameter.pid = pid;
+    [self showLoadingWithText:MT_LOADING];
+    __weak AllCommentListViewController *weak_self = self;
+    [self.supportCommentHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+        //        [weak_self.header endRefreshing];
+        if (weak_self.supportCommentHttp.isValid)
+        {
+            /**
+             *  更新数据
+             */
+            [weak_self requestStoryCommentList];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.supportCommentHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+//        [weak_self.header endRefreshing];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+}
+
+
 #pragma mark Keyboard
--(void)keyboardWillShow:(NSNotification*)notif
+-(void)thekeyboardWillShow:(NSNotification*)notif
 {
     NSDictionary *info = [notif userInfo];
     NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
     CGFloat keyboardHeight = [value CGRectValue].size.height;
+    if (keyboardHeight == 184) {
+        keyboardHeight = 252;
+    }
     
     NSNumber *duration = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [info objectForKey:UIKeyboardAnimationCurveUserInfoKey];
@@ -126,13 +182,13 @@
     // 添加移动动画，使视图跟随键盘移动
     [UIView animateWithDuration:[duration doubleValue] animations:^{
         [UIView setAnimationCurve:[curve intValue]];
-        [self.commentView frameSetY:[LXUtils getContentViewHeight] - keyboardHeight - CGRectGetHeight(self.commentView.frame)];
+        [self.commentView frameSetY:[LXUtils getContentViewHeight] - keyboardHeight - CGRectGetHeight(self.commentView.frame) ];
     }];
     
     
 }
 
--(void)keyboardWillHide:(NSNotification*)notif
+-(void)thekeyboardWillHide:(NSNotification*)notif
 {
     [self.commentView frameSetY:[LXUtils getContentViewHeight]];
 }
@@ -248,8 +304,21 @@
     
     [cell updateUIWithCommentInfo:commentDetail];
     
+    //点赞
+    cell.replyBtn.tag = indexPath.row;
+    [cell.replyBtn addTarget:self action:@selector(onCommentLikeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
+
+- (void)onCommentLikeBtnClick:(UIButton *)btn
+{
+    btn.selected = !btn.selected;
+    CommentInfo *detail = (CommentInfo *)self.dataSource[btn.tag];
+    
+    [self requestCommentLike:detail.pid];
+}
+
 
 
 @end

@@ -26,9 +26,12 @@
 - (void)updateUIWithCommentInfo:(CommentInfo *)info
 {
     [self.avatarImage sd_setImageWithURL:[NSURL  URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
-    
+    self.nickNameLabel.text = info.author;
     self.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
     self.contentLabel.text = info.message;
+    if ([info.support integerValue] > 0) {
+        self.replyBtn.selected = YES;
+    }
     
 }
 @end

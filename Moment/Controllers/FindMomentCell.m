@@ -38,6 +38,9 @@
         self.titleLabel.text = detail.title;
         self.contentLabel.text = detail.content;
         self.recommendNmLabel.text = detail.recommend_add;
+        if ([detail.recommend_add integerValue] > 0) {
+            self.likeBtn.selected = YES;
+        }
         
     }
 }
