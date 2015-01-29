@@ -37,11 +37,18 @@
     self.navigationItem.rightBarButtonItem = [self rightNavItem];
     
     [self requestMyProfile];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateUI) name:MT_UpdatePersonalInfo object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (UIBarButtonItem *)rightNavItem
@@ -60,6 +67,14 @@
 }
 
 #pragma mark - Action
+
+/**
+ *  修改资料发送通知修改UI
+ */
+- (void)updateUI
+{
+    [self.tableView reloadData];
+}
 
 /**
  *  点击设置

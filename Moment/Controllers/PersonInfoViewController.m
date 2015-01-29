@@ -226,6 +226,11 @@
 //刷新界面
 - (void)refreshUI
 {
+    /**
+     *  发送修改资料成功的
+     */
+    [[NSNotificationCenter defaultCenter] postNotificationName:MT_UpdatePersonalInfo object:nil];
+    
     [self.tableView reloadData];
 }
 
@@ -344,6 +349,7 @@
                 
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     [weak_self modifyAvatar:weak_self.updatePicHttp.resultModel.avatar];
+                    
                 });
             }
             

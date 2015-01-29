@@ -65,6 +65,7 @@
 #pragma mark - Notifacation Name
 
 #define MT_OAuthLogin @"oauthlogin"
+#define MT_UpdatePersonalInfo @"updatepersonalInfo"
 
 
 #endif
