@@ -80,27 +80,8 @@
     //腾讯相关
     _permissions = [NSMutableArray arrayWithArray:[NSArray arrayWithObjects:
                                                    kOPEN_PERMISSION_GET_USER_INFO,
-                                                   kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
-                                                   kOPEN_PERMISSION_ADD_ALBUM,
-                                                   kOPEN_PERMISSION_ADD_IDOL,
-                                                   kOPEN_PERMISSION_ADD_ONE_BLOG,
-                                                   kOPEN_PERMISSION_ADD_PIC_T,
                                                    kOPEN_PERMISSION_ADD_SHARE,
-                                                   kOPEN_PERMISSION_ADD_TOPIC,
-                                                   kOPEN_PERMISSION_CHECK_PAGE_FANS,
-                                                   kOPEN_PERMISSION_DEL_IDOL,
-                                                   kOPEN_PERMISSION_DEL_T,
-                                                   kOPEN_PERMISSION_GET_FANSLIST,
-                                                   kOPEN_PERMISSION_GET_IDOLLIST,
-                                                   kOPEN_PERMISSION_GET_INFO,
-                                                   kOPEN_PERMISSION_GET_OTHER_INFO,
-                                                   kOPEN_PERMISSION_GET_REPOST_LIST,
-                                                   kOPEN_PERMISSION_LIST_ALBUM,
-                                                   kOPEN_PERMISSION_UPLOAD_PIC,
-                                                   kOPEN_PERMISSION_GET_VIP_INFO,
-                                                   kOPEN_PERMISSION_GET_VIP_RICH_INFO,
-                                                   kOPEN_PERMISSION_GET_INTIMATE_FRIENDS_WEIBO,
-                                                   kOPEN_PERMISSION_MATCH_NICK_TIPS_WEIBO,
+                                                
                                                    nil]];
 
     
@@ -166,18 +147,18 @@
         __weak LoginViewController *weak_self = self;
         [self.oaLoginHttp getDataWithCompletionBlock:^{
             [weak_self hideLoading];
-            if (weak_self.loginHttp.isValid)
+            if (weak_self.oaLoginHttp.isValid)
             {
                 [weak_self showWithText:@"登录成功"];
     
                 //登录成功后，保存useriD，以后的接口请求都会用到
-                [MTUserInfo saveUserID:weak_self.loginHttp.resultModel.member_id];
+                [MTUserInfo saveUserID:weak_self.oaLoginHttp.resultModel.member_id];
     
                 MTUserInfo *userInfo = [[MTUserInfo alloc] init];
-                userInfo.avatar = weak_self.loginHttp.resultModel.avatar;
-                userInfo.username = weak_self.loginHttp.resultModel.username;
-                userInfo.nickname = weak_self.loginHttp.resultModel.nickname;
-                userInfo.regtime = weak_self.loginHttp.resultModel.regtime;
+                userInfo.avatar = weak_self.oaLoginHttp.resultModel.avatar;
+                userInfo.username = weak_self.oaLoginHttp.resultModel.username;
+                userInfo.nickname = weak_self.oaLoginHttp.resultModel.nickname;
+                userInfo.regtime = weak_self.oaLoginHttp.resultModel.regtime;
     
                 [MTUserInfo saveUserInfo:userInfo];
     
@@ -311,5 +292,81 @@
     request.userInfo = @{@"SSO_From": @"LoginOAuthLoginViewController",
                         };
     [WeiboSDK sendRequest:request];
+}
+
+- (void)QQAuthLogin
+{
+    self.oaLoginHttp.parameter.openid = _tencentOAuth.openId;
+    self.oaLoginHttp.parameter.nickname = @"QQ用户";
+    
+    [self showLoadingWithText:MT_LOADING];
+    __weak LoginViewController *weak_self = self;
+    [self.oaLoginHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+        if (weak_self.oaLoginHttp.isValid)
+        {
+            [weak_self showWithText:@"登录成功"];
+            
+            //登录成功后，保存useriD，以后的接口请求都会用到
+            [MTUserInfo saveUserID:weak_self.oaLoginHttp.resultModel.member_id];
+            
+            MTUserInfo *userInfo = [[MTUserInfo alloc] init];
+
+            userInfo.avatar = weak_self.oaLoginHttp.resultModel.avatar;
+            userInfo.username = weak_self.oaLoginHttp.resultModel.username;
+            userInfo.nickname = weak_self.oaLoginHttp.resultModel.nickname;
+            userInfo.regtime = weak_self.oaLoginHttp.resultModel.regtime;
+            
+            [MTUserInfo saveUserInfo:userInfo];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[MTAppDelegate shareappdelegate] initMainView];
+            });
+            
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.oaLoginHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+
+}
+
+#pragma mark - Tencent Delegate
+/**
+ * 登录成功后的回调
+ */
+- (void)tencentDidLogin
+{
+    NSLog(@"请求回来的东西 openid %@ \n accessToken %@",_tencentOAuth.openId,_tencentOAuth.accessToken);
+    [self QQAuthLogin];
+}
+
+/**
+ * 登录失败后的回调
+ * \param cancelled 代表用户是否主动退出登录
+ */
+- (void)tencentDidNotLogin:(BOOL)cancelled
+{
+
+}
+
+/**
+ * 登录时网络有问题的回调
+ */
+- (void)tencentDidNotNetWork
+{
+    [self showWithText:@"网络出问题了，请稍后再试!"];
 }
 @end

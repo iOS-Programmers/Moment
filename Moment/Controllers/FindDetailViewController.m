@@ -13,9 +13,14 @@
 #import "WXApiObject.h"
 
 #import "TencentOpenAPI/QQApiInterface.h"
+#import <TencentOpenAPI/TencentOAuth.h>
 
-@interface FindDetailViewController () <UIActionSheetDelegate>
-
+@interface FindDetailViewController () <UIActionSheetDelegate,TencentSessionDelegate>
+{
+    TencentOAuth *_tencentOAuth;
+    
+    NSMutableArray* _permissions;
+}
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (strong, nonatomic) IBOutlet UIView *moreView;
@@ -29,6 +34,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"故事";
+    
+    //腾讯相关
+    _permissions = [NSMutableArray arrayWithArray:[NSArray arrayWithObjects:
+                                                   kOPEN_PERMISSION_GET_USER_INFO,
+                                                   kOPEN_PERMISSION_ADD_SHARE,
+                                                   
+                                                   nil]];
+    
+    
+    _tencentOAuth = [[TencentOAuth alloc] initWithAppId:QQ_APPID
+                                            andDelegate:self];
+
+    
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -42,6 +60,8 @@
     [self.moreView frameSetPoint:CGPointMake(([LXUtils GetScreeWidth] - CGRectGetWidth(self.moreView.frame) - 10), 0)];
     self.moreView.hidden = YES;
     [self.view addSubview:self.moreView];
+    
+    
     
 }
 
@@ -280,6 +300,32 @@
             break;
         }
     }
+}
+
+#pragma mark - Tencent Delegate
+/**
+ * 登录成功后的回调
+ */
+- (void)tencentDidLogin
+{
+    YHLog(@"请求回来的东西 openid %@ \n accessToken %@",_tencentOAuth.openId,_tencentOAuth.accessToken);
+}
+
+/**
+ * 登录失败后的回调
+ * \param cancelled 代表用户是否主动退出登录
+ */
+- (void)tencentDidNotLogin:(BOOL)cancelled
+{
+    
+}
+
+/**
+ * 登录时网络有问题的回调
+ */
+- (void)tencentDidNotNetWork
+{
+    [self showWithText:@"网络出问题了，请稍后再试!"];
 }
 
 @end
