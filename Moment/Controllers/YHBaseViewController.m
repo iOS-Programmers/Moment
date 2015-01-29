@@ -218,7 +218,7 @@
     }
 #endif
     
-    [self registerKeyboardEvent];
+//    [self registerKeyboardEvent];
 
 }
 

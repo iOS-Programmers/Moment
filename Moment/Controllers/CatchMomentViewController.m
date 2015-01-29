@@ -41,6 +41,9 @@
     
     self.updatePicHttp = [[UploadPictureHttp alloc] init];
     self.addMomentHttp = [[AdMomentHttp alloc] init];
+    
+    //测试上传拼接的长图
+    [self uploadImage:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -166,6 +169,33 @@
     UIImage *rightImage = [LXUtils rotateImage:image];
 
     [picker dismissViewControllerAnimated:YES completion:nil];
+   
+}
+
+- (UIImage *)addImage:(UIImageView *)image1 toImage:(UIImageView *)image2 {
+    CGSize size= CGSizeMake(image1.frame.size.width,image1.frame.size.height+image2.frame.size.height);
+    UIGraphicsBeginImageContext(size);
+    
+    // Draw image1
+    [image2.image drawInRect:CGRectMake(0, 0, image1.frame.size.width, image1.frame.size.height)];
+    
+    // Draw image2
+    [image1.image drawInRect:CGRectMake(0, image1.frame.size.height, image2.frame.size.width, image2.frame.size.height)];
+    
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return resultingImage;
+}
+
+- (void)uploadImage:(UIImage *)rightImage
+{
+    UIImageView *imageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1-640x960"]];
+    UIImageView *imageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2-640x960"]];
+    
+    rightImage = [self addImage:imageView1 toImage:imageView2];
+    
     self.updatePicHttp.parameter.image = rightImage;
     [self showLoadingWithText:MT_LOADING];
     __block CatchMomentViewController *weak_self = self;
@@ -179,7 +209,7 @@
                 if (![weak_self.imageIds containsObject:weak_self.updatePicHttp.resultModel.avatar]) {
                     [weak_self.imageIds addObject:weak_self.updatePicHttp.resultModel.avatar];
                 }
-
+                
                 if ([weak_self.imageIds count] > 0) {
                     weak_self.addMomentHttp.parameter.pictureurls = [weak_self.imageIds componentsJoinedByString:@","];
                 }

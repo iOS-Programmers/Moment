@@ -15,13 +15,16 @@
 #import "TencentOpenAPI/QQApiInterface.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 
-@interface FindDetailViewController () <UIActionSheetDelegate,TencentSessionDelegate>
+@interface FindDetailViewController () <UIActionSheetDelegate,TencentSessionDelegate,UIScrollViewDelegate>
 {
     TencentOAuth *_tencentOAuth;
     
     NSMutableArray* _permissions;
 }
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 
 @property (strong, nonatomic) IBOutlet UIView *moreView;
 
@@ -54,7 +57,12 @@
     self.navigationItem.rightBarButtonItem = [self findDetailrightNavItem];
     
     if ([self.momentInfo.pictureurls count] > 0) {
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]]];
+//        [self.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]]];
+        [self.imageView  sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+        }];
+        
+        [self.scrollView setContentSize:CGSizeMake(self.imageView.image.size.width, self.imageView.image.size.height)];
     }
     
     [self.moreView frameSetPoint:CGPointMake(([LXUtils GetScreeWidth] - CGRectGetWidth(self.moreView.frame) - 10), 0)];
@@ -62,7 +70,7 @@
     [self.view addSubview:self.moreView];
     
     
-    
+    self.contentTextView.text = self.momentInfo.content;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,6 +137,23 @@
     UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"返回" destructiveButtonTitle:nil otherButtonTitles:@"微信朋友圈",@"微信好友",@"新浪微博",@"QQ好友", nil];
     [action  showInView:self.view];
 }
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.contentView setHidden:YES];
+    }];
+
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.contentView setHidden:NO];
+    }];
+}
+
 
 #pragma mark - UIActionSheetDelegate
 
