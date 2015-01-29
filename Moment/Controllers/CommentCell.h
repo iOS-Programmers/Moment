@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIButton *replyBtn;
+@property (weak, nonatomic) IBOutlet UILabel *zanCountLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *theContentView;
 
 - (void)updateUIWithCommentInfo:(CommentInfo *)info;
 

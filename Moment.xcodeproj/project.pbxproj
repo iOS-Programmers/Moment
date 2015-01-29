@@ -1194,7 +1194,7 @@
 				ORGANIZATIONNAME = YH;
 				TargetAttributes = {
 					168D3A7A1A2D638E0004790E = {
-						DevelopmentTeam = NCJ9XGFG95;
+						DevelopmentTeam = X3D48WNE4L;
 					};
 					168D3A951A2D638E0004790E = {
 						TestTargetID = 168D3A7A1A2D638E0004790E;
@@ -1558,6 +1558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moment/Vendor/TencentSDK_2.2",
@@ -1617,6 +1618,7 @@
 					"\"UIKit\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1630,6 +1632,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moment/Vendor/TencentSDK_2.2",
@@ -1651,6 +1654,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};

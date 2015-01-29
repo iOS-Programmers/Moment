@@ -15,6 +15,8 @@
     // Initialization code
     self.avatarImage.layer.cornerRadius = CGRectGetWidth(self.avatarImage.frame)/2;
     self.avatarImage.layer.masksToBounds = YES;
+    
+    self.theContentView.layer.cornerRadius = 5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -32,6 +34,7 @@
     if ([info.support integerValue] > 0) {
         self.replyBtn.selected = YES;
     }
+    self.zanCountLabel.text = info.support;
     
 }
 @end
