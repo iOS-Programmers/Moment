@@ -59,10 +59,22 @@
     if ([self.momentInfo.pictureurls count] > 0) {
 
         [self.imageView  sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+            
+            CGFloat width;
+            CGFloat height;
+            if (image.size.width > [LXUtils GetScreeWidth]) {
+                width = [LXUtils GetScreeWidth];
+                height = image.size.height/(image.size.width/[LXUtils GetScreeWidth]);
+            }
+            else {
+                width = image.size.width;
+                height = image.size.height;
+            }
+            self.imageView.frame = CGRectMake(0, 0, width, height);
         }];
         
-        [self.scrollView setContentSize:CGSizeMake(self.imageView.image.size.width, self.imageView.image.size.height)];
+        [self.scrollView setContentSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)];
+        self.scrollView.backgroundColor = [UIColor blackColor];
     }
     
     [self.moreView frameSetPoint:CGPointMake(([LXUtils GetScreeWidth] - CGRectGetWidth(self.moreView.frame) - 10), 0)];

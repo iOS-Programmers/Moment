@@ -88,7 +88,7 @@
 - (void)updateUI
 {
  
-    if ([self.images count] > 2) {
+    if ([self.images count] > 9) {
         [self showWithText:@"最多只能上传9张照片"];
         return;
     }
@@ -140,7 +140,7 @@
  */
 - (IBAction)onPhotoAlbumClick:(UIButton *)sender {
     
-    if ([self.images count]> 9) {
+    if ([self.images count] >= 9) {
         [self showWithText:@"最多只能上传9张照片"];
         return;
     }
@@ -161,7 +161,7 @@
  */
 - (IBAction)onCameraClick:(id)sender {
 
-    if ([self.images count]> 9) {
+    if ([self.images count] >= 9) {
         [self showWithText:@"最多只能上传9张照片"];
         return;
     }
@@ -275,7 +275,7 @@
     }
     
     UIImage *image1 = (UIImage *)arr[0];
-    CGSize size= CGSizeMake([LXUtils GetScreeWidth],image1.size.height * [arr count]);
+    CGSize size= CGSizeMake(image1.size.width,image1.size.height * [arr count]);
     UIGraphicsBeginImageContext(size);
     
     for (int i = 0; i< [arr count]; i ++) {

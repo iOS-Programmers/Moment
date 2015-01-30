@@ -36,7 +36,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"个人资料";
     
-    self.titles =@[@"头像",@"用户名",@"昵称",@"注册日期"];
+    self.titles =@[@"头像",@"账号",@"昵称",@"注册日期"];
     
     self.updatePicHttp = [[UploadPictureHttp alloc] init];
     self.modifyAvatarHttp = [[ModifyAvatarHttp alloc] init];
@@ -97,7 +97,7 @@
         }
         
        
-        if (indexPath.row != 3) {
+        if (indexPath.row == 0 || indexPath.row == 2) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         cell.textLabel.font = [UIFont systemFontOfSize:15];
@@ -108,8 +108,8 @@
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
     }
     if (indexPath.row == 1) {
-        //用户名
-        cell.detailTextLabel.text = [MTUserInfo defaultUserInfo].username;
+        //账号
+        cell.detailTextLabel.text = [MTUserInfo userID];
     }
     if (indexPath.row == 2) {
         //昵称
@@ -132,7 +132,7 @@
     
     NSInteger row = indexPath.row;
     
-    if (row == 3) {
+    if (row == 3 || row == 1) {
         return;
     }
     if (row == 0) {
@@ -149,18 +149,18 @@
     
     MTEditTextViewController *vc = [[MTEditTextViewController alloc] init];
     YHBaseNavigationController *nav = [[YHBaseNavigationController alloc] initWithRootViewController:vc];
-    if (row == 1) {
-        vc.titleStr = @"用户名";
-    }
+//    if (row == 1) {
+//        vc.titleStr = @"账号";
+//    }
     if (row == 2) {
         vc.titleStr = @"昵称";
     }
     __weak PersonInfoViewController *weak_self = self;
     EditBackBlock block = ^(NSString *str)
     {
-        if (indexPath.row == 1) {
-            weak_self.userName = str;
-        }
+//        if (indexPath.row == 1) {
+//            weak_self.userName = str;
+//        }
         if (indexPath.row == 2) {
             weak_self.nickName = str;
         }

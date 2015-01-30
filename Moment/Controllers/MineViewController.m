@@ -169,7 +169,7 @@
         if (FBIsEmpty([MTUserInfo defaultUserInfo].nickname)) {
             cell.nickNameLabel.text = @"用户名";
         }
-        cell.countLabel.text = [NSString stringWithFormat:@"账号:%@",[MTUserInfo defaultUserInfo].mobile];
+        cell.countLabel.text = [NSString stringWithFormat:@"账号: %@",[MTUserInfo userID]];
         
         if (!FBIsEmpty([MTUserInfo defaultUserInfo].avatar)) {
             [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
