@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Moment/Controllers/CatchMomentViewController.m"
-            timestampString = "444214626.800691"
+            timestampString = "444243968.333318"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "-imagePickerController:didFinishPickingImage:editingInfo:"
             landmarkType = "5">
          </BreakpointContent>

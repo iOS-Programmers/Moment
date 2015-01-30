@@ -317,35 +317,6 @@
 
 - (void)gotoMomentDetailView:(MomentInfo *)info
 {
-    
-    // Browser
-//    NSMutableArray *photos = [[NSMutableArray alloc] init];
-//    for (int i = 0; i < [info.pictureurls count]; i ++) {
-//        MWPhoto *photo;
-//        
-//        photo = [MWPhoto photoWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.pictureurls[i]]]];
-//        photo.caption = info.content;
-//        [photos addObject:photo];
-//    }
-//
-//    self.photos = photos;
-//    
-//    // Create browser
-//    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-//    //    browser.displayActionButton = displayActionButton;
-//    //    browser.displayNavArrows = displayNavArrows;
-//    //    browser.displaySelectionButtons = displaySelectionButtons;
-//    //    browser.alwaysShowControls = displaySelectionButtons;
-//    browser.zoomPhotosToFill = YES;
-//#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
-//    browser.wantsFullScreenLayout = YES;
-//#endif
-//    //    browser.enableGrid = enableGrid;
-//    //    browser.startOnGrid = startOnGrid;
-//    browser.enableSwipeToDismiss = YES;
-//    [browser setCurrentPhotoIndex:0];
-    
-//[self.navigationController pushViewController:browser animated:YES];
     FindDetailViewController *detailVC = [[FindDetailViewController alloc] init];
 
     detailVC.momentInfo = info;

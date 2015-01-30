@@ -9,13 +9,18 @@
 #import "MyStoryListViewController.h"
 #import "StoryListCell.h"
 
+#import "FindDetailViewController.h"
+#import "MyStory.h"
+
 #import "MyStoryHttp.h"
 #import "DeleMyStoryHttp.h"
+#import "MomentInfoHttp.h"
 
 @interface MyStoryListViewController ()
 
 @property (strong, nonatomic) MyStoryHttp *myStoryHttp;
 @property (strong, nonatomic) DeleMyStoryHttp *delemyStoryHttp;
+@property (strong, nonatomic) MomentInfoHttp *momentInfoHttp;
 
 @end
 
@@ -28,6 +33,7 @@
     
     self.myStoryHttp = [[MyStoryHttp alloc] init];
     self.delemyStoryHttp = [[DeleMyStoryHttp alloc] init];
+    self.momentInfoHttp = [[MomentInfoHttp alloc] init];
     
     self.tableView.rowHeight = 88;
     
@@ -85,10 +91,59 @@
 - (void)updateMomentListWithInfo:(NSMutableArray *)infoArray
 {
     if (!FBIsEmpty(infoArray)) {
-        self.dataSource = infoArray;
+        
+        self.dataSource = (NSMutableArray *)[[infoArray reverseObjectEnumerator] allObjects];
     }
     
     [self.tableView reloadData];
+}
+
+- (void)requestMomentInfoWithId:(MyStory *)detail
+{
+    if (FBIsEmpty(detail.tid)) {
+        return;
+    }
+    
+    self.momentInfoHttp.parameter.tid = detail.tid;
+    
+    [self showLoadingWithText:MT_LOADING];
+    __weak MyStoryListViewController *weak_self = self;
+    [self.momentInfoHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+        if (weak_self.momentInfoHttp.isValid)
+        {
+            /**
+             *  去单个详情页
+             */
+            [weak_self gotoMomentDetailView:weak_self.momentInfoHttp.resultModel];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.momentInfoHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+    
+}
+
+- (void)gotoMomentDetailView:(MomentInfo *)info
+{
+    FindDetailViewController *detailVC = [[FindDetailViewController alloc] init];
+    
+    detailVC.momentInfo = info;
+    detailVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark - UITableView DataSource
@@ -185,7 +240,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+ 
+    MyStory *detail = (MyStory *)self.dataSource[indexPath.row];
     
+    [self requestMomentInfoWithId:detail];
 }
 
 

@@ -1194,7 +1194,7 @@
 				ORGANIZATIONNAME = YH;
 				TargetAttributes = {
 					168D3A7A1A2D638E0004790E = {
-						DevelopmentTeam = X3D48WNE4L;
+						DevelopmentTeam = NCJ9XGFG95;
 					};
 					168D3A951A2D638E0004790E = {
 						TestTargetID = 168D3A7A1A2D638E0004790E;
