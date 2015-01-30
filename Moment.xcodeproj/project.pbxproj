@@ -186,6 +186,8 @@
 		16DA0B961A47059E008D1114 /* LoginPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B931A47059E008D1114 /* LoginPara.m */; };
 		16E1D71B1A760B1200AEC782 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16E1D7101A760B1200AEC782 /* libWeiboSDK.a */; };
 		16E1D71C1A760B1200AEC782 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16E1D7181A760B1200AEC782 /* WeiboSDK.bundle */; };
+		16E3B26B1A7B4DF4005DDD99 /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E3B26A1A7B4DF4005DDD99 /* UserGuideViewController.m */; };
+		16E3B26E1A7B4F7A005DDD99 /* LXElementCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E3B26D1A7B4F7A005DDD99 /* LXElementCategory.m */; };
 		16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D01A46C4F80086BC42 /* LXDataModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16FF48DA1A46C4F80086BC42 /* LXHttpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D21A46C4F80086BC42 /* LXHttpModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16FF48DC1A46C4F80086BC42 /* LXParameterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D61A46C4F80086BC42 /* LXParameterModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -522,6 +524,10 @@
 		16E1D7181A760B1200AEC782 /* WeiboSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WeiboSDK.bundle; sourceTree = "<group>"; };
 		16E1D7191A760B1200AEC782 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		16E1D71A1A760B1200AEC782 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
+		16E3B2691A7B4DF4005DDD99 /* UserGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGuideViewController.h; sourceTree = "<group>"; };
+		16E3B26A1A7B4DF4005DDD99 /* UserGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGuideViewController.m; sourceTree = "<group>"; };
+		16E3B26C1A7B4F7A005DDD99 /* LXElementCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXElementCategory.h; sourceTree = "<group>"; };
+		16E3B26D1A7B4F7A005DDD99 /* LXElementCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXElementCategory.m; sourceTree = "<group>"; };
 		16FF48CF1A46C4F80086BC42 /* LXDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDataModel.h; sourceTree = "<group>"; };
 		16FF48D01A46C4F80086BC42 /* LXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LXDataModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		16FF48D11A46C4F80086BC42 /* LXHttpModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHttpModel.h; sourceTree = "<group>"; };
@@ -587,6 +593,8 @@
 				1617F5E71A36876F00B5F7C3 /* NSString+LT.m */,
 				1617F5E81A36876F00B5F7C3 /* UIView+Utils.h */,
 				1617F5E91A36876F00B5F7C3 /* UIView+Utils.m */,
+				16E3B26C1A7B4F7A005DDD99 /* LXElementCategory.h */,
+				16E3B26D1A7B4F7A005DDD99 /* LXElementCategory.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -681,6 +689,8 @@
 				169FA86D1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.xib */,
 				166B3E091A42C5BB005C4706 /* MTTextFiedBGView.h */,
 				166B3E0A1A42C5BB005C4706 /* MTTextFiedBGView.m */,
+				16E3B2691A7B4DF4005DDD99 /* UserGuideViewController.h */,
+				16E3B26A1A7B4DF4005DDD99 /* UserGuideViewController.m */,
 			);
 			name = "Login&Register";
 			sourceTree = "<group>";
@@ -1356,6 +1366,7 @@
 				16B2F5901A4D37CD00FDE382 /* SupportStory.m in Sources */,
 				160D0D621A486D9C0025A6D5 /* ModifyNickName.m in Sources */,
 				1617F6B61A36898700B5F7C3 /* MineViewController.m in Sources */,
+				16E3B26B1A7B4DF4005DDD99 /* UserGuideViewController.m in Sources */,
 				160D0D591A486C9B0025A6D5 /* ModifyUserName.m in Sources */,
 				1645EC421A619E98000CBE98 /* PersionInfoAvatarCell.m in Sources */,
 				1617F6D11A36E90200B5F7C3 /* SettingViewController.m in Sources */,
@@ -1405,6 +1416,7 @@
 				160D0D561A486C900025A6D5 /* ModifyUserNamePara.m in Sources */,
 				16B2F5811A4D2FA800FDE382 /* MyComment.m in Sources */,
 				160D0D6B1A48717C0025A6D5 /* MyStory.m in Sources */,
+				16E3B26E1A7B4F7A005DDD99 /* LXElementCategory.m in Sources */,
 				1645EC331A616ACA000CBE98 /* GetValidateCode.m in Sources */,
 				160D0D741A4871B60025A6D5 /* DeleMyStory.m in Sources */,
 				16B7F8281A49078E00B7629B /* MomentInfoHttp.m in Sources */,

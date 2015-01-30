@@ -24,6 +24,8 @@
 //MD5加密方法
 #import "NSString+MD5.h"
 
+#import "LXElementCategory.h"
+
 
 #define HOST_NAME @"http://121.41.111.48/sunjian"
 

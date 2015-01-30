@@ -68,4 +68,8 @@
 #define MT_UpdatePersonalInfo @"updatepersonalInfo"
 
 
+#pragma mark - NSUserDefaults Name
+
+#define FirstLaunch  @"firstLaunch"
+
 #endif

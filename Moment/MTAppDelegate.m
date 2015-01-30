@@ -12,6 +12,7 @@
 #import "MineViewController.h"
 
 #import "LoginViewController.h"
+#import "UserGuideViewController.h"
 
 #import "YHBaseNavigationController.h"
 #import "YHBaseTabbarController.h"
@@ -43,22 +44,29 @@
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     }
     
-    
-    if (![MTUserInfo defaultUserInfo].isLogin) {
-        LoginViewController *loginViewController = [[LoginViewController alloc] init];
-        YHBaseNavigationController *loginNav = [[YHBaseNavigationController alloc] initWithRootViewController:loginViewController];
-        
-        [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                               [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
-
-        [self.window setRootViewController:loginNav];
+    //判断是否是第一次启动应用...
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:FirstLaunch])
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:FirstLaunch];
+        [self showWelcomeView];
     }
     else {
-        [self initMainView];
+        if (![MTUserInfo defaultUserInfo].isLogin) {
+            LoginViewController *loginViewController = [[LoginViewController alloc] init];
+            YHBaseNavigationController *loginNav = [[YHBaseNavigationController alloc] initWithRootViewController:loginViewController];
+            
+            [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                   [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
+            
+            [self.window setRootViewController:loginNav];
+        }
+        else {
+            [self initMainView];
+        }
     }
     
-    
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -105,6 +113,14 @@
 + (MTAppDelegate *)shareappdelegate
 {
     return (MTAppDelegate*)[[UIApplication sharedApplication] delegate];
+}
+
+//显示引导页
+- (void)showWelcomeView
+{
+    UserGuideViewController *welcomeVC = [[UserGuideViewController alloc] init];
+    
+    [self.window setRootViewController:welcomeVC];
 }
 
 #pragma mark - ThirdPart Delegate
