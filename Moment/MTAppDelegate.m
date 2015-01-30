@@ -28,6 +28,8 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    
     //向微信注册
     [WXApi registerApp:WX_APPID];
     

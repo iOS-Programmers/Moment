@@ -11,7 +11,7 @@
 
 #import "UploadPictureHttp.h"
 
-@interface CatchMomentViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate>
+@interface CatchMomentViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -55,6 +55,9 @@
     
     [self.scrollView addSubview:self.coverControl];
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEdit)];
+    [self.scrollView addGestureRecognizer:tap];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,6 +75,11 @@
 }
 */
 
+- (void)endEdit
+{
+    [self.scrollView endEditing:YES];
+}
+
 - (void)hideControl
 {
     [self.coverControl setHidden:YES];
@@ -79,12 +87,26 @@
 
 - (void)updateUI
 {
+ 
+    if ([self.images count] > 2) {
+        [self showWithText:@"最多只能上传9张照片"];
+        return;
+    }
+    
+    [self.scrollView removeAllSubview];
     for (int i = 0; i < [self.images count]; i ++) {
         UIImageView * imgView = [[UIImageView alloc] init];
         imgView.frame = CGRectMake([LXUtils GetScreeWidth] * i,0 , [LXUtils GetScreeWidth], self.scrollView.frame.size.height);
         imgView.image = self.images[i];
         
         [self.scrollView addSubview:imgView];
+        
+        UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        deleteBtn.tag = i;
+        deleteBtn.frame = CGRectMake([LXUtils GetScreeWidth] * i + 270, 10, 40, 40);
+        [deleteBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+        [deleteBtn addTarget:self action:@selector(onDeleteImageClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self.scrollView addSubview:deleteBtn];
         
     }
     
@@ -100,12 +122,28 @@
 }
 
 
+- (void)onDeleteImageClick:(UIButton *)sender
+{
+    NSInteger tag = sender.tag;
+    
+    if ([self.images count] > tag) {
+        [self.images removeObjectAtIndex:tag];
+    }
+    
+    [self updateUI];
+}
+
 /**
  *  点击相册按钮
  *
  *  @param sender
  */
 - (IBAction)onPhotoAlbumClick:(UIButton *)sender {
+    
+    if ([self.images count]> 9) {
+        [self showWithText:@"最多只能上传9张照片"];
+        return;
+    }
 
     UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
@@ -122,6 +160,11 @@
  *  @param sender
  */
 - (IBAction)onCameraClick:(id)sender {
+
+    if ([self.images count]> 9) {
+        [self showWithText:@"最多只能上传9张照片"];
+        return;
+    }
     
     UIImagePickerController *imagePicker =[[UIImagePickerController alloc] init];
     imagePicker.delegate = self;
@@ -149,12 +192,23 @@
 - (IBAction)onLabelClick:(UIButton *)sender {
 
     UITextField *firstTF = [[UITextField alloc] init];
-    firstTF.frame = CGRectMake(0, 0, 200, 40);
+    firstTF.delegate = self;
+    firstTF.returnKeyType = UIReturnKeyDone;
+    firstTF.clearButtonMode = UITextFieldViewModeAlways;
+    firstTF.frame = CGRectMake(0, 0, 150, 40);
     firstTF.center = self.scrollView.center;
     firstTF.textColor = [UIColor whiteColor];
     firstTF.text = @"此处文字可随意拖动!";
 
     [self.view addSubview:firstTF];
+
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+
+    [textField resignFirstResponder];
+    
+    return YES;
 
 }
 
@@ -229,11 +283,7 @@
         image = (UIImage *)arr[i];
         [image drawInRect:CGRectMake(0, image1.size.height * i, image1.size.width, image1.size.height)];
     }
-    // Draw image1
-//    [image2.image drawInRect:CGRectMake(0, 0, image1.frame.size.width, image1.frame.size.height)];
-//    
-//    // Draw image2
-//    [image1.image drawInRect:CGRectMake(0, image1.frame.size.height, image2.frame.size.width, image2.frame.size.height)];
+
 //    
     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
     
@@ -242,22 +292,6 @@
     return resultingImage;
 }
 
-//- (UIImage *)addImage:(UIImageView *)image1 toImage:(UIImageView *)image2 {
-//    CGSize size= CGSizeMake(image1.frame.size.width,image1.frame.size.height+image2.frame.size.height);
-//    UIGraphicsBeginImageContext(size);
-//    
-//    // Draw image1
-//    [image2.image drawInRect:CGRectMake(0, 0, image1.frame.size.width, image1.frame.size.height)];
-//    
-//    // Draw image2
-//    [image1.image drawInRect:CGRectMake(0, image1.frame.size.height, image2.frame.size.width, image2.frame.size.height)];
-//    
-//    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
-//    
-//    UIGraphicsEndImageContext();
-//    
-//    return resultingImage;
-//}
 
 - (void)uploadImage:(UIImage *)rightImage
 {
