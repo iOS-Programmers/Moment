@@ -55,6 +55,7 @@
     self.tableView.rowHeight = 120;
     self.tableView.frame = CGRectMake(0, 0, [LXUtils GetScreeWidth], [LXUtils getContentViewHeight] +20);
     self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.backgroundColor = BACKGROUND_COLCOR;
     
     //设置评论View的默认位置
     self.commentView.frame = CGRectMake(0, [LXUtils GetScreeHeight], [LXUtils GetScreeWidth], CGRectGetHeight(self.commentView.frame));

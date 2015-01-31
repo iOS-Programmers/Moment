@@ -15,6 +15,9 @@
     
     self.avatarImage.layer.cornerRadius = CGRectGetWidth(self.avatarImage.frame)/2;
     self.avatarImage.layer.masksToBounds = YES;
+    
+    self.storyBGView.layer.cornerRadius = 5;
+    self.storyBGView.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

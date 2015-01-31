@@ -12,9 +12,14 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *mycommentLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *litpicImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *storyNameLabel;
+
+@property (weak, nonatomic) IBOutlet UIView *storyBGView;
 @end

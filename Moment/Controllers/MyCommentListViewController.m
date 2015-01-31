@@ -52,6 +52,9 @@
 
 - (void)requestMyCommentList
 {
+    //请求前清空数据列表
+    [self.dataSource removeAllObjects];
+    
     __weak MyCommentListViewController *weak_self = self;
     [self.mycommentHttp getDataWithCompletionBlock:^{
         
@@ -65,6 +68,8 @@
         else
         {   //显示服务端返回的错误提示
             [weak_self showWithText:weak_self.mycommentHttp.erorMessage];
+            
+            [weak_self.tableView reloadData];
         };
     }failedBlock:^{
         
@@ -84,6 +89,9 @@
 
 - (void)requestCommentMeList
 {
+    //请求前清空数据列表
+    [self.dataSource removeAllObjects];
+    
     __weak MyCommentListViewController *weak_self = self;
     [self.commentmeHttp getDataWithCompletionBlock:^{
         
@@ -97,6 +105,8 @@
         else
         {   //显示服务端返回的错误提示
             [weak_self showWithText:weak_self.commentmeHttp.erorMessage];
+            
+            [weak_self.tableView reloadData];
         };
     }failedBlock:^{
         
@@ -110,6 +120,7 @@
         {
             //统统归纳为服务器出错
             [weak_self showWithText:MT_NETWRONG];
+
         };
     }];
 }
@@ -191,7 +202,8 @@
     if (self.isMyCommentTag) {
         MyComment *info = (MyComment *)self.dataSource[indexPath.row];
         [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]]];
-        cell.titleLabel.text = info.title;
+        cell.storyNameLabel.text = info.title;
+        cell.nickNameLabel.text = info.author;
         cell.mycommentLabel.text = info.message;
         cell.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
         [cell.litpicImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.litpic]]];
@@ -200,7 +212,8 @@
     else {
         CommentMe *info = (CommentMe *)self.dataSource[indexPath.row];
         [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]]];
-        cell.titleLabel.text = info.title;
+        cell.storyNameLabel.text = info.title;
+        cell.nickNameLabel.text = info.author;
         cell.mycommentLabel.text = info.message;
         cell.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
         [cell.litpicImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.litpic]]];
