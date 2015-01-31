@@ -13,13 +13,14 @@
 #import "MomentListHttp.h"
 #import "MomentInfoHttp.h"
 #import "SupportStoryHttp.h"
-//#import "MWPhotoBrowser.h"
+#import "DelMomentZanHttp.h"
 
 @interface FindMomentViewController ()
 
 @property (strong, nonatomic) MomentListHttp *momentHttp;
 @property (strong, nonatomic) MomentInfoHttp *momentInfoHttp;
 @property (strong, nonatomic) SupportStoryHttp *supportHttp;
+@property (strong, nonatomic) DelMomentZanHttp *delMomentHttp;
 
 //装图片的数组
 @property (nonatomic, strong) NSMutableArray *photos;
@@ -44,6 +45,7 @@
     self.momentHttp = [[MomentListHttp alloc] init];
     self.momentInfoHttp = [[MomentInfoHttp alloc] init];
     self.supportHttp = [[SupportStoryHttp alloc] init];
+    self.delMomentHttp = [[DelMomentZanHttp alloc] init];
     self.photos = [[NSMutableArray alloc] init];
     
     self.momentHttp.parameter.fid = @"0";
@@ -138,7 +140,7 @@
  *
  *  @param tid 故事id
  */
-- (void)requestSupportStory:(NSString *)tid
+- (void)requestSupportStory:(NSString *)tid btnTag:(NSInteger)tag
 {
     if (FBIsEmpty(tid)) {
         [self showWithText:@"故事id有误！"];
@@ -157,11 +159,67 @@
             /**
              *  更新数据
              */
-            [weak_self requestMomentList];
+            //请求成功后设置Btn的状态
+            NSIndexPath *index1 =  [NSIndexPath indexPathForItem:tag inSection:0];
+            FindMomentCell *cell =  (FindMomentCell *)[self.tableView cellForRowAtIndexPath:index1];
+            cell.likeBtn.selected = YES;
+            
+            cell.recommendNmLabel.text = weak_self.supportHttp.resultModel.recommend_add;
         }
         else
         {   //显示服务端返回的错误提示
             [weak_self showWithText:weak_self.supportHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+}
+
+/**
+ *  取消赞
+ *
+ *  @param tid 故事id
+ */
+- (void)requestDeleStorySupport:(NSString *)tid btnTag:(NSInteger)tag
+{
+    if (FBIsEmpty(tid)) {
+        [self showWithText:@"故事id有误！"];
+        return;
+    }
+    
+//    self.delMomentHttp.parameter.tid = tid;
+    
+    [self showLoadingWithText:MT_LOADING];
+    __weak FindMomentViewController *weak_self = self;
+    [self.delMomentHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+        
+        if (weak_self.delMomentHttp.isValid)
+        {
+            /**
+             *  更新数据
+             */
+            [weak_self requestMomentList];
+            //请求成功后设置Btn的状态
+            NSIndexPath *index1 =  [NSIndexPath indexPathForItem:tag inSection:0];
+            FindMomentCell *cell =  (FindMomentCell *)[self.tableView cellForRowAtIndexPath:index1];
+            cell.likeBtn.selected = NO;
+            cell.recommendNmLabel.text = weak_self.supportHttp.resultModel.recommend_add;
+            
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.delMomentHttp.erorMessage];
         };
     }failedBlock:^{
         [weak_self hideLoading];
@@ -232,6 +290,71 @@
     }];
 }
 
+- (void)onLikeBtnClick:(UIButton *)btn
+{
+    MomentDetail *detail = (MomentDetail *)self.dataSource[btn.tag];
+    
+    if (btn.selected) {
+        //取消赞
+        [self requestDeleStorySupport:detail.tid btnTag:btn.tag];
+    }
+    else {
+        //赞
+        [self requestSupportStory:detail.tid btnTag:btn.tag];
+    }
+    
+}
+
+
+- (void)requestMomentInfoWithId:(MomentDetail *)detail
+{
+    if (FBIsEmpty(detail.tid)) {
+        return;
+    }
+    
+    self.momentInfoHttp.parameter.tid = detail.tid;
+    
+    [self showLoadingWithText:MT_LOADING];
+    __weak FindMomentViewController *weak_self = self;
+    [self.momentInfoHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+        if (weak_self.momentInfoHttp.isValid)
+        {
+            /**
+             *  去单个详情页
+             */
+            [weak_self gotoMomentDetailView:weak_self.momentInfoHttp.resultModel];
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.momentInfoHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+    
+}
+
+- (void)gotoMomentDetailView:(MomentInfo *)info
+{
+    FindDetailViewController *detailVC = [[FindDetailViewController alloc] init];
+    
+    detailVC.momentInfo = info;
+    detailVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
+
 #pragma mark - UITableView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -265,62 +388,6 @@
     return cell;
 }
 
-- (void)onLikeBtnClick:(UIButton *)btn
-{
-    btn.selected = !btn.selected;
-    MomentDetail *detail = (MomentDetail *)self.dataSource[btn.tag];
-
-    [self requestSupportStory:detail.tid];
-}
-
-
-- (void)requestMomentInfoWithId:(MomentDetail *)detail
-{
-    if (FBIsEmpty(detail.tid)) {
-        return;
-    }
-
-    self.momentInfoHttp.parameter.tid = detail.tid;
-    
-    [self showLoadingWithText:MT_LOADING];
-    __weak FindMomentViewController *weak_self = self;
-    [self.momentInfoHttp getDataWithCompletionBlock:^{
-        [weak_self hideLoading];
-        if (weak_self.momentInfoHttp.isValid)
-        {
-            /**
-             *  去单个详情页
-             */
-            [weak_self gotoMomentDetailView:weak_self.momentInfoHttp.resultModel];
-        }
-        else
-        {   //显示服务端返回的错误提示
-            [weak_self showWithText:weak_self.momentInfoHttp.erorMessage];
-        };
-    }failedBlock:^{
-        [weak_self hideLoading];
-        
-        if (![LXUtils networkDetect])
-        {
-            [weak_self showWithText:MT_CHECKNET];
-        }
-        else
-        {
-            //统统归纳为服务器出错
-            [weak_self showWithText:MT_NETWRONG];
-        };
-    }];
-
-}
-
-- (void)gotoMomentDetailView:(MomentInfo *)info
-{
-    FindDetailViewController *detailVC = [[FindDetailViewController alloc] init];
-
-    detailVC.momentInfo = info;
-    detailVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:detailVC animated:YES];
-}
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

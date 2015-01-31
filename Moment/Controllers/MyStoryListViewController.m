@@ -48,6 +48,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
+
 - (void)requestMyStoryList
 {
     

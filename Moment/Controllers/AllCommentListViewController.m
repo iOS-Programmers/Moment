@@ -12,12 +12,14 @@
 #import "AddCommentHttp.h"
 #import "PlacehoderTextView.h"
 #import "SupportCommentHttp.h"
+#import "DelCommentZanHttp.h"
 
 @interface AllCommentListViewController () <UITextViewDelegate>
 
 @property (strong, nonatomic) CommentListHttp *commentListHttp;
 @property (strong, nonatomic) AddCommentHttp *addCommentHttp;
 @property (strong, nonatomic) SupportCommentHttp *supportCommentHttp;
+@property (strong, nonatomic) DelCommentZanHttp *deleCommentZanHttp;
 
 /*******评论View*********/
 @property (strong, nonatomic) IBOutlet UIView *commentView;
@@ -46,6 +48,7 @@
     self.commentListHttp = [[CommentListHttp alloc] init];
     self.addCommentHttp = [[AddCommentHttp alloc] init];
     self.supportCommentHttp = [[SupportCommentHttp alloc] init];
+    self.deleCommentZanHttp = [[DelCommentZanHttp alloc] init];
     
     self.CommentTextView.placeholder = @"我来说两句...";
     
@@ -127,7 +130,7 @@
     [self.tableView reloadData];
 }
 
-- (void)requestCommentLike:(NSString *)pid
+- (void)requestCommentLike:(NSString *)pid btnTag:(NSInteger)tag
 {
     if (FBIsEmpty(pid) || FBIsEmpty(self.tid)) {
         return;
@@ -144,7 +147,11 @@
             /**
              *  更新数据
              */
-            [weak_self requestStoryCommentList];
+            NSIndexPath *index1 =  [NSIndexPath indexPathForItem:tag inSection:0];
+            CommentCell *cell =  (CommentCell *)[self.tableView cellForRowAtIndexPath:index1];
+            cell.replyBtn.selected = YES;
+            
+            cell.zanCountLabel.text = weak_self.supportCommentHttp.resultModel.support;
         }
         else
         {   //显示服务端返回的错误提示
@@ -153,6 +160,56 @@
     }failedBlock:^{
         [weak_self hideLoading];
 //        [weak_self.header endRefreshing];
+        
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
+}
+
+/**
+ *  取消赞
+ *
+ *  @param pid 评论id
+ *  @param tag 按钮的tag
+ */
+- (void)requestDeleteCommentLike:(NSString *)pid btnTag:(NSInteger)tag
+{
+    if (FBIsEmpty(pid) || FBIsEmpty(self.tid)) {
+        return;
+    }
+    self.deleCommentZanHttp.parameter.tid = self.tid;
+    self.deleCommentZanHttp.parameter.pid = pid;
+    [self showLoadingWithText:MT_LOADING];
+    __weak AllCommentListViewController *weak_self = self;
+    [self.deleCommentZanHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+
+        if (weak_self.deleCommentZanHttp.isValid)
+        {
+            /**
+             *  更新数据
+             */
+            //请求成功后设置Btn的状态
+            NSIndexPath *index1 =  [NSIndexPath indexPathForItem:tag inSection:0];
+            CommentCell *cell =  (CommentCell *)[self.tableView cellForRowAtIndexPath:index1];
+            cell.replyBtn.selected = NO;
+            
+            cell.zanCountLabel.text = weak_self.deleCommentZanHttp.resultModel.support;
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.deleCommentZanHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        //        [weak_self.header endRefreshing];
         
         if (![LXUtils networkDetect])
         {
@@ -314,10 +371,17 @@
 
 - (void)onCommentLikeBtnClick:(UIButton *)btn
 {
-    btn.selected = !btn.selected;
+
     CommentInfo *detail = (CommentInfo *)self.dataSource[btn.tag];
     
-    [self requestCommentLike:detail.pid];
+    if (btn.selected) {
+        //取消赞
+        [self requestDeleteCommentLike:detail.pid btnTag:btn.tag];
+    }
+    else {
+        //赞
+        [self requestCommentLike:detail.pid btnTag:btn.tag];
+    }
 }
 
 

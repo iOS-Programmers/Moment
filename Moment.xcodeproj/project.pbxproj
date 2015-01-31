@@ -85,6 +85,12 @@
 		167E7CD01A45DF1C0050AF97 /* AllCommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167E7CCE1A45DF1C0050AF97 /* AllCommentListViewController.xib */; };
 		167E7CD41A45E0170050AF97 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167E7CD21A45E0170050AF97 /* CommentCell.m */; };
 		167E7CD51A45E0170050AF97 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167E7CD31A45E0170050AF97 /* CommentCell.xib */; };
+		168011CC1A7D1D1F003A7536 /* DelMomentZan.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011CB1A7D1D1F003A7536 /* DelMomentZan.m */; };
+		168011CF1A7D1D29003A7536 /* DelMomentZanPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011CE1A7D1D29003A7536 /* DelMomentZanPara.m */; };
+		168011D21A7D1D34003A7536 /* DelMomentZanHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011D11A7D1D34003A7536 /* DelMomentZanHttp.m */; };
+		168011D51A7D2077003A7536 /* DelCommentZan.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011D41A7D2077003A7536 /* DelCommentZan.m */; };
+		168011D81A7D2083003A7536 /* DelCommentZanPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011D71A7D2083003A7536 /* DelCommentZanPara.m */; };
+		168011DB1A7D208E003A7536 /* DelCommentZanHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011DA1A7D208E003A7536 /* DelCommentZanHttp.m */; };
 		168D3A7F1A2D638E0004790E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A7E1A2D638E0004790E /* Foundation.framework */; };
 		168D3A811A2D638E0004790E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A801A2D638E0004790E /* CoreGraphics.framework */; };
 		168D3A831A2D638E0004790E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A821A2D638E0004790E /* UIKit.framework */; };
@@ -343,6 +349,18 @@
 		167E7CD11A45E0170050AF97 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		167E7CD21A45E0170050AF97 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		167E7CD31A45E0170050AF97 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		168011CA1A7D1D1F003A7536 /* DelMomentZan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelMomentZan.h; sourceTree = "<group>"; };
+		168011CB1A7D1D1F003A7536 /* DelMomentZan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelMomentZan.m; sourceTree = "<group>"; };
+		168011CD1A7D1D29003A7536 /* DelMomentZanPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelMomentZanPara.h; sourceTree = "<group>"; };
+		168011CE1A7D1D29003A7536 /* DelMomentZanPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelMomentZanPara.m; sourceTree = "<group>"; };
+		168011D01A7D1D34003A7536 /* DelMomentZanHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelMomentZanHttp.h; sourceTree = "<group>"; };
+		168011D11A7D1D34003A7536 /* DelMomentZanHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelMomentZanHttp.m; sourceTree = "<group>"; };
+		168011D31A7D2077003A7536 /* DelCommentZan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelCommentZan.h; sourceTree = "<group>"; };
+		168011D41A7D2077003A7536 /* DelCommentZan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelCommentZan.m; sourceTree = "<group>"; };
+		168011D61A7D2083003A7536 /* DelCommentZanPara.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelCommentZanPara.h; sourceTree = "<group>"; };
+		168011D71A7D2083003A7536 /* DelCommentZanPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelCommentZanPara.m; sourceTree = "<group>"; };
+		168011D91A7D208E003A7536 /* DelCommentZanHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelCommentZanHttp.h; sourceTree = "<group>"; };
+		168011DA1A7D208E003A7536 /* DelCommentZanHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelCommentZanHttp.m; sourceTree = "<group>"; };
 		168D3A7B1A2D638E0004790E /* Moment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168D3A7E1A2D638E0004790E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		168D3A801A2D638E0004790E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -977,6 +995,18 @@
 		16DA0B821A470389008D1114 /* FindMoment */ = {
 			isa = PBXGroup;
 			children = (
+				16B2F58E1A4D37CD00FDE382 /* SupportStory.h */,
+				16B2F58F1A4D37CD00FDE382 /* SupportStory.m */,
+				16B2F5911A4D37DA00FDE382 /* SupportStoryPara.h */,
+				16B2F5921A4D37DA00FDE382 /* SupportStoryPara.m */,
+				16B2F5941A4D37E500FDE382 /* SupportStoryHttp.h */,
+				16B2F5951A4D37E500FDE382 /* SupportStoryHttp.m */,
+				16B2F5971A4D37F400FDE382 /* SupportComment.h */,
+				16B2F5981A4D37F400FDE382 /* SupportComment.m */,
+				16B2F59A1A4D37FF00FDE382 /* SupportCommentPara.h */,
+				16B2F59B1A4D37FF00FDE382 /* SupportCommentPara.m */,
+				16B2F59D1A4D380900FDE382 /* SupportCommentHttp.h */,
+				16B2F59E1A4D380900FDE382 /* SupportCommentHttp.m */,
 				1692DE851A47C7B10030ACE6 /* MomentListHttp.h */,
 				1692DE861A47C7B10030ACE6 /* MomentListHttp.m */,
 				1692DE881A47C7C40030ACE6 /* MomentListPara.h */,
@@ -1005,6 +1035,18 @@
 				16B7F8391A49097200B7629B /* AddCommentPara.m */,
 				16B7F83B1A49097C00B7629B /* AddCommentHttp.h */,
 				16B7F83C1A49097C00B7629B /* AddCommentHttp.m */,
+				168011CA1A7D1D1F003A7536 /* DelMomentZan.h */,
+				168011CB1A7D1D1F003A7536 /* DelMomentZan.m */,
+				168011CD1A7D1D29003A7536 /* DelMomentZanPara.h */,
+				168011CE1A7D1D29003A7536 /* DelMomentZanPara.m */,
+				168011D01A7D1D34003A7536 /* DelMomentZanHttp.h */,
+				168011D11A7D1D34003A7536 /* DelMomentZanHttp.m */,
+				168011D31A7D2077003A7536 /* DelCommentZan.h */,
+				168011D41A7D2077003A7536 /* DelCommentZan.m */,
+				168011D61A7D2083003A7536 /* DelCommentZanPara.h */,
+				168011D71A7D2083003A7536 /* DelCommentZanPara.m */,
+				168011D91A7D208E003A7536 /* DelCommentZanHttp.h */,
+				168011DA1A7D208E003A7536 /* DelCommentZanHttp.m */,
 			);
 			name = FindMoment;
 			sourceTree = "<group>";
@@ -1093,18 +1135,6 @@
 				16B2F58C1A4D376900FDE382 /* CommentMe.m */,
 				16B2F5821A4D374600FDE382 /* CommentMeList.h */,
 				16B2F5831A4D374600FDE382 /* CommentMeList.m */,
-				16B2F58E1A4D37CD00FDE382 /* SupportStory.h */,
-				16B2F58F1A4D37CD00FDE382 /* SupportStory.m */,
-				16B2F5911A4D37DA00FDE382 /* SupportStoryPara.h */,
-				16B2F5921A4D37DA00FDE382 /* SupportStoryPara.m */,
-				16B2F5941A4D37E500FDE382 /* SupportStoryHttp.h */,
-				16B2F5951A4D37E500FDE382 /* SupportStoryHttp.m */,
-				16B2F5971A4D37F400FDE382 /* SupportComment.h */,
-				16B2F5981A4D37F400FDE382 /* SupportComment.m */,
-				16B2F59A1A4D37FF00FDE382 /* SupportCommentPara.h */,
-				16B2F59B1A4D37FF00FDE382 /* SupportCommentPara.m */,
-				16B2F59D1A4D380900FDE382 /* SupportCommentHttp.h */,
-				16B2F59E1A4D380900FDE382 /* SupportCommentHttp.m */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -1333,6 +1363,7 @@
 				16B7F8221A49077000B7629B /* MomentInfo.m in Sources */,
 				160D0D4A1A4865810025A6D5 /* MyProfileHttp.m in Sources */,
 				16B2F5961A4D37E500FDE382 /* SupportStoryHttp.m in Sources */,
+				168011CC1A7D1D1F003A7536 /* DelMomentZan.m in Sources */,
 				16B2F5991A4D37F400FDE382 /* SupportComment.m in Sources */,
 				160D0D4D1A486A860025A6D5 /* ModifyAvatarHttp.m in Sources */,
 				1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */,
@@ -1369,6 +1400,7 @@
 				16E3B26B1A7B4DF4005DDD99 /* UserGuideViewController.m in Sources */,
 				160D0D591A486C9B0025A6D5 /* ModifyUserName.m in Sources */,
 				1645EC421A619E98000CBE98 /* PersionInfoAvatarCell.m in Sources */,
+				168011CF1A7D1D29003A7536 /* DelMomentZanPara.m in Sources */,
 				1617F6D11A36E90200B5F7C3 /* SettingViewController.m in Sources */,
 				1617F6841A36876F00B5F7C3 /* YHBaseViewController.m in Sources */,
 				168D3A8B1A2D638E0004790E /* main.m in Sources */,
@@ -1402,6 +1434,7 @@
 				168D3A8F1A2D638E0004790E /* MTAppDelegate.m in Sources */,
 				16B7F82B1A49090A00B7629B /* CommentListHttp.m in Sources */,
 				16B7F8371A49096700B7629B /* AddComment.m in Sources */,
+				168011D51A7D2077003A7536 /* DelCommentZan.m in Sources */,
 				16B7F82E1A49091900B7629B /* CommentList.m in Sources */,
 				1698EB241A48179B00C69BC1 /* AdMomentHttp.m in Sources */,
 				1617F6B11A36897600B5F7C3 /* RegisterViewController.m in Sources */,
@@ -1416,9 +1449,11 @@
 				160D0D561A486C900025A6D5 /* ModifyUserNamePara.m in Sources */,
 				16B2F5811A4D2FA800FDE382 /* MyComment.m in Sources */,
 				160D0D6B1A48717C0025A6D5 /* MyStory.m in Sources */,
+				168011D81A7D2083003A7536 /* DelCommentZanPara.m in Sources */,
 				16E3B26E1A7B4F7A005DDD99 /* LXElementCategory.m in Sources */,
 				1645EC331A616ACA000CBE98 /* GetValidateCode.m in Sources */,
 				160D0D741A4871B60025A6D5 /* DeleMyStory.m in Sources */,
+				168011DB1A7D208E003A7536 /* DelCommentZanHttp.m in Sources */,
 				16B7F8281A49078E00B7629B /* MomentInfoHttp.m in Sources */,
 				16B031D11A722CD900133ACA /* CheckValidateCodePara.m in Sources */,
 				1692DE8A1A47C7C40030ACE6 /* MomentListPara.m in Sources */,
@@ -1439,6 +1474,7 @@
 				16B7F9261A496E6700B7629B /* EditStoryViewController.m in Sources */,
 				1645EC361A616AD5000CBE98 /* GetValidateCodePara.m in Sources */,
 				160D0D441A48654F0025A6D5 /* MyProfile.m in Sources */,
+				168011D21A7D1D34003A7536 /* DelMomentZanHttp.m in Sources */,
 				16DA0B801A46E74E008D1114 /* MTUserInfo.m in Sources */,
 				1645EC301A616AA2000CBE98 /* GetValidateCodeHttp.m in Sources */,
 				1617F6831A36876F00B5F7C3 /* YHBaseTableViewController.m in Sources */,
