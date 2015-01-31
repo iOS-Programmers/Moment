@@ -47,7 +47,9 @@
     [self.scrollView setContentSize:CGSizeMake([LXUtils GetScreeWidth] * 2, 0)];
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
-//    self.scrollView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5];
+
+    UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(onDeleteAllImageItemClick:)];
+    self.navigationItem.rightBarButtonItem = deleteItem;
 
     //添加遮罩层
     self.coverControl.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height);
@@ -111,6 +113,12 @@
     }
     
     self.scrollView.contentSize = CGSizeMake([LXUtils GetScreeWidth] *([self.images count] +1), 0);
+    if ([self.images count] == 0) {
+        self.scrollView.contentOffset = CGPointMake(0, 0);
+    }
+    else {
+        self.scrollView.contentOffset = CGPointMake([LXUtils GetScreeWidth] *([self.images count] -1), 0);
+    }
 }
 
 
@@ -121,6 +129,20 @@
     [alert show];
 }
 
+
+/**
+ *  导航右上角的删除按钮
+ *
+ *  @param sender
+ */
+- (void)onDeleteAllImageItemClick:(id)sender
+{
+    //点击后跳出提示，是否放弃本次编辑
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"是否删除本次添加所有图片？" delegate:self cancelButtonTitle:@"暂不删除" otherButtonTitles:@"确认删除", nil];
+    alert.tag = 1;
+    [alert show];
+    
+}
 
 - (void)onDeleteImageClick:(UIButton *)sender
 {
@@ -195,6 +217,7 @@
     firstTF.delegate = self;
     firstTF.returnKeyType = UIReturnKeyDone;
     firstTF.clearButtonMode = UITextFieldViewModeAlways;
+    firstTF.clearsOnBeginEditing = YES;
     firstTF.frame = CGRectMake(0, 0, 150, 40);
     firstTF.center = self.scrollView.center;
     firstTF.textColor = [UIColor whiteColor];
@@ -227,23 +250,35 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
-        //暂不上传
-        /**
-           先拼接长图，然后再上传，上传成功后，再跳转
-         */
-        if ([self.images count] < 1) {
-            [self showWithText:@"请至少上传一张图片!"];
-            return;
+    //提示是否删除所有图片
+    if (alertView.tag == 1) {
+        
+        if (buttonIndex == 1) {
+            //清空
+            [self.images removeAllObjects];
+            [self updateUI];
         }
-    
-        UIImage *uploadImage  = [self addImageWithImageArray:self.images];
-        
-        [self uploadImage: uploadImage];
-        
     }
-    if (buttonIndex == 0) {
-        //上传图片
+    else {
+        if (buttonIndex == 0) {
+            //上传图片
+        }
+        if (buttonIndex == 1) {
+            //暂不上传
+            /**
+             先拼接长图，然后再上传，上传成功后，再跳转
+             */
+            if ([self.images count] < 1) {
+                [self showWithText:@"请至少上传一张图片!"];
+                return;
+            }
+            
+            UIImage *uploadImage  = [self addImageWithImageArray:self.images];
+            
+            [self uploadImage: uploadImage];
+            
+        }
+        
     }
 }
 
