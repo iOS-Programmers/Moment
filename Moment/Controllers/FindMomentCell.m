@@ -14,6 +14,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.avtarImage.layer.cornerRadius = 5;
+    self.avtarImage.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -41,7 +43,7 @@
         if ([detail.recommend_add integerValue] > 0) {
             self.likeBtn.selected = YES;
         }
-        
+        self.nickNameLabel.text = detail.author;
     }
 }
 

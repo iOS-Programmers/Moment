@@ -66,12 +66,18 @@
     //如果钥匙串中有保存账号密码，则给予显示
     NSString *userName = [SSKeychain passwordForService:@"com.sj.moment"account:@"username"];
     NSString *passWord = [SSKeychain passwordForService:@"com.sj.moment"account:@"password"];
+    NSString *avatar = [SSKeychain passwordForService:@"com.sj.moment"account:@"avatar"];
     
     if (!FBIsEmpty(userName)) {
         self.userNameTF.text = userName;
     }
     if (!FBIsEmpty(passWord)) {
         self.passWordTF.text = passWord;
+    }
+    if (!FBIsEmpty(avatar)) {
+        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,avatar]] placeholderImage:[UIImage imageNamed:@"Oval 7 + Oval 11"]];
+        self.avatarImage.layer.cornerRadius = CGRectGetWidth(self.avatarImage.frame)/2;
+        self.avatarImage.layer.masksToBounds = YES;
     }
     
     //添加第三方登录的回调
@@ -225,6 +231,7 @@
             //登陆成功后，保存用户名跟密码到钥匙串里
             [SSKeychain setPassword:weak_self.userNameTF.text forService:@"com.sj.moment" account:@"username"];
             [SSKeychain setPassword:weak_self.passWordTF.text forService:@"com.sj.moment" account:@"password"];
+            [SSKeychain setPassword:weak_self.loginHttp.resultModel.avatar forService:@"com.sj.moment" account:@"avatar"];
             
             //登录成功后，保存useriD，以后的接口请求都会用到
             [MTUserInfo saveUserID:weak_self.loginHttp.resultModel.member_id];

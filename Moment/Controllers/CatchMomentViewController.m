@@ -117,7 +117,7 @@
 #pragma mark - IBAciton
 - (IBAction)onNextBtnClick:(UIButton *)sender {
 
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"" delegate:self cancelButtonTitle:@"暂不上传，立即跳过" otherButtonTitles:@"上传图片", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您是否还要继续添加图片？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"现在发布", nil];
     [alert show];
 }
 
@@ -227,7 +227,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) {
+    if (buttonIndex == 1) {
         //暂不上传
         /**
            先拼接长图，然后再上传，上传成功后，再跳转
@@ -242,7 +242,7 @@
         [self uploadImage: uploadImage];
         
     }
-    if (buttonIndex == 1) {
+    if (buttonIndex == 0) {
         //上传图片
     }
 }
