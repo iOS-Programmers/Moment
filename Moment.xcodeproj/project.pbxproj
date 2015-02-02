@@ -194,6 +194,9 @@
 		16E1D71C1A760B1200AEC782 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16E1D7181A760B1200AEC782 /* WeiboSDK.bundle */; };
 		16E3B26B1A7B4DF4005DDD99 /* UserGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E3B26A1A7B4DF4005DDD99 /* UserGuideViewController.m */; };
 		16E3B26E1A7B4F7A005DDD99 /* LXElementCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E3B26D1A7B4F7A005DDD99 /* LXElementCategory.m */; };
+		16E521B91A7F733A00CF95E0 /* wiUIImage+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E521B61A7F733A00CF95E0 /* wiUIImage+Category.m */; };
+		16E521BA1A7F733A00CF95E0 /* wiUIImageView+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E521B81A7F733A00CF95E0 /* wiUIImageView+Category.m */; };
+		16E521BD1A7F73A500CF95E0 /* UIImage+WaterMark.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E521BC1A7F73A500CF95E0 /* UIImage+WaterMark.m */; };
 		16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D01A46C4F80086BC42 /* LXDataModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16FF48DA1A46C4F80086BC42 /* LXHttpModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D21A46C4F80086BC42 /* LXHttpModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16FF48DC1A46C4F80086BC42 /* LXParameterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FF48D61A46C4F80086BC42 /* LXParameterModel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -546,6 +549,12 @@
 		16E3B26A1A7B4DF4005DDD99 /* UserGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGuideViewController.m; sourceTree = "<group>"; };
 		16E3B26C1A7B4F7A005DDD99 /* LXElementCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXElementCategory.h; sourceTree = "<group>"; };
 		16E3B26D1A7B4F7A005DDD99 /* LXElementCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXElementCategory.m; sourceTree = "<group>"; };
+		16E521B51A7F733A00CF95E0 /* wiUIImage+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wiUIImage+Category.h"; sourceTree = "<group>"; };
+		16E521B61A7F733A00CF95E0 /* wiUIImage+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "wiUIImage+Category.m"; sourceTree = "<group>"; };
+		16E521B71A7F733A00CF95E0 /* wiUIImageView+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "wiUIImageView+Category.h"; sourceTree = "<group>"; };
+		16E521B81A7F733A00CF95E0 /* wiUIImageView+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "wiUIImageView+Category.m"; sourceTree = "<group>"; };
+		16E521BB1A7F73A500CF95E0 /* UIImage+WaterMark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WaterMark.h"; sourceTree = "<group>"; };
+		16E521BC1A7F73A500CF95E0 /* UIImage+WaterMark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WaterMark.m"; sourceTree = "<group>"; };
 		16FF48CF1A46C4F80086BC42 /* LXDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDataModel.h; sourceTree = "<group>"; };
 		16FF48D01A46C4F80086BC42 /* LXDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LXDataModel.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		16FF48D11A46C4F80086BC42 /* LXHttpModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHttpModel.h; sourceTree = "<group>"; };
@@ -613,6 +622,12 @@
 				1617F5E91A36876F00B5F7C3 /* UIView+Utils.m */,
 				16E3B26C1A7B4F7A005DDD99 /* LXElementCategory.h */,
 				16E3B26D1A7B4F7A005DDD99 /* LXElementCategory.m */,
+				16E521B51A7F733A00CF95E0 /* wiUIImage+Category.h */,
+				16E521B61A7F733A00CF95E0 /* wiUIImage+Category.m */,
+				16E521B71A7F733A00CF95E0 /* wiUIImageView+Category.h */,
+				16E521B81A7F733A00CF95E0 /* wiUIImageView+Category.m */,
+				16E521BB1A7F73A500CF95E0 /* UIImage+WaterMark.h */,
+				16E521BC1A7F73A500CF95E0 /* UIImage+WaterMark.m */,
 			);
 			path = Categorys;
 			sourceTree = "<group>";
@@ -1366,6 +1381,7 @@
 				168011CC1A7D1D1F003A7536 /* DelMomentZan.m in Sources */,
 				16B2F5991A4D37F400FDE382 /* SupportComment.m in Sources */,
 				160D0D4D1A486A860025A6D5 /* ModifyAvatarHttp.m in Sources */,
+				16E521BA1A7F733A00CF95E0 /* wiUIImageView+Category.m in Sources */,
 				1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */,
 				16B2F57E1A4D2F9400FDE382 /* MyCommentListHttp.m in Sources */,
 				160D0D5F1A486D550025A6D5 /* ModifyNickNameHttp.m in Sources */,
@@ -1397,6 +1413,8 @@
 				16B2F5901A4D37CD00FDE382 /* SupportStory.m in Sources */,
 				160D0D621A486D9C0025A6D5 /* ModifyNickName.m in Sources */,
 				1617F6B61A36898700B5F7C3 /* MineViewController.m in Sources */,
+				16E521BD1A7F73A500CF95E0 /* UIImage+WaterMark.m in Sources */,
+				16E521B91A7F733A00CF95E0 /* wiUIImage+Category.m in Sources */,
 				16E3B26B1A7B4DF4005DDD99 /* UserGuideViewController.m in Sources */,
 				160D0D591A486C9B0025A6D5 /* ModifyUserName.m in Sources */,
 				1645EC421A619E98000CBE98 /* PersionInfoAvatarCell.m in Sources */,
@@ -1539,6 +1557,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1680,7 +1699,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moment/Vendor/TencentSDK_2.2",

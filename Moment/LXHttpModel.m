@@ -315,7 +315,6 @@
     if (topWindow.windowLevel != UIWindowLevelNormal)
   
     {
-
         NSArray *windows = [[UIApplication sharedApplication] windows];
    
         for(topWindow in windows)

@@ -9,9 +9,24 @@
 #import "CatchMomentViewController.h"
 #import "EditStoryViewController.h"
 
+#import "wiUIImage+Category.h"
+#import "wiUIImageView+Category.h"
 #import "UploadPictureHttp.h"
 
+#define kFontOneName   @"HiraMinProN-W3"
+#define kFontTwoName   @"HiraKakuProN-W3"
+#define kFontThreeName   @"Arial-BoldMT"
+
+#define FontSize  20
+
 @interface CatchMomentViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,UITextFieldDelegate>
+{
+    UITextField *textField;   //编辑文字的TF
+    UIButton *labelBtn1;
+    int fontIndex;            //记录字体的index
+    int currentPage;          //当前第几页
+    NSString *currentText;
+}
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -22,6 +37,8 @@
 @property (strong, nonatomic) NSMutableArray *images;   //存图片的数组
 
 @property (strong, nonatomic) NSMutableArray *imageURLs;   //存图片地址的数组
+
+@property (strong, nonatomic) NSMutableArray *labelFonts;   //存字体名称的数组
 
 //页码
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
@@ -44,12 +61,16 @@
     self.title = @"抓住瞬间";
     self.images = [[NSMutableArray alloc] initWithCapacity:1];
     self.imageURLs = [[NSMutableArray alloc] initWithCapacity:1];
+    self.labelFonts = [NSMutableArray arrayWithArray:@[kFontOneName,kFontTwoName,kFontThreeName]];
+    fontIndex = 0;
+    currentPage = 0;
     
     self.updatePicHttp = [[UploadPictureHttp alloc] init];
     
     [self.scrollView setContentSize:CGSizeMake([LXUtils GetScreeWidth] * 2, 0)];
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg"]];
 
     UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(onDeleteAllImageItemClick:)];
     self.navigationItem.rightBarButtonItem = deleteItem;
@@ -207,7 +228,16 @@
  *
  *  @param sender
  */
+
 - (IBAction)onFontClick:(id)sender {
+    
+    if (fontIndex == 3) {
+        fontIndex = 0;
+    }
+    
+    labelBtn1.titleLabel.font = [UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize];
+    
+    fontIndex ++;
 }
 
 /**
@@ -216,28 +246,93 @@
  *  @param sender
  */
 - (IBAction)onLabelClick:(UIButton *)sender {
+    
+    
+    labelBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    labelBtn1.frame = CGRectMake(20, 100, 300, 60);
+    labelBtn1.backgroundColor = [UIColor clearColor];
+    labelBtn1.titleLabel.textAlignment = NSTextAlignmentCenter;
+    labelBtn1.tag = 0;
+    [labelBtn1 setTitle:@"此处文字可随意拖动" forState:UIControlStateNormal];
 
-//    UITextField *firstTF = [[UITextField alloc] init];
-//    firstTF.delegate = self;
-//    firstTF.returnKeyType = UIReturnKeyDone;
-//    firstTF.clearButtonMode = UITextFieldViewModeAlways;
-//    firstTF.clearsOnBeginEditing = YES;
-//    firstTF.frame = CGRectMake(0, 0, 150, 40);
-//    firstTF.center = self.scrollView.center;
-//    firstTF.textColor = [UIColor whiteColor];
-//    firstTF.text = @"此处文字可随意拖动!";
-//
-//    [self.view addSubview:firstTF];
+    labelBtn1.titleLabel.font = [UIFont systemFontOfSize:FontSize];
+    [labelBtn1 addTarget:self action:@selector(onTapLabel:) forControlEvents:UIControlEventTouchUpInside];
+
+    [labelBtn1 addTarget:self action:@selector(dragMoving:withEvent: )forControlEvents: UIControlEventTouchDragInside];
+    [labelBtn1 addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents:
+     UIControlEventTouchUpOutside];
+    
+    [self.scrollView addSubview:labelBtn1];
 
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
+- (void) dragMoving: (UIControl *) c withEvent:ev
+{
+    c.center = [[[ev allTouches] anyObject] locationInView:self.scrollView];
+}
 
-    [textField resignFirstResponder];
+- (void) dragEnded: (UIControl *) c withEvent:ev
+{
+    c.center = [[[ev allTouches] anyObject] locationInView:self.scrollView];
+}
+
+- (void)onTapLabel:(UILabel *)label
+{
+    //点击label，跳出textfeild修改label
+    if (!textField) {
+        textField = [[UITextField alloc] init];
+        textField.borderStyle = UITextBorderStyleRoundedRect;
+        textField.delegate = self;
+        textField.returnKeyType = UIReturnKeyDone;
+        textField.clearButtonMode = UITextFieldViewModeAlways;
+
+    }
     
+    textField.frame = CGRectMake(0, 0, 280, 35);
+    textField.center = self.scrollView.center;
+    textField.placeholder = labelBtn1.titleLabel.text;
+    [textField becomeFirstResponder];
+    [self.view addSubview:textField];
+    
+}
+
+#pragma mark -  UITextFieldDelegate
+-(BOOL)textFieldShouldReturn:(UITextField *)atextField{
+    [labelBtn1 setTitle:textField.text forState:UIControlStateNormal];
+    currentText = textField.text;
+    [atextField resignFirstResponder];
+    [textField frameSetY:[LXUtils getContentViewHeight]];
     return YES;
 
 }
+
+#pragma mark Keyboard
+
+-(void)keyboardWillShow:(NSNotification*)notif
+{
+    NSDictionary *info = [notif userInfo];
+    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGFloat keyboardHeight = [value CGRectValue].size.height;
+    if (keyboardHeight == 184) {
+        keyboardHeight = 252;
+    }
+    
+    NSNumber *duration = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [info objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    
+    // 添加移动动画，使视图跟随键盘移动
+    [UIView animateWithDuration:[duration doubleValue] animations:^{
+        [UIView setAnimationCurve:[curve intValue]];
+        [textField frameSetY:[LXUtils getContentViewHeight] - keyboardHeight - CGRectGetHeight(textField.frame) ];
+    }];
+
+}
+
+-(void)keyboardWillHide:(NSNotification*)notif
+{
+    [textField frameSetY:[LXUtils getContentViewHeight]];
+}
+
 
 #pragma mark - UIScrollViewDelegate
 
@@ -321,19 +416,26 @@
     CGSize size= CGSizeMake(image1.size.width,image1.size.height * [arr count]);
     UIGraphicsBeginImageContext(size);
     
+
     for (int i = 0; i< [arr count]; i ++) {
         UIImage *image = [[UIImage alloc] init];
         image = (UIImage *)arr[i];
+        if (fontIndex > 2) {
+            fontIndex = 2;
+        }
+        image = [image imageWithStringWaterMark:currentText atPoint:CGPointMake(20, 30) color:[UIColor whiteColor] font:[UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize*2]];
         [image drawInRect:CGRectMake(0, image1.size.height * i, image1.size.width, image1.size.height)];
+    
     }
 
-//    
+
     UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
     
     return resultingImage;
 }
+
 
 /**
  *  上传并且发布
@@ -363,8 +465,6 @@
                     
                     [weak_self.navigationController pushViewController:editVC animated:YES];
                 }
-                
-
             }
             
         }
