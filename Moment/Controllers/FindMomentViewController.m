@@ -210,7 +210,7 @@
         return;
     }
     
-//    self.delMomentHttp.parameter.tid = tid;
+    self.delMomentHttp.parameter.tid = tid;
     
     [self showLoadingWithText:MT_LOADING];
     __weak FindMomentViewController *weak_self = self;
