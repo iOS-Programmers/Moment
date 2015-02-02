@@ -16,6 +16,11 @@
 @property (nonatomic, copy) NSString *fid;
 
 /**
+ *  封面图
+ */
+@property (nonatomic, copy) NSString *litpic;
+
+/**
  *  故事标题
  */
 @property (nonatomic, copy) NSString *title;

@@ -21,6 +21,8 @@
 
 @property (strong, nonatomic) NSMutableArray *images;   //存图片的数组
 
+@property (strong, nonatomic) NSMutableArray *imageURLs;   //存图片地址的数组
+
 //页码
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
 
@@ -41,6 +43,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"抓住瞬间";
     self.images = [[NSMutableArray alloc] initWithCapacity:1];
+    self.imageURLs = [[NSMutableArray alloc] initWithCapacity:1];
     
     self.updatePicHttp = [[UploadPictureHttp alloc] init];
     
@@ -127,6 +130,7 @@
 
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您是否还要继续添加图片？" delegate:self cancelButtonTitle:@"继续添加" otherButtonTitles:@"现在发布", nil];
     [alert show];
+
 }
 
 
@@ -213,17 +217,17 @@
  */
 - (IBAction)onLabelClick:(UIButton *)sender {
 
-    UITextField *firstTF = [[UITextField alloc] init];
-    firstTF.delegate = self;
-    firstTF.returnKeyType = UIReturnKeyDone;
-    firstTF.clearButtonMode = UITextFieldViewModeAlways;
-    firstTF.clearsOnBeginEditing = YES;
-    firstTF.frame = CGRectMake(0, 0, 150, 40);
-    firstTF.center = self.scrollView.center;
-    firstTF.textColor = [UIColor whiteColor];
-    firstTF.text = @"此处文字可随意拖动!";
-
-    [self.view addSubview:firstTF];
+//    UITextField *firstTF = [[UITextField alloc] init];
+//    firstTF.delegate = self;
+//    firstTF.returnKeyType = UIReturnKeyDone;
+//    firstTF.clearButtonMode = UITextFieldViewModeAlways;
+//    firstTF.clearsOnBeginEditing = YES;
+//    firstTF.frame = CGRectMake(0, 0, 150, 40);
+//    firstTF.center = self.scrollView.center;
+//    firstTF.textColor = [UIColor whiteColor];
+//    firstTF.text = @"此处文字可随意拖动!";
+//
+//    [self.view addSubview:firstTF];
 
 }
 
@@ -275,7 +279,7 @@
             
             UIImage *uploadImage  = [self addImageWithImageArray:self.images];
             
-            [self uploadImage: uploadImage];
+            [self uploadImage: uploadImage andPublish:YES];
             
         }
         
@@ -289,6 +293,10 @@
     UIImage *rightImage = [LXUtils rotateImage:image];
     
     [self.images addObject:rightImage];
+    //上传第一张图片作为封面图
+    if ([self.images count] == 1) {
+        [self uploadImage:rightImage andPublish:NO];
+    }
     
     [self updateUI];
 
@@ -327,8 +335,13 @@
     return resultingImage;
 }
 
-
-- (void)uploadImage:(UIImage *)rightImage
+/**
+ *  上传并且发布
+ *
+ *  @param rightImage 图片
+ *  @param isPublish  判断是否要发布
+ */
+- (void)uploadImage:(UIImage *)rightImage andPublish:(BOOL)isPublish
 {
     self.updatePicHttp.parameter.image = rightImage;
     [self showLoadingWithText:MT_LOADING];
@@ -340,12 +353,17 @@
             
             if (weak_self.updatePicHttp.resultModel.avatar) {
                 
-                EditStoryViewController *editVC = [[EditStoryViewController alloc] init];
-                editVC.hidesBottomBarWhenPushed = YES;
+                [self.imageURLs addObject:weak_self.updatePicHttp.resultModel.avatar];
                 
-                editVC.imageIds = [NSMutableArray arrayWithArray:@[self.updatePicHttp.resultModel.avatar]];
+                if (isPublish) {
+                    EditStoryViewController *editVC = [[EditStoryViewController alloc] init];
+                    editVC.hidesBottomBarWhenPushed = YES;
+                    
+                    editVC.imageIds = self.imageURLs;
+                    
+                    [weak_self.navigationController pushViewController:editVC animated:YES];
+                }
                 
-                [weak_self.navigationController pushViewController:editVC animated:YES];
 
             }
             

@@ -69,6 +69,8 @@
     [self.view addSubview:self.storyTypeView];
 
     self.navigationItem.titleView = self.titleView;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshMomentUI) name:MT_RefreshMomentUI object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -76,6 +78,17 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)refreshMomentUI
+{
+    [[MTAppDelegate shareappdelegate].rootTabBarController setSelectedIndex:0];
+    [self.header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {

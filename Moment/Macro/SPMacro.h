@@ -66,6 +66,7 @@
 
 #define MT_OAuthLogin @"oauthlogin"
 #define MT_UpdatePersonalInfo @"updatepersonalInfo"
+#define MT_RefreshMomentUI  @"refreshMoment"
 
 
 #pragma mark - NSUserDefaults Name

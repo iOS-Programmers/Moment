@@ -15,7 +15,7 @@
 #import "UserGuideViewController.h"
 
 #import "YHBaseNavigationController.h"
-#import "YHBaseTabbarController.h"
+
 
 //腾讯QQ
 #import <TencentOpenAPI/TencentOAuth.h>
@@ -93,9 +93,9 @@
     YHBaseNavigationController *mineNav = [[YHBaseNavigationController alloc] initWithRootViewController:mineViewController];
     
     //tabBar
-    YHBaseTabbarController *rootTabBarController = [[YHBaseTabbarController alloc] init];
-    rootTabBarController.viewControllers = @[findNav,catchNav,mineNav];
-    [rootTabBarController setSelectedIndex:0];
+    self.rootTabBarController = [[YHBaseTabbarController alloc] init];
+    self.rootTabBarController.viewControllers = @[findNav,catchNav,mineNav];
+    [self.rootTabBarController setSelectedIndex:0];
     
 
     if (CURRENT_SYS_VERSION >= 7.0) {
@@ -107,7 +107,7 @@
     }
     
     
-    self.window.rootViewController = rootTabBarController;
+    self.window.rootViewController = self.rootTabBarController;
 }
 
 + (MTAppDelegate *)shareappdelegate

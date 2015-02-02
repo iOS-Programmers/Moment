@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YHBaseTabbarController.h"
 
 //微信
 #import "WXApi.h"
@@ -21,6 +22,8 @@
     enum WXScene _scene;
 }
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) YHBaseTabbarController *rootTabBarController;
 
 @property (strong, nonatomic) NSString *wbtoken;
 @property (strong, nonatomic) NSString *wbCurrentUserID;

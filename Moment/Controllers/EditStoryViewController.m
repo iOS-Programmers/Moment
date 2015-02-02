@@ -113,7 +113,11 @@
         return;
     }
     
-    self.addMomentHttp.parameter.pictureurls = [self.imageIds componentsJoinedByString:@","];
+    if ([self.imageIds count] > 0) {
+        self.addMomentHttp.parameter.litpic = self.imageIds[0];
+        self.addMomentHttp.parameter.pictureurls = self.imageIds[1];
+    }
+    
 
     self.addMomentHttp.parameter.title = self.storyTitleTF.text;
     self.addMomentHttp.parameter.content = self.textView.text;
@@ -128,6 +132,10 @@
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weak_self.navigationController popToRootViewControllerAnimated:YES];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [[NSNotificationCenter defaultCenter] postNotificationName:MT_RefreshMomentUI object:nil];
+                });
             });
         }
     }failedBlock:^{
