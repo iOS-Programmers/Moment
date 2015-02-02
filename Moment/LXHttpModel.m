@@ -12,6 +12,7 @@
 #endif
 
 #import "LXHttpModel.h"
+#import "LoginViewController.h"
 
 @interface LXHttpModel ()<ASIHTTPRequestDelegate>
 
@@ -207,6 +208,13 @@
             {
                 self.isValid = NO;
                 
+                if (self.erorCode == -151) {
+                    //验证失效需要重新登录
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"验证失效，请重新登录" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    alert.tag = 1;
+                    [alert show];
+                }
+                
                 //联线服务器返回错误代码
                 if(self.erorCode == -1)
                 {
@@ -277,14 +285,73 @@
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0)
-    {
-        //self.request.delegate =self;
-        //[self.request startAsynchronous];
+    if (alertView.tag == 1) {
+        if (buttonIndex == 0) {
+            //验证失效，重新登录
+            
+            LoginViewController *loginViewController = [[LoginViewController alloc] init];
+            UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+            
+            [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                                   [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];
+            
+            
+            [[self getCurrentRootViewController] presentViewController:loginNav animated:YES completion:^{
+                
+            }];
+        }
     }
+}
+
+-(UIViewController *)getCurrentRootViewController {
+    
+    UIViewController *result;
+    
+    // Try to find the root view controller programmically
+    // Find the top window (that is not an alert view or other window)
+    
+    UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
+    
+    if (topWindow.windowLevel != UIWindowLevelNormal)
+  
+    {
+
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+   
+        for(topWindow in windows)
+       
+        {
+ 
+            if (topWindow.windowLevel == UIWindowLevelNormal)
+    
+                break;
+ 
+        }
+ 
+    }
+
+    UIView *rootView = [[topWindow subviews] objectAtIndex:0];
+
+    id nextResponder = [rootView nextResponder];
+
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        
+        
+        result = nextResponder;
+    
+    
+    else if ([topWindow respondsToSelector:@selector(rootViewController)] && topWindow.rootViewController != nil)
+        
+        
+        result = topWindow.rootViewController;
+
     else
-    {
-        //FIXME: 这里需要补充或修改
-    }
+
+        NSAssert(NO, @": Could not find a root view controller.  You can assign one manually by calling  setRootViewController:YOURROOTVIEWCONTROLLER].");
+    
+    
+    return result;    
+    
+    
 }
 @end
