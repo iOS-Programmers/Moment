@@ -19,12 +19,14 @@
 
 #define FontSize  20
 
+#define kBtnTag   100
+
 @interface CatchMomentViewController () <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate,UITextFieldDelegate>
 {
     UITextField *textField;   //编辑文字的TF
     UIButton *labelBtn1;
     int fontIndex;            //记录字体的index
-    int currentPage;          //当前第几页
+    NSInteger currentPage;          //当前第几页
     NSString *currentText;
 }
 
@@ -39,6 +41,8 @@
 @property (strong, nonatomic) NSMutableArray *imageURLs;   //存图片地址的数组
 
 @property (strong, nonatomic) NSMutableArray *labelFonts;   //存字体名称的数组
+
+@property (strong, nonatomic) NSMutableArray *labelStrings;   //存每页Label文字的数字
 
 //页码
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
@@ -62,6 +66,7 @@
     self.images = [[NSMutableArray alloc] initWithCapacity:1];
     self.imageURLs = [[NSMutableArray alloc] initWithCapacity:1];
     self.labelFonts = [NSMutableArray arrayWithArray:@[kFontOneName,kFontTwoName,kFontThreeName]];
+    self.labelStrings = [NSMutableArray arrayWithArray:@[@"",@"",@"",@"",@"",@"",@"",@"",@""]];
     fontIndex = 0;
     currentPage = 0;
     
@@ -235,34 +240,54 @@
         fontIndex = 0;
     }
     
-    labelBtn1.titleLabel.font = [UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize];
+    for (id view in [self.scrollView subviews]) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton *btn = (UIButton *)view;
+            if (btn.tag ==  currentPage + kBtnTag) {
+                btn.titleLabel.font = [UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize];
+            }
+        }
+    }
+    
     
     fontIndex ++;
 }
 
 /**
- *  点击添加Label按钮
+ *  点击添加Label按钮,每张图片都可以添加button
  *
  *  @param sender
  */
 - (IBAction)onLabelClick:(UIButton *)sender {
     
+
+    NSLog(@"curentPage----%ld",currentPage);
+    //创建前判断当前页是否已经有labelbutton
+    for (id view in [self.scrollView subviews]) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton *btn = (UIButton *)view;
+            if (btn.tag ==  currentPage + kBtnTag) {
+                return;
+            }
+        }
+    }
     
-    labelBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    labelBtn1.frame = CGRectMake(20, 100, 300, 60);
-    labelBtn1.backgroundColor = [UIColor clearColor];
-    labelBtn1.titleLabel.textAlignment = NSTextAlignmentCenter;
-    labelBtn1.tag = 0;
-    [labelBtn1 setTitle:@"此处文字可随意拖动" forState:UIControlStateNormal];
+    UIButton * labelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    labelBtn.frame = CGRectMake(20+ currentPage*[LXUtils GetScreeWidth], 100, 300, 60);
+    labelBtn.backgroundColor = [UIColor clearColor];
+    labelBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    labelBtn.tag = kBtnTag + currentPage;
+    [labelBtn setTitle:@"此处文字可随意拖动" forState:UIControlStateNormal];
 
-    labelBtn1.titleLabel.font = [UIFont systemFontOfSize:FontSize];
-    [labelBtn1 addTarget:self action:@selector(onTapLabel:) forControlEvents:UIControlEventTouchUpInside];
+    labelBtn.titleLabel.font = [UIFont systemFontOfSize:FontSize];
+    [labelBtn addTarget:self action:@selector(onTapLabel:) forControlEvents:UIControlEventTouchUpInside];
 
-    [labelBtn1 addTarget:self action:@selector(dragMoving:withEvent: )forControlEvents: UIControlEventTouchDragInside];
-    [labelBtn1 addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents:
+    [labelBtn addTarget:self action:@selector(dragMoving:withEvent: )forControlEvents: UIControlEventTouchDragInside];
+    [labelBtn addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents:
      UIControlEventTouchUpOutside];
     
-    [self.scrollView addSubview:labelBtn1];
+    [self.scrollView addSubview:labelBtn];
 
 }
 
@@ -290,16 +315,38 @@
     
     textField.frame = CGRectMake(0, 0, 280, 35);
     textField.center = self.scrollView.center;
-    textField.placeholder = labelBtn1.titleLabel.text;
+    
     [textField becomeFirstResponder];
     [self.view addSubview:textField];
     
+    
+    //创建前判断当前页是否已经有labelbutton
+    for (id view in [self.scrollView subviews]) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton *btn = (UIButton *)view;
+            if (btn.tag ==  currentPage + kBtnTag) {
+                textField.placeholder = btn.titleLabel.text;
+            }
+        }
+    }
 }
 
 #pragma mark -  UITextFieldDelegate
 -(BOOL)textFieldShouldReturn:(UITextField *)atextField{
-    [labelBtn1 setTitle:textField.text forState:UIControlStateNormal];
+    
+    //创建前判断当前页是否已经有labelbutton
+    for (id view in [self.scrollView subviews]) {
+        if ([view isKindOfClass:[UIButton class]]) {
+            UIButton *btn = (UIButton *)view;
+            if (btn.tag ==  currentPage + kBtnTag) {
+                [btn setTitle:textField.text forState:UIControlStateNormal];
+            }
+        }
+    }
+    
     currentText = textField.text;
+    [self.labelStrings replaceObjectAtIndex:currentPage withObject:currentText];
+    
     [atextField resignFirstResponder];
     [textField frameSetY:[LXUtils getContentViewHeight]];
     return YES;
@@ -324,6 +371,7 @@
     [UIView animateWithDuration:[duration doubleValue] animations:^{
         [UIView setAnimationCurve:[curve intValue]];
         [textField frameSetY:[LXUtils getContentViewHeight] - keyboardHeight - CGRectGetHeight(textField.frame) ];
+        textField.text = @"";
     }];
 
 }
@@ -340,8 +388,9 @@
     // 得到每页宽度
     CGFloat pageWidth = sender.frame.size.width;
     // 根据当前的x坐标和页宽度计算出当前页数
-    NSInteger currentPage = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    NSInteger thecurrentPage = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     
+    currentPage = thecurrentPage;
     self.pageLabel.text = [NSString stringWithFormat:@"%ld / 9", currentPage + 1];
 }
 
@@ -355,6 +404,8 @@
         if (buttonIndex == 1) {
             //清空
             [self.images removeAllObjects];
+            [self.imageURLs removeAllObjects];
+            
             [self updateUI];
         }
     }
@@ -423,7 +474,20 @@
         if (fontIndex > 2) {
             fontIndex = 2;
         }
-        image = [image imageWithStringWaterMark:currentText atPoint:CGPointMake(20, 30) color:[UIColor whiteColor] font:[UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize*2]];
+        
+        CGPoint btnPoint;
+        for (id view in [self.scrollView subviews]) {
+            if ([view isKindOfClass:[UIButton class]]) {
+                UIButton *btn = (UIButton *)view;
+                if (btn.tag ==  i + kBtnTag) {
+                    //坐标是按照320取值的，但是截图按照640来截图的，所以要乘以2
+                    btnPoint = CGPointMake((btn.frame.origin.x-[LXUtils GetScreeWidth]*i)*2, btn.frame.origin.y*2);
+                    YHLog(@"打印出来的坐标是 %@",NSStringFromCGPoint(btnPoint));
+                }
+            }
+        }
+        
+        image = [image imageWithStringWaterMark:self.labelStrings[i] atPoint:btnPoint color:[UIColor whiteColor] font:[UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize*2]];
         [image drawInRect:CGRectMake(0, image1.size.height * i, image1.size.width, image1.size.height)];
     
     }
@@ -457,11 +521,20 @@
                 
                 [self.imageURLs addObject:weak_self.updatePicHttp.resultModel.avatar];
                 
+                
                 if (isPublish) {
+                    //发布成功后，要移除本地的数据
+                    //清空
+                    
                     EditStoryViewController *editVC = [[EditStoryViewController alloc] init];
                     editVC.hidesBottomBarWhenPushed = YES;
                     
-                    editVC.imageIds = self.imageURLs;
+                    editVC.imageIds = [self.imageURLs copy];
+                    
+                    [self.images removeAllObjects];
+                    [self.imageURLs removeAllObjects];
+                    
+                    [self updateUI];
                     
                     [weak_self.navigationController pushViewController:editVC animated:YES];
                 }
