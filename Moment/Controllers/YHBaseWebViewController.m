@@ -27,7 +27,7 @@
     activityIndicatorView = [[UIActivityIndicatorView alloc]
                              initWithFrame : CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)] ;
     [activityIndicatorView setCenter: self.view.center] ;
-    [activityIndicatorView setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleGray] ;
+    [activityIndicatorView setActivityIndicatorViewStyle: UIActivityIndicatorViewStyleWhite] ;
     [self.view addSubview : activityIndicatorView] ;
 }
 

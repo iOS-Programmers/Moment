@@ -61,6 +61,8 @@
     self.contentTextView.text = self.momentInfo.content;
     
     self.webView.backgroundColor = [UIColor blackColor];
+    [self.webView setOpaque:NO];
+
     self.webView.scrollView.delegate = self;
     
     if ([self.momentInfo.pictureurls count] > 0) {
