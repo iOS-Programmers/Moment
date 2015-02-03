@@ -7,9 +7,10 @@
 //
 
 #import "YHBaseViewController.h"
+#import "YHBaseWebViewController.h"
 #import "MomentInfo.h"
 
-@interface FindDetailViewController : YHBaseViewController
+@interface FindDetailViewController : YHBaseWebViewController
 
 /**
  *  上次传入，必传

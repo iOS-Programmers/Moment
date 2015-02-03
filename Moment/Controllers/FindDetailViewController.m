@@ -21,8 +21,7 @@
     
     NSMutableArray* _permissions;
 }
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 
@@ -54,33 +53,22 @@
     
     self.navigationItem.rightBarButtonItem = [self findDetailrightNavItem];
     
-    if ([self.momentInfo.pictureurls count] > 0) {
-
-        [self.imageView  sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            
-            CGFloat width;
-            CGFloat height;
-            if (image.size.width > [LXUtils GetScreeWidth]) {
-                width = [LXUtils GetScreeWidth];
-                height = image.size.height/(image.size.width/[LXUtils GetScreeWidth]);
-            }
-            else {
-                width = image.size.width;
-                height = image.size.height;
-            }
-            self.imageView.frame = CGRectMake(0, 0, width, height);
-        }];
-        
-        [self.scrollView setContentSize:CGSizeMake(self.imageView.frame.size.width, self.imageView.frame.size.height)];
-        self.scrollView.backgroundColor = [UIColor blackColor];
-    }
-    
     [self.moreView frameSetPoint:CGPointMake(([LXUtils GetScreeWidth] - CGRectGetWidth(self.moreView.frame) - 10), 0)];
     self.moreView.hidden = YES;
     [self.view addSubview:self.moreView];
     
     
     self.contentTextView.text = self.momentInfo.content;
+    
+    self.webView.backgroundColor = [UIColor blackColor];
+    self.webView.scrollView.delegate = self;
+    
+    if ([self.momentInfo.pictureurls count] > 0) {
+        [self loadDataWithURL:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,(NSString *)self.momentInfo.pictureurls[0]]];
+    }
+    
+    [self.view addSubview:self.contentView];
+ 
 }
 
 - (void)didReceiveMemoryWarning {

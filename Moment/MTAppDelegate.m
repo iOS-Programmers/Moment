@@ -31,6 +31,7 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
+    
     //向微信注册
     [WXApi registerApp:WX_APPID];
     

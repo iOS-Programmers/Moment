@@ -62,6 +62,8 @@
 		1617F6E11A36EAFC00B5F7C3 /* FindMomentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6DF1A36EAFC00B5F7C3 /* FindMomentCell.xib */; };
 		1617F6E51A3755C900B5F7C3 /* StoryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6E31A3755C900B5F7C3 /* StoryListCell.m */; };
 		1617F6E61A3755C900B5F7C3 /* StoryListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6E41A3755C900B5F7C3 /* StoryListCell.xib */; };
+		162703811A808B9C004674C1 /* QXyingbikai.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 162703801A808B5C004674C1 /* QXyingbikai.ttf */; };
+		162703841A808E38004674C1 /* HuanKangGirl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 162703831A808E38004674C1 /* HuanKangGirl.ttf */; };
 		1645EC301A616AA2000CBE98 /* GetValidateCodeHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC2F1A616AA2000CBE98 /* GetValidateCodeHttp.m */; };
 		1645EC331A616ACA000CBE98 /* GetValidateCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC321A616ACA000CBE98 /* GetValidateCode.m */; };
 		1645EC361A616AD5000CBE98 /* GetValidateCodePara.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC351A616AD5000CBE98 /* GetValidateCodePara.m */; };
@@ -91,6 +93,7 @@
 		168011D51A7D2077003A7536 /* DelCommentZan.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011D41A7D2077003A7536 /* DelCommentZan.m */; };
 		168011D81A7D2083003A7536 /* DelCommentZanPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011D71A7D2083003A7536 /* DelCommentZanPara.m */; };
 		168011DB1A7D208E003A7536 /* DelCommentZanHttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 168011DA1A7D208E003A7536 /* DelCommentZanHttp.m */; };
+		1687F0EA1A81272300467EA6 /* YHBaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1687F0E91A81272300467EA6 /* YHBaseWebViewController.m */; };
 		168D3A7F1A2D638E0004790E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A7E1A2D638E0004790E /* Foundation.framework */; };
 		168D3A811A2D638E0004790E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A801A2D638E0004790E /* CoreGraphics.framework */; };
 		168D3A831A2D638E0004790E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168D3A821A2D638E0004790E /* UIKit.framework */; };
@@ -316,6 +319,8 @@
 		1617F6E21A3755C900B5F7C3 /* StoryListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryListCell.h; sourceTree = "<group>"; };
 		1617F6E31A3755C900B5F7C3 /* StoryListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryListCell.m; sourceTree = "<group>"; };
 		1617F6E41A3755C900B5F7C3 /* StoryListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryListCell.xib; sourceTree = "<group>"; };
+		162703801A808B5C004674C1 /* QXyingbikai.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = QXyingbikai.ttf; sourceTree = "<group>"; };
+		162703831A808E38004674C1 /* HuanKangGirl.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HuanKangGirl.ttf; sourceTree = "<group>"; };
 		1645EC2E1A616AA2000CBE98 /* GetValidateCodeHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetValidateCodeHttp.h; sourceTree = "<group>"; };
 		1645EC2F1A616AA2000CBE98 /* GetValidateCodeHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetValidateCodeHttp.m; sourceTree = "<group>"; };
 		1645EC311A616ACA000CBE98 /* GetValidateCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetValidateCode.h; sourceTree = "<group>"; };
@@ -364,6 +369,8 @@
 		168011D71A7D2083003A7536 /* DelCommentZanPara.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelCommentZanPara.m; sourceTree = "<group>"; };
 		168011D91A7D208E003A7536 /* DelCommentZanHttp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelCommentZanHttp.h; sourceTree = "<group>"; };
 		168011DA1A7D208E003A7536 /* DelCommentZanHttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelCommentZanHttp.m; sourceTree = "<group>"; };
+		1687F0E81A81272300467EA6 /* YHBaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHBaseWebViewController.h; sourceTree = "<group>"; };
+		1687F0E91A81272300467EA6 /* YHBaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHBaseWebViewController.m; sourceTree = "<group>"; };
 		168D3A7B1A2D638E0004790E /* Moment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		168D3A7E1A2D638E0004790E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		168D3A801A2D638E0004790E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -700,6 +707,8 @@
 				1617F6171A36876F00B5F7C3 /* YHBaseTabbarController.m */,
 				1617F6181A36876F00B5F7C3 /* YHBaseTableViewController.h */,
 				1617F6191A36876F00B5F7C3 /* YHBaseTableViewController.m */,
+				1687F0E81A81272300467EA6 /* YHBaseWebViewController.h */,
+				1687F0E91A81272300467EA6 /* YHBaseWebViewController.m */,
 				1617F61A1A36876F00B5F7C3 /* YHBaseViewController.h */,
 				1617F61B1A36876F00B5F7C3 /* YHBaseViewController.m */,
 				1617F61C1A36876F00B5F7C3 /* YHMultipleSectionTableViewController.h */,
@@ -908,6 +917,8 @@
 		168D3A851A2D638E0004790E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				162703831A808E38004674C1 /* HuanKangGirl.ttf */,
+				162703801A808B5C004674C1 /* QXyingbikai.ttf */,
 				165CFBE71A77691E00D18565 /* images */,
 				168D3A861A2D638E0004790E /* Moment-Info.plist */,
 				168D3A871A2D638E0004790E /* InfoPlist.strings */,
@@ -1280,6 +1291,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162703841A808E38004674C1 /* HuanKangGirl.ttf in Resources */,
+				162703811A808B9C004674C1 /* QXyingbikai.ttf in Resources */,
 				16C1F0701A78D16000AA6B0C /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				16B7F8481A491F5300B7629B /* AboutUsViewController.xib in Resources */,
 				16B7F9181A49486500B7629B /* SysMessageCell.xib in Resources */,
@@ -1381,6 +1394,7 @@
 				168011CC1A7D1D1F003A7536 /* DelMomentZan.m in Sources */,
 				16B2F5991A4D37F400FDE382 /* SupportComment.m in Sources */,
 				160D0D4D1A486A860025A6D5 /* ModifyAvatarHttp.m in Sources */,
+				1687F0EA1A81272300467EA6 /* YHBaseWebViewController.m in Sources */,
 				16E521BA1A7F733A00CF95E0 /* wiUIImageView+Category.m in Sources */,
 				1692DE871A47C7B10030ACE6 /* MomentListHttp.m in Sources */,
 				16B2F57E1A4D2F9400FDE382 /* MyCommentListHttp.m in Sources */,
@@ -1577,7 +1591,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos8.1;
-				VALID_ARCHS = "arm64 armv7s armv7";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -1613,7 +1627,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos8.1;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "arm64 armv7s armv7";
+				VALID_ARCHS = "arm64 armv7";
 			};
 			name = Release;
 		};
@@ -1686,7 +1700,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm64 armv7s armv7";
+				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1699,7 +1713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hangzhou Lian Xian E-Commerce Co., Ltd";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moment/Vendor/TencentSDK_2.2",
@@ -1722,7 +1736,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "arm64 armv7s armv7";
+				VALID_ARCHS = "arm64 armv7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

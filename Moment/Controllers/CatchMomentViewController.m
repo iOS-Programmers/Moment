@@ -13,8 +13,8 @@
 #import "wiUIImageView+Category.h"
 #import "UploadPictureHttp.h"
 
-#define kFontOneName   @"HiraMinProN-W3"
-#define kFontTwoName   @"HiraKakuProN-W3"
+#define kFontOneName   @"DFGirl-Kelvin"
+#define kFontTwoName   @"QXyingbikai"
 #define kFontThreeName   @"Arial-BoldMT"
 
 #define FontSize  20
@@ -480,8 +480,14 @@
             if ([view isKindOfClass:[UIButton class]]) {
                 UIButton *btn = (UIButton *)view;
                 if (btn.tag ==  i + kBtnTag) {
+
                     //坐标是按照320取值的，但是截图按照640来截图的，所以要乘以2
-                    btnPoint = CGPointMake((btn.frame.origin.x-[LXUtils GetScreeWidth]*i)*2, btn.frame.origin.y*2);
+                    btnPoint = CGPointMake((btn.center.x-[LXUtils GetScreeWidth]*i)*2, btn.center.y*2);
+
+                    //强制处理负坐标情况
+                    if (btnPoint.x < 0) {
+                        btnPoint.x = 0;
+                    }
                     YHLog(@"打印出来的坐标是 %@",NSStringFromCGPoint(btnPoint));
                 }
             }
