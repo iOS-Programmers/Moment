@@ -384,7 +384,7 @@
  */
 - (void)tencentDidNotLogin:(BOOL)cancelled
 {
-
+    [self showWithText:@"获取QQ信息失败"];
 }
 
 /**

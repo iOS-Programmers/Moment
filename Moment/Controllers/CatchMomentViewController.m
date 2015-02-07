@@ -26,7 +26,7 @@
     UITextField *textField;   //编辑文字的TF
     UIButton *labelBtn1;
     int fontIndex;            //记录字体的index
-    NSInteger currentPage;          //当前第几页
+    NSInteger currentPage;          //当前第几页,从0开始
     NSString *currentText;
 }
 
@@ -42,7 +42,8 @@
 
 @property (strong, nonatomic) NSMutableArray *labelFonts;   //存字体名称的数组
 
-@property (strong, nonatomic) NSMutableArray *labelStrings;   //存每页Label文字的数字
+
+@property (strong, nonatomic) NSMutableArray *labelInfos;   //存每页文字的信息，包括文字，字体，坐标point值
 
 //页码
 @property (weak, nonatomic) IBOutlet UILabel *pageLabel;
@@ -66,7 +67,17 @@
     self.images = [[NSMutableArray alloc] initWithCapacity:1];
     self.imageURLs = [[NSMutableArray alloc] initWithCapacity:1];
     self.labelFonts = [NSMutableArray arrayWithArray:@[kFontOneName,kFontTwoName,kFontThreeName]];
-    self.labelStrings = [NSMutableArray arrayWithArray:@[@"",@"",@"",@"",@"",@"",@"",@"",@""]];
+    
+    self.labelInfos = [NSMutableArray arrayWithObjects:
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],nil];
     fontIndex = 0;
     currentPage = 0;
     
@@ -126,12 +137,14 @@
     
     [self.scrollView removeAllSubview];
     for (int i = 0; i < [self.images count]; i ++) {
+        //创建图片
         UIImageView * imgView = [[UIImageView alloc] init];
         imgView.frame = CGRectMake([LXUtils GetScreeWidth] * i,0 , [LXUtils GetScreeWidth], self.scrollView.frame.size.height);
         imgView.image = self.images[i];
         
         [self.scrollView addSubview:imgView];
         
+        //创建删除按钮
         UIButton *deleteBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         deleteBtn.tag = i;
         deleteBtn.frame = CGRectMake([LXUtils GetScreeWidth] * i + 270, 10, 40, 40);
@@ -139,6 +152,31 @@
         [deleteBtn addTarget:self action:@selector(onDeleteImageClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:deleteBtn];
         
+        //创建文字button
+        NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[i];
+       
+        if (!FBIsEmpty(tempDic[@"text"])) {
+            UIButton * labelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+            
+            labelBtn.frame = CGRectMake(20+ i*[LXUtils GetScreeWidth], 100, 300, 60);
+            labelBtn.center = CGPointFromString(tempDic[@"point"]);
+            
+            labelBtn.backgroundColor = [UIColor clearColor];
+            labelBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+            labelBtn.tag = kBtnTag + i;
+            [labelBtn setTitle:tempDic[@"text"] forState:UIControlStateNormal];
+            
+            labelBtn.titleLabel.font = [UIFont fontWithName:tempDic[@"font"] size:FontSize];
+            [labelBtn addTarget:self action:@selector(onTapLabel:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [labelBtn addTarget:self action:@selector(dragBegan:withEvent:) forControlEvents:UIControlEventTouchDown];
+            [labelBtn addTarget:self action:@selector(dragMoving:withEvent: )forControlEvents: UIControlEventTouchDragInside];
+            [labelBtn addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents:
+             UIControlEventTouchUpInside |
+             UIControlEventTouchUpOutside];
+            
+            [self.scrollView addSubview:labelBtn];
+        }
     }
     
     self.scrollView.contentSize = CGSizeMake([LXUtils GetScreeWidth] *([self.images count] +1), 0);
@@ -245,6 +283,9 @@
             UIButton *btn = (UIButton *)view;
             if (btn.tag ==  currentPage + kBtnTag) {
                 btn.titleLabel.font = [UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize];
+
+                NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
+                tempDic[@"font"] = self.labelFonts[fontIndex];
             }
         }
     }
@@ -293,6 +334,8 @@
      UIControlEventTouchUpOutside];
     
     [self.scrollView addSubview:labelBtn];
+    
+    
 
 }
 
@@ -317,7 +360,7 @@
     NSLog(@"Button  end moving .....%@",NSStringFromCGPoint(c.center));
 }
 
-- (void)onTapLabel:(UILabel *)label
+- (void)onTapLabel:(UIButton *)labelbtn
 {
 //    if ( isMoving) {
 //        return;
@@ -348,6 +391,11 @@
             }
         }
     }
+    
+    NSString *point = NSStringFromCGPoint(labelbtn.center);
+    
+    NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
+    tempDic[@"point"] = point;
 }
 
 #pragma mark -  UITextFieldDelegate
@@ -367,7 +415,12 @@
     
     if ([textField.text length] > 0) {
         currentText = textField.text;
-        [self.labelStrings replaceObjectAtIndex:currentPage withObject:currentText];
+        NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
+        tempDic[@"text"] = currentText;
+        if (fontIndex > 2) {
+            fontIndex = 2;
+        }
+        tempDic[@"font"] = self.labelFonts[fontIndex];
     }
     
     
@@ -522,7 +575,10 @@
             }
         }
         
-        image = [image imageWithStringWaterMark:self.labelStrings[i] atPoint:btnPoint color:[UIColor whiteColor] font:[UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize*2]];
+        NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[i];
+        CGPoint point = CGPointFromString(tempDic[@"point"]);
+        
+        image = [image imageWithStringWaterMark:tempDic[@"text"] atPoint:point color:[UIColor whiteColor] font:[UIFont fontWithName:tempDic[@"font"] size:FontSize*2]];
         [image drawInRect:CGRectMake(0, image1.size.height * i, image1.size.width, image1.size.height)];
     
     }
@@ -568,6 +624,7 @@
                     
                     [self.images removeAllObjects];
                     [self.imageURLs removeAllObjects];
+                    [self.labelInfos removeAllObjects];
                     
                     [self updateUI];
                     
