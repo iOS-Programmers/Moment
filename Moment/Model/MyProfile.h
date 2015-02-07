@@ -15,6 +15,6 @@
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *regtime;
 @property (nonatomic, copy) NSString *avatar;
-//@property (nonatomic, copy) NSString *member_id;
+@property (nonatomic, copy) NSString *member_id;
 
 @end

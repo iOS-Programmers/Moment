@@ -12,8 +12,6 @@
 //微信
 #import "WXApi.h"
 
-//腾讯
-
 //微博
 #import "WeiboSDK.h"
 

@@ -32,6 +32,11 @@
 @property (strong, nonatomic) LoginHttp *loginHttp;
 @property (strong, nonatomic) OAuthLoginHttp *oaLoginHttp;
 
+//昵称，第三方登录的入参，可以为空
+@property (copy, nonatomic) NSString *nickeName;
+//头像，第三方登录的入参，可以为空
+@property (copy, nonatomic) NSString *avatarUrl;
+
 - (IBAction)onRegisterBtnClick:(UIButton *)sender;
 - (IBAction)onLoginBtnClick:(UIButton *)sender;
 - (IBAction)onFindPswBtnClick:(UIButton *)sender;
@@ -311,7 +316,9 @@
         return;
     }
     self.oaLoginHttp.parameter.openid = _tencentOAuth.openId;
-    self.oaLoginHttp.parameter.nickname = @"QQ用户";
+    self.oaLoginHttp.parameter.nickname = FBIsEmpty(self.nickeName) ? @"QQ用户" : self.nickeName;
+    //第三方登录头像 self.avatarUrl
+#warning 需要添加第三方头像
     
     [self showLoadingWithText:MT_LOADING];
     __weak LoginViewController *weak_self = self;
@@ -364,7 +371,11 @@
 - (void)tencentDidLogin
 {
     NSLog(@"请求回来的东西 openid %@ \n accessToken %@",_tencentOAuth.openId,_tencentOAuth.accessToken);
-    [self QQAuthLogin];
+    
+    //获取用户的基本信息
+    if(![_tencentOAuth getUserInfo]){
+        [self showWithText:@"获取QQ信息失败"];
+    }
 }
 
 /**
@@ -382,5 +393,35 @@
 - (void)tencentDidNotNetWork
 {
     [self showWithText:@"网络出问题了，请稍后再试!"];
+}
+
+/**
+ *  获取QQ用户信息成功后回调
+ */
+- (void)getUserInfoResponse:(APIResponse*) response {
+    if (response.retCode == URLREQUEST_SUCCEED)
+    {
+        NSMutableString *str=[NSMutableString stringWithFormat:@""];
+        for (id key in response.jsonResponse) {
+            [str appendString: [NSString stringWithFormat:@"%@:%@\n",key,[response.jsonResponse objectForKey:key]]];
+        }
+        self.nickeName = response.jsonResponse[@"nickname"];
+        self.avatarUrl = response.jsonResponse[@"figureurl_qq_2"];
+        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"操作成功" message:[NSString stringWithFormat:@"%@",str]
+//                              
+//                                                       delegate:self cancelButtonTitle:@"我知道啦" otherButtonTitles: nil];
+//        [alert show];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"操作失败" message:[NSString stringWithFormat:@"%@", response.errorMsg]
+                              
+                                                       delegate:self cancelButtonTitle:@"我知道啦" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+    //调用登录
+    [self QQAuthLogin];
 }
 @end
