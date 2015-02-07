@@ -88,8 +88,11 @@
 
 - (void)requestMyProfile
 {
- 
+    if (!self) {
+        return;
+    }
     __weak MineViewController *weak_self = self;
+
     [self.myProfileHttp getDataWithCompletionBlock:^{
 
         if (weak_self.myProfileHttp.isValid)

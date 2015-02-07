@@ -145,6 +145,10 @@
         
         NSString *openid = userInfo[@"accessToken"];
         NSString *nickname = userInfo[@"userId"];
+        if (FBIsEmpty(openid) || FBIsEmpty(nickname)) {
+            [self showWithText:@"第三方账号信息有误"];
+            return;
+        }
         
         self.oaLoginHttp.parameter.openid = openid;
         self.oaLoginHttp.parameter.nickname = nickname;
@@ -303,6 +307,9 @@
 
 - (void)QQAuthLogin
 {
+    if (FBIsEmpty(_tencentOAuth.openId)) {
+        return;
+    }
     self.oaLoginHttp.parameter.openid = _tencentOAuth.openId;
     self.oaLoginHttp.parameter.nickname = @"QQ用户";
     

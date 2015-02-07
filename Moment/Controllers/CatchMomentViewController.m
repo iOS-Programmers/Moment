@@ -279,30 +279,49 @@
     labelBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     labelBtn.tag = kBtnTag + currentPage;
     [labelBtn setTitle:@"此处文字可随意拖动" forState:UIControlStateNormal];
-
-    labelBtn.titleLabel.font = [UIFont systemFontOfSize:FontSize];
+    
+    if (fontIndex > 2) {
+        fontIndex = 2;
+    }
+    labelBtn.titleLabel.font = [UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize];
     [labelBtn addTarget:self action:@selector(onTapLabel:) forControlEvents:UIControlEventTouchUpInside];
 
+    [labelBtn addTarget:self action:@selector(dragBegan:withEvent:) forControlEvents:UIControlEventTouchDown];
     [labelBtn addTarget:self action:@selector(dragMoving:withEvent: )forControlEvents: UIControlEventTouchDragInside];
     [labelBtn addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents:
+     UIControlEventTouchUpInside |
      UIControlEventTouchUpOutside];
     
     [self.scrollView addSubview:labelBtn];
 
 }
 
-- (void) dragMoving: (UIControl *) c withEvent:ev
+- (void) dragBegan:(UIControl *)c withEvent:ev
+{
+    NSLog(@"Button  moving bagin .....%@",NSStringFromCGPoint(c.center));
+//    isMoving = YES;
+
+    
+}
+- (void)dragMoving:(UIControl *)c withEvent:ev
 {
     c.center = [[[ev allTouches] anyObject] locationInView:self.scrollView];
+    NSLog(@"Button  moving  ......%@",NSStringFromCGPoint(c.center));
 }
 
-- (void) dragEnded: (UIControl *) c withEvent:ev
+- (void)dragEnded:(UIControl *)c withEvent:ev
 {
     c.center = [[[ev allTouches] anyObject] locationInView:self.scrollView];
+//    isMoving = NO;
+
+    NSLog(@"Button  end moving .....%@",NSStringFromCGPoint(c.center));
 }
 
 - (void)onTapLabel:(UILabel *)label
 {
+//    if ( isMoving) {
+//        return;
+//    }
     //点击label，跳出textfeild修改label
     if (!textField) {
         textField = [[UITextField alloc] init];
@@ -339,13 +358,18 @@
         if ([view isKindOfClass:[UIButton class]]) {
             UIButton *btn = (UIButton *)view;
             if (btn.tag ==  currentPage + kBtnTag) {
-                [btn setTitle:textField.text forState:UIControlStateNormal];
+                if ([textField.text length] > 0) {
+                    [btn setTitle:textField.text forState:UIControlStateNormal];
+                }
             }
         }
     }
     
-    currentText = textField.text;
-    [self.labelStrings replaceObjectAtIndex:currentPage withObject:currentText];
+    if ([textField.text length] > 0) {
+        currentText = textField.text;
+        [self.labelStrings replaceObjectAtIndex:currentPage withObject:currentText];
+    }
+    
     
     [atextField resignFirstResponder];
     [textField frameSetY:[LXUtils getContentViewHeight]];
@@ -480,15 +504,20 @@
             if ([view isKindOfClass:[UIButton class]]) {
                 UIButton *btn = (UIButton *)view;
                 if (btn.tag ==  i + kBtnTag) {
-
+                    
+                    //计算字体应该所在的point
+                    NSUInteger length = btn.titleLabel.text.length;
+                    length = length/2*20;
+                    
                     //坐标是按照320取值的，但是截图按照640来截图的，所以要乘以2
-                    btnPoint = CGPointMake((btn.center.x-[LXUtils GetScreeWidth]*i)*2, btn.center.y*2);
+                    btnPoint = CGPointMake((btn.center.x - length -[LXUtils GetScreeWidth]*i)*2, (btn.center.y-20)*2);
 
                     //强制处理负坐标情况
                     if (btnPoint.x < 0) {
                         btnPoint.x = 0;
                     }
-                    YHLog(@"打印出来的坐标是 %@",NSStringFromCGPoint(btnPoint));
+//                    YHLog(@"标题的长度是 %ld",[btn.titleLabel.text length]);
+//                    YHLog(@"打印出来的坐标是 %@",NSStringFromCGPoint(btnPoint));
                 }
             }
         }
