@@ -90,7 +90,9 @@
     
     //腾讯相关
     _permissions = [NSMutableArray arrayWithArray:[NSArray arrayWithObjects:
+                                                   kOPEN_PERMISSION_GET_INFO,
                                                    kOPEN_PERMISSION_GET_USER_INFO,
+                                                   kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
                                                    kOPEN_PERMISSION_ADD_SHARE,
                                                 
                                                    nil]];
@@ -292,7 +294,7 @@
  */
 - (IBAction)onQQLoginBtnClick:(UIButton *)sender {
     
-    [_tencentOAuth authorize:_permissions inSafari:NO];
+    [_tencentOAuth authorize:_permissions inSafari:YES];
 }
 
 /**
