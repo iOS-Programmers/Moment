@@ -556,6 +556,8 @@
         }
         
         CGPoint btnPoint;
+        NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[i];
+        
         for (id view in [self.scrollView subviews]) {
             if ([view isKindOfClass:[UIButton class]]) {
                 UIButton *btn = (UIButton *)view;
@@ -565,23 +567,18 @@
                     NSUInteger length = btn.titleLabel.text.length;
                     length = length/2*20;
                     
+                    
+                    btnPoint = CGPointFromString(tempDic[@"point"]);
+                    
                     //坐标是按照320取值的，但是截图按照640来截图的，所以要乘以2
-                    btnPoint = CGPointMake((btn.center.x - length -[LXUtils GetScreeWidth]*i)*2, (btn.center.y-20)*2);
-
-                    //强制处理负坐标情况
-                    if (btnPoint.x < 0) {
-                        btnPoint.x = 0;
-                    }
-//                    YHLog(@"标题的长度是 %ld",[btn.titleLabel.text length]);
-//                    YHLog(@"打印出来的坐标是 %@",NSStringFromCGPoint(btnPoint));
+                    btnPoint = CGPointMake((btnPoint.x - length -[LXUtils GetScreeWidth]*i)*2, (btnPoint.y-20)*2);
+                    
                 }
             }
         }
         
-        NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[i];
-        CGPoint point = CGPointFromString(tempDic[@"point"]);
         
-        image = [image imageWithStringWaterMark:tempDic[@"text"] atPoint:point color:[UIColor whiteColor] font:[UIFont fontWithName:tempDic[@"font"] size:FontSize*2]];
+        image = [image imageWithStringWaterMark:tempDic[@"text"] atPoint:btnPoint color:[UIColor whiteColor] font:[UIFont fontWithName:tempDic[@"font"] size:FontSize*2]];
         [image drawInRect:CGRectMake(0, image1.size.height * i, image1.size.width, image1.size.height)];
     
     }
