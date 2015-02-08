@@ -54,8 +54,6 @@
 		1617F6CD1A36E86C00B5F7C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6CC1A36E86C00B5F7C3 /* Images.xcassets */; };
 		1617F6D11A36E90200B5F7C3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6CF1A36E90200B5F7C3 /* SettingViewController.m */; };
 		1617F6D21A36E90200B5F7C3 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6D01A36E90200B5F7C3 /* SettingViewController.xib */; };
-		1617F6D61A36EA3700B5F7C3 /* PersonalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6D41A36EA3700B5F7C3 /* PersonalInfoViewController.m */; };
-		1617F6D71A36EA3700B5F7C3 /* PersonalInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6D51A36EA3700B5F7C3 /* PersonalInfoViewController.xib */; };
 		1617F6DB1A36EA8700B5F7C3 /* MyStoryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6D91A36EA8700B5F7C3 /* MyStoryListViewController.m */; };
 		1617F6DC1A36EA8700B5F7C3 /* MyStoryListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1617F6DA1A36EA8700B5F7C3 /* MyStoryListViewController.xib */; };
 		1617F6E01A36EAFC00B5F7C3 /* FindMomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1617F6DE1A36EAFC00B5F7C3 /* FindMomentCell.m */; };
@@ -307,9 +305,6 @@
 		1617F6CE1A36E90200B5F7C3 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		1617F6CF1A36E90200B5F7C3 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		1617F6D01A36E90200B5F7C3 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
-		1617F6D31A36EA3700B5F7C3 /* PersonalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalInfoViewController.h; sourceTree = "<group>"; };
-		1617F6D41A36EA3700B5F7C3 /* PersonalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalInfoViewController.m; sourceTree = "<group>"; };
-		1617F6D51A36EA3700B5F7C3 /* PersonalInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalInfoViewController.xib; sourceTree = "<group>"; };
 		1617F6D81A36EA8700B5F7C3 /* MyStoryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyStoryListViewController.h; sourceTree = "<group>"; };
 		1617F6D91A36EA8700B5F7C3 /* MyStoryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyStoryListViewController.m; sourceTree = "<group>"; };
 		1617F6DA1A36EA8700B5F7C3 /* MyStoryListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyStoryListViewController.xib; sourceTree = "<group>"; };
@@ -787,9 +782,6 @@
 				1617F6CE1A36E90200B5F7C3 /* SettingViewController.h */,
 				1617F6CF1A36E90200B5F7C3 /* SettingViewController.m */,
 				1617F6D01A36E90200B5F7C3 /* SettingViewController.xib */,
-				1617F6D31A36EA3700B5F7C3 /* PersonalInfoViewController.h */,
-				1617F6D41A36EA3700B5F7C3 /* PersonalInfoViewController.m */,
-				1617F6D51A36EA3700B5F7C3 /* PersonalInfoViewController.xib */,
 				1617F6D81A36EA8700B5F7C3 /* MyStoryListViewController.h */,
 				1617F6D91A36EA8700B5F7C3 /* MyStoryListViewController.m */,
 				1617F6DA1A36EA8700B5F7C3 /* MyStoryListViewController.xib */,
@@ -1256,7 +1248,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MT;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = YH;
 				TargetAttributes = {
 					168D3A7A1A2D638E0004790E = {
@@ -1307,7 +1299,6 @@
 				16B7F9271A496E6700B7629B /* EditStoryViewController.xib in Resources */,
 				1617F6891A36876F00B5F7C3 /* MJRefresh.bundle in Resources */,
 				1617F6CD1A36E86C00B5F7C3 /* Images.xcassets in Resources */,
-				1617F6D71A36EA3700B5F7C3 /* PersonalInfoViewController.xib in Resources */,
 				1617F6E11A36EAFC00B5F7C3 /* FindMomentCell.xib in Resources */,
 				167E7CD01A45DF1C0050AF97 /* AllCommentListViewController.xib in Resources */,
 				1617F6BC1A3689E500B5F7C3 /* FindMomentViewController.xib in Resources */,
@@ -1379,7 +1370,6 @@
 				1617F6AC1A36896200B5F7C3 /* LoginViewController.m in Sources */,
 				16B2F59F1A4D380900FDE382 /* SupportCommentHttp.m in Sources */,
 				16DA0B941A47059E008D1114 /* Login.m in Sources */,
-				1617F6D61A36EA3700B5F7C3 /* PersonalInfoViewController.m in Sources */,
 				1617F68C1A36876F00B5F7C3 /* MJRefreshHeaderView.m in Sources */,
 				16FF48DA1A46C4F80086BC42 /* LXHttpModel.m in Sources */,
 				16B2F5781A4D2F7A00FDE382 /* MyCommentList.m in Sources */,
@@ -1558,7 +1548,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1590,7 +1579,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos8.1;
+				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
@@ -1599,7 +1588,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1625,7 +1613,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
-				SDKROOT = iphoneos8.1;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -1635,7 +1623,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 72788650F8676D8FF3B83D07 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1709,11 +1696,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CC032BF42D68972AF3F93B02 /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Moment/Vendor/TencentSDK_2.2",

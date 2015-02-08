@@ -42,6 +42,8 @@
     self.modifyAvatarHttp = [[ModifyAvatarHttp alloc] init];
     self.modifyNicknameHttp = [[ModifyNickNameHttp alloc] init];
     self.modifyusernameHttp = [[ModifyUserNameHttp alloc] init];
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
 
 }
 

@@ -30,6 +30,9 @@
 
 @property (strong, nonatomic) IBOutlet UIView *storyTypeView;
 
+//标记当前是否在请求数据，请求完成后设置成No
+@property (nonatomic) BOOL isRequest;
+
 - (IBAction)onTitleBtnClick:(id)sender;
 
 - (IBAction)onStoryTypeBtnClick:(UIButton *)sender;
@@ -47,6 +50,8 @@
     self.supportHttp = [[SupportStoryHttp alloc] init];
     self.delMomentHttp = [[DelMomentZanHttp alloc] init];
     self.photos = [[NSMutableArray alloc] init];
+    
+    self.isRequest = NO;
     
     self.momentHttp.parameter.fid = @"0";
     
@@ -100,6 +105,11 @@
 
 - (void)requestMomentList
 {
+    if (self.isRequest) {
+        return;
+    }
+    self.isRequest  = YES;
+    
     self.momentHttp.parameter.pagesize = @"20";
     
     [self showLoadingWithText:MT_LOADING];
@@ -113,14 +123,20 @@
              *  更新数据
              */
             [weak_self updateMomentListWithInfo:weak_self.momentHttp.resultModel.dataArray];
+            
+            self.isRequest = NO;
         }
         else
         {   //显示服务端返回的错误提示
             [weak_self showWithText:weak_self.momentHttp.erorMessage];
+            
+            self.isRequest = NO;
         };
     }failedBlock:^{
         [weak_self hideLoading];
         [weak_self.header endRefreshing];
+        
+        self.isRequest = NO;
         
         if (![LXUtils networkDetect])
         {

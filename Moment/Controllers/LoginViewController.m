@@ -13,7 +13,7 @@
 #import "MTTextFiedBGView.h"
 #import "LoginHttp.h"
 #import "OAuthLoginHttp.h"
-
+#import "WeiboUser.h"
 #import "SSKeychain.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 
@@ -143,6 +143,11 @@
 }
 */
 
+/**
+ *  新浪微博注册
+ *
+ *  @param noti
+ */
 - (void)oauthLogin:(NSNotification *)noti
 {
     if ([[noti name] isEqualToString:MT_OAuthLogin]) {
@@ -151,59 +156,74 @@
         NSDictionary *userInfo = noti.userInfo;
         
         NSString *openid = userInfo[@"accessToken"];
-        NSString *nickname = userInfo[@"userId"];
-        if (FBIsEmpty(openid) || FBIsEmpty(nickname)) {
+        NSString *userid = userInfo[@"userId"];
+        if (FBIsEmpty(openid) || FBIsEmpty(userid)) {
             [self showWithText:@"第三方账号信息有误"];
             return;
         }
-        
-        self.oaLoginHttp.parameter.openid = openid;
-        self.oaLoginHttp.parameter.nickname = nickname;
-        
-        [self showLoadingWithText:MT_LOADING];
-        __weak LoginViewController *weak_self = self;
-        [self.oaLoginHttp getDataWithCompletionBlock:^{
-            [weak_self hideLoading];
-            if (weak_self.oaLoginHttp.isValid)
-            {
-                [weak_self showWithText:@"登录成功"];
-    
-                //登录成功后，保存useriD，以后的接口请求都会用到
-                [MTUserInfo saveUserID:weak_self.oaLoginHttp.resultModel.member_id];
-    
-                MTUserInfo *userInfo = [[MTUserInfo alloc] init];
-                userInfo.avatar = weak_self.oaLoginHttp.resultModel.avatar;
-                userInfo.username = weak_self.oaLoginHttp.resultModel.username;
-                userInfo.nickname = weak_self.oaLoginHttp.resultModel.nickname;
-                userInfo.regtime = weak_self.oaLoginHttp.resultModel.regtime;
-    
-                [MTUserInfo saveUserInfo:userInfo];
-    
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [[MTAppDelegate shareappdelegate] initMainView];
-                });
-                
-            }
-            else
-            {   //显示服务端返回的错误提示
-                [weak_self showWithText:weak_self.oaLoginHttp.erorMessage];
-            };
-        }failedBlock:^{
-            [weak_self hideLoading];
-            if (![LXUtils networkDetect])
-            {
-                [weak_self showWithText:MT_CHECKNET];
-            }
-            else
-            {
-                //统统归纳为服务器出错
-                [weak_self showWithText:MT_NETWRONG];
-            };
-        }];
 
+        [WBHttpRequest requestForUserProfile:userid withAccessToken:openid andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+   
+            WeiboUser *user = (WeiboUser *)result;
+            
+            YHLog(@"----%@",user.name);
+            YHLog(@"----%@",user.avatarLargeUrl);
+            
+            [self requstWeiboLoginWithNickName:user.name openID:openid avatar:user.avatarLargeUrl];
+            
+        }];
+        
     }
+}
+
+- (void)requstWeiboLoginWithNickName:(NSString *)nickName openID:(NSString *)openid avatar:(NSString *)avtar
+{
+    self.oaLoginHttp.parameter.openid = openid;
+    self.oaLoginHttp.parameter.nickname = nickName;
+    
+    [self showLoadingWithText:MT_LOADING];
+    __weak LoginViewController *weak_self = self;
+    [self.oaLoginHttp getDataWithCompletionBlock:^{
+        [weak_self hideLoading];
+        if (weak_self.oaLoginHttp.isValid)
+        {
+            [weak_self showWithText:@"登录成功"];
+            
+            //登录成功后，保存useriD，以后的接口请求都会用到
+            [MTUserInfo saveUserID:weak_self.oaLoginHttp.resultModel.member_id];
+            
+            MTUserInfo *userInfo = [[MTUserInfo alloc] init];
+            userInfo.avatar = weak_self.oaLoginHttp.resultModel.avatar;
+            userInfo.username = weak_self.oaLoginHttp.resultModel.username;
+            userInfo.nickname = weak_self.oaLoginHttp.resultModel.nickname;
+            userInfo.regtime = weak_self.oaLoginHttp.resultModel.regtime;
+            
+            [MTUserInfo saveUserInfo:userInfo];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[MTAppDelegate shareappdelegate] initMainView];
+            });
+            
+        }
+        else
+        {   //显示服务端返回的错误提示
+            [weak_self showWithText:weak_self.oaLoginHttp.erorMessage];
+        };
+    }failedBlock:^{
+        [weak_self hideLoading];
+        if (![LXUtils networkDetect])
+        {
+            [weak_self showWithText:MT_CHECKNET];
+        }
+        else
+        {
+            //统统归纳为服务器出错
+            [weak_self showWithText:MT_NETWRONG];
+        };
+    }];
     
 }
+
 
 #pragma mark - IBAciton
 
@@ -410,10 +430,9 @@
         self.nickeName = response.jsonResponse[@"nickname"];
         self.avatarUrl = response.jsonResponse[@"figureurl_qq_2"];
         
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"操作成功" message:[NSString stringWithFormat:@"%@",str]
-//                              
-//                                                       delegate:self cancelButtonTitle:@"我知道啦" otherButtonTitles: nil];
-//        [alert show];
+        //调用登录
+        [self QQAuthLogin];
+        
     }
     else
     {
@@ -423,7 +442,6 @@
         [alert show];
     }
     
-    //调用登录
-    [self QQAuthLogin];
+    
 }
 @end

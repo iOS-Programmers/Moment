@@ -153,6 +153,9 @@
         [self.scrollView addSubview:deleteBtn];
         
         //创建文字button
+        if ([self.labelInfos count] <= i) {
+            return;
+        }
         NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[i];
        
         if (!FBIsEmpty(tempDic[@"text"])) {
