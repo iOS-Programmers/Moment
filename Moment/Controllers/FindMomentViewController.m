@@ -22,9 +22,6 @@
 @property (strong, nonatomic) SupportStoryHttp *supportHttp;
 @property (strong, nonatomic) DelMomentZanHttp *delMomentHttp;
 
-//装图片的数组
-@property (nonatomic, strong) NSMutableArray *photos;
-
 @property (strong, nonatomic) IBOutlet UIView *titleView;
 @property (strong, nonatomic) IBOutlet UIButton *titleBtn;
 
@@ -49,7 +46,6 @@
     self.momentInfoHttp = [[MomentInfoHttp alloc] init];
     self.supportHttp = [[SupportStoryHttp alloc] init];
     self.delMomentHttp = [[DelMomentZanHttp alloc] init];
-    self.photos = [[NSMutableArray alloc] init];
     
     self.isRequest = NO;
     
@@ -57,7 +53,7 @@
     
     self.tableView.rowHeight = 118;
     
-    [self requestMomentList];
+    
     
     //添加下拉刷新
     self.canPullRefresh = YES;
@@ -76,6 +72,8 @@
     self.navigationItem.titleView = self.titleView;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshMomentUI) name:MT_RefreshMomentUI object:nil];
+    
+    [self requestMomentList];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -124,19 +122,19 @@
              */
             [weak_self updateMomentListWithInfo:weak_self.momentHttp.resultModel.dataArray];
             
-            self.isRequest = NO;
+            weak_self.isRequest = NO;
         }
         else
         {   //显示服务端返回的错误提示
             [weak_self showWithText:weak_self.momentHttp.erorMessage];
             
-            self.isRequest = NO;
+            weak_self.isRequest = NO;
         };
     }failedBlock:^{
         [weak_self hideLoading];
         [weak_self.header endRefreshing];
         
-        self.isRequest = NO;
+        weak_self.isRequest = NO;
         
         if (![LXUtils networkDetect])
         {
@@ -427,17 +425,6 @@
     [self requestMomentInfoWithId:detail];
 }
 
-#pragma mark - MWPhotoBrowserDelegate
-
-//- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser {
-//    return _photos.count;
-//}
-//
-//- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
-//    if (index < _photos.count)
-//        return [_photos objectAtIndex:index];
-//    return nil;
-//}
 
 #pragma mark 上下拉刷新的Delegate
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView

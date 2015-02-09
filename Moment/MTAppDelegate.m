@@ -187,7 +187,7 @@
                               @"userId":self.wbCurrentUserID,
                               };
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:MT_OAuthLogin object:self userInfo:dic];
+        [[NSNotificationCenter defaultCenter] postNotificationName:MT_SINA_OAuthLogin object:self userInfo:dic];
 
     }
     else if ([response isKindOfClass:WBPaymentResponse.class])

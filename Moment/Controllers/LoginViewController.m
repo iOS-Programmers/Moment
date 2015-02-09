@@ -86,7 +86,7 @@
     }
     
     //添加第三方登录的回调
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(oauthLogin:) name:MT_OAuthLogin object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(oauthLogin:) name:MT_SINA_OAuthLogin object:nil];
     
     //腾讯相关
     _permissions = [NSMutableArray arrayWithArray:[NSArray arrayWithObjects:
@@ -150,8 +150,8 @@
  */
 - (void)oauthLogin:(NSNotification *)noti
 {
-    if ([[noti name] isEqualToString:MT_OAuthLogin]) {
-        NSLog(@"第三方登录的回调~");
+    if ([[noti name] isEqualToString:MT_SINA_OAuthLogin]) {
+        NSLog(@"微博第三方登录的回调~");
         
         NSDictionary *userInfo = noti.userInfo;
         
@@ -161,6 +161,9 @@
             [self showWithText:@"第三方账号信息有误"];
             return;
         }
+        
+        __weak LoginViewController *weak_self = self;
+        
 
         [WBHttpRequest requestForUserProfile:userid withAccessToken:openid andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
    
@@ -169,7 +172,7 @@
             YHLog(@"----%@",user.name);
             YHLog(@"----%@",user.avatarLargeUrl);
             
-            [self requstWeiboLoginWithNickName:user.name openID:openid avatar:user.avatarLargeUrl];
+            [weak_self requstWeiboLoginWithNickName:user.name openID:openid avatar:user.avatarLargeUrl];
             
         }];
         
@@ -178,9 +181,14 @@
 
 - (void)requstWeiboLoginWithNickName:(NSString *)nickName openID:(NSString *)openid avatar:(NSString *)avtar
 {
+    if (FBIsEmpty(openid)) {
+        [self showWithText:@"获取微博信息为空"];
+        return;
+    }
+    
     self.oaLoginHttp.parameter.openid = openid;
-    self.oaLoginHttp.parameter.nickname = nickName;
-    self.oaLoginHttp.parameter.avatar = avtar;
+    self.oaLoginHttp.parameter.nickname = FBIsEmpty(nickName) ? @"微博用户":nickName;
+    self.oaLoginHttp.parameter.avatar = FBIsEmpty(avtar) ? @"":avtar;
     
     [self showLoadingWithText:MT_LOADING];
     __weak LoginViewController *weak_self = self;
@@ -432,7 +440,9 @@
         self.avatarUrl = response.jsonResponse[@"figureurl_qq_2"];
         
         //调用登录
-        [self QQAuthLogin];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self QQAuthLogin];
+        });
         
     }
     else

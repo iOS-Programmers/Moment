@@ -94,7 +94,7 @@
     
     self.path =[NSString stringWithFormat:@"%@/index.php/Index/",[[NSUserDefaults standardUserDefaults] objectForKey:@"hostName"]];
     
-    if ([self.apiFuncName isEqualToString:@"getValidateCode"]||[self.apiFuncName isEqualToString:@"userRegister"]||[self.apiFuncName isEqualToString:@"userLogin"]||[self.apiFuncName isEqualToString:@"changePassword"] || [self.apiFuncName isEqualToString:@"checkValidateCode"])
+    if ([self.apiFuncName isEqualToString:@"getValidateCode"]||[self.apiFuncName isEqualToString:@"userRegister"]||[self.apiFuncName isEqualToString:@"userLogin"]||[self.apiFuncName isEqualToString:@"changePassword"] || [self.apiFuncName isEqualToString:@"checkValidateCode"] ||[self.apiFuncName isEqualToString:@"OAuthLogin"])
     {
         self.path = [NSString stringWithFormat:@"%@%@?",self.path,self.apiFuncName];
     }
@@ -288,6 +288,8 @@
     if (alertView.tag == 1) {
         if (buttonIndex == 0) {
             //验证失效，重新登录
+            //清空数据
+            [MTUserInfo clearAllUserInfo];
             
             LoginViewController *loginViewController = [[LoginViewController alloc] init];
             UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
