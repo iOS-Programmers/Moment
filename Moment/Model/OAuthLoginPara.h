@@ -12,5 +12,6 @@
 
 @property (nonatomic, copy) NSString *openid;
 @property (nonatomic, copy) NSString *nickname;
+@property (nonatomic, copy) NSString *avatar;
 
 @end

@@ -180,6 +180,7 @@
 {
     self.oaLoginHttp.parameter.openid = openid;
     self.oaLoginHttp.parameter.nickname = nickName;
+    self.oaLoginHttp.parameter.avatar = avtar;
     
     [self showLoadingWithText:MT_LOADING];
     __weak LoginViewController *weak_self = self;
@@ -340,7 +341,7 @@
     self.oaLoginHttp.parameter.openid = _tencentOAuth.openId;
     self.oaLoginHttp.parameter.nickname = FBIsEmpty(self.nickeName) ? @"QQ用户" : self.nickeName;
     //第三方登录头像 self.avatarUrl
-#warning 需要添加第三方头像
+    self.oaLoginHttp.parameter.avatar = FBIsEmpty(self.avatarUrl) ? @"" : self.avatarUrl;
     
     [self showLoadingWithText:MT_LOADING];
     __weak LoginViewController *weak_self = self;

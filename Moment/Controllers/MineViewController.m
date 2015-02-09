@@ -175,7 +175,12 @@
         cell.countLabel.text = [NSString stringWithFormat:@"账号: %@",[MTUserInfo userID]];
         
         if (!FBIsEmpty([MTUserInfo defaultUserInfo].avatar)) {
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
+            if ([[MTUserInfo defaultUserInfo].avatar containsString:@"http://"]) {
+                [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[MTUserInfo defaultUserInfo].avatar] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
+            }
+            else {
+                [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
+            }
         }
         else {
             cell.imageView.image = [UIImage imageNamed:@"touxiang_pinglun + Oval 7"];

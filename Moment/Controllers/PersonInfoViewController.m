@@ -107,7 +107,14 @@
     
     cell.textLabel.text = self.titles[indexPath.row];
     if (indexPath.row == 0) {
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
+        if (!FBIsEmpty([MTUserInfo defaultUserInfo].avatar)) {
+            if ([[MTUserInfo defaultUserInfo].avatar containsString:@"http://"]) {
+                [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[MTUserInfo defaultUserInfo].avatar] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
+            }
+            else {
+                [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,[MTUserInfo defaultUserInfo].avatar]] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
+            }
+        }
     }
     if (indexPath.row == 1) {
         //账号
