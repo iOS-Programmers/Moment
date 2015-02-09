@@ -81,6 +81,7 @@
     fontIndex = 0;
     currentPage = 0;
     
+    
     self.updatePicHttp = [[UploadPictureHttp alloc] init];
     
     [self.scrollView setContentSize:CGSizeMake([LXUtils GetScreeWidth] * 2, 0)];
@@ -100,6 +101,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEdit)];
     [self.scrollView addGestureRecognizer:tap];
     
+    [self.view addSubview:self.pageLabel];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -471,6 +473,7 @@
     NSInteger thecurrentPage = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     
     currentPage = thecurrentPage;
+    
     self.pageLabel.text = [NSString stringWithFormat:@"%ld / 9", currentPage + 1];
 }
 
