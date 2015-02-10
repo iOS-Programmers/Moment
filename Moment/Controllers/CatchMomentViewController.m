@@ -399,8 +399,13 @@
     
     NSString *point = NSStringFromCGPoint(labelbtn.center);
     
-    NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
-    tempDic[@"point"] = point;
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] initWithCapacity:9];
+    if ([self.labelInfos count] > 0) {
+        tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
+        tempDic[@"point"] = point;
+    }
+
+    
 }
 
 #pragma mark -  UITextFieldDelegate
@@ -518,7 +523,10 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
-   
+    
+//    UIImage *editImage = [editingInfo objectForKey:@"UIImagePickerControllerOriginalImage"];
+//    UIImage *editImage = [editingInfo objectForKey:@"UIImagePickerControllerEditedImage"];
+    
     UIImage *rightImage = [LXUtils rotateImage:image];
     
     [self.images addObject:rightImage];
@@ -559,7 +567,12 @@
         }
         
         CGPoint btnPoint;
-        NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[i];
+
+        NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] initWithCapacity:9];
+        if ([self.labelInfos count] > 0) {
+            tempDic = (NSMutableDictionary *)self.labelInfos[i];
+        }
+       
         
         for (id view in [self.scrollView subviews]) {
             if ([view isKindOfClass:[UIButton class]]) {

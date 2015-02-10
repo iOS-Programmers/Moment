@@ -73,6 +73,7 @@
 
 - (void)initMainView
 {
+//    self.rootTabBarController = nil;
     //Find
     FindMomentViewController *findViewController = [[FindMomentViewController alloc] init];
     findViewController.tabBarItem.image = [UIImage imageNamed:@"find"];
@@ -145,24 +146,6 @@
 {
     if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
     {
-//        NSString *title = NSLocalizedString(@"发送结果", nil);
-//        NSString *message = [NSString stringWithFormat:@"%@: %d\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode, NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil),response.requestUserInfo];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-//                                                        message:message
-//                                                       delegate:nil
-//                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-//                                              otherButtonTitles:nil];
-//        WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
-//        NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
-//        if (accessToken)
-//        {
-//            self.wbtoken = accessToken;
-//        }
-//        NSString* userID = [sendMessageToWeiboResponse.authResponse userID];
-//        if (userID) {
-//            self.wbCurrentUserID = userID;
-//        }
-//        [alert show];
 
     }
     else if ([response isKindOfClass:WBAuthorizeResponse.class])
@@ -187,21 +170,25 @@
                               @"userId":self.wbCurrentUserID,
                               };
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:MT_SINA_OAuthLogin object:self userInfo:dic];
+        
+        [self sendWeiBoLogin:dic];
 
     }
     else if ([response isKindOfClass:WBPaymentResponse.class])
     {
-//        NSString *title = NSLocalizedString(@"支付结果", nil);
-//        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.payStatusCode: %@\nresponse.payStatusMessage: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBPaymentResponse *)response payStatusCode], [(WBPaymentResponse *)response payStatusMessage], NSLocalizedString(@"响应UserInfo数据", nil),response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-//                                                        message:message
-//                                                       delegate:nil
-//                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
-//                                              otherButtonTitles:nil];
-//        [alert show];
+
     }
 
+}
+
+#pragma mark - MTDelegate
+#pragma mark - 微博的回调
+
+- (void)sendWeiBoLogin:(NSDictionary *)dic
+{
+    if ([_delegate respondsToSelector:@selector(sendWeiBoLogin:)]) {
+        [_delegate sendWeiBoLogin:dic];
+    }
 }
 
 - (void)didReceiveWeiboRequest:(WBBaseRequest *)request
@@ -219,7 +206,7 @@
 {
     if([req isKindOfClass:[GetMessageFromWXReq class]])
     {
-        GetMessageFromWXReq *temp = (GetMessageFromWXReq *)req;
+//        GetMessageFromWXReq *temp = (GetMessageFromWXReq *)req;
         
         // 微信请求App提供内容， 需要app提供内容后使用sendRsp返回
 //        NSString *strTitle = [NSString stringWithFormat:@"微信请求App提供内容"];

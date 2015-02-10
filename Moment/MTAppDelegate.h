@@ -15,6 +15,13 @@
 //微博
 #import "WeiboSDK.h"
 
+@protocol MTDelete <NSObject>
+
+@optional
+- (void)sendWeiBoLogin:(NSDictionary *)dic;
+
+@end
+
 @interface MTAppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate,WeiboSDKDelegate>
 {
     enum WXScene _scene;
@@ -25,6 +32,8 @@
 
 @property (strong, nonatomic) NSString *wbtoken;
 @property (strong, nonatomic) NSString *wbCurrentUserID;
+
+@property (nonatomic, assign) id <MTDelete> delegate;
 
 + (MTAppDelegate *)shareappdelegate;
 

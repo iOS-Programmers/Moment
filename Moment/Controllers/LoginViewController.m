@@ -17,20 +17,25 @@
 #import "SSKeychain.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 
-@interface LoginViewController () <TencentSessionDelegate>
+@interface LoginViewController () <TencentSessionDelegate,MTDelete>
 {
     TencentOAuth *_tencentOAuth;
     
-    NSMutableArray* _permissions;
+    
 }
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImage;
-@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
-@property (weak, nonatomic) IBOutlet UITextField *passWordTF;
-@property (weak, nonatomic) IBOutlet UIButton *weiboBtn;
-@property (weak, nonatomic) IBOutlet UIButton *qqBtn;
+@property (retain, nonatomic) IBOutlet UIImageView *avatarImage;
+@property (retain, nonatomic) IBOutlet UITextField *userNameTF;
+@property (retain, nonatomic) IBOutlet UITextField *passWordTF;
+@property (retain, nonatomic) IBOutlet UIButton *weiboBtn;
+@property (retain, nonatomic) IBOutlet UIButton *qqBtn;
 
 @property (strong, nonatomic) LoginHttp *loginHttp;
 @property (strong, nonatomic) OAuthLoginHttp *oaLoginHttp;
+
+@property (strong, nonatomic) NSMutableArray* permissions;
+
+//设置微博的通知只能调用一次
+@property (nonatomic) BOOL isRequestWeiBo;
 
 //昵称，第三方登录的入参，可以为空
 @property (copy, nonatomic) NSString *nickeName;
@@ -45,7 +50,18 @@
 - (IBAction)onWeiboLoginBtnclick:(UIButton *)sender;
 @end
 
+#pragma mark - Implementation
+
 @implementation LoginViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+    
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,9 +70,14 @@
     self.loginHttp = [[LoginHttp alloc] init];
     self.oaLoginHttp = [[OAuthLoginHttp alloc] init];
     
-    if (self.loginType == LoginTypeDismiss) {
-        [self addCancelBtn];
-    }
+    
+//    if (self.loginType == LoginTypeDismiss) {
+//        [self addCancelBtn];
+//    }
+    
+    [MTAppDelegate shareappdelegate].delegate = self;
+    
+    self.isRequestWeiBo = NO;
     
     self.navigationController.navigationBar.barTintColor = NAVIGATION_BAR_COLCOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -85,11 +106,9 @@
         self.avatarImage.layer.masksToBounds = YES;
     }
     
-    //添加第三方登录的回调
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(oauthLogin:) name:MT_SINA_OAuthLogin object:nil];
     
     //腾讯相关
-    _permissions = [NSMutableArray arrayWithArray:[NSArray arrayWithObjects:
+    self.permissions = [NSMutableArray arrayWithArray:[NSArray arrayWithObjects:
                                                    kOPEN_PERMISSION_GET_INFO,
                                                    kOPEN_PERMISSION_GET_USER_INFO,
                                                    kOPEN_PERMISSION_GET_SIMPLE_USER_INFO,
@@ -103,36 +122,50 @@
 
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
-- (void)addCancelBtn
-{
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftBtn.frame = CGRectMake(0.0f, 0.0f,40,30);
-    [leftBtn setTitle:@"返回" forState:UIControlStateNormal];
-    leftBtn.backgroundColor = [UIColor clearColor];
-    leftBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [leftBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
-}
+//- (void)addCancelBtn
+//{
+//    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    leftBtn.frame = CGRectMake(0.0f, 0.0f,40,30);
+//    [leftBtn setTitle:@"返回" forState:UIControlStateNormal];
+//    leftBtn.backgroundColor = [UIColor clearColor];
+//    leftBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    [leftBtn addTarget:self action:@selector(cancelBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+//}
 
-- (void)cancelBtnClick
-{
-    if (self.loginType == LoginTypeDismiss) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            
-        }];
-    }
-}
+//- (void)cancelBtnClick
+//{
+//    if (self.loginType == LoginTypeDismiss) {
+//        [self dismissViewControllerAnimated:YES completion:^{
+//            
+//        }];
+//    }
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - MTDelegate
+- (void)sendWeiBoLogin:(NSDictionary *)dic
+{
+     YHLog(@"------代理----------微博第三方登录的回调~");
+    NSString *openid = dic[@"accessToken"];
+    NSString *userid = dic[@"userId"];
+    
+    [WBHttpRequest requestForUserProfile:userid withAccessToken:openid andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+        
+        WeiboUser *user = (WeiboUser *)result;
+        
+        YHLog(@"----%@",user.name);
+        YHLog(@"----%@",user.avatarLargeUrl);
+        
+        [self requstWeiboLoginWithNickName:user.name openID:openid avatar:user.avatarLargeUrl];
+        
+    }];
+}
 /*
 #pragma mark - Navigation
 
@@ -143,41 +176,6 @@
 }
 */
 
-/**
- *  新浪微博注册
- *
- *  @param noti
- */
-- (void)oauthLogin:(NSNotification *)noti
-{
-    if ([[noti name] isEqualToString:MT_SINA_OAuthLogin]) {
-        NSLog(@"微博第三方登录的回调~");
-        
-        NSDictionary *userInfo = noti.userInfo;
-        
-        NSString *openid = userInfo[@"accessToken"];
-        NSString *userid = userInfo[@"userId"];
-        if (FBIsEmpty(openid) || FBIsEmpty(userid)) {
-            [self showWithText:@"第三方账号信息有误"];
-            return;
-        }
-        
-        __weak LoginViewController *weak_self = self;
-        
-
-        [WBHttpRequest requestForUserProfile:userid withAccessToken:openid andOtherProperties:nil queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
-   
-            WeiboUser *user = (WeiboUser *)result;
-            
-            YHLog(@"----%@",user.name);
-            YHLog(@"----%@",user.avatarLargeUrl);
-            
-            [weak_self requstWeiboLoginWithNickName:user.name openID:openid avatar:user.avatarLargeUrl];
-            
-        }];
-        
-    }
-}
 
 - (void)requstWeiboLoginWithNickName:(NSString *)nickName openID:(NSString *)openid avatar:(NSString *)avtar
 {
@@ -185,6 +183,11 @@
         [self showWithText:@"获取微博信息为空"];
         return;
     }
+    
+    if (self.isRequestWeiBo) {
+        return;
+    }
+    self.isRequestWeiBo = YES;
     
     self.oaLoginHttp.parameter.openid = openid;
     self.oaLoginHttp.parameter.nickname = FBIsEmpty(nickName) ? @"微博用户":nickName;
@@ -197,6 +200,8 @@
         if (weak_self.oaLoginHttp.isValid)
         {
             [weak_self showWithText:@"登录成功"];
+            
+            weak_self.isRequestWeiBo = NO;
             
             //登录成功后，保存useriD，以后的接口请求都会用到
             [MTUserInfo saveUserID:weak_self.oaLoginHttp.resultModel.member_id];
@@ -217,9 +222,13 @@
         else
         {   //显示服务端返回的错误提示
             [weak_self showWithText:weak_self.oaLoginHttp.erorMessage];
+            
+            weak_self.isRequestWeiBo = NO;
         };
     }failedBlock:^{
         [weak_self hideLoading];
+        
+        weak_self.isRequestWeiBo = NO;
         if (![LXUtils networkDetect])
         {
             [weak_self showWithText:MT_CHECKNET];
@@ -323,7 +332,7 @@
  */
 - (IBAction)onQQLoginBtnClick:(UIButton *)sender {
     
-    [_tencentOAuth authorize:_permissions inSafari:YES];
+    [_tencentOAuth authorize:self.permissions inSafari:YES];
 }
 
 /**

@@ -60,8 +60,8 @@
 {
     [MTUserInfo clearAllUserInfo];
     LoginViewController *loginVC = [[LoginViewController alloc] init];
-//    loginVC.loginType = LoginTypeDismiss;
-    YHBaseNavigationController *loginNav = [[YHBaseNavigationController alloc] initWithRootViewController:loginVC];
+
+    UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
     
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor whiteColor], NSForegroundColorAttributeName, [UIFont boldSystemFontOfSize:17], NSFontAttributeName, nil]];

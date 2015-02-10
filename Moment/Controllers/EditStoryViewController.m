@@ -72,6 +72,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:MT_RefreshMomentUI object:nil];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -133,9 +139,11 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weak_self.navigationController popToRootViewControllerAnimated:YES];
                 
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [[NSNotificationCenter defaultCenter] postNotificationName:MT_RefreshMomentUI object:nil];
-                });
+                [[NSNotificationCenter defaultCenter] postNotificationName:MT_RefreshMomentUI object:nil];
+                
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    
+//                });
             });
         }
     }failedBlock:^{
