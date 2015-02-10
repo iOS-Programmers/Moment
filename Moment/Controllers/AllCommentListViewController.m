@@ -230,11 +230,8 @@
 -(void)thekeyboardWillShow:(NSNotification*)notif
 {
     NSDictionary *info = [notif userInfo];
-    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGFloat keyboardHeight = [value CGRectValue].size.height;
-    if (keyboardHeight == 184) {
-        keyboardHeight = 252;
-    }
     
     NSNumber *duration = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [info objectForKey:UIKeyboardAnimationCurveUserInfoKey];
