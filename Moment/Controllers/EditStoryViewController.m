@@ -119,7 +119,12 @@
         return;
     }
     
-    if ([self.imageIds count] > 0) {
+    
+    if ([self.imageIds count] == 1) {
+        self.addMomentHttp.parameter.litpic = self.imageIds[0];
+        self.addMomentHttp.parameter.pictureurls = self.imageIds[0];
+    }
+    if ([self.imageIds count] > 1) {
         self.addMomentHttp.parameter.litpic = self.imageIds[0];
         self.addMomentHttp.parameter.pictureurls = self.imageIds[1];
     }

@@ -223,6 +223,11 @@
     
     if ([self.images count] > tag) {
         [self.images removeObjectAtIndex:tag];
+    
+    }
+    if (sender.tag == 0) {
+        [self.imageURLs removeAllObjects];
+        
     }
     
     [self updateUI];
