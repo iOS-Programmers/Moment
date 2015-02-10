@@ -54,7 +54,6 @@
     self.tableView.rowHeight = 118;
     
     
-    
     //添加下拉刷新
     self.canPullRefresh = YES;
     
@@ -93,6 +92,7 @@
     [[MTAppDelegate shareappdelegate].rootTabBarController setSelectedIndex:0];
     [self.header beginRefreshing];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

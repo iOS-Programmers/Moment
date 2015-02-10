@@ -139,11 +139,9 @@
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [weak_self.navigationController popToRootViewControllerAnimated:YES];
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:MT_RefreshMomentUI object:nil];
-                
-//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                    
-//                });
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weak_self editFinshAndRefresh];
+                });
             });
         }
     }failedBlock:^{
@@ -189,6 +187,17 @@
     UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"返回" destructiveButtonTitle:nil otherButtonTitles:@"微信朋友圈",@"微信好友",@"新浪微博",@"QQ好友", nil];
     action.tag = 2;
     [action  showInView:self.view];
+}
+
+#pragma mark - Delegate
+
+- (void)editFinshAndRefresh
+{
+
+    FindMomentViewController *momentVC = [MTAppDelegate shareappdelegate].findViewController;
+    
+    [momentVC refreshMomentUI];
+    
 }
 
 #pragma mark - UITextViewDelegate

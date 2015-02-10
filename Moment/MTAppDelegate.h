@@ -15,6 +15,8 @@
 //微博
 #import "WeiboSDK.h"
 
+#import "FindMomentViewController.h"
+
 @protocol MTDelete <NSObject>
 
 @optional
@@ -29,6 +31,8 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) YHBaseTabbarController *rootTabBarController;
+
+@property (strong, nonatomic) FindMomentViewController *findViewController;
 
 @property (strong, nonatomic) NSString *wbtoken;
 @property (strong, nonatomic) NSString *wbCurrentUserID;

@@ -75,10 +75,10 @@
 {
 //    self.rootTabBarController = nil;
     //Find
-    FindMomentViewController *findViewController = [[FindMomentViewController alloc] init];
-    findViewController.tabBarItem.image = [UIImage imageNamed:@"find"];
-    findViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"find_o"];
-    YHBaseNavigationController *findNav = [[YHBaseNavigationController alloc] initWithRootViewController:findViewController];
+    self.findViewController = [[FindMomentViewController alloc] init];
+    self.findViewController.tabBarItem.image = [UIImage imageNamed:@"find"];
+    self.findViewController.tabBarItem.selectedImage = [UIImage imageNamed:@"find_o"];
+    YHBaseNavigationController *findNav = [[YHBaseNavigationController alloc] initWithRootViewController:self.findViewController];
     
     //Catch
     CatchMomentViewController *catchViewController = [[CatchMomentViewController alloc] init];

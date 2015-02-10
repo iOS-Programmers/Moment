@@ -10,4 +10,7 @@
 
 @interface FindMomentViewController : YHBaseTableViewController
 
+//外部调用刷新数据
+- (void)refreshMomentUI;
+
 @end
