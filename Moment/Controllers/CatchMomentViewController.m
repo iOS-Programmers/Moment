@@ -155,38 +155,41 @@
         [self.scrollView addSubview:deleteBtn];
         
         //创建文字button
-        if ([self.labelInfos count] <= i) {
-            return;
-        }
-        NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[i];
-       
-        if (!FBIsEmpty(tempDic[@"text"])) {
-            UIButton * labelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        if ([self.labelInfos count] > i) {
+            NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[i];
             
-            labelBtn.frame = CGRectMake(20+ i*[LXUtils GetScreeWidth], 100, 300, 60);
-            labelBtn.center = CGPointFromString(tempDic[@"point"]);
-            
-            labelBtn.backgroundColor = [UIColor clearColor];
-            labelBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-            labelBtn.tag = kBtnTag + i;
-            [labelBtn setTitle:tempDic[@"text"] forState:UIControlStateNormal];
-            
-            labelBtn.titleLabel.font = [UIFont fontWithName:tempDic[@"font"] size:FontSize];
-            [labelBtn addTarget:self action:@selector(onTapLabel:) forControlEvents:UIControlEventTouchUpInside];
-            
-            [labelBtn addTarget:self action:@selector(dragBegan:withEvent:) forControlEvents:UIControlEventTouchDown];
-            [labelBtn addTarget:self action:@selector(dragMoving:withEvent: )forControlEvents: UIControlEventTouchDragInside];
-            [labelBtn addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents:
-             UIControlEventTouchUpInside |
-             UIControlEventTouchUpOutside];
-            
-            [self.scrollView addSubview:labelBtn];
+            if (!FBIsEmpty(tempDic[@"text"])) {
+                UIButton * labelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+                
+                labelBtn.frame = CGRectMake(20+ i*[LXUtils GetScreeWidth], 100, 300, 60);
+                labelBtn.center = CGPointFromString(tempDic[@"point"]);
+                
+                labelBtn.backgroundColor = [UIColor clearColor];
+                labelBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+                labelBtn.tag = kBtnTag + i;
+                [labelBtn setTitle:tempDic[@"text"] forState:UIControlStateNormal];
+                
+                labelBtn.titleLabel.font = [UIFont fontWithName:tempDic[@"font"] size:FontSize];
+                [labelBtn addTarget:self action:@selector(onTapLabel:) forControlEvents:UIControlEventTouchUpInside];
+                
+                [labelBtn addTarget:self action:@selector(dragBegan:withEvent:) forControlEvents:UIControlEventTouchDown];
+                [labelBtn addTarget:self action:@selector(dragMoving:withEvent: )forControlEvents: UIControlEventTouchDragInside];
+                [labelBtn addTarget:self action:@selector(dragEnded:withEvent: )forControlEvents:
+                 UIControlEventTouchUpInside |
+                 UIControlEventTouchUpOutside];
+                
+                [self.scrollView addSubview:labelBtn];
+            }
+
         }
     }
     
+  
     self.scrollView.contentSize = CGSizeMake([LXUtils GetScreeWidth] *([self.images count] +1), 0);
+    
     if ([self.images count] == 0) {
         self.scrollView.contentOffset = CGPointMake(0, 0);
+        self.scrollView.contentSize = CGSizeMake([LXUtils GetScreeWidth] *2, 0);
     }
     else {
         self.scrollView.contentOffset = CGPointMake([LXUtils GetScreeWidth] *([self.images count] -1), 0);
@@ -227,6 +230,12 @@
     }
     if (sender.tag == 0) {
         [self.imageURLs removeAllObjects];
+        //这里把images的第一张图片上传作为封面图
+        if ([self.images count] > 0) {
+            
+            [self uploadImage:self.images[0] andPublish:NO];
+        }
+        
         
     }
     
@@ -294,8 +303,11 @@
             if (btn.tag ==  currentPage + kBtnTag) {
                 btn.titleLabel.font = [UIFont fontWithName:self.labelFonts[fontIndex] size:FontSize];
 
-                NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
-                tempDic[@"font"] = self.labelFonts[fontIndex];
+                if ([self.labelInfos count] > 0) {
+                    NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
+                    tempDic[@"font"] = self.labelFonts[fontIndex];
+                }
+                
             }
         }
     }
@@ -372,9 +384,6 @@
 
 - (void)onTapLabel:(UIButton *)labelbtn
 {
-//    if ( isMoving) {
-//        return;
-//    }
     //点击label，跳出textfeild修改label
     if (!textField) {
         textField = [[UITextField alloc] init];
@@ -430,12 +439,17 @@
     
     if ([textField.text length] > 0) {
         currentText = textField.text;
-        NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
-        tempDic[@"text"] = currentText;
-        if (fontIndex > 2) {
-            fontIndex = 2;
+        if ([self.labelInfos count] > 0) {
+            NSMutableDictionary *tempDic = (NSMutableDictionary *)self.labelInfos[currentPage];
+            tempDic[@"text"] = currentText;
+
+            if (fontIndex > 2) {
+                fontIndex = 2;
+            }
+            tempDic[@"font"] = self.labelFonts[fontIndex];
+
         }
-        tempDic[@"font"] = self.labelFonts[fontIndex];
+        
     }
     
     
@@ -450,11 +464,8 @@
 -(void)keyboardWillShow:(NSNotification*)notif
 {
     NSDictionary *info = [notif userInfo];
-    NSValue *value = [info objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    NSValue *value = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     CGFloat keyboardHeight = [value CGRectValue].size.height;
-    if (keyboardHeight == 184) {
-        keyboardHeight = 252;
-    }
     
     NSNumber *duration = [info objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [info objectForKey:UIKeyboardAnimationCurveUserInfoKey];
@@ -498,6 +509,18 @@
             //清空
             [self.images removeAllObjects];
             [self.imageURLs removeAllObjects];
+            //初始化文字label数组
+            self.labelInfos = [NSMutableArray arrayWithObjects:
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                               [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],nil];
+            
             
             [self updateUI];
         }
@@ -645,7 +668,19 @@
                     
                     [self.images removeAllObjects];
                     [self.imageURLs removeAllObjects];
-                    [self.labelInfos removeAllObjects];
+//                    [self.labelInfos removeAllObjects];
+                    //初始化labelInfos
+                    self.labelInfos = [NSMutableArray arrayWithObjects:
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],
+                                       [NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}],nil];
+
                     
                     [self updateUI];
                     
