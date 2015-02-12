@@ -162,7 +162,27 @@
                 UIButton * labelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
                 
                 labelBtn.frame = CGRectMake(20+ i*[LXUtils GetScreeWidth], 100, 300, 60);
-                labelBtn.center = CGPointFromString(tempDic[@"point"]);
+                
+                //这里处理删除照片后，point偏移问题
+                CGPoint beforePoint = CGPointFromString(tempDic[@"point"]);
+                
+                //求出当前属于第几个页面的
+                int a = (int)beforePoint.x / (int)[LXUtils GetScreeWidth];
+                
+                //调整为当前所在页面
+                a = a - i;
+                
+                if (beforePoint.x > (i+1)*[LXUtils GetScreeWidth]) {
+                    beforePoint.x = beforePoint.x - a *[LXUtils GetScreeWidth];
+                }
+                                                         
+                CGPoint endPoint = beforePoint;
+                
+                //更新数组中的数据
+                tempDic[@"point"] = NSStringFromCGPoint(endPoint);
+
+                
+                labelBtn.center = endPoint;
                 
                 labelBtn.backgroundColor = [UIColor clearColor];
                 labelBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -226,6 +246,9 @@
     
     if ([self.images count] > tag) {
         [self.images removeObjectAtIndex:tag];
+        //这里也要删掉相应的文字
+        [self.labelInfos removeObjectAtIndex:tag];
+        [self.labelInfos addObject:[NSMutableDictionary dictionaryWithDictionary:@{@"text":@"",@"font":@"",@"point":@""}]];
     
     }
     if (sender.tag == 0) {
