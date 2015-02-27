@@ -16,6 +16,9 @@
 @property (strong, nonatomic) MyCommentListHttp *mycommentHttp;
 @property (strong, nonatomic) CommentMeListHttp *commentmeHttp;
 
+//判断现在是否正在请求，默认为NO
+@property (nonatomic) BOOL isRequest;
+
 /**
  *  设置是评论我的，还是我的评论的tag
  */
@@ -34,11 +37,19 @@
     self.mycommentHttp = [[MyCommentListHttp alloc] init];
     self.commentmeHttp = [[CommentMeListHttp alloc] init];
     
+    self.isRequest = NO;
+    
     self.isMyCommentTag = YES;
     
     self.tableView.rowHeight = 165;
     [self.tableView setFrame:CGRectMake(0, 50, [LXUtils GetScreeWidth], [LXUtils getContentViewHeight] + 10)];
     self.title = @"我的评论";
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
     [self requestMyCommentList];
 }
@@ -55,18 +66,29 @@
     //请求前清空数据列表
     [self.dataSource removeAllObjects];
     
+    if (self.isRequest) {
+        return;
+    }
+    self.isRequest = YES;
+    
     __weak MyCommentListViewController *weak_self = self;
     [self.mycommentHttp getDataWithCompletionBlock:^{
         
         if (weak_self.mycommentHttp.isValid)
         {
+            
+            self.isRequest = NO;
+            
             /**
              *  更新我的评论列表数据
              */
             [weak_self updateMyCommentListWithInfo:weak_self.mycommentHttp.resultModel.dataArray];
         }
         else
-        {   //显示服务端返回的错误提示
+        {
+            self.isRequest = NO;
+            
+            //显示服务端返回的错误提示
             [weak_self showWithText:weak_self.mycommentHttp.erorMessage];
             
             [weak_self.tableView reloadData];
@@ -74,6 +96,8 @@
     }failedBlock:^{
         
         [weak_self.header endRefreshing];
+        
+        self.isRequest = NO;
         
         if (![LXUtils networkDetect])
         {
@@ -92,18 +116,27 @@
     //请求前清空数据列表
     [self.dataSource removeAllObjects];
     
+    if (self.isRequest) {
+        return;
+    }
+    self.isRequest = YES;
+    
     __weak MyCommentListViewController *weak_self = self;
     [self.commentmeHttp getDataWithCompletionBlock:^{
         
         if (weak_self.commentmeHttp.isValid)
         {
+            
+            self.isRequest = NO;
             /**
              *  更新评论我的列表数据
              */
             [weak_self updateCommentMeListWithInfo:weak_self.commentmeHttp.resultModel.dataArray];
         }
         else
-        {   //显示服务端返回的错误提示
+        {
+            self.isRequest = NO;
+            //显示服务端返回的错误提示
             [weak_self showWithText:weak_self.commentmeHttp.erorMessage];
             
             [weak_self.tableView reloadData];
@@ -111,6 +144,8 @@
     }failedBlock:^{
         
         [weak_self.header endRefreshing];
+
+        self.isRequest = NO;
         
         if (![LXUtils networkDetect])
         {
@@ -200,23 +235,29 @@
     }
     
     if (self.isMyCommentTag) {
-        MyComment *info = (MyComment *)self.dataSource[indexPath.row];
-        [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]]];
-        cell.storyNameLabel.text = info.title;
-        cell.nickNameLabel.text = info.author;
-        cell.mycommentLabel.text = info.message;
-        cell.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
-        [cell.litpicImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.litpic]]];
-        
+        if ([self.dataSource count] != 0) {
+            MyComment *info = (MyComment *)self.dataSource[indexPath.row];
+            [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]]];
+            cell.storyNameLabel.text = info.title;
+            cell.nickNameLabel.text = info.author;
+            cell.mycommentLabel.text = info.message;
+            cell.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
+            [cell.litpicImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.litpic]]];
+        }
+
     }
     else {
-        CommentMe *info = (CommentMe *)self.dataSource[indexPath.row];
-        [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]]];
-        cell.storyNameLabel.text = info.title;
-        cell.nickNameLabel.text = info.author;
-        cell.mycommentLabel.text = info.message;
-        cell.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
-        [cell.litpicImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.litpic]]];
+        if ([self.dataSource count] != 0) {
+        
+            CommentMe *info = (CommentMe *)self.dataSource[indexPath.row];
+            [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.avatar]]];
+            cell.storyNameLabel.text = info.title;
+            cell.nickNameLabel.text = info.author;
+            cell.mycommentLabel.text = info.message;
+            cell.timeLabel.text = [LXUtils secondChangToDateString:info.dateline];
+            [cell.litpicImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PRE,info.litpic]]];
+            
+        }
     }
     
     return cell;
