@@ -360,7 +360,7 @@
     
     UIButton * labelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    labelBtn.frame = CGRectMake(20+ currentPage*[LXUtils GetScreeWidth], 100, 300, 60);
+    labelBtn.frame = CGRectMake(20+ currentPage*[LXUtils GetScreeWidth], 100, 200, 60);
     labelBtn.backgroundColor = [UIColor clearColor];
     labelBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     labelBtn.tag = kBtnTag + currentPage;
@@ -395,6 +395,48 @@
 {
     c.center = [[[ev allTouches] anyObject] locationInView:self.scrollView];
     NSLog(@"Button  moving  ......%@",NSStringFromCGPoint(c.center));
+    
+    NSLog(@"Button  maxX  ......%f",CGRectGetMaxX(c.frame));
+    
+    
+    
+//    NSLog(@"ScrollView  maxX  ......%ld",(currentPage+1) * [LXUtils GetScreeWidth]);
+//    CGRectGetMaxX(c.frame);
+//    if (CGRectGetMaxX(c.frame) > (currentPage+1) * [LXUtils GetScreeWidth]) {
+//        c.center = CGPointMake((currentPage+1) * [LXUtils GetScreeWidth] - 160, c.center.y) ;
+//    }
+//    else {
+////        c.userInteractionEnabled = YES;
+//    }
+    
+    CGRect cFrame = c.frame;
+    //左边
+    if (cFrame.origin.x < currentPage * [LXUtils GetScreeWidth] ) {
+        CGRect frame = c.frame;
+        frame.origin.x = currentPage * [LXUtils GetScreeWidth];
+        c.frame = frame;
+    }
+    //上边
+    if (cFrame.origin.y < 0) {
+        CGRect frame = c.frame;
+        frame.origin.y = 0;
+        c.frame = frame;
+    }
+    
+    //右边
+    if (cFrame.origin.x > ((currentPage+1) * [LXUtils GetScreeWidth] - cFrame.size.width)) {
+        CGRect frame = c.frame;
+        frame.origin.x = ((currentPage+1) * [LXUtils GetScreeWidth] - cFrame.size.width);
+        c.frame = frame;
+    }
+    
+    //下边
+    if (cFrame.origin.y > (340 - cFrame.size.height)) {
+        CGRect frame = c.frame;
+        frame.origin.y = (340 - cFrame.size.height);
+        c.frame = frame;
+    }
+
 }
 
 - (void)dragEnded:(UIControl *)c withEvent:ev
@@ -403,6 +445,34 @@
 //    isMoving = NO;
 
     NSLog(@"Button  end moving .....%@",NSStringFromCGPoint(c.center));
+    
+    CGRect cFrame = c.frame;
+    //左边
+    if (cFrame.origin.x < currentPage * [LXUtils GetScreeWidth] ) {
+        CGRect frame = c.frame;
+        frame.origin.x = currentPage * [LXUtils GetScreeWidth];
+        c.frame = frame;
+    }
+    //上边
+    if (cFrame.origin.y < 0) {
+        CGRect frame = c.frame;
+        frame.origin.y = 0;
+        c.frame = frame;
+    }
+    
+    //右边
+    if (cFrame.origin.x > ((currentPage+1) * [LXUtils GetScreeWidth] - cFrame.size.width)) {
+        CGRect frame = c.frame;
+        frame.origin.x = ((currentPage+1) * [LXUtils GetScreeWidth] - cFrame.size.width);
+        c.frame = frame;
+    }
+    
+    //下边
+    if (cFrame.origin.y > (340 - cFrame.size.height)) {
+        CGRect frame = c.frame;
+        frame.origin.y = (340 - cFrame.size.height);
+        c.frame = frame;
+    }
 }
 
 - (void)onTapLabel:(UIButton *)labelbtn
