@@ -33,9 +33,10 @@
 //用户数据类
 #import "MTUserInfo.h"
 
-#warning 这里需要更改地址，目前是微信的
+//#warning 这里需要更改地址，目前是微信的
+
 //AppStore下载地址
-#define AppStoreDownloadUrl @"https://itunes.apple.com/cn/app/wechat/id414478124?l=en&mt=8"
+#define AppStoreDownloadUrl @"https://itunes.apple.com/cn/app/wechat/id972437401?l=en&mt=8"
 
 //友盟的AppKey
 #define UM_APPKEY   @"54af8643fd98c5c56a000894"

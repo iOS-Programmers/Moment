@@ -11,6 +11,8 @@
 #import "PersonInfoViewController.h"
 #import "LoginViewController.h"
 #import "AboutUsViewController.h"
+#import "CheckUpdate.h"
+#import <SDWebImage/SDImageCache.h>
 
 @interface SettingViewController ()
 @property (strong, nonatomic) IBOutlet UIView *footerView;
@@ -148,9 +150,7 @@
                     break;
                 case 1: {
                     //检测新版本
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                        [self showWithText:@"当前是最新版本!"];
-                    });
+                    [self checkVersionUpdate];
                 }
                     break;
                     
@@ -163,8 +163,12 @@
         case 3: {
             //清除图片缓存
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [[SDImageCache sharedImageCache] clearDisk];
                 [self showWithText:@"图片缓存清除成功!"];
             });
+            
+            
+
         }
             break;
             
@@ -177,6 +181,37 @@
         [self pushNewViewController:viewController];
     }
 
+}
+
+/**
+ *  检查版本更新
+ */
+- (void)checkVersionUpdate
+{
+    BOOL haveUpdate = [[CheckUpdate shareInstance] checkUp];
+    
+    dispatch_async(dispatch_get_main_queue(), ^ {
+        if (haveUpdate) {
+            UIAlertView  *updateAlert = [[UIAlertView alloc] initWithTitle:@"更新提醒" message: @"有新版本了！" delegate:self cancelButtonTitle:@"立刻升级" otherButtonTitles: @"稍后提醒", nil];
+            
+            [updateAlert show];
+            
+        }
+        else {
+            [self showWithText:@"当前是最新版本!"];
+            
+        }
+    });
+    
+}
+
+#pragma mark - UIAlertView Delegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:AppStoreDownloadUrl]];
+    }
 }
 
 @end

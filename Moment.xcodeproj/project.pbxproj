@@ -69,6 +69,7 @@
 		1645EC3E1A6197A5000CBE98 /* MTAvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1645EC3C1A6197A5000CBE98 /* MTAvatarCell.xib */; };
 		1645EC421A619E98000CBE98 /* PersionInfoAvatarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1645EC401A619E98000CBE98 /* PersionInfoAvatarCell.m */; };
 		1645EC431A619E98000CBE98 /* PersionInfoAvatarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1645EC411A619E98000CBE98 /* PersionInfoAvatarCell.xib */; };
+		164D50B21AA344470020FE05 /* CheckUpdate.m in Sources */ = {isa = PBXBuildFile; fileRef = 164D50B11AA344470020FE05 /* CheckUpdate.m */; };
 		165CFBE91A77692F00D18565 /* theiconlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 165CFBE81A77692F00D18565 /* theiconlogo@2x.png */; };
 		165CFBEC1A776C8200D18565 /* OAuthLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 165CFBEB1A776C8200D18565 /* OAuthLogin.m */; };
 		165CFBEF1A776C8C00D18565 /* OAuthLoginPara.m in Sources */ = {isa = PBXBuildFile; fileRef = 165CFBEE1A776C8C00D18565 /* OAuthLoginPara.m */; };
@@ -328,6 +329,8 @@
 		1645EC3F1A619E98000CBE98 /* PersionInfoAvatarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersionInfoAvatarCell.h; sourceTree = "<group>"; };
 		1645EC401A619E98000CBE98 /* PersionInfoAvatarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersionInfoAvatarCell.m; sourceTree = "<group>"; };
 		1645EC411A619E98000CBE98 /* PersionInfoAvatarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersionInfoAvatarCell.xib; sourceTree = "<group>"; };
+		164D50B01AA344470020FE05 /* CheckUpdate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckUpdate.h; sourceTree = "<group>"; };
+		164D50B11AA344470020FE05 /* CheckUpdate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckUpdate.m; sourceTree = "<group>"; };
 		165CFBE81A77692F00D18565 /* theiconlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "theiconlogo@2x.png"; sourceTree = "<group>"; };
 		165CFBEA1A776C8200D18565 /* OAuthLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthLogin.h; sourceTree = "<group>"; };
 		165CFBEB1A776C8200D18565 /* OAuthLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthLogin.m; sourceTree = "<group>"; };
@@ -770,6 +773,8 @@
 		1617F6A81A36892D00B5F7C3 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				164D50B01AA344470020FE05 /* CheckUpdate.h */,
+				164D50B11AA344470020FE05 /* CheckUpdate.m */,
 				1617F6B31A36898700B5F7C3 /* MineViewController.h */,
 				1617F6B41A36898700B5F7C3 /* MineViewController.m */,
 				1617F6B51A36898700B5F7C3 /* MineViewController.xib */,
@@ -1252,7 +1257,7 @@
 				ORGANIZATIONNAME = YH;
 				TargetAttributes = {
 					168D3A7A1A2D638E0004790E = {
-						DevelopmentTeam = NCJ9XGFG95;
+						DevelopmentTeam = CQEKR622YT;
 					};
 					168D3A951A2D638E0004790E = {
 						TestTargetID = 168D3A7A1A2D638E0004790E;
@@ -1401,6 +1406,7 @@
 				165CFBEC1A776C8200D18565 /* OAuthLogin.m in Sources */,
 				16DA0B8A1A47042A008D1114 /* Register.m in Sources */,
 				1698EB2D1A4817D200C69BC1 /* AdMomentPara.m in Sources */,
+				164D50B21AA344470020FE05 /* CheckUpdate.m in Sources */,
 				1698EB161A47E89D00C69BC1 /* MomentDetail.m in Sources */,
 				16FF48D91A46C4F80086BC42 /* LXDataModel.m in Sources */,
 				16B031DD1A722D3600133ACA /* ChangePasswordHttp.m in Sources */,
