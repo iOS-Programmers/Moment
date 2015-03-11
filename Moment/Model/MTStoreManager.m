@@ -52,8 +52,8 @@
     [settingConfigureArray addObject:@[noticeDic,saveDic]];
     
     NSDictionary *aboutDic = @{@"title": @"关于瞬间"};
-    NSDictionary *newVersionDic = @{@"title": @"检测最新版本"};
-    [settingConfigureArray addObject:@[aboutDic,newVersionDic]];
+//    NSDictionary *newVersionDic = @{@"title": @"检测最新版本"};
+    [settingConfigureArray addObject:@[aboutDic]];
     
     NSDictionary *clearCacheDic = @{@"title": @"清除图片缓存"};
     [settingConfigureArray addObject:@[clearCacheDic]];

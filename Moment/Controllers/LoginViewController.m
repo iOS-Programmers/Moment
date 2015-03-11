@@ -70,11 +70,7 @@
     self.loginHttp = [[LoginHttp alloc] init];
     self.oaLoginHttp = [[OAuthLoginHttp alloc] init];
     
-    
-//    if (self.loginType == LoginTypeDismiss) {
-//        [self addCancelBtn];
-//    }
-    
+
     [MTAppDelegate shareappdelegate].delegate = self;
     
     self.isRequestWeiBo = NO;
@@ -119,6 +115,15 @@
     
     _tencentOAuth = [[TencentOAuth alloc] initWithAppId:QQ_APPID
                                             andDelegate:self];
+    
+    /**
+     *  判断用户有没有安装QQ，没安装的话，隐藏掉QQ登录按钮
+     */
+    if (![TencentOAuth iphoneQQInstalled]) {
+        self.qqBtn.hidden = YES;
+        
+        self.weiboBtn.center = CGPointMake([LXUtils GetScreeWidth]/2, self.weiboBtn.frame.origin.y +17);
+    }
 
 }
 

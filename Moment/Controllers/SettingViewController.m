@@ -150,7 +150,7 @@
                     break;
                 case 1: {
                     //检测新版本
-                    [self checkVersionUpdate];
+//                    [self checkVersionUpdate];
                 }
                     break;
                     

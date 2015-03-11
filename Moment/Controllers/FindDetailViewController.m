@@ -142,7 +142,7 @@
     }];
     
     //点击分享
-    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"返回" destructiveButtonTitle:nil otherButtonTitles:@"微信朋友圈",@"微信好友",@"新浪微博",@"QQ好友", nil];
+    UIActionSheet *action = [[UIActionSheet alloc] initWithTitle:@"分享到" delegate:self cancelButtonTitle:@"返回" destructiveButtonTitle:nil otherButtonTitles:@"微信朋友圈",@"微信好友",@"新浪微博",@"QQ好友", nil];
     [action  showInView:self.view];
 }
 
