@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "ForgetPasswordViewController.h"
+#import "UserAgreementViewController.h"
 #import "MTAppDelegate.h"
 #import "MTTextFiedBGView.h"
 #import "LoginHttp.h"
@@ -48,6 +49,7 @@
 - (IBAction)onQQLoginBtnClick:(UIButton *)sender;
 
 - (IBAction)onWeiboLoginBtnclick:(UIButton *)sender;
+- (IBAction)onXieYiBtnClick:(UIButton *)sender;
 @end
 
 #pragma mark - Implementation
@@ -353,6 +355,11 @@
     request.userInfo = @{@"SSO_From": @"LoginOAuthLoginViewController",
                         };
     [WeiboSDK sendRequest:request];
+}
+
+- (IBAction)onXieYiBtnClick:(UIButton *)sender {
+    UserAgreementViewController *vc = [[UserAgreementViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)QQAuthLogin

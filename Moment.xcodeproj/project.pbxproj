@@ -178,6 +178,8 @@
 		16B7F9221A49562C00B7629B /* PersonInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B7F9201A49562C00B7629B /* PersonInfoViewController.xib */; };
 		16B7F9261A496E6700B7629B /* EditStoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B7F9241A496E6700B7629B /* EditStoryViewController.m */; };
 		16B7F9271A496E6700B7629B /* EditStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16B7F9251A496E6700B7629B /* EditStoryViewController.xib */; };
+		16BD4EF41AB1400F0080B65E /* UserAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16BD4EF21AB1400F0080B65E /* UserAgreementViewController.m */; };
+		16BD4EF51AB1400F0080B65E /* UserAgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16BD4EF31AB1400F0080B65E /* UserAgreementViewController.xib */; };
 		16C1F06D1A78D14100AA6B0C /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16C1F06C1A78D14100AA6B0C /* TencentOpenAPI.framework */; };
 		16C1F0701A78D16000AA6B0C /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 16C1F06F1A78D16000AA6B0C /* TencentOpenApi_IOS_Bundle.bundle */; };
 		16DA0B1B1A46C7E2008D1114 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 16DA0B1A1A46C7E2008D1114 /* NSString+MD5.m */; };
@@ -516,6 +518,9 @@
 		16B7F9231A496E6700B7629B /* EditStoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditStoryViewController.h; sourceTree = "<group>"; };
 		16B7F9241A496E6700B7629B /* EditStoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditStoryViewController.m; sourceTree = "<group>"; };
 		16B7F9251A496E6700B7629B /* EditStoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditStoryViewController.xib; sourceTree = "<group>"; };
+		16BD4EF11AB1400F0080B65E /* UserAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAgreementViewController.h; sourceTree = "<group>"; };
+		16BD4EF21AB1400F0080B65E /* UserAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAgreementViewController.m; sourceTree = "<group>"; };
+		16BD4EF31AB1400F0080B65E /* UserAgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserAgreementViewController.xib; sourceTree = "<group>"; };
 		16C1F06C1A78D14100AA6B0C /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TencentOpenAPI.framework; path = Moment/TencentOpenAPI.framework; sourceTree = "<group>"; };
 		16C1F06F1A78D16000AA6B0C /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = Moment/TencentOpenApi_IOS_Bundle.bundle; sourceTree = SOURCE_ROOT; };
 		16C1F0711A78D25600AA6B0C /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TencentOpenApi_IOS_Bundle.bundle; path = Moment/TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
@@ -731,6 +736,9 @@
 				166B3E0A1A42C5BB005C4706 /* MTTextFiedBGView.m */,
 				16E3B2691A7B4DF4005DDD99 /* UserGuideViewController.h */,
 				16E3B26A1A7B4DF4005DDD99 /* UserGuideViewController.m */,
+				16BD4EF11AB1400F0080B65E /* UserAgreementViewController.h */,
+				16BD4EF21AB1400F0080B65E /* UserAgreementViewController.m */,
+				16BD4EF31AB1400F0080B65E /* UserAgreementViewController.xib */,
 			);
 			name = "Login&Register";
 			sourceTree = "<group>";
@@ -1310,6 +1318,7 @@
 				1617F6D21A36E90200B5F7C3 /* SettingViewController.xib in Resources */,
 				16E1D71C1A760B1200AEC782 /* WeiboSDK.bundle in Resources */,
 				16B252971A41D02B00B658D6 /* SysMessageViewController.xib in Resources */,
+				16BD4EF51AB1400F0080B65E /* UserAgreementViewController.xib in Resources */,
 				1617F6C11A368C6100B5F7C3 /* CatchMomentViewController.xib in Resources */,
 				169FA86F1A6E3A8D00E3F3A4 /* ForgetPasswordViewController.xib in Resources */,
 				16B7F91D1A494C2A00B7629B /* MyCommentListCell.xib in Resources */,
@@ -1418,6 +1427,7 @@
 				160D0D5C1A486CA50025A6D5 /* ModifyUserNameHttp.m in Sources */,
 				166B3E0B1A42C5BB005C4706 /* MTTextFiedBGView.m in Sources */,
 				1617F6CB1A36D80200B5F7C3 /* MTStoreManager.m in Sources */,
+				16BD4EF41AB1400F0080B65E /* UserAgreementViewController.m in Sources */,
 				16B2F5871A4D375300FDE382 /* CommentMeListPara.m in Sources */,
 				1617F68A1A36876F00B5F7C3 /* MJRefreshBaseView.m in Sources */,
 				16B2F5901A4D37CD00FDE382 /* SupportStory.m in Sources */,
