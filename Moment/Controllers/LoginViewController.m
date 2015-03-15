@@ -126,6 +126,11 @@
         
         self.weiboBtn.center = CGPointMake([LXUtils GetScreeWidth]/2, self.weiboBtn.frame.origin.y +17);
     }
+    
+    if (![WeiboSDK isWeiboAppInstalled]) {
+        self.weiboBtn.hidden = YES;
+        self.qqBtn.center = CGPointMake([LXUtils GetScreeWidth]/2, self.weiboBtn.frame.origin.y +17);
+    }
 
 }
 

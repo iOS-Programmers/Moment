@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nickNameLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *reportBtn;
 
 - (void)updateMomentCellWithInfo:(MomentDetail *)detail;
+
 
 @end

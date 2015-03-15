@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C106a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这里最新发布了新闻消息这里最新发布了新闻消息这里最新发布了新闻消息这里最新发布了新闻消息" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wPl-zP-fT3">
-                        <rect key="frame" x="109" y="60" width="201" height="53"/>
+                        <rect key="frame" x="109" y="56" width="201" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,6 +62,15 @@
                         <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="ldF-aU-6hN">
+                        <rect key="frame" x="274" y="93" width="40" height="16.5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="举报">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -71,9 +80,10 @@
                 <outlet property="likeBtn" destination="S4a-ed-RNw" id="E0t-F3-asa"/>
                 <outlet property="nickNameLabel" destination="GVB-pG-OUQ" id="wOU-3x-xqH"/>
                 <outlet property="recommendNmLabel" destination="ZvS-Yd-pJm" id="ABG-Op-VaW"/>
+                <outlet property="reportBtn" destination="ldF-aU-6hN" id="8Cs-1n-g4b"/>
                 <outlet property="titleLabel" destination="n92-cb-lSu" id="Avc-HO-EHT"/>
             </connections>
-            <point key="canvasLocation" x="418" y="398"/>
+            <point key="canvasLocation" x="171" y="346"/>
         </tableViewCell>
     </objects>
     <resources>

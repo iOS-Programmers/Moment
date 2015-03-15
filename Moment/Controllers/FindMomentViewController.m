@@ -108,7 +108,7 @@
     }
     self.isRequest  = YES;
     
-    self.momentHttp.parameter.pagesize = @"20";
+    self.momentHttp.parameter.pagesize = @"100";
     
     [self showLoadingWithText:MT_LOADING];
     __weak FindMomentViewController *weak_self = self;
@@ -382,6 +382,26 @@
 }
 
 
+- (void)onReportBtnClick:(UIButton *)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"举报" message:@"请输入你要举报的理由" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        //
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self showWithText:@"举报成功"];
+        });
+    }
+}
+
 #pragma mark - UITableView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -411,6 +431,8 @@
     //点击喜欢
     cell.likeBtn.tag = indexPath.row;
     [cell.likeBtn addTarget:self action:@selector(onLikeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [cell.reportBtn addTarget:self action:@selector(onReportBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }

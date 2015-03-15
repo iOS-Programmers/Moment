@@ -108,7 +108,7 @@
     cell.textLabel.text = self.titles[indexPath.row];
     if (indexPath.row == 0) {
         if (!FBIsEmpty([MTUserInfo defaultUserInfo].avatar)) {
-            if ([[MTUserInfo defaultUserInfo].avatar containsString:@"http://"]) {
+            if ([[MTUserInfo defaultUserInfo].avatar hasPrefix:@"http://"]) {
                 [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[MTUserInfo defaultUserInfo].avatar] placeholderImage:[UIImage imageNamed:@"touxiang_pinglun + Oval 7"]];
             }
             else {

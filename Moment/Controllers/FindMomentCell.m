@@ -16,6 +16,12 @@
     // Initialization code
     self.avtarImage.layer.cornerRadius = 5;
     self.avtarImage.layer.masksToBounds = YES;
+    
+    self.reportBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.reportBtn.layer.borderWidth = 0.5;
+    self.reportBtn.layer.cornerRadius = 5;
+    self.reportBtn.layer.masksToBounds = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -46,5 +52,6 @@
         self.nickNameLabel.text = detail.author;
     }
 }
+
 
 @end

@@ -10,6 +10,8 @@
                 <outlet property="contentTextView" destination="qbB-DY-wfw" id="39e-8p-tnr"/>
                 <outlet property="contentView" destination="xhh-Qn-FJo" id="SLD-ZY-0pM"/>
                 <outlet property="moreView" destination="VPh-wF-xn4" id="JMu-J2-fM2"/>
+                <outlet property="shareBtn" destination="Y6j-TW-5p7" id="C3F-L8-744"/>
+                <outlet property="shareImage" destination="lRw-cg-sRs" id="gUd-2I-9pP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -86,7 +88,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-363.5" y="-69"/>
+            <point key="canvasLocation" x="-398.5" y="-78"/>
         </view>
     </objects>
     <resources>

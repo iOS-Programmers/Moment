@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 
 @property (strong, nonatomic) IBOutlet UIView *moreView;
+@property (weak, nonatomic) IBOutlet UIButton *shareBtn;
+@property (weak, nonatomic) IBOutlet UIImageView *shareImage;
 
 - (IBAction)onCommentBtnClick:(UIButton *)sender;
 - (IBAction)onShareBtnClick:(UIButton *)sender;
@@ -70,7 +72,16 @@
     }
     
     [self.view addSubview:self.contentView];
- 
+    
+    /**
+     *  判断用户有没有安装QQ，没安装的话，隐藏掉分享按钮
+     */
+    if (![TencentOAuth iphoneQQInstalled]) {
+        self.shareBtn.hidden = YES;
+        self.shareImage.hidden = YES;
+        [self.moreView frameSetHeight:48];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
